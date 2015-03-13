@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>materias</key>
+	<dict>
+		<key>MAT1200</key>
+		<dict>
+			<key>nome</key>
+			<string>Algebra Linear</string>
+			<key>tarefas</key>
+			<array/>
+			<key>professor</key>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>nome</key>
+				<string>Christine Sertã Costa</string>
+			</dict>
+			<key>anotacoes</key>
+			<array>
+				<string>5</string>
+			</array>
+		</dict>
+	</dict>
+	<key>professores</key>
+	<dict>
+		<key>2</key>
+		<dict>
+			<key>nome</key>
+			<string>Christine Sertã Costa</string>
+			<key>e-mail</key>
+			<string>cserta@mat.puc-rio.br</string>
+			<key>telefone</key>
+			<string>987654321</string>
+			<key>materias</key>
+			<array>
+				<string>MAT1200</string>
+			</array>
+			<key>imagem</key>
+			<string>christine.jpg</string>
+		</dict>
+		<key>3</key>
+		<dict>
+			<key>nome</key>
+			<string>Sinésio Pesco</string>
+			<key>e-mail</key>
+			<string>sinesio@mat.puc-rio.br</string>
+			<key>telefone</key>
+			<string>99999999</string>
+			<key>materias</key>
+			<array/>
+			<key>imagem</key>
+			<string>spesco.jpg</string>
+		</dict>
+		<key>5</key>
+		<dict>
+			<key>nome</key>
+			<string>Hugo Fuks</string>
+			<key>e-mail</key>
+			<string>whatever@inf.puc-rio.br</string>
+			<key>telefone</key>
+			<string>10010110</string>
+			<key>materias</key>
+			<array/>
+			<key>imagem</key>
+			<string>hugofuks.jpg</string>
+		</dict>
+	</dict>
+	<key>tarefas</key>
+	<dict>
+		<key>1</key>
+		<dict>
+			<key>nome</key>
+			<string>Lista 1 de exercícios</string>
+			<key>descricao</key>
+			<string>Lista envolvendo resolução de sistemas a partir de escalonamento matricial</string>
+			<key>data</key>
+			<date>2015-03-16T20:52:39Z</date>
+		</dict>
+	</dict>
+	<key>anotacoes</key>
+	<dict>
+		<key>5</key>
+		<dict>
+			<key>nome</key>
+			<string>Formulas</string>
+			<key>texto</key>
+			<string>blablalbalba</string>
+			<key>data</key>
+			<date>2015-03-10T10:22:34Z</date>
+			<key>imagens</key>
+			<array>
+				<string>NOMEDOARQUIVODAIMAGEM</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
