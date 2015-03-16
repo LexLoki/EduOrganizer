@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B301A651AB73C1900665E2E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A531AB73C1900665E2E /* Coordinate.m */; };
+		3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A591AB73C1900665E2E /* FancyTabBar.m */; };
+		3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */; };
+		3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A601AB73C1900665E2E /* UIView+Screenshot.m */; };
+		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
 		FDA8A79C1AB3704E00DF8ADB /* SchoolScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA8A79B1AB3704E00DF8ADB /* SchoolScreen.swift */; };
 		FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */; };
 		FDB1C4C91AB0C4A100831BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C81AB0C4A100831BED /* ViewController.swift */; };
 		FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CA1AB0C4A100831BED /* Main.storyboard */; };
-		FDB1C4CE1AB0C4A100831BED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CD1AB0C4A100831BED /* Images.xcassets */; };
 		FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */; };
 		FDB1C4DD1AB0C4A100831BED /* EduOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4DC1AB0C4A100831BED /* EduOrganizerTests.swift */; };
 		FDB1C4E71AB0C5BF00831BED /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4E61AB0C5BF00831BED /* userData.plist */; };
@@ -30,13 +34,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EduOrganizer-Bridging-Header.h"; sourceTree = "<group>"; };
+		3B301A521AB73C1900665E2E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		3B301A531AB73C1900665E2E /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		3B301A581AB73C1900665E2E /* FancyTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBar.h; sourceTree = "<group>"; };
+		3B301A591AB73C1900665E2E /* FancyTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FancyTabBar.m; sourceTree = "<group>"; };
+		3B301A5D1AB73C1900665E2E /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		3B301A5F1AB73C1900665E2E /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
+		3B301A601AB73C1900665E2E /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
+		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
+		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FDA8A79B1AB3704E00DF8ADB /* SchoolScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolScreen.swift; sourceTree = "<group>"; };
 		FDB1C4C11AB0C4A100831BED /* EduOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB1C4C51AB0C4A100831BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB1C4C81AB0C4A100831BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FDB1C4CB1AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FDB1C4CD1AB0C4A100831BED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FDB1C4D01AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FDB1C4D61AB0C4A100831BED /* EduOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EduOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB1C4DB1AB0C4A100831BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +78,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B301A4D1AB73C1900665E2E /* FancyTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */,
+				3B301A521AB73C1900665E2E /* Coordinate.h */,
+				3B301A531AB73C1900665E2E /* Coordinate.m */,
+				3B301A581AB73C1900665E2E /* FancyTabBar.h */,
+				3B301A591AB73C1900665E2E /* FancyTabBar.m */,
+				3B301A5D1AB73C1900665E2E /* UIImage+ImageEffects.h */,
+				3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */,
+				3B301A5F1AB73C1900665E2E /* UIView+Screenshot.h */,
+				3B301A601AB73C1900665E2E /* UIView+Screenshot.m */,
+			);
+			path = FancyTabBar;
+			sourceTree = "<group>";
+		};
 		FDB1C4B81AB0C4A100831BED = {
 			isa = PBXGroup;
 			children = (
@@ -85,15 +115,17 @@
 		FDB1C4C31AB0C4A100831BED /* EduOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				3BD7E9431AB75B1D00238ECE /* Images.xcassets */,
+				3B301A4D1AB73C1900665E2E /* FancyTabBar */,
 				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
 				FDB1C4C81AB0C4A100831BED /* ViewController.swift */,
 				FDE0BC3A1AB0E851005838D5 /* FeedScreen.swift */,
 				FDA8A79B1AB3704E00DF8ADB /* SchoolScreen.swift */,
 				FDE0BC3C1AB1F68E005838D5 /* cellTest.swift */,
 				FDB1C4CA1AB0C4A100831BED /* Main.storyboard */,
-				FDB1C4CD1AB0C4A100831BED /* Images.xcassets */,
 				FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */,
 				FDB1C4C41AB0C4A100831BED /* Supporting Files */,
+				3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */,
 			);
 			path = EduOrganizer;
 			sourceTree = "<group>";
@@ -205,9 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */,
+				3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */,
 				FDB1C4E71AB0C5BF00831BED /* userData.plist in Resources */,
 				FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */,
-				FDB1C4CE1AB0C4A100831BED /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +261,10 @@
 				FDE0BC3D1AB1F68E005838D5 /* cellTest.swift in Sources */,
 				FDA8A79C1AB3704E00DF8ADB /* SchoolScreen.swift in Sources */,
 				FDE0BC3B1AB0E851005838D5 /* FeedScreen.swift in Sources */,
+				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
+				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
+				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
+				3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,9 +390,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EduOrganizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EduOrganizer/EduOrganizer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -364,9 +403,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EduOrganizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EduOrganizer/EduOrganizer-Bridging-Header.h";
 			};
 			name = Release;
 		};
