@@ -11,6 +11,7 @@
 		3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A591AB73C1900665E2E /* FancyTabBar.m */; };
 		3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */; };
 		3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A601AB73C1900665E2E /* UIView+Screenshot.m */; };
+		3B453BDD1AB8BBD0006F9C05 /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BDC1AB8BBD0006F9C05 /* SubjectsController.swift */; };
 		3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B720B821AB771E200C463E8 /* HorizontalTableView.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
 		FD2E09571AB8B0CD0019D188 /* SubjectsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E09561AB8B0CD0019D188 /* SubjectsScreen.swift */; };
@@ -45,6 +46,7 @@
 		3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		3B301A5F1AB73C1900665E2E /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
 		3B301A601AB73C1900665E2E /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
+		3B453BDC1AB8BBD0006F9C05 /* SubjectsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsController.swift; sourceTree = "<group>"; };
 		3B720B821AB771E200C463E8 /* HorizontalTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableView.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */,
 				FDB1C4C41AB0C4A100831BED /* Supporting Files */,
 				3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */,
+				3B453BDC1AB8BBD0006F9C05 /* SubjectsController.swift */,
 			);
 			path = EduOrganizer;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				FDB1C4C91AB0C4A100831BED /* ViewController.swift in Sources */,
 				FDE0BC3D1AB1F68E005838D5 /* cellTest.swift in Sources */,
 				FDA8A79C1AB3704E00DF8ADB /* SchoolScreen.swift in Sources */,
+				3B453BDD1AB8BBD0006F9C05 /* SubjectsController.swift in Sources */,
 				FDE0BC3B1AB0E851005838D5 /* FeedScreen.swift in Sources */,
 				FD2E09571AB8B0CD0019D188 /* SubjectsScreen.swift in Sources */,
 				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
