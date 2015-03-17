@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="1333" y="-292"/>
         </scene>
-        <!--School Screen-->
+        <!--School Controller-->
         <scene sceneID="TqU-a9-jmn">
             <objects>
-                <viewController id="idC-ko-kBG" customClass="SchoolScreen" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="idC-ko-kBG" customClass="SchoolController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mDI-Dh-fIW"/>
                         <viewControllerLayoutGuide type="bottom" id="7Yp-bq-rG5"/>

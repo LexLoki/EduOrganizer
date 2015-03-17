@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SchoolScreen : UIViewController, TableViewDelegate{
+class SchoolController : UIViewController, TableViewDelegate{
 
     var objects : [String];
     
@@ -20,18 +20,22 @@ class SchoolScreen : UIViewController, TableViewDelegate{
     
     override func viewDidLoad() {
     
-        var tableView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 0, 300, 300), delegate : self);
-        view.addSubview(tableView);
-        var botone:UIButton = UIButton(frame: CGRectMake(0, 0, 30, 30));
-        botone.addTarget(botone, action:huehue, forControl);
-        //[self.playButton addTarget:self action:@selector(enterGame)
-        self.view.addSubview(botone);
+        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 80, view.frame.width, 100), delegate : self);
+        view.addSubview(horizontalTeachersView);
+        
+        let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        uiButton.frame = CGRectMake(16, 200, 288, 30)
+        uiButton.setTitle("Second", forState: UIControlState.Normal);
+        uiButton.addTarget(self, action: "buttonActionFromCode:",
+            forControlEvents: UIControlEvents.TouchUpInside);
+        
+        view.addSubview(horizontalTeachersView);
+        view.addSubview(uiButton);
         
     }
     
-    func huehue{
-        let goTo:SubjectsScreen=SubjectsScreen();
-        self.presentViewController(goTo, animated: true, completion: nil);
+    func buttonActionFromCode(sender:UIButton){
+        performSegueWithIdentifier("subjects", sender: nil);
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
@@ -44,15 +48,22 @@ class SchoolScreen : UIViewController, TableViewDelegate{
     
     func tableView(horizontalTableView: HorizontalTableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell : UITableViewCell = UITableViewCell();
-        var label : UILabel = UILabel();
+        var cell : UITableViewCell = UITableViewCell(frame: CGRectMake(0, 0, 150, 150));
+        var label : UILabel = UILabel(frame: CGRectMake(cell.frame.height/2, 0, 100, 100));
+        
         label.text = objects[cellForRowAtIndexPath.row];
+        label.textAlignment = NSTextAlignment.Center;
+        label.layer.backgroundColor = UIColor.redColor().CGColor;
+        label.layer.cornerRadius = 50;
+        
+        
         cell.addSubview(label);
+        
         return cell;
     }
     
     func tableView(horizontalTableView: HorizontalTableView, widthForCellAtIndexPath: NSIndexPath) -> CGFloat {
-        return view.frame.size.width;
+        return 150;
     }
     
     func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath) {
