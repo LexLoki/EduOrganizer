@@ -11,16 +11,13 @@ import UIKit
 
 class SchoolScreen : UIViewController, TableViewDelegate{
 
-    var objects : [String];
-    
-    required init(coder aDecoder: NSCoder) {
-        objects = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-        super.init(coder: aDecoder);
-    }
+    var objects : [String] = [];
     
     override func viewDidLoad() {
+        
+        objects = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     
-        var tableView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 0, 300, 300), delegate : self);
+        var tableView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 30, view.frame.width, 100), delegate : self);
         view.addSubview(tableView);
         
     }
@@ -35,15 +32,23 @@ class SchoolScreen : UIViewController, TableViewDelegate{
     
     func tableView(horizontalTableView: HorizontalTableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell : UITableViewCell = UITableViewCell();
-        var label : UILabel = UILabel();
+        var cell : UITableViewCell = UITableViewCell(frame: CGRectMake(0, 0, 150, 150));
+        var label : UILabel = UILabel(frame: CGRectMake(cell.frame.height/2, 0, 100, 100));
+        
         label.text = objects[cellForRowAtIndexPath.row];
+        label.textAlignment = NSTextAlignment.Center;
+        label.layer.backgroundColor = UIColor.redColor().CGColor;
+        label.layer.cornerRadius = 50;
+        
+        //label.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2));
+        
         cell.addSubview(label);
+                
         return cell;
     }
     
     func tableView(horizontalTableView: HorizontalTableView, widthForCellAtIndexPath: NSIndexPath) -> CGFloat {
-        return view.frame.size.width;
+        return 150;
     }
     
     func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath) {

@@ -37,6 +37,7 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
         refreshOrientation();
         
         self.delegate = delegate;
+        self.tableView.separatorColor = UIColor.whiteColor();
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.autoresizingMask	= UIViewAutoresizing.FlexibleWidth |
@@ -127,7 +128,7 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
             var yOrigin	= (cell.bounds.size.height - cell.bounds.size.width) / 2.0;
             
             cell.contentView.frame = CGRectMake(xOrigin, yOrigin, cell.bounds.size.height, cell.bounds.size.width);
-            cell.contentView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI)/2.0);
+            cell.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2));
         }
         return cell;
     }
