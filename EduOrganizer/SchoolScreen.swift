@@ -18,8 +18,19 @@ class SchoolScreen : UIViewController, TableViewDelegate{
         objects = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     
         var tableView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 30, view.frame.width, 100), delegate : self);
-        view.addSubview(tableView);
         
+        let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+        uiButton.frame = CGRectMake(16, 116, 288, 30)
+        uiButton.setTitle("Second", forState: UIControlState.Normal);
+        uiButton.addTarget(self, action: "buttonActionFromCode:",
+                                forControlEvents: UIControlEvents.TouchUpInside);
+        
+        view.addSubview(tableView);
+        view.addSubview(uiButton);
+    }
+    
+    func buttonActionFromCode(sender:UIButton){
+        performSegueWithIdentifier("subjects", sender: nil);
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
@@ -39,8 +50,6 @@ class SchoolScreen : UIViewController, TableViewDelegate{
         label.textAlignment = NSTextAlignment.Center;
         label.layer.backgroundColor = UIColor.redColor().CGColor;
         label.layer.cornerRadius = 50;
-        
-        //label.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2));
         
         cell.addSubview(label);
                 
