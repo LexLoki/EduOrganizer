@@ -45,7 +45,7 @@
         <!--Student-->
         <scene sceneID="TqU-a9-jmn">
             <objects>
-                <viewController id="idC-ko-kBG" sceneMemberID="viewController">
+                <viewController id="idC-ko-kBG" customClass="SchoolScreen" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mDI-Dh-fIW"/>
                         <viewControllerLayoutGuide type="bottom" id="7Yp-bq-rG5"/>
@@ -70,7 +70,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="AoY-PC-XdX" kind="relationship" relationship="viewControllers" id="SWp-R9-7FP"/>
