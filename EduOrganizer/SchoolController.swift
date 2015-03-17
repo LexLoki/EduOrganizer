@@ -20,22 +20,19 @@ class SchoolController : UIViewController, TableViewDelegate{
     
     override func viewDidLoad() {
     
-        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 80, view.frame.width, 100), delegate : self);
+        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 80, view.frame.width, 120), delegate : self);
         view.addSubview(horizontalTeachersView);
         
-        let uiButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-        uiButton.frame = CGRectMake(16, 200, 288, 30)
-        uiButton.setTitle("Second", forState: UIControlState.Normal);
-        uiButton.addTarget(self, action: "buttonActionFromCode:",
-            forControlEvents: UIControlEvents.TouchUpInside);
-        
-        view.addSubview(horizontalTeachersView);
-        view.addSubview(uiButton);
+        var thirdIndex = NSIndexPath(forRow: 2, inSection: 0);
+        horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
+
         
     }
     
-    func buttonActionFromCode(sender:UIButton){
+    func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath) {
+        horizontalTableView.tableView.deselectRowAtIndexPath(didSelectRowAtIndexPath, animated: true);
         performSegueWithIdentifier("subjects", sender: nil);
+        
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
@@ -53,7 +50,7 @@ class SchoolController : UIViewController, TableViewDelegate{
         
         label.text = objects[cellForRowAtIndexPath.row];
         label.textAlignment = NSTextAlignment.Center;
-        label.layer.backgroundColor = UIColor.redColor().CGColor;
+        label.layer.backgroundColor = UIColorFromRGB(0x1e3044).CGColor;
         label.layer.cornerRadius = 50;
         
         
@@ -63,11 +60,7 @@ class SchoolController : UIViewController, TableViewDelegate{
     }
     
     func tableView(horizontalTableView: HorizontalTableView, widthForCellAtIndexPath: NSIndexPath) -> CGFloat {
-        return 150;
-    }
-    
-    func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath) {
-        horizontalTableView.tableView.deselectRowAtIndexPath(didSelectRowAtIndexPath, animated: true);
+        return 130;
     }
     
     func tableView(horizontalTableView: HorizontalTableView, viewForHeaderInSection: Int) -> UIView {
@@ -79,4 +72,14 @@ class SchoolController : UIViewController, TableViewDelegate{
         var m : UIView = UIView(frame: CGRectMake(0, 0, 50,90));
         return m;
     }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
 }

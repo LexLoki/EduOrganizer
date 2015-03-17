@@ -19,7 +19,7 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var buttons: [String] = ["actionNote", "actionTeacher", "actionClass", "actionTask"];
         var image : UIImage = UIImage(named: "mainButton")!;
         

@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="UY2-98-kYv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xfa-cA-D2c">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -23,16 +23,16 @@
             </objects>
             <point key="canvasLocation" x="521" y="424"/>
         </scene>
-        <!--View Controller-->
+        <!--Task Controller-->
         <scene sceneID="cza-Or-l6a">
             <objects>
-                <viewController id="AoY-PC-XdX" sceneMemberID="viewController">
+                <viewController id="AoY-PC-XdX" customClass="TaskController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y4a-e3-Cgz"/>
                         <viewControllerLayoutGuide type="bottom" id="wuh-EN-zj9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LoV-Yo-MOl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -51,7 +51,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7Yp-bq-rG5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yEr-T8-fdK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -87,7 +87,7 @@
             <objects>
                 <tabBarController id="lxR-5f-Twz" customClass="ViewController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="d6G-hZ-VRk">
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="d6G-hZ-VRk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

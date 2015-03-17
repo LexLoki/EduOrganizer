@@ -133,5 +133,8 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
         return cell;
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        return self.delegate!.tableView(self, didSelectRowAtIndexPath: indexPath);
+    }
     
 }
