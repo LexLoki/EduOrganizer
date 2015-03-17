@@ -72,6 +72,12 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
         );
         
     }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if(segue.identifier=="subjects"){
+//            let goTo:SubjectsScreen=SubjectsScreen();
+//            self.presentViewController(goTo, animated: true, completion: nil);
+//        }
+//    }
     
 //    func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
 //            if (index == 1) {
@@ -82,6 +88,8 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
     override func viewDidAppear(animated: Bool) {
        // let feedScreen:FeedScreen=FeedScreen();
        // self.presentViewController(feedScreen, animated: true, completion: nil);
+       // let goTo:SubjectsScreen=SubjectsScreen();
+       // self.presentViewController(goTo, animated: true, completion: nil);
     }
 
     override func didReceiveMemoryWarning() {

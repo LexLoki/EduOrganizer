@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         destPath = destPath.stringByAppendingPathComponent("\(filename)\(type)");
         // If the file doesn't exist in the Documents Folder, copy it.
         var fileManager:NSFileManager = NSFileManager.defaultManager();
+        println(destPath);
         if(!fileManager.fileExistsAtPath(destPath)){
             let sourcePath:String = NSBundle.mainBundle().pathForResource(filename, ofType: type)!;
             fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: nil);

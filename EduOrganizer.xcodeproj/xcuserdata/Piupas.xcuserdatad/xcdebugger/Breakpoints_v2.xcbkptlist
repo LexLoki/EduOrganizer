@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EduOrganizer/AppDelegate.swift"
-            timestampString = "447893179.177631"
+            timestampString = "448310579.47141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "checkFiles(_:type:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -22,7 +22,16 @@ class SchoolScreen : UIViewController, TableViewDelegate{
     
         var tableView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 0, 300, 300), delegate : self);
         view.addSubview(tableView);
+        var botone:UIButton = UIButton(frame: CGRectMake(0, 0, 30, 30));
+        botone.addTarget(botone, action:huehue, forControl);
+        //[self.playButton addTarget:self action:@selector(enterGame)
+        self.view.addSubview(botone);
         
+    }
+    
+    func huehue{
+        let goTo:SubjectsScreen=SubjectsScreen();
+        self.presentViewController(goTo, animated: true, completion: nil);
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
