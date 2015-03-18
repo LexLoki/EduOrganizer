@@ -22,6 +22,78 @@
 				<string>5</string>
 			</array>
 		</dict>
+		<key>MAT1200 - 2</key>
+		<dict>
+			<key>nome</key>
+			<string>Algebra Linear</string>
+			<key>tarefas</key>
+			<array/>
+			<key>professor</key>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>nome</key>
+				<string>Christine Sertã Costa</string>
+			</dict>
+			<key>anotacoes</key>
+			<array>
+				<string>5</string>
+			</array>
+		</dict>
+		<key>MAT1200 - 3</key>
+		<dict>
+			<key>nome</key>
+			<string>Algebra Linear</string>
+			<key>tarefas</key>
+			<array/>
+			<key>professor</key>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>nome</key>
+				<string>Christine Sertã Costa</string>
+			</dict>
+			<key>anotacoes</key>
+			<array>
+				<string>5</string>
+			</array>
+		</dict>
+		<key>MAT1200 - 4</key>
+		<dict>
+			<key>nome</key>
+			<string>Algebra Linear</string>
+			<key>tarefas</key>
+			<array/>
+			<key>professor</key>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>nome</key>
+				<string>Christine Sertã Costa</string>
+			</dict>
+			<key>anotacoes</key>
+			<array>
+				<string>5</string>
+			</array>
+		</dict>
+		<key>MAT1200 - 5</key>
+		<dict>
+			<key>nome</key>
+			<string>Algebra Linear</string>
+			<key>tarefas</key>
+			<array/>
+			<key>professor</key>
+			<dict>
+				<key>id</key>
+				<string>2</string>
+				<key>nome</key>
+				<string>Christine Sertã Costa</string>
+			</dict>
+			<key>anotacoes</key>
+			<array>
+				<string>5</string>
+			</array>
+		</dict>
 	</dict>
 	<key>professores</key>
 	<dict>
@@ -38,7 +110,7 @@
 				<string>MAT1200</string>
 			</array>
 			<key>imagem</key>
-			<string>christine.jpg</string>
+			<string>christine.png</string>
 		</dict>
 		<key>3</key>
 		<dict>
@@ -51,7 +123,7 @@
 			<key>materias</key>
 			<array/>
 			<key>imagem</key>
-			<string>spesco.jpg</string>
+			<string>spesco.png</string>
 		</dict>
 		<key>5</key>
 		<dict>
@@ -64,7 +136,7 @@
 			<key>materias</key>
 			<array/>
 			<key>imagem</key>
-			<string>hugofuks.jpg</string>
+			<string>hugofuks.png</string>
 		</dict>
 	</dict>
 	<key>tarefas</key>

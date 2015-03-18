@@ -74,7 +74,6 @@ class FeedScreen:UITableViewController,UITableViewDataSource{
             //prof = (prof as NSMutableDictionary)
             var mutProf : NSMutableDictionary = prof.mutableCopy() as NSMutableDictionary;
             mutProf.setObject(id, forKey: "id");
-            
             var profImg : String = imgPath.stringByAppendingPathComponent(prof["imagem"] as String);
             mutProf.setObject(UIImage(contentsOfFile:profImg)!, forKey: "imagem");
             println(profImg);

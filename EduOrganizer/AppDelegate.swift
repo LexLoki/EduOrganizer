@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkFiles(filename:String, type:String){
         var destPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+        var imgPath:String = destPath;
         destPath = destPath.stringByAppendingPathComponent("\(filename)\(type)");
         // If the file doesn't exist in the Documents Folder, copy it.
         var fileManager:NSFileManager = NSFileManager.defaultManager();
@@ -44,6 +45,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: nil);
             //let sourcePath:NSString = NSBundle.mainBundle().pathForResource(filename, type)
         }
+        
+        imgPath = imgPath.stringByAppendingPathComponent("imgProf");
+        fileManager.createDirectoryAtPath(imgPath, withIntermediateDirectories:false, attributes:nil, error:nil);
+        
+        var filename:String = "christine";
+        var img:UIImage = UIImage(named: filename)!;
+        var pngData:NSData = UIImagePNGRepresentation(img);
+        //let placePath:String = NSBundle.mainBundle().pathForResource(filename, ofType: ".png")!;
+        var img2Path = imgPath.stringByAppendingPathComponent("\(filename).png");
+        
+        fileManager.createFileAtPath(img2Path, contents: pngData, attributes:nil);
+        
+        filename = "hugofuks";
+        img = UIImage(named: filename)!;
+        pngData = UIImagePNGRepresentation(img);
+        //let placePath:String = NSBundle.mainBundle().pathForResource(filename, ofType: ".png")!;
+        img2Path = imgPath.stringByAppendingPathComponent("\(filename).png");
+        
+        fileManager.createFileAtPath(img2Path, contents: pngData, attributes:nil);
+        
+        filename = "spesco";
+        img = UIImage(named: filename)!;
+        pngData = UIImagePNGRepresentation(img);
+        //let placePath:String = NSBundle.mainBundle().pathForResource(filename, ofType: ".png")!;
+        img2Path = imgPath.stringByAppendingPathComponent("\(filename).png");
+        
+        fileManager.createFileAtPath(img2Path, contents: pngData, attributes:nil);
+        
     }
 
     

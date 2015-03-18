@@ -40,6 +40,7 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var thirdIndex = NSIndexPath(forRow: 0, inSection: 0);
         tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
         
+        tableView.backgroundColor = UIColorFromRGB(0x1e3044);
         view.backgroundColor = UIColorFromRGB(0x1e3044);
         view.addSubview(tableView);
     }
