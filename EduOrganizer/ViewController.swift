@@ -72,9 +72,7 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
         
     }
     
-    func didCollapse() {
-        
-        
+    func didCollapse() {   
         UIView.animateWithDuration(0.3, animations: {
             self.backGround.alpha = 0;
             }, completion: {
@@ -87,7 +85,6 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
                 
             }
         );
-        
     }
 
     

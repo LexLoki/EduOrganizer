@@ -58,21 +58,29 @@ class FeedScreen:UITableViewController,UITableViewDataSource{
     }
     
     func loadProfessores(){
-        var documentPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        var plistPath:String = documentPath.stringByAppendingPathComponent("userData.plist");
-        let contents:NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
-        var allProf:NSMutableDictionary = contents["professores"] as NSMutableDictionary;
+        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+        
+        var plistPath : String = documentPath.stringByAppendingPathComponent("userData.plist");
+        
+        let contents : NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
+        
+        var allProf : NSMutableDictionary = contents["professores"] as NSMutableDictionary;
         println(plistPath);
-        var imgPath:String = documentPath.stringByAppendingPathComponent("imgProf");
-        for (id,var prof) in allProf{
+        
+        var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
+        
+        for (id, var prof) in allProf{
+        
             //prof = (prof as NSMutableDictionary)
-            var mutProf:NSMutableDictionary = prof.mutableCopy() as NSMutableDictionary;
+            var mutProf : NSMutableDictionary = prof.mutableCopy() as NSMutableDictionary;
             mutProf.setObject(id, forKey: "id");
-            var profImg:String = imgPath.stringByAppendingPathComponent(prof["imagem"] as String);
+            
+            var profImg : String = imgPath.stringByAppendingPathComponent(prof["imagem"] as String);
             mutProf.setObject(UIImage(contentsOfFile:profImg)!, forKey: "imagem");
             println(profImg);
             //var img:UIImage=UIImage(contentsOfFile: profImg)!;
             self.professores.addObject(mutProf);
+            
         }
     }
     
