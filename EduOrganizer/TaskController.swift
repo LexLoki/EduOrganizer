@@ -22,12 +22,17 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var tableView : UITableView = UITableView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height));
+        var tableView : UITableView = UITableView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height - 100));
 
+        tableView.setContentOffset(CGPointMake(0, CGFloat.max), animated: true);
         tableView.separatorColor = UIColor.whiteColor();
         tableView.delegate = self;
         tableView.dataSource = self;
         
+        var thirdIndex = NSIndexPath(forRow: 0, inSection: 0);
+        tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
+        
+        view.backgroundColor = UIColorFromRGB(0x1e3044);
         view.addSubview(tableView);
     }
     
@@ -50,13 +55,13 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         var cell : UITableViewCell = UITableViewCell();
-        var labelCountDown: UILabel = UILabel(frame: CGRectMake(20, 20, view.frame.width, 20));
-        var labelTask : UILabel = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 30, view.frame.width, 40));
+        var labelCountDown: UILabel = UILabel(frame: CGRectMake(20, 15, view.frame.width, 20));
+        var labelTask : UILabel = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 25, view.frame.width, 40));
         var labelDate : UILabel = UILabel(frame: CGRectMake(20, labelTask.frame.origin.y + 30, view.frame.width, 40));
         
         let image = UIImage(named: "editButton") as UIImage?
-        var btnEdit   = UIButton.buttonWithType(UIButtonType.System) as UIButton;
-        btnEdit.frame = CGRectMake(view.frame.width - 40, labelTask.frame.origin.y, 20, 20);
+        var btnEdit   = UIButton.buttonWithType(UIButtonType.Custom) as UIButton;
+        btnEdit.frame = CGRectMake(view.frame.width - 40, labelTask.frame.origin.y + 5, 20, 20);
         btnEdit.setImage(image, forState: UIControlState.Normal);
         btnEdit.tag = 3;
         btnEdit.addTarget(self, action: "btnTouched:", forControlEvents: UIControlEvents.TouchUpInside);
@@ -77,6 +82,8 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
         labelDate.textAlignment = NSTextAlignment.Left;
         
         cell.backgroundColor = UIColorFromRGB(0x1e3044);
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.preservesSuperviewLayoutMargins = false;
         cell.addSubview(labelCountDown);
         cell.addSubview(labelTask);
         cell.addSubview(labelDate);

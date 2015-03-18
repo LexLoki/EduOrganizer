@@ -23,6 +23,21 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
         var buttons: [String] = ["actionNote", "actionTeacher", "actionClass", "actionTask"];
         var image : UIImage = UIImage(named: "mainButton")!;
         
+        //set font tabBar item
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!];
+        UITabBarItem.appearance().setTitleTextAttributes(attributes, forState: UIControlState.Normal);
+        
+        //set color tabBar Image
+        var taskItem : UITabBarItem = self.tabBar.items![0] as UITabBarItem;
+        var studentItem : UITabBarItem = self.tabBar.items![2] as UITabBarItem;
+        
+        var taskImage : UIImage = UIImage(named: "itemTask")!;
+        taskItem.image = taskImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+
+        var studentImage : UIImage = UIImage(named: "itemStudent")!;
+        studentItem.image = studentImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        
         fancyTabBar = FancyTabBar(frame: view.frame);
         fancyTabBar.setUpChoices(self, choices: buttons, withMainButtonImage: image);
         fancyTabBar.delegate = self;

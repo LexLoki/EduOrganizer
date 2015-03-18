@@ -32,7 +32,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wuh-EN-zj9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LoV-Yo-MOl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -51,7 +51,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7Yp-bq-rG5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yEr-T8-fdK">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -90,9 +90,14 @@
                     <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="d6G-hZ-VRk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.11764705882352941" green="0.18823529411764706" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="keyPath" value="ECF99037-F713-47A9-830C-F4469C267A2D"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="dTp-Fl-ICz" kind="relationship" relationship="viewControllers" id="SWp-R9-7FP"/>
                         <segue destination="vqE-u5-jUG" kind="relationship" relationship="viewControllers" id="eO3-iS-r8f"/>
@@ -107,13 +112,27 @@
         <scene sceneID="ZJB-ye-WaT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QL0-eO-4kA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Student" image="itemStudent" id="k0G-tT-nHU"/>
+                    <tabBarItem key="tabBarItem" title="Student" image="itemStudent" id="k0G-tT-nHU">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="itemStudentSelected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EXo-EX-vkZ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="EXo-EX-vkZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1176470588" green="0.18823529410000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.77254901960784317" blue="0.38039215686274508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="idC-ko-kBG" kind="relationship" relationship="rootViewController" id="orC-j5-gd2"/>
                     </connections>
@@ -126,11 +145,21 @@
         <scene sceneID="JnO-yn-kW2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dTp-Fl-ICz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tasks" image="itemTask" id="vGI-71-4M0"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" image="itemTask" id="vGI-71-4M0">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="itemTaskSelected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2dN-d1-hmR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="2dN-d1-hmR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.1176470588" green="0.18823529410000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.7725490196" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -143,7 +172,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="itemStudent" width="28" height="28"/>
-        <image name="itemTask" width="28" height="28"/>
+        <image name="itemStudent" width="31" height="25"/>
+        <image name="itemStudentSelected" width="31" height="25"/>
+        <image name="itemTask" width="30" height="30"/>
+        <image name="itemTaskSelected" width="30" height="30"/>
     </resources>
 </document>
