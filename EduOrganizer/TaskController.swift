@@ -92,6 +92,7 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.backgroundColor = UIColorFromRGB(0x1e3044);
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = false;
+        cell.selectionStyle = UITableViewCellSelectionStyle.None;
         cell.addSubview(labelCountDown);
         cell.addSubview(labelTask);
         cell.addSubview(labelDate);

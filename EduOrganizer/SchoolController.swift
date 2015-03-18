@@ -28,12 +28,26 @@ class SchoolController : UIViewController, TableViewDelegate{
         
         self.title = "Student";
     
-         var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 80, view.frame.width, 120), delegate : self, color: UIColorFromRGB(0x1e3044));
-        view.addSubview(horizontalTeachersView);
+        
+        
+        //create label section teacher
+        var labelSectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, view.frame.width, 50));
+        labelSectionTeacher.backgroundColor = UIColorFromRGB(0x1a242e);
+        
+        var labelSectionTeacherText : UILabel = UILabel(frame: CGRectMake(20,0, view.frame.width, 50));
+        labelSectionTeacherText.font = UIFont(name: "AvenirNext-Bold", size: 15);
+        labelSectionTeacherText.textAlignment = NSTextAlignment.Left;
+        labelSectionTeacherText.textColor = UIColor.whiteColor();
+        labelSectionTeacherText.text = "Teachers";
+        
+        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 50, view.frame.width, 120), delegate : self, color: UIColorFromRGB(0x1e3044));
         
         var thirdIndex = NSIndexPath(forRow: 2, inSection: 0);
         horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
 
+        view.addSubview(horizontalTeachersView);
+        view.addSubview(labelSectionTeacher);
+        view.addSubview(labelSectionTeacherText);
         
     }
     
