@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -77,10 +77,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="CR1-3Y-Smr" kind="custom" identifier="info" id="zOu-8b-cGM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acd-cW-EMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="-960"/>
+            <point key="canvasLocation" x="1997" y="-960"/>
+        </scene>
+        <!--Subject Info-->
+        <scene sceneID="JXm-FF-QtL">
+            <objects>
+                <viewController id="CR1-3Y-Smr" customClass="SubjectInfo" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KtZ-eT-r4S"/>
+                        <viewControllerLayoutGuide type="bottom" id="vRp-Bp-hDY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mch-aw-kHI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iqh-XZ-Q6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751" y="-960"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uko-Cf-Mxh">
@@ -172,9 +193,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="itemStudent" width="31" height="25"/>
-        <image name="itemStudentSelected" width="31" height="25"/>
-        <image name="itemTask" width="30" height="30"/>
-        <image name="itemTaskSelected" width="30" height="30"/>
+        <image name="ECF99037-F713-47A9-830C-F4469C267A2D" width="28" height="28"/>
+        <image name="itemStudent" width="31" height="31"/>
+        <image name="itemStudentSelected" width="31" height="31"/>
+        <image name="itemTask" width="31" height="31"/>
+        <image name="itemTaskSelected" width="31" height="31"/>
     </resources>
 </document>
