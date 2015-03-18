@@ -29,7 +29,7 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
     var delegate : TableViewDelegate?;
     var tableView : UITableView!;
     
-    init(frame: CGRect, delegate : TableViewDelegate) {
+    init(frame: CGRect, delegate : TableViewDelegate, color : UIColor) {
         super.init(frame: frame);
         
         self.tableView = UITableView(frame: frame);
@@ -37,14 +37,14 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
         refreshOrientation();
         
         self.delegate = delegate;
-        self.tableView.separatorColor = UIColor.whiteColor();
+        self.tableView.separatorColor = color;
+        self.tableView.backgroundColor = color;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.autoresizingMask	= UIViewAutoresizing.FlexibleWidth |
                                           UIViewAutoresizing.FlexibleHeight;
         addSubview(tableView);
     }
-
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

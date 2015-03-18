@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window?.tintColor =  UIColorFromRGB(0xFFC561);
+
         checkFiles("userData", type: ".plist");
         
         return true

@@ -22,9 +22,10 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 25)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFC561)];
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
         self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
         
         self.title = "Tasks";
         
