@@ -28,8 +28,6 @@ class SchoolController : UIViewController, TableViewDelegate{
         
         self.title = "Student";
     
-        
-        
         //create label section teacher
         var labelSectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, view.frame.width, 50));
         labelSectionTeacher.backgroundColor = UIColorFromRGB(0x1a242e);

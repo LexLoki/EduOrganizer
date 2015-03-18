@@ -103,7 +103,9 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
             alpha: CGFloat(1.0)
         )
     }
-
+    func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
+        performSegueWithIdentifier("newNote", sender: nil);
+    }
 
 }
 

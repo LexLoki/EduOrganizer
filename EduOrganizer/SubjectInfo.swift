@@ -16,6 +16,7 @@ class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var dict:NSMutableDictionary = NSMutableDictionary();
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         dict = NSMutableDictionary(objects:["nome","sigla","professor"], forKeys:["1","2","3"]);
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
@@ -25,6 +26,11 @@ class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         tableView.delegate = self;
         tableView.dataSource = self;
+        tableView.separatorInset = UIEdgeInsetsZero;
+        tableView.separatorColor = UIColor.whiteColor();
+        tableView.backgroundColor = UIColorFromRGB(0x1a242e);
+        view.backgroundColor = UIColor(red: 30/255.0, green: 48/255.0, blue: 68/255.0, alpha: 1.0);
+
         
         view.addSubview(tableView);
     }
@@ -61,6 +67,11 @@ class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
         else{
             cell.backgroundColor = UIColor(red: 30/255.0, green: 48/255.0, blue: 68/255.0, alpha: 1.0);
         }
+        
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.preservesSuperviewLayoutMargins = false;
+        cell.selectionStyle = UITableViewCellSelectionStyle.None;
+        
         cell.addSubview(label);
         
         return cell;
@@ -71,9 +82,10 @@ class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
         var label:UILabel = UILabel(frame: frame);
         label.textColor = UIColor.whiteColor();
         label.textAlignment = NSTextAlignment.Left;
-        if(indexPath.row==0){
+        
+        if(indexPath.row == 0){
             label.font = UIFont(name: "AvenirNext-Bold", size: 20);
-            if(indexPath.section==0){
+            if(indexPath.section == 0){
                 label.text = "Info";
             }
             else{
@@ -81,8 +93,9 @@ class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
             }
         }
         else{
-            label.font = UIFont(name: "AvenirNext", size: 20);
-            if(indexPath.section==0){
+            label.font = UIFont(name: "Avenir Next", size: 15);
+           
+            if(indexPath.section == 0){
                 let index:String = String(format: "%d", indexPath.row);
                 println(dict[index]);
                 let area:String = dict[index] as String;
@@ -118,7 +131,7 @@ class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func setup(){
-        var imageView:UIImageView = UIImageView(frame: CGRectMake(view.frame.size.width*0.5-size.width*0.5,0.05,size.width,size.height));
+        var imageView:UIImageView = UIImageView(frame: CGRectMake(view.frame.size.width*0.5-size.width*0.5,20,size.width,size.height));
         imageView.image = UIImage(named: "BolaMateria");
         imageView.contentMode = UIViewContentMode.ScaleToFill;
         imageView.clipsToBounds = true;
