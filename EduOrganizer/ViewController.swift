@@ -24,8 +24,10 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
         var image : UIImage = UIImage(named: "mainButton")!;
         
         //set font tabBar item
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!];
-        UITabBarItem.appearance().setTitleTextAttributes(attributes, forState: UIControlState.Normal);
+        let attributesNormal = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName:UIColor.whiteColor()];
+        let attributesSelected = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFC561)];
+        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, forState: UIControlState.Normal);
+        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, forState: UIControlState.Selected);
         
         //set color tabBar Image
         var taskItem : UITabBarItem = self.tabBar.items![0] as UITabBarItem;
@@ -87,29 +89,22 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
         );
         
     }
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if(segue.identifier=="subjects"){
-//            let goTo:SubjectsScreen=SubjectsScreen();
-//            self.presentViewController(goTo, animated: true, completion: nil);
-//        }
-//    }
-    
-//    func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
-//            if (index == 1) {
-//                performSegueWithIdentifier("MY NEXT VIEW", sender: self);
-//            }
-//    }
+
     
     override func viewDidAppear(animated: Bool) {
-       // let feedScreen:FeedScreen=FeedScreen();
-       // self.presentViewController(feedScreen, animated: true, completion: nil);
-       // let goTo:SubjectsScreen=SubjectsScreen();
-       // self.presentViewController(goTo, animated: true, completion: nil);
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 
 

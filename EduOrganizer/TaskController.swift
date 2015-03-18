@@ -22,13 +22,20 @@ class TaskController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 25)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFC561)];
+        self.navigationController?.navigationBar.titleTextAttributes = attributes;
+        
+        
+        self.title = "Tasks";
+        
         var tableView : UITableView = UITableView(frame: CGRectMake(0, 0, view.frame.width, view.frame.height - 100));
 
         tableView.setContentOffset(CGPointMake(0, CGFloat.max), animated: true);
+        tableView.separatorInset = UIEdgeInsetsZero;
         tableView.separatorColor = UIColor.whiteColor();
         tableView.delegate = self;
         tableView.dataSource = self;
-        
+
         var thirdIndex = NSIndexPath(forRow: 0, inSection: 0);
         tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
         

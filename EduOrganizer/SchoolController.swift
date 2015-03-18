@@ -19,6 +19,12 @@ class SchoolController : UIViewController, TableViewDelegate{
     }
     
     override func viewDidLoad() {
+        
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 25)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFC561)];
+        self.navigationController?.navigationBar.titleTextAttributes = attributes;
+        
+        
+        self.title = "Student";
     
         var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 80, view.frame.width, 120), delegate : self);
         view.addSubview(horizontalTeachersView);
