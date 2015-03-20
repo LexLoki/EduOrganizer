@@ -7,25 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9D691ABCA2A7004E25EE /* userData.plist */; };
 		3B301A651AB73C1900665E2E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A531AB73C1900665E2E /* Coordinate.m */; };
 		3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A591AB73C1900665E2E /* FancyTabBar.m */; };
 		3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */; };
 		3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A601AB73C1900665E2E /* UIView+Screenshot.m */; };
-		3B453BDF1AB8CDCC006F9C05 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BDE1AB8CDCC006F9C05 /* TaskController.swift */; };
+		3B453BDF1AB8CDCC006F9C05 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B453BDE1AB8CDCC006F9C05 /* TaskView.swift */; };
+		3B60529C1ABC828000076DB9 /* ProfessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60529B1ABC828000076DB9 /* ProfessorController.swift */; };
+		3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60529D1ABC839900076DB9 /* ProfessorModel.swift */; };
 		3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B720B821AB771E200C463E8 /* HorizontalTableView.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
-		FD80C5E21AB9E64F00356413 /* BlocoNotas.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* BlocoNotas.swift */; };
-		FD80C5E31AB9E64F00356413 /* ProfessorsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DF1AB9E64F00356413 /* ProfessorsController.swift */; };
-		FD80C5E41AB9E64F00356413 /* SubjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E01AB9E64F00356413 /* SubjectInfo.swift */; };
-		FD80C5E51AB9E64F00356413 /* SubjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E11AB9E64F00356413 /* SubjectsController.swift */; };
-		FDA8A79C1AB3704E00DF8ADB /* SchoolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA8A79B1AB3704E00DF8ADB /* SchoolController.swift */; };
+		FD80C5E21AB9E64F00356413 /* AddNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesView.swift */; };
+		FD80C5E31AB9E64F00356413 /* ProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DF1AB9E64F00356413 /* ProfessorView.swift */; };
+		FD80C5E41AB9E64F00356413 /* SubjectInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E01AB9E64F00356413 /* SubjectInfoView.swift */; };
+		FD80C5E51AB9E64F00356413 /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E11AB9E64F00356413 /* SubjectsView.swift */; };
+		FDA8A79C1AB3704E00DF8ADB /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA8A79B1AB3704E00DF8ADB /* StudentView.swift */; };
 		FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */; };
-		FDB1C4C91AB0C4A100831BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C81AB0C4A100831BED /* ViewController.swift */; };
+		FDB1C4C91AB0C4A100831BED /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C81AB0C4A100831BED /* FirstView.swift */; };
 		FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CA1AB0C4A100831BED /* Main.storyboard */; };
 		FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */; };
 		FDB1C4DD1AB0C4A100831BED /* EduOrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4DC1AB0C4A100831BED /* EduOrganizerTests.swift */; };
-		FDB1C4E71AB0C5BF00831BED /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4E61AB0C5BF00831BED /* userData.plist */; };
-		FDE0BC3B1AB0E851005838D5 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0BC3A1AB0E851005838D5 /* FeedScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0B9D691ABCA2A7004E25EE /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData.plist; sourceTree = "<group>"; };
 		3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EduOrganizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B301A521AB73C1900665E2E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
 		3B301A531AB73C1900665E2E /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
@@ -48,26 +50,26 @@
 		3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		3B301A5F1AB73C1900665E2E /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
 		3B301A601AB73C1900665E2E /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
-		3B453BDE1AB8CDCC006F9C05 /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		3B453BDE1AB8CDCC006F9C05 /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		3B60529B1ABC828000076DB9 /* ProfessorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorController.swift; sourceTree = "<group>"; };
+		3B60529D1ABC839900076DB9 /* ProfessorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorModel.swift; sourceTree = "<group>"; };
 		3B720B821AB771E200C463E8 /* HorizontalTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableView.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FD80C5DE1AB9E64F00356413 /* BlocoNotas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocoNotas.swift; sourceTree = "<group>"; };
-		FD80C5DF1AB9E64F00356413 /* ProfessorsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsController.swift; sourceTree = "<group>"; };
-		FD80C5E01AB9E64F00356413 /* SubjectInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfo.swift; sourceTree = "<group>"; };
-		FD80C5E11AB9E64F00356413 /* SubjectsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsController.swift; sourceTree = "<group>"; };
-		FDA8A79B1AB3704E00DF8ADB /* SchoolController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchoolController.swift; sourceTree = "<group>"; };
+		FD80C5DE1AB9E64F00356413 /* AddNotesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesView.swift; sourceTree = "<group>"; };
+		FD80C5DF1AB9E64F00356413 /* ProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorView.swift; sourceTree = "<group>"; };
+		FD80C5E01AB9E64F00356413 /* SubjectInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoView.swift; sourceTree = "<group>"; };
+		FD80C5E11AB9E64F00356413 /* SubjectsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsView.swift; sourceTree = "<group>"; };
+		FDA8A79B1AB3704E00DF8ADB /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		FDB1C4C11AB0C4A100831BED /* EduOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB1C4C51AB0C4A100831BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FDB1C4C81AB0C4A100831BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FDB1C4C81AB0C4A100831BED /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		FDB1C4CB1AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDB1C4D01AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FDB1C4D61AB0C4A100831BED /* EduOrganizerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EduOrganizerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB1C4DB1AB0C4A100831BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB1C4DC1AB0C4A100831BED /* EduOrganizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EduOrganizerTests.swift; sourceTree = "<group>"; };
-		FDB1C4E61AB0C5BF00831BED /* userData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = userData.plist; sourceTree = "<group>"; };
-		FDE0BC3A1AB0E851005838D5 /* FeedScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B0B9D6B1ABCA9AD004E25EE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3B60529D1ABC839900076DB9 /* ProfessorModel.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		3B0B9D6C1ABCA9B8004E25EE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FD80C5E11AB9E64F00356413 /* SubjectsView.swift */,
+				FD80C5E01AB9E64F00356413 /* SubjectInfoView.swift */,
+				FD80C5DE1AB9E64F00356413 /* AddNotesView.swift */,
+				FDA8A79B1AB3704E00DF8ADB /* StudentView.swift */,
+				FDB1C4C81AB0C4A100831BED /* FirstView.swift */,
+				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
+				3B453BDE1AB8CDCC006F9C05 /* TaskView.swift */,
+				FD80C5DF1AB9E64F00356413 /* ProfessorView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		3B0B9D6D1ABCA9C4004E25EE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				3B60529B1ABC828000076DB9 /* ProfessorController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		3B0B9D6E1ABCAA52004E25EE /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				3B720B811AB7717300C463E8 /* HorizontalListView */,
+				3B301A4D1AB73C1900665E2E /* FancyTabBar */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
 		3B301A4D1AB73C1900665E2E /* FancyTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,22 +175,14 @@
 		FDB1C4C31AB0C4A100831BED /* EduOrganizer */ = {
 			isa = PBXGroup;
 			children = (
-				3B720B811AB7717300C463E8 /* HorizontalListView */,
+				3B0B9D6E1ABCAA52004E25EE /* libs */,
+				3B0B9D6D1ABCA9C4004E25EE /* controller */,
+				3B0B9D6C1ABCA9B8004E25EE /* view */,
+				3B0B9D6B1ABCA9AD004E25EE /* model */,
 				3BD7E9431AB75B1D00238ECE /* Images.xcassets */,
-				3B301A4D1AB73C1900665E2E /* FancyTabBar */,
-				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
-				FDB1C4C81AB0C4A100831BED /* ViewController.swift */,
-				FDE0BC3A1AB0E851005838D5 /* FeedScreen.swift */,
-				FDA8A79B1AB3704E00DF8ADB /* SchoolController.swift */,
 				FDB1C4CA1AB0C4A100831BED /* Main.storyboard */,
-				FD80C5DE1AB9E64F00356413 /* BlocoNotas.swift */,
-				FD80C5DF1AB9E64F00356413 /* ProfessorsController.swift */,
-				FD80C5E01AB9E64F00356413 /* SubjectInfo.swift */,
-				FD80C5E11AB9E64F00356413 /* SubjectsController.swift */,
 				FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */,
 				FDB1C4C41AB0C4A100831BED /* Supporting Files */,
-				3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */,
-				3B453BDE1AB8CDCC006F9C05 /* TaskController.swift */,
 			);
 			path = EduOrganizer;
 			sourceTree = "<group>";
@@ -156,8 +190,9 @@
 		FDB1C4C41AB0C4A100831BED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */,
 				FDB1C4C51AB0C4A100831BED /* Info.plist */,
-				FDB1C4E61AB0C5BF00831BED /* userData.plist */,
+				3B0B9D691ABCA2A7004E25EE /* userData.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -261,8 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */,
+				3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */,
 				3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */,
-				FDB1C4E71AB0C5BF00831BED /* userData.plist in Resources */,
 				FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,20 +316,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDB1C4C91AB0C4A100831BED /* ViewController.swift in Sources */,
-				FDA8A79C1AB3704E00DF8ADB /* SchoolController.swift in Sources */,
-				FDE0BC3B1AB0E851005838D5 /* FeedScreen.swift in Sources */,
+				FDB1C4C91AB0C4A100831BED /* FirstView.swift in Sources */,
+				FDA8A79C1AB3704E00DF8ADB /* StudentView.swift in Sources */,
 				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
-				FD80C5E41AB9E64F00356413 /* SubjectInfo.swift in Sources */,
+				FD80C5E41AB9E64F00356413 /* SubjectInfoView.swift in Sources */,
 				3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
-				FD80C5E21AB9E64F00356413 /* BlocoNotas.swift in Sources */,
+				3B60529C1ABC828000076DB9 /* ProfessorController.swift in Sources */,
+				FD80C5E21AB9E64F00356413 /* AddNotesView.swift in Sources */,
 				3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */,
-				FD80C5E51AB9E64F00356413 /* SubjectsController.swift in Sources */,
-				3B453BDF1AB8CDCC006F9C05 /* TaskController.swift in Sources */,
+				FD80C5E51AB9E64F00356413 /* SubjectsView.swift in Sources */,
+				3B453BDF1AB8CDCC006F9C05 /* TaskView.swift in Sources */,
+				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
-				FD80C5E31AB9E64F00356413 /* ProfessorsController.swift in Sources */,
+				FD80C5E31AB9E64F00356413 /* ProfessorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,10 @@ class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayou
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
         super.viewDidLoad()
         var tela:CGRect = CGRectMake(self.view.frame.size.width*0.06, self.view.frame.size.height*0.05, self.view.frame.size.width*0.9, self.view.frame.size.height*0.9);
-        loadProfessores();
+
+        var professorController = ProfessorController();
+        professores = professorController.loadProfessors();
+        
         // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: tela.origin.y, left: tela.origin.x, bottom: 10, right: tela.origin.x)
@@ -52,27 +55,6 @@ class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayou
         cell = prepareCell(cell,indexPath:indexPath);
         
         return cell
-    }
-    
-    func loadProfessores(){
-        var documentPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        var plistPath:String = documentPath.stringByAppendingPathComponent("userData.plist");
-        let contents:NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
-        var allProf:NSMutableDictionary = contents["professores"] as NSMutableDictionary;
-        println(plistPath);
-        var imgPath:String = documentPath.stringByAppendingPathComponent("imgProf");
-        for (id,var prof) in allProf{
-            //prof = (prof as NSMutableDictionary)
-            var mutProf:NSMutableDictionary = prof.mutableCopy() as NSMutableDictionary;
-            mutProf.setObject(id, forKey: "id");
-            var profImg:String = imgPath.stringByAppendingPathComponent(prof["imagem"] as String);
-            if(!profImg.isEmpty){
-                mutProf.setObject(UIImage(contentsOfFile:profImg)!, forKey: "imagemUI");
-            }
-            println(profImg);
-            //var img:UIImage=UIImage(contentsOfFile: profImg)!;
-            self.professores.addObject(mutProf);
-        }
     }
     
     func prepareCell(cell:UICollectionViewCell,indexPath:NSIndexPath)->UICollectionViewCell{

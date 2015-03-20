@@ -19,7 +19,8 @@ class SchoolController : UIViewController, TableViewDelegate{
     
     override func viewDidLoad() {
         
-        loadProfessores();
+        var professorController = ProfessorController();
+        professores = professorController.loadProfessors();
         
         view.backgroundColor = UIColorFromRGB(0x1e3044);
         
@@ -40,8 +41,8 @@ class SchoolController : UIViewController, TableViewDelegate{
         
         var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 50, view.frame.width, 120), delegate : self, color: UIColorFromRGB(0x1e3044));
         
-        var thirdIndex = NSIndexPath(forRow: 2, inSection: 0);
-        horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
+//        var thirdIndex = NSIndexPath(forRow: 2, inSection: 0);
+//        horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
 
         view.addSubview(horizontalTeachersView);
         view.addSubview(labelSectionTeacher);
@@ -65,10 +66,11 @@ class SchoolController : UIViewController, TableViewDelegate{
         var cell : UITableViewCell = UITableViewCell(frame: CGRectMake(0, 0, 150, 150));
         //var imageView : UIImageView = UIImageView(frame: CGRectMake(20, 10, 100, 100));
         
-        let image = (professores[cellForRowAtIndexPath.row]["imagem"] as UIImage);
+        var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
+     
         var btnTeacher   = UIButton.buttonWithType(UIButtonType.Custom) as UIButton;
         btnTeacher.frame = CGRectMake(20, 10, 100, 100);
-        btnTeacher.setImage(image, forState: UIControlState.Normal);
+        btnTeacher.setImage(professor.imagem, forState: UIControlState.Normal);
         btnTeacher.tag = cellForRowAtIndexPath.row;
         btnTeacher.addTarget(self, action: "teacherTouched:", forControlEvents: UIControlEvents.TouchUpInside);
         
@@ -110,30 +112,4 @@ class SchoolController : UIViewController, TableViewDelegate{
             alpha: CGFloat(1.0)
         )
     }
-    
-    func loadProfessores(){
-        
-        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        
-        var plistPath : String = documentPath.stringByAppendingPathComponent("userData.plist");
-        let contents : NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
-        var allProf : NSMutableDictionary = contents["professores"] as NSMutableDictionary;
-        println(plistPath);
-        
-        var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
-        
-        for (id, var prof) in allProf{
-            
-            var mutProf : NSMutableDictionary = prof.mutableCopy() as NSMutableDictionary;
-            mutProf.setObject(id, forKey: "id");
-            
-            var profImg : String = imgPath.stringByAppendingPathComponent(prof["imagem"] as String);
-            mutProf.setObject(UIImage(contentsOfFile:profImg)!, forKey: "imagem");
-            println(profImg);
-
-            self.professores.addObject(mutProf);
-            
-        }
-    }
-
 }
