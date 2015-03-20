@@ -15,27 +15,26 @@ class AddNotesVC: UIViewController{
 //declaracao do textfield sem valor(optional)//
     var text: UITextField?;
     override func viewDidLoad() {
-<<<<<<< Updated upstream:EduOrganizer/AddNotesVC.swift
         
-        //criando titulo notas//
-        var titulo: CGRect = CGRect(x: self.view.frame.size.width*0.1 ,y: 20,  width: self.view.frame.size.width*0.8, height: self.view.frame.size.height*0.07);
-        
-        tittle = UITextField(frame: titulo)
-        tittle?.borderStyle=UITextBorderStyle.RoundedRect; //borda arredondada//
-        tittle?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
-        self.view.addSubview(tittle!) //aparecer o textField na tela//
-        
-        
-        var textField: CGRect = CGRect(x: self.view.frame.size.width*0.1 ,y: 80,  width: self.view.frame.size.width*0.8, height: self.view.frame.size.height*0.7);
-        
-        text = UITextField(frame: textField)
-        text?.borderStyle=UITextBorderStyle.RoundedRect; //borda arredondada//
-        text?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
-        self.view.addSubview(text!) //aparecer o textField na tela//
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",style: .Plain,target: self,action: "saveToPlist")
-        
-
-=======
+//        //criando titulo notas//
+//        var titulo: CGRect = CGRect(x: self.view.frame.size.width*0.1 ,y: 20,  width: self.view.frame.size.width*0.8, height: self.view.frame.size.height*0.07);
+//        
+//        title = UITextField(frame: titulo)
+//        title?.borderStyle=UITextBorderStyle.RoundedRect; //borda arredondada//
+//        title?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
+//        self.view.addSubview(tittle!) //aparecer o textField na tela//
+//        
+//        
+//        var textField: CGRect = CGRect(x: self.view.frame.size.width*0.1 ,y: 80,  width: self.view.frame.size.width*0.8, height: self.view.frame.size.height*0.7);
+//        
+//        text = UITextField(frame: textField)
+//        text?.borderStyle=UITextBorderStyle.RoundedRect; //borda arredondada//
+//        text?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
+//        self.view.addSubview(text!) //aparecer o textField na tela//
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",style: .Plain,target: self,action: "saveToPlist")
+//        
+//
+//=======
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 18)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
         self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
@@ -55,7 +54,6 @@ class AddNotesVC: UIViewController{
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "saveToPlist")
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel",style: .Plain,target: self, action: "segueBoladao")
->>>>>>> Stashed changes:EduOrganizer/BlocoNotas.swift
 
     }
     
