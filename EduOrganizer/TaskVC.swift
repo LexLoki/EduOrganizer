@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TaskView: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
     var objects : [String];

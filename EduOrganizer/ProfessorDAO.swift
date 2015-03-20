@@ -8,11 +8,10 @@
 
 import Foundation
 
-class ProfessorController {
+class ProfessorDAO : ProtocolDAO {
     
-    //get Dictionary with professors
-    func loadPListProfessors() -> NSMutableDictionary{
-        
+    //load plist into a Dictionary
+    func loadPList() -> NSMutableDictionary {
         var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
         
         var plistPath : String = documentPath.stringByAppendingPathComponent("userData.plist");
@@ -20,35 +19,18 @@ class ProfessorController {
         var professors : NSMutableDictionary = contents["professores"] as NSMutableDictionary;
         
         return professors;
-        
-    }
-    //get path with professors images
-    func getProfessorsImagePath() -> String{
-        
-        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        
-        var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
-        
-        return imgPath;
-    }
-    
-    func loadProfessorData() -> (dict: NSMutableDictionary, path: String){
-        var professorsDict : NSMutableDictionary  = loadPListProfessors();
-        var imgPath : String = getProfessorsImagePath();
-        
-        return(professorsDict, imgPath);
     }
     
     //returns an array with all professors (ProfessorModel)
-    func loadProfessors() -> NSMutableArray {
+    func getDataArray() -> NSMutableArray {
         
-        var res = loadProfessorData();
+        var res = setUpProfessor();
         var professors : NSMutableArray = NSMutableArray();
         
         for (id, _) in res.dict{
             
             var professor : ProfessorModel = ProfessorModel();
-            professor = getProfessorById(id, dict: res.dict, path: res.path);
+            professor = getDataById(id, dict: res.dict, path: res.path);
             
             professors.addObject(professor);
         }
@@ -57,7 +39,7 @@ class ProfessorController {
     }
     
     //get populated instance of ProfessorModel by Id
-    func getProfessorById( id : AnyObject, dict : NSDictionary, path : String ) -> ProfessorModel{
+    func getDataById( id : AnyObject, dict : NSDictionary, path : String ) -> ProfessorModel{
         
         var prof : NSDictionary = dict[id as String] as NSDictionary;
         
@@ -73,5 +55,23 @@ class ProfessorController {
         
         return professor;
         
+    }
+    
+    //get path with professors images
+    private func getProfessorsImagePath() -> String{
+        
+        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+        
+        var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
+        
+        return imgPath;
+    }
+    
+    //setup professor data
+    private func setUpProfessor() -> (dict: NSMutableDictionary, path: String){
+        var professorsDict : NSMutableDictionary  = loadPList();
+        var imgPath : String = getProfessorsImagePath();
+        
+        return(professorsDict, imgPath);
     }
 }

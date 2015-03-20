@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstView: UITabBarController, FancyTabBarDelegate {
+class FirstVC: UITabBarController, FancyTabBarDelegate {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);

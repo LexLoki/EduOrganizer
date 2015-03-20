@@ -9,20 +9,22 @@
 import Foundation
 import UIKit
 
-class ProfessorView : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
     var professores:NSMutableArray = NSMutableArray();
     var size:CGSize = CGSize();
     
     override func viewDidLoad() {
+        
+            
         //var back:UIImageView=UIImageView(frame: self.view.frame);
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
         super.viewDidLoad()
         var tela:CGRect = CGRectMake(self.view.frame.size.width*0.06, self.view.frame.size.height*0.05, self.view.frame.size.width*0.9, self.view.frame.size.height*0.9);
 
-        var professorController = ProfessorController();
-        professores = professorController.loadProfessors();
+        var professorDAO = ProfessorDAO();
+        professores = professorDAO.getDataArray();
         
         // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()

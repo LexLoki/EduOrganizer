@@ -20,7 +20,6 @@ protocol TableViewDelegate{
     func tableView(horizontalTableView : HorizontalTableView, viewForFooterInSection : Int) -> UIView;
     func tableView(horizontalTableView : HorizontalTableView, widthForCellAtIndexPath : NSIndexPath) -> CGFloat;
     
-    
 }
 
 class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {

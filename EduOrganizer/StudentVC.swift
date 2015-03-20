@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class StudentView : UIViewController, TableViewDelegate{
+class StudentVC: UIViewController, TableViewDelegate{
 
     var professores : NSMutableArray = NSMutableArray();
    
@@ -19,8 +19,8 @@ class StudentView : UIViewController, TableViewDelegate{
     
     override func viewDidLoad() {
         
-        var professorController = ProfessorController();
-        professores = professorController.loadProfessors();
+        var professorDAO = ProfessorDAO();
+        professores = professorDAO.getDataArray();
         
         view.backgroundColor = UIColorFromRGB(0x1e3044);
         
