@@ -12,29 +12,10 @@ import UIKit
 
 class AddNotesVC: UIViewController{
     
-//declaracao do textfield sem valor(optional)//
     var text: UITextField?;
+    
     override func viewDidLoad() {
         
-//        //criando titulo notas//
-//        var titulo: CGRect = CGRect(x: self.view.frame.size.width*0.1 ,y: 20,  width: self.view.frame.size.width*0.8, height: self.view.frame.size.height*0.07);
-//        
-//        title = UITextField(frame: titulo)
-//        title?.borderStyle=UITextBorderStyle.RoundedRect; //borda arredondada//
-//        title?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
-//        self.view.addSubview(tittle!) //aparecer o textField na tela//
-//        
-//        
-//        var textField: CGRect = CGRect(x: self.view.frame.size.width*0.1 ,y: 80,  width: self.view.frame.size.width*0.8, height: self.view.frame.size.height*0.7);
-//        
-//        text = UITextField(frame: textField)
-//        text?.borderStyle=UITextBorderStyle.RoundedRect; //borda arredondada//
-//        text?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
-//        self.view.addSubview(text!) //aparecer o textField na tela//
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",style: .Plain,target: self,action: "saveToPlist")
-//        
-//
-//=======
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 18)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
         self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
@@ -45,9 +26,6 @@ class AddNotesVC: UIViewController{
         
         text = UITextField(frame: tela)
         text?.textColor = UIColorFromRGB(0xFFFFFF)
-        
-        // text?.borderStyle=UITextBorderStyle.Line; //linha de checagem//
-        
         text?.contentVerticalAlignment = UIControlContentVerticalAlignment.Top;//posicao do cursor//
         text?.font = UIFont (name: "Avenir Next", size: 20)
         self.view.addSubview(text!) //aparecer o textField na tela//
@@ -66,8 +44,6 @@ class AddNotesVC: UIViewController{
         var pathAux:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         var path: String = pathAux.stringByAppendingPathComponent("userData.plist" as String);
         var contents:NSMutableDictionary = NSDictionary(contentsOfFile: path)?.mutableCopy() as NSMutableDictionary;
-        //var note:NSDictionary = NSDictionary(objects: [tittle?.text,text?.text], forKeys: ["nome","texto"]) as NSDictionary;
-        //var anotacoes:NSMutableDictionary = contents["anotacoes"] as NSDictionary;
         
     }
     

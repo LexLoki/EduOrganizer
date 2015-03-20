@@ -25,7 +25,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         
         //set font tabBar item
         let attributesNormal = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName:UIColor.whiteColor()];
-        let attributesSelected = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFC561)];
+        let attributesSelected = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFC561)];
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, forState: UIControlState.Normal);
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, forState: UIControlState.Selected);
         
@@ -95,14 +95,6 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
         performSegueWithIdentifier("newNote", sender: nil);
         

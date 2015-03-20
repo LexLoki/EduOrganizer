@@ -22,7 +22,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
@@ -40,8 +40,8 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         var thirdIndex = NSIndexPath(forRow: 0, inSection: 0);
         tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
         
-        tableView.backgroundColor = UIColorFromRGB(0x1e3044);
-        view.backgroundColor = UIColorFromRGB(0x1e3044);
+        tableView.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         view.addSubview(tableView);
     }
     
@@ -90,7 +90,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         labelDate.font = UIFont(name: "Avenir Next", size: 15)
         labelDate.textAlignment = NSTextAlignment.Left;
         
-        cell.backgroundColor = UIColorFromRGB(0x1e3044);
+        cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = false;
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
@@ -107,14 +107,4 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             println("foi");
         }
     }
-    
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-
 }

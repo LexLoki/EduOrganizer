@@ -16,7 +16,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var dict:NSMutableDictionary = NSMutableDictionary();
     
     override func viewDidLoad() {
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColor.UIColorFromRGB(0xFFFFFF)];
         self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
         self.title = "Subject";
@@ -32,7 +32,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self;
         tableView.separatorInset = UIEdgeInsetsZero;
         tableView.separatorColor = UIColor.whiteColor();
-        tableView.backgroundColor = UIColorFromRGB(0x1a242e);
+        tableView.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         view.backgroundColor = UIColor(red: 30/255.0, green: 48/255.0, blue: 68/255.0, alpha: 1.0);
 
         
@@ -123,15 +123,6 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         println("did it");
         return label;
-    }
-    
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
     
     func setup(){

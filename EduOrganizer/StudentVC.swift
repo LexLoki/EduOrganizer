@@ -22,16 +22,16 @@ class StudentVC: UIViewController, TableViewDelegate{
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray();
         
-        view.backgroundColor = UIColorFromRGB(0x1e3044);
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
+        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
         self.title = "Student";
     
         //create label section teacher
         var labelSectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, view.frame.width, 50));
-        labelSectionTeacher.backgroundColor = UIColorFromRGB(0x1a242e);
+        labelSectionTeacher.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
         var labelSectionTeacherText : UILabel = UILabel(frame: CGRectMake(20,0, view.frame.width, 50));
         labelSectionTeacherText.font = UIFont(name: "AvenirNext-Bold", size: 15);
@@ -39,10 +39,10 @@ class StudentVC: UIViewController, TableViewDelegate{
         labelSectionTeacherText.textColor = UIColor.whiteColor();
         labelSectionTeacherText.text = "Teachers";
         
-        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 50, view.frame.width, 120), delegate : self, color: UIColorFromRGB(0x1e3044));
+        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 50, view.frame.width, 120), delegate : self, color: UIColor.UIColorFromRGB(0x1e3044));
         
-//        var thirdIndex = NSIndexPath(forRow: 2, inSection: 0);
-//        horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
+        var thirdIndex = NSIndexPath(forRow: professores.count/3, inSection: 0);
+        horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
 
         view.addSubview(horizontalTeachersView);
         view.addSubview(labelSectionTeacher);
@@ -80,7 +80,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         btnTeacher.layer.borderWidth = 0;
         
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
-        cell.backgroundColor = UIColorFromRGB(0x1e3044);
+        cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         cell.addSubview(btnTeacher);
         
         return cell;
@@ -102,14 +102,5 @@ class StudentVC: UIViewController, TableViewDelegate{
     func tableView(horizontalTableView: HorizontalTableView, viewForFooterInSection: Int) -> UIView {
         var m : UIView = UIView(frame: CGRectMake(0, 0, 50,90));
         return m;
-    }
-    
-    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
 }

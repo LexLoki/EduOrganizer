@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9D691ABCA2A7004E25EE /* userData.plist */; };
 		3B0B9D701ABCAEF3004E25EE /* ProtocolDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */; };
+		3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E01ABCC3980085FECB /* Extensions.swift */; };
 		3B301A651AB73C1900665E2E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A531AB73C1900665E2E /* Coordinate.m */; };
 		3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A591AB73C1900665E2E /* FancyTabBar.m */; };
 		3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		3B0B9D691ABCA2A7004E25EE /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData.plist; sourceTree = "<group>"; };
 		3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolDAO.swift; sourceTree = "<group>"; };
+		3B2CD4E01ABCC3980085FECB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EduOrganizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B301A521AB73C1900665E2E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
 		3B301A531AB73C1900665E2E /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				3BD7E9431AB75B1D00238ECE /* Images.xcassets */,
 				FDB1C4CA1AB0C4A100831BED /* Main.storyboard */,
 				FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */,
+				3B2CD4E01ABCC3980085FECB /* Extensions.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */,
 				3B453BDF1AB8CDCC006F9C05 /* TaskVC.swift in Sources */,
 				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
+				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 				FD80C5E31AB9E64F00356413 /* ProfessorVC.swift in Sources */,
 			);
