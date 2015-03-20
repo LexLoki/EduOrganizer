@@ -16,10 +16,6 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var dict:NSMutableDictionary = NSMutableDictionary();
     
     override func viewDidLoad() {
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColorFromRGB(0xFFFFFF)];
-        self.navigationController?.navigationBar.titleTextAttributes = attributes;
-        
-        self.title = "Subject";
         
         super.viewDidLoad()
         dict = NSMutableDictionary(objects:["nome","sigla","professor"], forKeys:["1","2","3"]);
