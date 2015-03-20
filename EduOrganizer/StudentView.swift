@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SchoolController : UIViewController, TableViewDelegate{
+class StudentView : UIViewController, TableViewDelegate{
 
     var professores : NSMutableArray = NSMutableArray();
    

@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="521" y="424"/>
         </scene>
-        <!--Task Controller-->
+        <!--Task View-->
         <scene sceneID="cza-Or-l6a">
             <objects>
-                <viewController id="AoY-PC-XdX" customClass="TaskController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AoY-PC-XdX" customClass="TaskView" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y4a-e3-Cgz"/>
                         <viewControllerLayoutGuide type="bottom" id="wuh-EN-zj9"/>
@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="1333" y="-292"/>
         </scene>
-        <!--School Controller-->
+        <!--Student View-->
         <scene sceneID="TqU-a9-jmn">
             <objects>
-                <viewController id="idC-ko-kBG" customClass="SchoolController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="idC-ko-kBG" customClass="StudentView" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mDI-Dh-fIW"/>
                         <viewControllerLayoutGuide type="bottom" id="7Yp-bq-rG5"/>
@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1333" y="-960"/>
         </scene>
-        <!--Subjects Controller-->
+        <!--Subjects View-->
         <scene sceneID="afx-Vg-kPY">
             <objects>
-                <viewController id="W4w-5t-wot" customClass="SubjectsController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="W4w-5t-wot" customClass="SubjectsView" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WLw-Cc-dgW"/>
                         <viewControllerLayoutGuide type="bottom" id="cuj-W6-d8v"/>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="1997" y="-960"/>
         </scene>
-        <!--Subject Info-->
+        <!--Subject Info View-->
         <scene sceneID="JXm-FF-QtL">
             <objects>
-                <viewController id="CR1-3Y-Smr" customClass="SubjectInfo" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CR1-3Y-Smr" customClass="SubjectInfoView" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KtZ-eT-r4S"/>
                         <viewControllerLayoutGuide type="bottom" id="vRp-Bp-hDY"/>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="2751" y="-960"/>
         </scene>
-        <!--View Controller-->
+        <!--First View-->
         <scene sceneID="uko-Cf-Mxh">
             <objects>
-                <tabBarController id="lxR-5f-Twz" customClass="ViewController" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="lxR-5f-Twz" customClass="FirstView" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" translucent="NO" id="d6G-hZ-VRk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="-399" y="-212"/>
         </scene>
-        <!--Bloco Notas-->
+        <!--Add Notes View-->
         <scene sceneID="LGH-Pm-AVr">
             <objects>
-                <viewController id="bdZ-pH-U4S" customClass="BlocoNotas" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bdZ-pH-U4S" customClass="AddNotesView" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="beu-ld-DJF"/>
                         <viewControllerLayoutGuide type="bottom" id="AJk-Ub-jtU"/>

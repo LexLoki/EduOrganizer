@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SubjectInfo: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class SubjectInfoView: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var subject:NSMutableDictionary = NSMutableDictionary();
     var size:CGSize = CGSize();

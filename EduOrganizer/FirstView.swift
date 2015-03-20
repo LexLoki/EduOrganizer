@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITabBarController, FancyTabBarDelegate {
+class FirstView: UITabBarController, FancyTabBarDelegate {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
@@ -105,6 +105,7 @@ class ViewController: UITabBarController, FancyTabBarDelegate {
     }
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
         performSegueWithIdentifier("newNote", sender: nil);
+        
     }
 
 }

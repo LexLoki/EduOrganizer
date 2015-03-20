@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SubjectsController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class SubjectsView : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     var collectionView: UICollectionView?
     var materias:NSMutableArray = NSMutableArray();
@@ -61,7 +61,7 @@ class SubjectsController : UIViewController, UICollectionViewDelegateFlowLayout,
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC = segue.destinationViewController as? SubjectInfo;
+        let destinationVC = segue.destinationViewController as? SubjectInfoView;
         destinationVC?.subject = materias[selectedIndex] as NSMutableDictionary;
     }
     

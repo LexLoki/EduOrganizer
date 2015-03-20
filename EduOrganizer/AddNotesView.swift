@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class BlocoNotas : UIViewController{
+class AddNotesView : UIViewController{
     
 //declaracao do textfield sem valor(optional)//
     var text: UITextField?;

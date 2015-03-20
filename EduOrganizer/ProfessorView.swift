@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ProfessorView : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
     var professores:NSMutableArray = NSMutableArray();
