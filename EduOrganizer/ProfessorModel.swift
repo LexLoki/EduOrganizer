@@ -10,14 +10,19 @@ import Foundation
 
 class ProfessorModel{
     
-    init(){
-    }
-    
     var id : Int!;
     var nome : String!;
     var email : String!;
     var telefone : String!;
     var imagem : UIImage?;
-    var materia : Int!;
+    var materias : Array<AnyObject>!;
+    
+    init(){
+        
+        nome = "não informado";
+        email = "não informado";
+        telefone = "não informado";
+
+    }
     
 }

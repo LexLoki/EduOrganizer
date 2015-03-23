@@ -38,11 +38,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         view.addSubview(tableView);
     }
     
-    func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
-        return subject.count;
-    }
-    
-    func numberOfSectionsInTableView(horizontalTableView: HorizontalTableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2;
     }
     

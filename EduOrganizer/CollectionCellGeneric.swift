@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GenericCollectionCell : UICollectionViewCell{
+class CollectionCellGeneric : UICollectionViewCell{
     
     var label: UILabel!;
     var imageView: UIImageView!;
@@ -31,7 +31,7 @@ class GenericCollectionCell : UICollectionViewCell{
         
         label = UILabel(frame: CGRectMake(0, 0, size.width, size.height));
         label.numberOfLines = 2;
-        label.textColor = UIColor(red: 255.0/255, green: 197.0/255, blue: 97.0/255, alpha: 1);
+        label.textColor = UIColor.UIColorFromRGB(0xffc561);
         label.font = UIFont(name: "Avenir Next", size: 15)
         label.textAlignment=NSTextAlignment.Center;
         

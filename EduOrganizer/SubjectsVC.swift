@@ -19,7 +19,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        var subjectsView : GenericCollection = GenericCollection(frame: view.frame, parent: self);
+        var subjectsView : CollectionGeneric = CollectionGeneric(frame: view.frame, parent: self);
         title = "Subjects";
         subjectsView.collectionView.delegate = self;
         subjectsView.collectionView.dataSource = self;
@@ -44,8 +44,8 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         
-        var subjectsCell : GenericCollectionCell = collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
-                                                                  forIndexPath: indexPath) as GenericCollectionCell;
+        var subjectsCell : CollectionCellGeneric = collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
+                                                                  forIndexPath: indexPath) as CollectionCellGeneric;
         subjectsCell.setUpCell(view);
         
         var materiaStr : String = String(format: "%@\n(%@)",

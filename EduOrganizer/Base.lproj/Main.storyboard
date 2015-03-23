@@ -59,6 +59,7 @@
                     <connections>
                         <segue destination="W4w-5t-wot" kind="custom" identifier="subjects" id="EW7-Y1-Qpk"/>
                         <segue destination="GsA-Yf-86d" kind="custom" identifier="professors" id="aXI-vO-7SH"/>
+                        <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="RDW-rH-KIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGa-5G-oGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -78,10 +79,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="10A-S4-UKs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzm-sr-0pZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2057" y="-1610"/>
+        </scene>
+        <!--Professor InfoVC-->
+        <scene sceneID="MCZ-xA-uOk">
+            <objects>
+                <viewController id="9u4-QS-Inp" customClass="ProfessorInfoVC" customModule="EduOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XvA-uo-E2m"/>
+                        <viewControllerLayoutGuide type="bottom" id="NEl-7u-jUy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QgT-Cw-Frs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahR-Ch-jYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2759" y="-1610"/>
         </scene>
         <!--SubjectsVC-->
         <scene sceneID="afx-Vg-kPY">
@@ -97,7 +119,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="CR1-3Y-Smr" kind="custom" identifier="info" id="zOu-8b-cGM"/>
+                        <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="zOu-8b-cGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acd-cW-EMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -260,4 +282,7 @@
         <image name="itemTask" width="31" height="31"/>
         <image name="itemTaskSelected" width="31" height="31"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RDW-rH-KIw"/>
+    </inferredMetricsTieBreakers>
 </document>

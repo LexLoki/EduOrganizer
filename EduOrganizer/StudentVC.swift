@@ -12,6 +12,8 @@ import UIKit
 class StudentVC: UIViewController, TableViewDelegate{
 
     var professores : Array<ProfessorModel> = Array<ProfessorModel>();
+    var studentView : StudentView!;
+    var selectedIndex:Int = Int();
    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
@@ -19,40 +21,19 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     override func viewDidLoad() {
         
+        studentView = StudentView(frame: view.frame, parent: self);
+        studentView.horTableProfessor.delegate = self;
+        view = studentView;
+        
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
-        
-        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
-        self.navigationController?.navigationBar.titleTextAttributes = attributes;
-        
-        self.title = "Student";
-    
-        //create label section teacher
-        var labelSectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, view.frame.width, 50));
-        labelSectionTeacher.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-        
-        var labelSectionTeacherText : UILabel = UILabel(frame: CGRectMake(20,0, view.frame.width, 50));
-        labelSectionTeacherText.font = UIFont(name: "AvenirNext-Bold", size: 15);
-        labelSectionTeacherText.textAlignment = NSTextAlignment.Left;
-        labelSectionTeacherText.textColor = UIColor.whiteColor();
-        labelSectionTeacherText.text = "Teachers";
-        
-        var horizontalTeachersView : HorizontalTableView = HorizontalTableView(frame: CGRectMake(0, 50, view.frame.width, 120), delegate : self, color: UIColor.UIColorFromRGB(0x1e3044));
-        
-        var thirdIndex = NSIndexPath(forRow: professores.count/3, inSection: 0);
-        horizontalTeachersView.tableView.scrollToRowAtIndexPath(thirdIndex, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false);
 
-        view.addSubview(horizontalTeachersView);
-        view.addSubview(labelSectionTeacher);
-        view.addSubview(labelSectionTeacherText);
         
     }
     
-    func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath) {
+    func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath){
+        //nada
     }
-    
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
         return professores.count;
     }
@@ -63,44 +44,67 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func tableView(horizontalTableView: HorizontalTableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell : UITableViewCell = UITableViewCell(frame: CGRectMake(0, 0, 150, 150));
-        //var imageView : UIImageView = UIImageView(frame: CGRectMake(20, 10, 100, 100));
+        var professorCell : StudentCell = StudentCell(view: view);
         
-        var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
-     
-        var btnTeacher   = UIButton.buttonWithType(UIButtonType.Custom) as UIButton;
-        btnTeacher.frame = CGRectMake(20, 10, 100, 100);
-        btnTeacher.setImage(professor.imagem, forState: UIControlState.Normal);
-        btnTeacher.tag = cellForRowAtIndexPath.row;
-        btnTeacher.addTarget(self, action: "teacherTouched:", forControlEvents: UIControlEvents.TouchUpInside);
+        if (horizontalTableView == studentView.horTableProfessor){
+            
+            var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
+
+            professorCell.btnCell.tag = cellForRowAtIndexPath.row;
+            professorCell.btnCell.addTarget(self,
+                                            action: "teacherTouched:",
+                                            forControlEvents: UIControlEvents.TouchUpInside);
+            
+            
+            if let image = professor.imagem {
+                
+                professorCell.label.font = UIFont(name: "AvenirNext-Bold", size: 40)
+                professorCell.btnCell.setImage(professor.imagem, forState: UIControlState.Normal);
+                
+            }else{
+                
+                var nomeArray = professor.nome.componentsSeparatedByString(" ");
+                var nome : String = "";
+                
+                if (nomeArray.count > 0){
+                    var primeiroNome = nomeArray[0];
+                    var primeiraLetra = primeiroNome.substringToIndex(advance(primeiroNome.startIndex, 1));
+                    
+                    var nome = primeiraLetra;
+                    
+                    if (nomeArray.count > 1){
+                        var ultimoNome = nomeArray[nomeArray.count - 1];
+                        var ultimaLetra = ultimoNome.substringToIndex(advance(ultimoNome.startIndex, 1));
+                        
+                        nome = nome + ultimaLetra;
+                    }
+                    
+                    professorCell.label.text = nome;
+                }
+            }
+            
+            return professorCell;
+            
+        }else{
+            
+            //carregar materias
+            
+        }
         
-        btnTeacher.layer.cornerRadius = btnTeacher.frame.size.height/2;
-        btnTeacher.layer.masksToBounds = true;
-        btnTeacher.contentMode = UIViewContentMode.ScaleAspectFit;
-        btnTeacher.layer.borderWidth = 0;
-        
-        cell.selectionStyle = UITableViewCellSelectionStyle.None;
-        cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        cell.addSubview(btnTeacher);
-        
-        return cell;
+        return professorCell;
     }
     
     func teacherTouched(sender:UIButton){
-        performSegueWithIdentifier("professors", sender: nil);2
+        selectedIndex = sender.tag;
+        performSegueWithIdentifier("infoProfessor", sender: nil);
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
+        destinationVC?.professor = professores[selectedIndex];
     }
     
     func tableView(horizontalTableView: HorizontalTableView, widthForCellAtIndexPath: NSIndexPath) -> CGFloat {
-        return 130;
-    }
-    
-    func tableView(horizontalTableView: HorizontalTableView, viewForHeaderInSection: Int) -> UIView {
-        var m : UIView = UIView(frame: CGRectMake(0, 0, 50,90));
-        return m;
-    }
-    
-    func tableView(horizontalTableView: HorizontalTableView, viewForFooterInSection: Int) -> UIView {
-        var m : UIView = UIView(frame: CGRectMake(0, 0, 50,90));
-        return m;
+        return view.frame.width/2.5;
     }
 }

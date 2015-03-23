@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GenericCollection : UIView{
+class CollectionGeneric : UIView{
     
     var collectionView: UICollectionView!;
     var size: CGSize = CGSize();
@@ -35,7 +35,7 @@ class GenericCollection : UIView{
 
         layout.itemSize = size;
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout);
-        collectionView.registerClass(GenericCollectionCell.self, forCellWithReuseIdentifier: "cellIdentifier");
+        collectionView.registerClass(CollectionCellGeneric.self, forCellWithReuseIdentifier: "cellIdentifier");
         collectionView!.backgroundColor = UIColor(red: 30.0/255, green: 48.0/255, blue: 68.0/255, alpha: 1.0);
         addSubview(collectionView!)
     }

@@ -13,12 +13,11 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     
 
     var professores: Array<ProfessorModel> = Array<ProfessorModel>();
-    var size:CGSize = CGSize();
     var selectedIndex:Int = Int();
     
     override func viewDidLoad() {
 
-        var professorsView : GenericCollection = GenericCollection(frame: view.frame, parent: self);
+        var professorsView : CollectionGeneric = CollectionGeneric(frame: view.frame, parent: self);
         title = "Professors";
         professorsView.collectionView.delegate = self;
         professorsView.collectionView.dataSource = self;
@@ -43,8 +42,8 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        var professorsCell : GenericCollectionCell =    collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
-                                                                  forIndexPath: indexPath) as GenericCollectionCell;
+        var professorsCell : CollectionCellGeneric =    collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
+                                                                  forIndexPath: indexPath) as CollectionCellGeneric;
         professorsCell.setUpCell(view);
         
         if let image = professores[indexPath.row].imagem {
@@ -58,13 +57,13 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        selectedIndex = indexPath.row;
-//        performSegueWithIdentifier("pInfo", sender: nil)
+        selectedIndex = indexPath.row;
+        performSegueWithIdentifier("infoProfessor", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
-//        destinationVC?.professor = professores[selectedIndex];
+        let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
+        destinationVC?.professor = professores[selectedIndex];
     }
     
     func btnTouched(sender:UIButton){

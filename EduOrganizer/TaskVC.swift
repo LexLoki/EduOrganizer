@@ -30,11 +30,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
-        return objects.count;
-    }
-    
-    func numberOfSectionsInTableView(horizontalTableView: HorizontalTableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
@@ -53,9 +49,9 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         taskCell.btnEdit.addTarget(self,
                                    action: "btnTouched:",
                                    forControlEvents: UIControlEvents.TouchUpInside);
-        taskCell.labelCountDown.text = "1 Day";//objects[indexPath.row];
-        taskCell.labelTask.text = "Calculus List";//objects[indexPath.row];
-        taskCell.labelDate.text = "Date : Tomorrow at 5 PM";//objects[indexPath.row];
+        taskCell.labelCountDown.text = "1 Day";
+        taskCell.labelTask.text = "Calculus List";
+        taskCell.labelDate.text = "Date : Tomorrow at 5 PM";
         
         return taskCell;
     }

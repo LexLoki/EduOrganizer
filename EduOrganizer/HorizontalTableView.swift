@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-protocol TableViewDelegate{
+@objc protocol TableViewDelegate{
     
     func tableView(horizontalTableView : HorizontalTableView, numberOfRows : Int) -> Int;
     func tableView(horizontalTableView : HorizontalTableView, cellForRowAtIndexPath : NSIndexPath) -> UITableViewCell;
     
-    func numberOfSectionsInTableView(horizontalTableView : HorizontalTableView) -> Int;
-    func tableView(horizontalTableView : HorizontalTableView, didSelectRowAtIndexPath : NSIndexPath);
-    func tableView(horizontalTableView : HorizontalTableView, viewForHeaderInSection : Int) -> UIView;
-    func tableView(horizontalTableView : HorizontalTableView, viewForFooterInSection : Int) -> UIView;
-    func tableView(horizontalTableView : HorizontalTableView, widthForCellAtIndexPath : NSIndexPath) -> CGFloat;
+    optional func numberOfSectionsInTableView(horizontalTableView : HorizontalTableView) -> Int;
+    optional func tableView(horizontalTableView : HorizontalTableView, didSelectRowAtIndexPath : NSIndexPath);
+    optional func tableView(horizontalTableView : HorizontalTableView, viewForHeaderInSection : Int) -> UIView;
+    optional func tableView(horizontalTableView : HorizontalTableView, viewForFooterInSection : Int) -> UIView;
+    optional func tableView(horizontalTableView : HorizontalTableView, widthForCellAtIndexPath : NSIndexPath) -> CGFloat;
     
 }
 
@@ -58,17 +58,17 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var sectionView : UIView = self.delegate!.tableView(self, viewForHeaderInSection: section);
+        var sectionView : UIView = self.delegate!.tableView!(self, viewForHeaderInSection: section);
         return viewToHoldSectionView(sectionView);
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var sectionView : UIView = self.delegate!.tableView(self, viewForFooterInSection: section);
+        var sectionView : UIView = self.delegate!.tableView!(self, viewForFooterInSection: section);
         return viewToHoldSectionView(sectionView);
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.delegate!.tableView(self, widthForCellAtIndexPath: indexPath);
+        return self.delegate!.tableView!(self, widthForCellAtIndexPath: indexPath);
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,7 +133,7 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        return self.delegate!.tableView(self, didSelectRowAtIndexPath: indexPath);
+        return self.delegate!.tableView!(self, didSelectRowAtIndexPath: indexPath);
     }
     
 }
