@@ -20,3 +20,29 @@ extension UIColor{
     }
     
 }
+
+extension String{
+    
+    static func getAbrevName(str : String) -> String{
+        
+        var nomeArray = str.componentsSeparatedByString(" ");
+        var nome : String = "";
+        
+        if (nomeArray.count > 0){
+            var primeiroNome = nomeArray[0];
+            var primeiraLetra = primeiroNome.substringToIndex(advance(primeiroNome.startIndex, 1));
+            
+            nome = primeiraLetra;
+            
+            if (nomeArray.count > 1){
+                var ultimoNome = nomeArray[nomeArray.count - 1];
+                var ultimaLetra = ultimoNome.substringToIndex(advance(ultimoNome.startIndex, 1));
+                
+                nome = nome + ultimaLetra;
+            }
+        }
+        
+        return nome;
+        
+    }
+}

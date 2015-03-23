@@ -13,9 +13,21 @@ protocol ProtocolDAO{
     
     func loadPList() -> NSMutableDictionary;
     func getDataArray() -> Array<AnyObject>;
-    func getDataById(id : AnyObject, dict : NSDictionary, path : String ) -> AnyObject;
+    func getDataById(id : AnyObject) -> AnyObject;
     
 }
 
-class ProtocolPListDAO  {
+class StudDAO {
+    
+    var contents : NSDictionary!;
+    
+    init(){
+        
+        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+                                                                        .UserDomainMask, true)[0] as String;
+    
+        var plistPath : String = documentPath.stringByAppendingPathComponent("userData.plist");
+        contents = NSDictionary(contentsOfFile: plistPath)!;
+        
+    }
 }

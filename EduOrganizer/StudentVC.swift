@@ -12,6 +12,8 @@ import UIKit
 class StudentVC: UIViewController, TableViewDelegate{
 
     var professores : Array<ProfessorModel> = Array<ProfessorModel>();
+    var materias: Array<SubjectModel> = Array<SubjectModel>();
+    
     var studentView : StudentView!;
     var selectedIndex:Int = Int();
    
@@ -23,19 +25,24 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         studentView = StudentView(frame: view.frame, parent: self);
         studentView.horTableProfessor.delegate = self;
+        studentView.horTableSubjects.delegate = self;
         view = studentView;
         
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
-
         
+        var subjectsDAO = SubjectDAO();
+        materias = subjectsDAO.getDataArray() as Array<SubjectModel>;
     }
     
-    func tableView(horizontalTableView: HorizontalTableView, didSelectRowAtIndexPath: NSIndexPath){
-        //nada
-    }
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
-        return professores.count;
+        
+        if (horizontalTableView == studentView.horTableProfessor){
+            return professores.count;
+        }else{
+            return materias.count;
+        }
+
     }
     
     func numberOfSectionsInTableView(horizontalTableView: HorizontalTableView) -> Int {
@@ -44,10 +51,9 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func tableView(horizontalTableView: HorizontalTableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
         
-        var professorCell : StudentCell = StudentCell(view: view);
-        
         if (horizontalTableView == studentView.horTableProfessor){
             
+            var professorCell : StudentCell = StudentCell(view: view);
             var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
 
             professorCell.btnCell.tag = cellForRowAtIndexPath.row;
@@ -57,41 +63,38 @@ class StudentVC: UIViewController, TableViewDelegate{
             
             
             if let image = professor.imagem {
-                
-                professorCell.label.font = UIFont(name: "AvenirNext-Bold", size: 40)
                 professorCell.btnCell.setImage(professor.imagem, forState: UIControlState.Normal);
-                
+
             }else{
-                
-                var nomeArray = professor.nome.componentsSeparatedByString(" ");
-                var nome : String = "";
-                
-                if (nomeArray.count > 0){
-                    var primeiroNome = nomeArray[0];
-                    var primeiraLetra = primeiroNome.substringToIndex(advance(primeiroNome.startIndex, 1));
-                    
-                    var nome = primeiraLetra;
-                    
-                    if (nomeArray.count > 1){
-                        var ultimoNome = nomeArray[nomeArray.count - 1];
-                        var ultimaLetra = ultimoNome.substringToIndex(advance(ultimoNome.startIndex, 1));
-                        
-                        nome = nome + ultimaLetra;
-                    }
-                    
-                    professorCell.label.text = nome;
-                }
+                professorCell.label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
+                professorCell.label.text = String.getAbrevName(professor.nome);
             }
             
             return professorCell;
             
         }else{
             
-            //carregar materias
+            var subjectCell : StudentCell = StudentCell(view: view);
+            var subject : SubjectModel = materias[cellForRowAtIndexPath.row] as SubjectModel;
             
+            subjectCell.label.text = String(format: "%@\n(%@)",
+                                            (subject.nome),
+                                            (subject.id));
+            
+            subjectCell.btnCell.tag = cellForRowAtIndexPath.row;
+            subjectCell.btnCell.addTarget(self,
+                                          action: "subjectsTouched:",
+                                          forControlEvents: UIControlEvents.TouchUpInside);
+            
+
+            return subjectCell;
         }
-        
-        return professorCell;
+
+    }
+
+    func subjectsTouched(sender:UIButton){
+        selectedIndex = sender.tag;
+        performSegueWithIdentifier("infoSubject", sender: nil);
     }
     
     func teacherTouched(sender:UIButton){
@@ -100,8 +103,15 @@ class StudentVC: UIViewController, TableViewDelegate{
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
-        destinationVC?.professor = professores[selectedIndex];
+        
+        if (segue.identifier == "infoSubject"){
+            let destinationVC = segue.destinationViewController as? SubjectInfoVC;
+            destinationVC?.subject = materias[selectedIndex];
+        }else{
+            let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
+            destinationVC?.professor = professores[selectedIndex];
+        }
+
     }
     
     func tableView(horizontalTableView: HorizontalTableView, widthForCellAtIndexPath: NSIndexPath) -> CGFloat {

@@ -8,16 +8,12 @@
 
 import Foundation
 
-class ProfessorDAO : ProtocolDAO {
+class ProfessorDAO : StudDAO, ProtocolDAO {
     
     //load plist into a Dictionary
     func loadPList() -> NSMutableDictionary {
-        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        
-        var plistPath : String = documentPath.stringByAppendingPathComponent("userData.plist");
-        let contents : NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
+
         var professors : NSMutableDictionary = contents["professores"] as NSMutableDictionary;
-        
         return professors;
     }
     
@@ -30,7 +26,7 @@ class ProfessorDAO : ProtocolDAO {
         for (id, _) in res.dict{
             
             var professor : ProfessorModel = ProfessorModel();
-            professor = getDataById(id, dict: res.dict, path: res.path) as ProfessorModel;
+            professor = getDataById(id) as ProfessorModel;
             
             professors.append(professor);
         }
@@ -39,12 +35,13 @@ class ProfessorDAO : ProtocolDAO {
     }
     
     //get populated instance of ProfessorModel by Id
-    func getDataById( id : AnyObject, dict : NSDictionary, path : String ) -> AnyObject{
-        
-        var prof : NSDictionary = dict[id as String] as NSDictionary;
+    func getDataById(id : AnyObject) -> AnyObject{
         
         var professor : ProfessorModel = ProfessorModel();
-        var profImg : String = path.stringByAppendingPathComponent(prof["imagem"] as String);
+        
+        var res = setUpProfessor();
+        var prof : NSDictionary = res.dict[id as String] as NSDictionary;
+        var profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as String);
         
         professor.id = (id as NSString).integerValue;
         professor.nome = prof["nome"] as String;
@@ -54,7 +51,6 @@ class ProfessorDAO : ProtocolDAO {
         //professor.materia = prof["materia"] as Int;
         
         return professor;
-        
     }
     
     //get path with professors images

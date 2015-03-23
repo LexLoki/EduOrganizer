@@ -20,10 +20,11 @@ class StudentCell : UITableViewCell{
     init(view: UIView) {
         super.init(frame: view.frame);
         
-        var size : CGSize = CGSizeMake(0.3 * frame.size.width,
-                                       0.3 * frame.size.width);
+        var size : CGSize = CGSizeMake(0.31 * frame.size.width,
+                                       0.31 * frame.size.width);
         
         label = UILabel(frame: CGRectMake(20, 10, size.width, size.height));
+        label.font = UIFont(name: "Avenir Next", size: 10)
         label.numberOfLines = 2;
         label.textColor = UIColor.UIColorFromRGB(0xffc561);
         label.textAlignment = NSTextAlignment.Center;
@@ -34,7 +35,7 @@ class StudentCell : UITableViewCell{
         btnCell.layer.masksToBounds = true;
         btnCell.contentMode = UIViewContentMode.ScaleAspectFit;
         btnCell.layer.borderWidth = 0;
-        btnCell.imageView?.image = UIImage(named: "BolaMateria");
+        btnCell.setImage(UIImage(named: "BolaMateria"), forState: UIControlState.Normal);
         
         selectionStyle = UITableViewCellSelectionStyle.None;
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);

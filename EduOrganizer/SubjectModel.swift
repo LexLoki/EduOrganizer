@@ -8,11 +8,14 @@
 
 import Foundation
 
-class SubjectsModel{
+class SubjectModel{
     
     var id : String!;
     var notes : Array<AnyObject>!;
-    var professores : Array<ProfessorModel>!;
+    var professor : ProfessorModel!;
     var nome : String!;
     var tarefas : Array<AnyObject>!;
+    
+    init(){
+    }
 }

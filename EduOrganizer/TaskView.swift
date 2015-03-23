@@ -21,8 +21,7 @@ class TaskView : UIView {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
         parent.title = "Tasks";
         
-        tableView = UITableView(frame: CGRectMake(0, 0, frame.width, frame.height - 100));
-        tableView.setContentOffset(CGPointMake(0, CGFloat.max), animated: true);
+        tableView = UITableView(frame: CGRectMake(0, 0, frame.width, frame.height - 110));
         tableView.separatorInset = UIEdgeInsetsZero;
         tableView.separatorColor = UIColor.whiteColor();
         tableView.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);

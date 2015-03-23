@@ -32,7 +32,7 @@ class TaskCell : UITableViewCell{
         labelCountDown.textAlignment = NSTextAlignment.Left;
  
         labelTask.textColor = UIColor.whiteColor();
-        labelTask.font = UIFont(name: "AvenirNext-Bold", size: 30)
+        labelTask.font = UIFont(name: "AvenirNext-DemiBold", size: 30)
         labelTask.textAlignment = NSTextAlignment.Left;
         
         labelDate.textColor = UIColor.whiteColor();

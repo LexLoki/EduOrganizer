@@ -24,5 +24,4 @@ class ProfessorModel{
         telefone = "não informado";
 
     }
-    
 }

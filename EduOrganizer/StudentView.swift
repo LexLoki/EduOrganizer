@@ -17,7 +17,7 @@ class StudentView : UIView {
         super.init(frame: frame);
         
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        parent.title = "Students";
+        parent.title = "Student";
         
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!,NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
@@ -38,7 +38,7 @@ class StudentView : UIView {
         horTableProfessor = HorizontalTableView(frame: CGRectMake(0,
                                                                   sectionTeacher.frame.origin.y + sectionTeacher.frame.height ,
                                                                   frame.width,
-                                                                  frame.height/5),
+                                                                  frame.height/4.5),
                                                 delegate : parent as StudentVC,
                                                 color: UIColor.UIColorFromRGB(0x1e3044));
         
@@ -58,13 +58,21 @@ class StudentView : UIView {
         labelSubjects.textAlignment = NSTextAlignment.Left;
         labelSubjects.textColor = UIColor.whiteColor();
         labelSubjects.text = "Subjects";
-
-
+        
+        horTableSubjects = HorizontalTableView(frame: CGRectMake(0,
+                                                                 sectionSubjects.frame.origin.y +
+                                                                    sectionSubjects.frame.height ,
+                                                                 frame.width,
+                                                                 frame.height/4.5),
+                                                                 delegate : parent as StudentVC,
+                                                                 color: UIColor.UIColorFromRGB(0x1e3044));
+        
         addSubview(sectionTeacher);
         addSubview(labelTeacher);
         addSubview(horTableProfessor);
         addSubview(sectionSubjects);
         addSubview(labelSubjects);
+        addSubview(horTableSubjects);
         
     }
 

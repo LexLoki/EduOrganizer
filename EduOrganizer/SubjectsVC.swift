@@ -12,7 +12,7 @@ import UIKit
 class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     var collectionView: UICollectionView?
-    var materias:NSMutableArray = NSMutableArray();
+    var materias: Array<SubjectModel> = Array<SubjectModel>();
     var size:CGSize = CGSize();
     var selectedIndex:Int = Int();
     
@@ -26,8 +26,9 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         
         view = subjectsView;
         
-        loadMaterias();
-
+        var subjectsDAO = SubjectDAO();
+        materias = subjectsDAO.getDataArray() as Array<SubjectModel>;
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,12 +48,9 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         var subjectsCell : CollectionCellGeneric = collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
                                                                   forIndexPath: indexPath) as CollectionCellGeneric;
         subjectsCell.setUpCell(view);
-        
-        var materiaStr : String = String(format: "%@\n(%@)",
-                                 (materias[indexPath.row]["nome"] as String),
-                                 (materias[indexPath.row]["sigla"] as String));
-        
-        subjectsCell.label.text = materiaStr;
+        subjectsCell.label.text = String(format: "%@\n(%@)",
+                                        (materias[indexPath.row].nome),
+                                        (materias[indexPath.row].id));
         
         return subjectsCell;
     }
@@ -64,26 +62,9 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as? SubjectInfoVC;
-        destinationVC?.subject = materias[selectedIndex] as NSMutableDictionary;
+//        destinationVC?.subject = materias[selectedIndex] as NSMutableDictionary;
     }
     
-    
-    //IR PARA MATERIAS DAO
-    func loadMaterias(){
-        var documentPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        var plistPath:String = documentPath.stringByAppendingPathComponent("userData.plist");
-        let contents:NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
-        var allMaterias:NSMutableDictionary = contents["materias"] as NSMutableDictionary;
-        //println(plistPath);
-        //var imgPath:String = documentPath.stringByAppendingPathComponent("imgProf");
-        for (id,var mat) in allMaterias{
-            //prof = (prof as NSMutableDictionary)
-            var mutMat:NSMutableDictionary = mat.mutableCopy() as NSMutableDictionary;
-            mutMat.setObject(id, forKey: "sigla");
-            self.materias.addObject(mutMat);
-        }
-    }
-
     func btnTouched(sender:UIButton){
         println(sender.tag);
     }

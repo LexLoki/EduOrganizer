@@ -97,7 +97,6 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
         performSegueWithIdentifier("newNote", sender: nil);
-        
     }
 
 }

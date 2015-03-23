@@ -18,10 +18,7 @@ class InfoGenericView : UIView{
         super.init(frame: frame);
         
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
-
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
-        
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
         
         var size : CGSize = CGSizeMake(0.4 * frame.size.width,
                                        0.4 * frame.size.width);
@@ -42,15 +39,14 @@ class InfoGenericView : UIView{
         label.numberOfLines = 2;
         label.textColor = UIColor.UIColorFromRGB(0xffc561);
         label.font = UIFont(name: "Avenir Next", size: 15)
-        label.textAlignment=NSTextAlignment.Center;
-        
+        label.textAlignment = NSTextAlignment.Center;
         imageView.addSubview(label);
         
         let larg : CGFloat = 0.1 * frame.size.height + size.height;
         tableView = UITableView(frame: CGRectMake(0,
                                                   larg,
                                                   frame.width,
-                                                  frame.height-larg));
+                                                  frame.height-(larg+110)));
 
         tableView.separatorInset = UIEdgeInsetsZero;
         tableView.separatorColor = UIColor.UIColorFromRGB(0x1a242e);

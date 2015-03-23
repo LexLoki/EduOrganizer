@@ -60,6 +60,7 @@
                         <segue destination="W4w-5t-wot" kind="custom" identifier="subjects" id="EW7-Y1-Qpk"/>
                         <segue destination="GsA-Yf-86d" kind="custom" identifier="professors" id="aXI-vO-7SH"/>
                         <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="RDW-rH-KIw"/>
+                        <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="S3M-SS-7VW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGa-5G-oGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahR-Ch-jYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2759" y="-1610"/>
+            <point key="canvasLocation" x="2759" y="-1686"/>
         </scene>
         <!--SubjectsVC-->
         <scene sceneID="afx-Vg-kPY">
@@ -142,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqh-XZ-Q6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2751" y="-960"/>
+            <point key="canvasLocation" x="2799" y="-1000"/>
         </scene>
         <!--FirstVC-->
         <scene sceneID="uko-Cf-Mxh">
@@ -284,5 +285,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RDW-rH-KIw"/>
+        <segue reference="S3M-SS-7VW"/>
     </inferredMetricsTieBreakers>
 </document>

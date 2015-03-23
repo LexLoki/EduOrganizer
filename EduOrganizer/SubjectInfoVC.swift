@@ -11,31 +11,18 @@ import UIKit
 
 class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var subject:NSMutableDictionary = NSMutableDictionary();
-    var size:CGSize = CGSize();
-    var dict:NSMutableDictionary = NSMutableDictionary();
+    var subject: SubjectModel = SubjectModel();
     
     override func viewDidLoad() {
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColor.UIColorFromRGB(0xFFFFFF)];
-        self.navigationController?.navigationBar.titleTextAttributes = attributes;
         
-        self.title = "Subject";
+        var subjectInfoView : InfoGenericView = InfoGenericView(frame: view.frame, parent: self);
+        subjectInfoView.tableView.delegate = self;
+        subjectInfoView.tableView.dataSource = self;
         
-        super.viewDidLoad()
-        dict = NSMutableDictionary(objects:["nome","sigla","professor"], forKeys:["1","2","3"]);
-        size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
-        setup();
-        let larg:CGFloat = 0.1*self.view.frame.size.height+size.height;
-        var tableView : UITableView = UITableView(frame: CGRectMake(0, larg, view.frame.width, view.frame.height - 100));
+        subjectInfoView.label.text = subject.nome;
         
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.separatorInset = UIEdgeInsetsZero;
-        tableView.separatorColor = UIColor.UIColorFromRGB(0x1a242e);
-        tableView.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-
-        view.addSubview(tableView);
+        view = subjectInfoView;
+        title = subject.id;
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -48,7 +35,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return 4;
         }
         
-        return 1;
+        return 3;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -56,98 +43,45 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var offSet:CGFloat = 0.1*view.frame.size.width;
-        var caixa : CGRect = CGRectMake(offSet,0,view.frame.size.width-offSet,view.frame.size.height/8.0);
-        var cell : UITableViewCell = UITableViewCell();
-        var label: UILabel = prepareLabel(indexPath, frame:caixa);
+        
+        var subjectInfoCell : InfoCellGeneric = InfoCellGeneric(view: view);
         
         if(indexPath.row == 0){
-            cell.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-        }
-        else{
-            cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        }
-        
-        cell.layoutMargins = UIEdgeInsetsZero;
-        cell.preservesSuperviewLayoutMargins = false;
-        cell.selectionStyle = UITableViewCellSelectionStyle.None;
-        
-        cell.addSubview(label);
-        
-        return cell;
-    }
-    
-    func prepareLabel(indexPath:NSIndexPath, frame:CGRect)->UILabel{
-        
-        println("\(indexPath.row) and \(indexPath.section)")
-        
-        var label:UILabel = UILabel(frame: frame);
-        label.textColor = UIColor.whiteColor();
-        label.textAlignment = NSTextAlignment.Left;
-        
-        if(indexPath.row == 0){
-            label.font = UIFont(name: "AvenirNext-Bold", size: 20);
+            
+            subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
+            subjectInfoCell.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
             
             if(indexPath.section == 0){
-                label.text = "Info";
+                subjectInfoCell.label.text = "About";
             }else{
-                label.text = "Tasks";
+                subjectInfoCell.label.text = "Tasks";
             }
             
-        }
+        }else{
+            subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+            subjectInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
             
-        else{
-            
-            label.font = UIFont(name: "Avenir Next", size: 15);
-           
-            if(indexPath.section == 0){
+            if(indexPath.section == 0){  // secao 0 row>0
                 
-                let index: String = String(format: "%d", indexPath.row);
-                println(dict[index]);
-                let area: String = dict[index] as String;
-                var texto: String;
-                
-                if(area == "professor"){
-                    texto = (subject[area] as NSDictionary)["nome"] as String;
-                }else{
-                    texto = subject[area] as String;
+                switch (indexPath.row){
+                    case 1: subjectInfoCell.label.text = subject.id;
+                    case 2: subjectInfoCell.label.text = subject.nome;
+                    case 3:
+                        
+                        if (subject.professor != nil){
+                            subjectInfoCell.label.text = subject.professor.nome;
+                        }
+                    
+                    default : subjectInfoCell.label.text = "error";
                 }
                 
-                if(texto.isEmpty){
-                    label.text = String(format: "%@ não informado");
-                }else{
-                    label.text = texto;
-                }
+            }else{  //secao 1 row>0
                 
-            }else{
-                
-                label.text = "*a fazer*";
-                
+                subjectInfoCell.label.text = "tasks";//professor.materias[indexPath.row-1];
             }
         }
-        println("did it");
-        return label;
-    }
-    
-    func setup(){
-        var imageView:UIImageView = UIImageView(frame: CGRectMake(view.frame.size.width*0.5-size.width*0.5,
-                                                                  20,size.width,size.height));
-        imageView.image = UIImage(named: "BolaMateria");
-        imageView.contentMode = UIViewContentMode.ScaleToFill;
-        imageView.clipsToBounds = true;
+        
+        return subjectInfoCell;
 
-        var label:UILabel = UILabel(frame: CGRectMake(0, 0, size.width, size.height));
-        label.numberOfLines=2;
-        
-        var texto:String = String(format: "%@\n(%@)", (subject["nome"] as String), (subject["sigla"] as String));
-        
-        label.text=texto;
-        label.textColor = UIColor(red: 255.0/255, green: 197.0/255, blue: 97.0/255, alpha: 1);
-        label.font = UIFont(name: "Avenir Next", size: 15)
-        label.textAlignment=NSTextAlignment.Center;
-        
-        imageView.addSubview(label);
-        view.addSubview(imageView);
     }
-    
 }

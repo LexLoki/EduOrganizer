@@ -22,11 +22,14 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         if let image = professor.imagem {
             professorInfoView.imageView.image = professor.imagem;
+        }else{
+            professorInfoView.label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
+            professorInfoView.label.text = String.getAbrevName(professor.nome);
         }
-        
+    
         view = professorInfoView;
         title = professor.nome;
-
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
