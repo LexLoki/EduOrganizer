@@ -22,24 +22,24 @@ class ProfessorDAO : ProtocolDAO {
     }
     
     //returns an array with all professors (ProfessorModel)
-    func getDataArray() -> NSMutableArray {
+    func getDataArray() -> Array<AnyObject>{
         
         var res = setUpProfessor();
-        var professors : NSMutableArray = NSMutableArray();
+        var professors : Array = Array<ProfessorModel>();
         
         for (id, _) in res.dict{
             
             var professor : ProfessorModel = ProfessorModel();
-            professor = getDataById(id, dict: res.dict, path: res.path);
+            professor = getDataById(id, dict: res.dict, path: res.path) as ProfessorModel;
             
-            professors.addObject(professor);
+            professors.append(professor);
         }
         
         return professors;
     }
     
     //get populated instance of ProfessorModel by Id
-    func getDataById( id : AnyObject, dict : NSDictionary, path : String ) -> ProfessorModel{
+    func getDataById( id : AnyObject, dict : NSDictionary, path : String ) -> AnyObject{
         
         var prof : NSDictionary = dict[id as String] as NSDictionary;
         

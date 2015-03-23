@@ -11,7 +11,7 @@ import UIKit
 
 class StudentVC: UIViewController, TableViewDelegate{
 
-    var professores : NSMutableArray = NSMutableArray();
+    var professores : Array<ProfessorModel> = Array<ProfessorModel>();
    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
@@ -20,7 +20,7 @@ class StudentVC: UIViewController, TableViewDelegate{
     override func viewDidLoad() {
         
         var professorDAO = ProfessorDAO();
-        professores = professorDAO.getDataArray();
+        professores = professorDAO.getDataArray() as Array<ProfessorModel>;
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         

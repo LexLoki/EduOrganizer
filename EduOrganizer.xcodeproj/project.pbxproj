@@ -10,6 +10,7 @@
 		3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9D691ABCA2A7004E25EE /* userData.plist */; };
 		3B0B9D701ABCAEF3004E25EE /* ProtocolDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */; };
 		3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E01ABCC3980085FECB /* Extensions.swift */; };
+		3B2CD4E31ABCCA750085FECB /* SubjectsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E21ABCCA750085FECB /* SubjectsModel.swift */; };
 		3B301A651AB73C1900665E2E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A531AB73C1900665E2E /* Coordinate.m */; };
 		3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A591AB73C1900665E2E /* FancyTabBar.m */; };
 		3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A5E1AB73C1900665E2E /* UIImage+ImageEffects.m */; };
@@ -18,6 +19,10 @@
 		3B60529C1ABC828000076DB9 /* ProfessorDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60529B1ABC828000076DB9 /* ProfessorDAO.swift */; };
 		3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60529D1ABC839900076DB9 /* ProfessorModel.swift */; };
 		3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B720B821AB771E200C463E8 /* HorizontalTableView.swift */; };
+		3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092A1AC04F9C00E2326C /* TaskView.swift */; };
+		3BAF092D1AC0540400E2326C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092C1AC0540400E2326C /* TaskCell.swift */; };
+		3BAF092F1AC058F500E2326C /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092E1AC058F500E2326C /* SubjectsView.swift */; };
+		3BAF09331AC05C4E00E2326C /* SubjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
 		FD80C5E31AB9E64F00356413 /* ProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DF1AB9E64F00356413 /* ProfessorVC.swift */; };
@@ -45,6 +50,7 @@
 		3B0B9D691ABCA2A7004E25EE /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData.plist; sourceTree = "<group>"; };
 		3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolDAO.swift; sourceTree = "<group>"; };
 		3B2CD4E01ABCC3980085FECB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3B2CD4E21ABCCA750085FECB /* SubjectsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsModel.swift; sourceTree = "<group>"; };
 		3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EduOrganizer-Bridging-Header.h"; sourceTree = "<group>"; };
 		3B301A521AB73C1900665E2E /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
 		3B301A531AB73C1900665E2E /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
@@ -58,6 +64,10 @@
 		3B60529B1ABC828000076DB9 /* ProfessorDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorDAO.swift; sourceTree = "<group>"; };
 		3B60529D1ABC839900076DB9 /* ProfessorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorModel.swift; sourceTree = "<group>"; };
 		3B720B821AB771E200C463E8 /* HorizontalTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableView.swift; sourceTree = "<group>"; };
+		3BAF092A1AC04F9C00E2326C /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		3BAF092C1AC0540400E2326C /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		3BAF092E1AC058F500E2326C /* SubjectsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsView.swift; sourceTree = "<group>"; };
+		3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsCell.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
@@ -94,27 +104,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B0B9D6B1ABCA9AD004E25EE /* model */ = {
+		3B0B9D6B1ABCA9AD004E25EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3B0B9D711ABCB4FC004E25EE /* DAO */,
 				3B60529D1ABC839900076DB9 /* ProfessorModel.swift */,
+				3B2CD4E21ABCCA750085FECB /* SubjectsModel.swift */,
 			);
-			name = model;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		3B0B9D6C1ABCA9B8004E25EE /* view */ = {
+		3B0B9D6C1ABCA9B8004E25EE /* View */ = {
 			isa = PBXGroup;
 			children = (
 				3BD7E9431AB75B1D00238ECE /* Images.xcassets */,
 				FDB1C4CA1AB0C4A100831BED /* Main.storyboard */,
 				FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */,
 				3B2CD4E01ABCC3980085FECB /* Extensions.swift */,
+				3BAF092A1AC04F9C00E2326C /* TaskView.swift */,
+				3BAF092C1AC0540400E2326C /* TaskCell.swift */,
+				3BAF092E1AC058F500E2326C /* SubjectsView.swift */,
+				3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */,
 			);
-			name = view;
+			name = View;
 			sourceTree = "<group>";
 		};
-		3B0B9D6D1ABCA9C4004E25EE /* controller */ = {
+		3B0B9D6D1ABCA9C4004E25EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */,
@@ -126,7 +141,7 @@
 				3B453BDE1AB8CDCC006F9C05 /* TaskVC.swift */,
 				FD80C5DF1AB9E64F00356413 /* ProfessorVC.swift */,
 			);
-			name = controller;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		3B0B9D6E1ABCAA52004E25EE /* libs */ = {
@@ -193,9 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				3B0B9D6E1ABCAA52004E25EE /* libs */,
-				3B0B9D6D1ABCA9C4004E25EE /* controller */,
-				3B0B9D6C1ABCA9B8004E25EE /* view */,
-				3B0B9D6B1ABCA9AD004E25EE /* model */,
+				3B0B9D6D1ABCA9C4004E25EE /* Controller */,
+				3B0B9D6C1ABCA9B8004E25EE /* View */,
+				3B0B9D6B1ABCA9AD004E25EE /* Model */,
 				FDB1C4C41AB0C4A100831BED /* Supporting Files */,
 			);
 			path = EduOrganizer;
@@ -334,9 +349,13 @@
 				FDA8A79C1AB3704E00DF8ADB /* StudentVC.swift in Sources */,
 				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
 				3B0B9D701ABCAEF3004E25EE /* ProtocolDAO.swift in Sources */,
+				3BAF092D1AC0540400E2326C /* TaskCell.swift in Sources */,
 				FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */,
 				3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */,
+				3B2CD4E31ABCCA750085FECB /* SubjectsModel.swift in Sources */,
+				3BAF09331AC05C4E00E2326C /* SubjectsCell.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
+				3BAF092F1AC058F500E2326C /* SubjectsView.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
 				3B60529C1ABC828000076DB9 /* ProfessorDAO.swift in Sources */,
 				FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */,
@@ -347,6 +366,7 @@
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 				FD80C5E31AB9E64F00356413 /* ProfessorVC.swift in Sources */,
+				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

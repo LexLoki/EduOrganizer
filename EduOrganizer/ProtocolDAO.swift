@@ -12,11 +12,10 @@ import Foundation
 protocol ProtocolDAO{
     
     func loadPList() -> NSMutableDictionary;
-    func getDataArray() -> NSMutableArray;
-    func getDataById(id : AnyObject, dict : NSDictionary, path : String ) -> ProfessorModel;
+    func getDataArray() -> Array<AnyObject>;
+    func getDataById(id : AnyObject, dict : NSDictionary, path : String ) -> AnyObject;
     
 }
 
 class ProtocolPListDAO  {
-
 }

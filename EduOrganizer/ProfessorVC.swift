@@ -12,19 +12,18 @@ import UIKit
 class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var collectionView: UICollectionView?
-    var professores:NSMutableArray = NSMutableArray();
+    var professores: Array<ProfessorModel> = Array<ProfessorModel>();
     var size:CGSize = CGSize();
     
     override func viewDidLoad() {
         
-            
         //var back:UIImageView=UIImageView(frame: self.view.frame);
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
         super.viewDidLoad()
         var tela:CGRect = CGRectMake(self.view.frame.size.width*0.06, self.view.frame.size.height*0.05, self.view.frame.size.width*0.9, self.view.frame.size.height*0.9);
 
         var professorDAO = ProfessorDAO();
-        professores = professorDAO.getDataArray();
+        professores = professorDAO.getDataArray() as Array<ProfessorModel>;
         
         // Do any additional setup after loading the view, typically from a nib.
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -60,27 +59,28 @@ class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     }
     
     func prepareCell(cell:UICollectionViewCell,indexPath:NSIndexPath)->UICollectionViewCell{
-        //var imageView:UIImageView = UIImageView(frame: CGRectMake(0,0,size.width,size.height));
+        
         var imageView:UIImageView = UIImageView(frame: CGRectMake(0,0,size.width,size.height));
-        if(!(professores[indexPath.row]["imagem"] as String).isEmpty){
-            imageView.image = (professores[indexPath.row]["imagemUI"] as UIImage);
+        
+        if let image = professores[indexPath.row].imagem {
+            
+            imageView.image = professores[indexPath.row].imagem;
             imageView.layer.cornerRadius = imageView.frame.size.height/2;
             imageView.layer.masksToBounds = true;
             imageView.layer.borderWidth = 0;
-        }
-        else{
+        
+        }else{
             imageView.image = UIImage(named: "BolaMateria");
         }
+        
         imageView.contentMode = UIViewContentMode.ScaleToFill;
         imageView.clipsToBounds = true;
         cell.contentView.addSubview(imageView);
         var label:UILabel = UILabel(frame: CGRectMake(0, 0, size.width, size.height));
         label.numberOfLines=2;
-        var texto:String = String(format: "%@", (professores[indexPath.row]["nome"] as String));
-        //var texto:String = (materias[indexPath.row]["nome"] as String) + (materias[indexPath.row]["sigla"] as String);
+        var texto:String = String(format: "%@", (professores[indexPath.row].nome as String));
+
         label.text=texto;
-        //label.text=(materias[indexPath.row]["nome"] as String);
-        //label.textColor = UIColor.orangeColor();
         label.textColor = UIColor(red: 255.0/255, green: 197.0/255, blue: 97.0/255, alpha: 1);
         label.font = UIFont(name: "Avenir Next", size: 15)
         label.textAlignment=NSTextAlignment.Center;
