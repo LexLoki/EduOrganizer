@@ -8,9 +8,10 @@
 
 import Foundation
 
-class SubjectsCell : UICollectionViewCell{
+class GenericCollectionCell : UICollectionViewCell{
     
     var label: UILabel!;
+    var imageView: UIImageView!;
     
     override init(frame: CGRect) {
         super.init(frame: frame);
@@ -20,10 +21,13 @@ class SubjectsCell : UICollectionViewCell{
         
         var size : CGSize = CGSizeMake(0.4 * view.frame.size.width, 0.4 * view.frame.size.width);
         
-        var imageView : UIImageView = UIImageView(frame: CGRectMake(0,0, size.width,size.height));
+        imageView = UIImageView(frame: CGRectMake(0,0, size.width,size.height));
         imageView.image = UIImage(named: "BolaMateria");
         imageView.contentMode = UIViewContentMode.ScaleToFill;
         imageView.clipsToBounds = true;
+        imageView.layer.cornerRadius = imageView.frame.size.height/2;
+        imageView.layer.masksToBounds = true;
+        imageView.layer.borderWidth = 0;
         
         label = UILabel(frame: CGRectMake(0, 0, size.width, size.height));
         label.numberOfLines = 2;
@@ -33,12 +37,6 @@ class SubjectsCell : UICollectionViewCell{
         
         imageView.addSubview(label);
         addSubview(imageView);
-        
-//        btnEdit = UIButton.buttonWithType(UIButtonType.System) as UIButton;
-//        btnEdit.frame = CGRectMake(0, 0, size.width, size.height);
-//        btnEdit.tag = indexPath.row;
-//        btnEdit.addTarget(self, action: "btnTouched:", forControlEvents: UIControlEvents.TouchUpInside);
-
         
     }
     

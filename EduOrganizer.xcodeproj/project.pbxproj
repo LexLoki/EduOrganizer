@@ -21,8 +21,8 @@
 		3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B720B821AB771E200C463E8 /* HorizontalTableView.swift */; };
 		3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092A1AC04F9C00E2326C /* TaskView.swift */; };
 		3BAF092D1AC0540400E2326C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092C1AC0540400E2326C /* TaskCell.swift */; };
-		3BAF092F1AC058F500E2326C /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092E1AC058F500E2326C /* SubjectsView.swift */; };
-		3BAF09331AC05C4E00E2326C /* SubjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */; };
+		3BAF092F1AC058F500E2326C /* GenericCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092E1AC058F500E2326C /* GenericCollection.swift */; };
+		3BAF09331AC05C4E00E2326C /* GenericCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09321AC05C4E00E2326C /* GenericCollectionCell.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
@@ -67,8 +67,8 @@
 		3B720B821AB771E200C463E8 /* HorizontalTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableView.swift; sourceTree = "<group>"; };
 		3BAF092A1AC04F9C00E2326C /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		3BAF092C1AC0540400E2326C /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		3BAF092E1AC058F500E2326C /* SubjectsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsView.swift; sourceTree = "<group>"; };
-		3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsCell.swift; sourceTree = "<group>"; };
+		3BAF092E1AC058F500E2326C /* GenericCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollection.swift; sourceTree = "<group>"; };
+		3BAF09321AC05C4E00E2326C /* GenericCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericCollectionCell.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
@@ -125,8 +125,8 @@
 				3B2CD4E01ABCC3980085FECB /* Extensions.swift */,
 				3BAF092A1AC04F9C00E2326C /* TaskView.swift */,
 				3BAF092C1AC0540400E2326C /* TaskCell.swift */,
-				3BAF092E1AC058F500E2326C /* SubjectsView.swift */,
-				3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */,
+				3BAF092E1AC058F500E2326C /* GenericCollection.swift */,
+				3BAF09321AC05C4E00E2326C /* GenericCollectionCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -356,9 +356,9 @@
 				FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */,
 				3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */,
 				3B2CD4E31ABCCA750085FECB /* SubjectsModel.swift in Sources */,
-				3BAF09331AC05C4E00E2326C /* SubjectsCell.swift in Sources */,
+				3BAF09331AC05C4E00E2326C /* GenericCollectionCell.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
-				3BAF092F1AC058F500E2326C /* SubjectsView.swift in Sources */,
+				3BAF092F1AC058F500E2326C /* GenericCollection.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
 				3B60529C1ABC828000076DB9 /* ProfessorDAO.swift in Sources */,
 				FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */,
@@ -369,7 +369,6 @@
 				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
-				FD80C5E31AB9E64F00356413 /* ProfessorVC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,
 				FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */,
 			);

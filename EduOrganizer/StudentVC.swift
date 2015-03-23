@@ -87,7 +87,7 @@ class StudentVC: UIViewController, TableViewDelegate{
     }
     
     func teacherTouched(sender:UIButton){
-        performSegueWithIdentifier("subjects", sender: nil);2
+        performSegueWithIdentifier("professors", sender: nil);2
     }
     
     func tableView(horizontalTableView: HorizontalTableView, widthForCellAtIndexPath: NSIndexPath) -> CGFloat {

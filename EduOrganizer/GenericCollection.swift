@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SubjectsView : UIView{
+class GenericCollection : UIView{
     
     var collectionView: UICollectionView!;
     var size: CGSize = CGSize();
@@ -19,7 +19,6 @@ class SubjectsView : UIView{
         
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
-        parent.title = "Subjects";
         
         size = CGSizeMake(0.4 * frame.size.width, 0.4 * frame.size.width);
 
@@ -36,7 +35,7 @@ class SubjectsView : UIView{
 
         layout.itemSize = size;
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout);
-        collectionView.registerClass(SubjectsCell.self, forCellWithReuseIdentifier: "cellIdentifier");
+        collectionView.registerClass(GenericCollectionCell.self, forCellWithReuseIdentifier: "cellIdentifier");
         collectionView!.backgroundColor = UIColor(red: 30.0/255, green: 48.0/255, blue: 68.0/255, alpha: 1.0);
         addSubview(collectionView!)
     }
