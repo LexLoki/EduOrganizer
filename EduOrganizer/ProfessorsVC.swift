@@ -9,19 +9,23 @@
 import Foundation
 import UIKit
 
-class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     var collectionView: UICollectionView?
     var professores: Array<ProfessorModel> = Array<ProfessorModel>();
     var size:CGSize = CGSize();
+    var selectedIndex:Int = Int();
     
     override func viewDidLoad() {
+<<<<<<< HEAD:EduOrganizer/ProfessorVC.swift
         
+=======
+>>>>>>> origin/master:EduOrganizer/ProfessorsVC.swift
         //var back:UIImageView=UIImageView(frame: self.view.frame);
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
         super.viewDidLoad()
         var tela:CGRect = CGRectMake(self.view.frame.size.width*0.06, self.view.frame.size.height*0.05, self.view.frame.size.width*0.9, self.view.frame.size.height*0.9);
-
+        
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
         
@@ -58,9 +62,21 @@ class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println("gotcha");
+        selectedIndex = indexPath.row;
+        performSegueWithIdentifier("pInfo", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationVC = segue.destinationViewController as? ProfessorInfo;
+        destinationVC?.professor = professores[selectedIndex] as NSMutableDictionary;
+    }
+    
     func prepareCell(cell:UICollectionViewCell,indexPath:NSIndexPath)->UICollectionViewCell{
         
         var imageView:UIImageView = UIImageView(frame: CGRectMake(0,0,size.width,size.height));
+<<<<<<< HEAD:EduOrganizer/ProfessorVC.swift
         
         if let image = professores[indexPath.row].imagem {
             
@@ -70,6 +86,17 @@ class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UIColl
             imageView.layer.borderWidth = 0;
         
         }else{
+=======
+        if(!(professores[indexPath.row]["imagem"] as String).isEmpty){
+            var img:UIImage = professores[indexPath.row]["imagemUI"] as UIImage;
+            imageView.image = (professores[indexPath.row]["imagemUI"] as UIImage);
+            imageView.layer.cornerRadius = imageView.frame.size.height/2;
+            imageView.layer.masksToBounds = true;
+            imageView.layer.borderWidth = 0;
+            
+        }
+        else{
+>>>>>>> origin/master:EduOrganizer/ProfessorsVC.swift
             imageView.image = UIImage(named: "BolaMateria");
         }
         
@@ -89,11 +116,35 @@ class ProfessorVC : UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         btnEdit.frame = CGRectMake(0, 0, size.width, size.height);
         btnEdit.tag = indexPath.row;
         btnEdit.addTarget(self, action: "btnTouched:", forControlEvents: UIControlEvents.TouchUpInside);
-        cell.contentView.addSubview(btnEdit);
+        //cell.contentView.addSubview(btnEdit);
         return cell;
     }
     
     func btnTouched(sender:UIButton){
         println(sender.tag);
     }
+    
+    
+    
+    //NOT BEING USED ANYMORE
+//    func loadProfessores(){
+//        var documentPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+//        var plistPath:String = documentPath.stringByAppendingPathComponent("userData.plist");
+//        let contents:NSDictionary = NSDictionary(contentsOfFile: plistPath)!;
+//        var allProf:NSMutableDictionary = contents["professores"] as NSMutableDictionary;
+//        println(plistPath);
+//        var imgPath:String = documentPath.stringByAppendingPathComponent("imgProf");
+//        for (id,var prof) in allProf{
+//            //prof = (prof as NSMutableDictionary)
+//            var mutProf:NSMutableDictionary = prof.mutableCopy() as NSMutableDictionary;
+//            mutProf.setObject(id, forKey: "id");
+//            var profImg:String = imgPath.stringByAppendingPathComponent(prof["imagem"] as String);
+//            if(!profImg.isEmpty){
+//                mutProf.setObject(UIImage(contentsOfFile:profImg)!, forKey: "imagemUI");
+//            }
+//            println(profImg);
+//            //var img:UIImage=UIImage(contentsOfFile: profImg)!;
+//            self.professores.addObject(mutProf);
+//        }
+//    }
 }

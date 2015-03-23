@@ -24,8 +24,9 @@
 		3BAF092F1AC058F500E2326C /* SubjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092E1AC058F500E2326C /* SubjectsView.swift */; };
 		3BAF09331AC05C4E00E2326C /* SubjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
+		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
+		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
-		FD80C5E31AB9E64F00356413 /* ProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DF1AB9E64F00356413 /* ProfessorVC.swift */; };
 		FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */; };
 		FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */; };
 		FDA8A79C1AB3704E00DF8ADB /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */; };
@@ -70,8 +71,9 @@
 		3BAF09321AC05C4E00E2326C /* SubjectsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsCell.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
+		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
-		FD80C5DF1AB9E64F00356413 /* ProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorVC.swift; sourceTree = "<group>"; };
 		FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoVC.swift; sourceTree = "<group>"; };
 		FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsVC.swift; sourceTree = "<group>"; };
 		FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
@@ -139,7 +141,8 @@
 				FDB1C4C81AB0C4A100831BED /* FirstVC.swift */,
 				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
 				3B453BDE1AB8CDCC006F9C05 /* TaskVC.swift */,
-				FD80C5DF1AB9E64F00356413 /* ProfessorVC.swift */,
+				FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */,
+				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -363,10 +366,12 @@
 				FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */,
 				3B453BDF1AB8CDCC006F9C05 /* TaskVC.swift in Sources */,
 				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
+				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 				FD80C5E31AB9E64F00356413 /* ProfessorVC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,
+				FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
