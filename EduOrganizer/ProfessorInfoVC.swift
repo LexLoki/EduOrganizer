@@ -128,15 +128,16 @@ class ProfessorInfo: UIViewController, UITableViewDelegate, UITableViewDataSourc
         imageView.image = UIImage(named: "BolaMateria");
         imageView.contentMode = UIViewContentMode.ScaleToFill;
         imageView.clipsToBounds = true;
+      
         if(!(professor["imagem"] as String).isEmpty){
             imageView.image = (professor["imagemUI"] as UIImage);
             imageView.layer.cornerRadius = imageView.frame.size.height/2;
             imageView.layer.masksToBounds = true;
             imageView.layer.borderWidth = 0;
-        }
-        else{
+        }else{
             imageView.image = UIImage(named: "BolaMateria");
         }
+
         view.addSubview(imageView);
     }
     

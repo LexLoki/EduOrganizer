@@ -26,16 +26,15 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
         setup();
         let larg:CGFloat = 0.1*self.view.frame.size.height+size.height;
-        var tableView : UITableView = UITableView(frame: CGRectMake(0, larg, view.frame.width, view.frame.height-larg));
+        var tableView : UITableView = UITableView(frame: CGRectMake(0, larg, view.frame.width, view.frame.height - 100));
         
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.separatorInset = UIEdgeInsetsZero;
-        tableView.separatorColor = UIColor.whiteColor();
+        tableView.separatorColor = UIColor.UIColorFromRGB(0x1a242e);
         tableView.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-        view.backgroundColor = UIColor(red: 30/255.0, green: 48/255.0, blue: 68/255.0, alpha: 1.0);
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
 
-        
         view.addSubview(tableView);
     }
     
@@ -48,10 +47,11 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(section==0){
+        
+        if(section == 0){
             return 4;
         }
-        //return 1+(subject["tarefas"] as NSArray).count;
+        
         return 1;
     }
     
@@ -65,11 +65,11 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         var cell : UITableViewCell = UITableViewCell();
         var label: UILabel = prepareLabel(indexPath, frame:caixa);
         
-        if(indexPath.row==0){
-            cell.backgroundColor = UIColor(red: 26/255.0, green: 36/255.0, blue: 46/255.0, alpha: 1.0);
+        if(indexPath.row == 0){
+            cell.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         }
         else{
-            cell.backgroundColor = UIColor(red: 30/255.0, green: 48/255.0, blue: 68/255.0, alpha: 1.0);
+            cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         }
         
         cell.layoutMargins = UIEdgeInsetsZero;
@@ -82,43 +82,51 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func prepareLabel(indexPath:NSIndexPath, frame:CGRect)->UILabel{
+        
         println("\(indexPath.row) and \(indexPath.section)")
+        
         var label:UILabel = UILabel(frame: frame);
         label.textColor = UIColor.whiteColor();
         label.textAlignment = NSTextAlignment.Left;
         
         if(indexPath.row == 0){
             label.font = UIFont(name: "AvenirNext-Bold", size: 20);
+            
             if(indexPath.section == 0){
                 label.text = "Info";
-            }
-            else{
+            }else{
                 label.text = "Tasks";
             }
+            
         }
+            
         else{
+            
             label.font = UIFont(name: "Avenir Next", size: 15);
            
             if(indexPath.section == 0){
-                let index:String = String(format: "%d", indexPath.row);
+                
+                let index: String = String(format: "%d", indexPath.row);
                 println(dict[index]);
-                let area:String = dict[index] as String;
-                var texto:String;
-                if(area=="professor"){
+                let area: String = dict[index] as String;
+                var texto: String;
+                
+                if(area == "professor"){
                     texto = (subject[area] as NSDictionary)["nome"] as String;
-                }
-                else{
+                }else{
                     texto = subject[area] as String;
                 }
+                
                 if(texto.isEmpty){
-                    label.text = String(format: "%@ nao informado");
-                }
-                else{
+                    label.text = String(format: "%@ não informado");
+                }else{
                     label.text = texto;
                 }
-            }
-            else{
+                
+            }else{
+                
                 label.text = "*a fazer*";
+                
             }
         }
         println("did it");
@@ -126,17 +134,22 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func setup(){
-        var imageView:UIImageView = UIImageView(frame: CGRectMake(view.frame.size.width*0.5-size.width*0.5,20,size.width,size.height));
+        var imageView:UIImageView = UIImageView(frame: CGRectMake(view.frame.size.width*0.5-size.width*0.5,
+                                                                  20,size.width,size.height));
         imageView.image = UIImage(named: "BolaMateria");
         imageView.contentMode = UIViewContentMode.ScaleToFill;
         imageView.clipsToBounds = true;
+
         var label:UILabel = UILabel(frame: CGRectMake(0, 0, size.width, size.height));
         label.numberOfLines=2;
+        
         var texto:String = String(format: "%@\n(%@)", (subject["nome"] as String), (subject["sigla"] as String));
+        
         label.text=texto;
         label.textColor = UIColor(red: 255.0/255, green: 197.0/255, blue: 97.0/255, alpha: 1);
         label.font = UIFont(name: "Avenir Next", size: 15)
         label.textAlignment=NSTextAlignment.Center;
+        
         imageView.addSubview(label);
         view.addSubview(imageView);
     }

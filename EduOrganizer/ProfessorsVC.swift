@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     var collectionView: UICollectionView?
     var professores: Array<ProfessorModel> = Array<ProfessorModel>();
@@ -17,10 +17,7 @@ class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayou
     var selectedIndex:Int = Int();
     
     override func viewDidLoad() {
-<<<<<<< HEAD:EduOrganizer/ProfessorVC.swift
-        
-=======
->>>>>>> origin/master:EduOrganizer/ProfessorsVC.swift
+
         //var back:UIImageView=UIImageView(frame: self.view.frame);
         size = CGSizeMake(0.4*self.view.frame.size.width, 0.4*self.view.frame.size.width);
         super.viewDidLoad()
@@ -69,15 +66,13 @@ class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationVC = segue.destinationViewController as? ProfessorInfo;
-        destinationVC?.professor = professores[selectedIndex] as NSMutableDictionary;
+//        let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
+//        destinationVC?.professor = professores[selectedIndex];
     }
     
     func prepareCell(cell:UICollectionViewCell,indexPath:NSIndexPath)->UICollectionViewCell{
         
         var imageView:UIImageView = UIImageView(frame: CGRectMake(0,0,size.width,size.height));
-<<<<<<< HEAD:EduOrganizer/ProfessorVC.swift
-        
         if let image = professores[indexPath.row].imagem {
             
             imageView.image = professores[indexPath.row].imagem;
@@ -86,17 +81,6 @@ class ProfessorsController : UIViewController, UICollectionViewDelegateFlowLayou
             imageView.layer.borderWidth = 0;
         
         }else{
-=======
-        if(!(professores[indexPath.row]["imagem"] as String).isEmpty){
-            var img:UIImage = professores[indexPath.row]["imagemUI"] as UIImage;
-            imageView.image = (professores[indexPath.row]["imagemUI"] as UIImage);
-            imageView.layer.cornerRadius = imageView.frame.size.height/2;
-            imageView.layer.masksToBounds = true;
-            imageView.layer.borderWidth = 0;
-            
-        }
-        else{
->>>>>>> origin/master:EduOrganizer/ProfessorsVC.swift
             imageView.image = UIImage(named: "BolaMateria");
         }
         
