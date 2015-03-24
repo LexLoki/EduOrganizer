@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"
-               BuildableName = "EduOrganizer.app"
-               BlueprintName = "EduOrganizer"
-               ReferencedContainer = "container:EduOrganizer.xcodeproj">
+               BuildableName = "Stud.app"
+               BlueprintName = "Stud"
+               ReferencedContainer = "container:Stud.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDB1C4D51AB0C4A100831BED"
-               BuildableName = "EduOrganizerTests.xctest"
-               BlueprintName = "EduOrganizerTests"
-               ReferencedContainer = "container:EduOrganizer.xcodeproj">
+               BuildableName = "StudTests.xctest"
+               BlueprintName = "StudTests"
+               ReferencedContainer = "container:Stud.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FDB1C4D51AB0C4A100831BED"
-               BuildableName = "EduOrganizerTests.xctest"
-               BlueprintName = "EduOrganizerTests"
-               ReferencedContainer = "container:EduOrganizer.xcodeproj">
+               BuildableName = "StudTests.xctest"
+               BlueprintName = "StudTests"
+               ReferencedContainer = "container:Stud.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"
-            BuildableName = "EduOrganizer.app"
-            BlueprintName = "EduOrganizer"
-            ReferencedContainer = "container:EduOrganizer.xcodeproj">
+            BuildableName = "Stud.app"
+            BlueprintName = "Stud"
+            ReferencedContainer = "container:Stud.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"
-            BuildableName = "EduOrganizer.app"
-            BlueprintName = "EduOrganizer"
-            ReferencedContainer = "container:EduOrganizer.xcodeproj">
+            BuildableName = "Stud.app"
+            BlueprintName = "Stud"
+            ReferencedContainer = "container:Stud.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"
-            BuildableName = "EduOrganizer.app"
-            BlueprintName = "EduOrganizer"
-            ReferencedContainer = "container:EduOrganizer.xcodeproj">
+            BuildableName = "Stud.app"
+            BlueprintName = "Stud"
+            ReferencedContainer = "container:Stud.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
