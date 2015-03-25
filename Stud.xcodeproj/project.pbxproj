@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9D691ABCA2A7004E25EE /* userData.plist */; };
-		3B0B9D701ABCAEF3004E25EE /* ProtocolDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */; };
+		3B0B9D701ABCAEF3004E25EE /* StudDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B9D6F1ABCAEF3004E25EE /* StudDAO.swift */; };
 		3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E01ABCC3980085FECB /* Extensions.swift */; };
 		3B2CD4E31ABCCA750085FECB /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E21ABCCA750085FECB /* SubjectModel.swift */; };
 		3B301A651AB73C1900665E2E /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B301A531AB73C1900665E2E /* Coordinate.m */; };
@@ -26,9 +26,12 @@
 		3BAF09391AC0786900E2326C /* InfoGenericView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09381AC0786900E2326C /* InfoGenericView.swift */; };
 		3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF093A1AC0816200E2326C /* InfoCellGeneric.swift */; };
 		3BAF093D1AC08B0500E2326C /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF093C1AC08B0500E2326C /* StudentView.swift */; };
-		3BAF093F1AC093D900E2326C /* StudenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF093E1AC093D900E2326C /* StudenCell.swift */; };
+		3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF093E1AC093D900E2326C /* StudentCell.swift */; };
 		3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09421AC0AB8A00E2326C /* SubjectDAO.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
+		3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */; };
+		3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D651AC1EB39001F2B27 /* NoteModel.swift */; };
+		3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
@@ -53,7 +56,7 @@
 
 /* Begin PBXFileReference section */
 		3B0B9D691ABCA2A7004E25EE /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData.plist; sourceTree = "<group>"; };
-		3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolDAO.swift; sourceTree = "<group>"; };
+		3B0B9D6F1ABCAEF3004E25EE /* StudDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudDAO.swift; sourceTree = "<group>"; };
 		3B2CD4E01ABCC3980085FECB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3B2CD4E21ABCCA750085FECB /* SubjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
 		3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EduOrganizer-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -76,10 +79,13 @@
 		3BAF09381AC0786900E2326C /* InfoGenericView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoGenericView.swift; sourceTree = "<group>"; };
 		3BAF093A1AC0816200E2326C /* InfoCellGeneric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCellGeneric.swift; sourceTree = "<group>"; };
 		3BAF093C1AC08B0500E2326C /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
-		3BAF093E1AC093D900E2326C /* StudenCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudenCell.swift; sourceTree = "<group>"; };
+		3BAF093E1AC093D900E2326C /* StudentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
 		3BAF09421AC0AB8A00E2326C /* SubjectDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDAO.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDAO.swift; sourceTree = "<group>"; };
+		3BD92D651AC1EB39001F2B27 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
 		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 				3B0B9D711ABCB4FC004E25EE /* DAO */,
 				3B60529D1ABC839900076DB9 /* ProfessorModel.swift */,
 				3B2CD4E21ABCCA750085FECB /* SubjectModel.swift */,
+				3BD92D651AC1EB39001F2B27 /* NoteModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,7 +144,8 @@
 				3BAF09381AC0786900E2326C /* InfoGenericView.swift */,
 				3BAF093A1AC0816200E2326C /* InfoCellGeneric.swift */,
 				3BAF093C1AC08B0500E2326C /* StudentView.swift */,
-				3BAF093E1AC093D900E2326C /* StudenCell.swift */,
+				3BAF093E1AC093D900E2326C /* StudentCell.swift */,
+				3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -150,8 +158,8 @@
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
 				FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */,
 				FDB1C4C81AB0C4A100831BED /* FirstVC.swift */,
-				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
 				3B453BDE1AB8CDCC006F9C05 /* TaskVC.swift */,
+				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
 				FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */,
 				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
 			);
@@ -170,7 +178,8 @@
 		3B0B9D711ABCB4FC004E25EE /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				3B0B9D6F1ABCAEF3004E25EE /* ProtocolDAO.swift */,
+				3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */,
+				3B0B9D6F1ABCAEF3004E25EE /* StudDAO.swift */,
 				3B60529B1ABC828000076DB9 /* ProfessorDAO.swift */,
 				3BAF09421AC0AB8A00E2326C /* SubjectDAO.swift */,
 			);
@@ -346,17 +355,18 @@
 				FDB1C4C91AB0C4A100831BED /* FirstVC.swift in Sources */,
 				FDA8A79C1AB3704E00DF8ADB /* StudentVC.swift in Sources */,
 				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
-				3B0B9D701ABCAEF3004E25EE /* ProtocolDAO.swift in Sources */,
+				3B0B9D701ABCAEF3004E25EE /* StudDAO.swift in Sources */,
 				3BAF09391AC0786900E2326C /* InfoGenericView.swift in Sources */,
 				3BAF092D1AC0540400E2326C /* TaskCell.swift in Sources */,
 				FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */,
 				3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */,
+				3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */,
 				3B2CD4E31ABCCA750085FECB /* SubjectModel.swift in Sources */,
 				3BAF09331AC05C4E00E2326C /* CollectionCellGeneric.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
 				3BAF092F1AC058F500E2326C /* CollectionGeneric.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
-				3BAF093F1AC093D900E2326C /* StudenCell.swift in Sources */,
+				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,
 				3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */,
 				3B60529C1ABC828000076DB9 /* ProfessorDAO.swift in Sources */,
@@ -364,9 +374,11 @@
 				3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */,
 				FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */,
 				3B453BDF1AB8CDCC006F9C05 /* TaskVC.swift in Sources */,
+				3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */,
 				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
 				3BAF093D1AC08B0500E2326C /* StudentView.swift in Sources */,
 				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
+				3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,

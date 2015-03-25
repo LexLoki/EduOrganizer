@@ -18,7 +18,6 @@ class TaskView : UIView {
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
         
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent;
         parent.title = "Tasks";
         
         tableView = UITableView(frame: CGRectMake(0, 0, frame.width, frame.height - 110));

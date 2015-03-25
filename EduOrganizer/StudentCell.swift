@@ -20,8 +20,8 @@ class StudentCell : UITableViewCell{
     init(view: UIView) {
         super.init(frame: view.frame);
         
-        var size : CGSize = CGSizeMake(0.31 * frame.size.width,
-                                       0.31 * frame.size.width);
+        var size : CGSize = CGSizeMake(0.4 * frame.size.width,
+                                       0.4 * frame.size.width);
         
         label = UILabel(frame: CGRectMake(20, 10, size.width, size.height));
         label.font = UIFont(name: "Avenir Next", size: 10)

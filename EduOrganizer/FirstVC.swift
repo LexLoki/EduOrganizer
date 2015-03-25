@@ -20,6 +20,9 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var noteDAO = NoteDAO();
+        var notes = noteDAO.getDataArray() as Array<ProfessorModel>;
+        
         var buttons: [String] = ["actionNote", "actionTeacher", "actionClass", "actionTask"];
         var image : UIImage = UIImage(named: "mainButton")!;
         

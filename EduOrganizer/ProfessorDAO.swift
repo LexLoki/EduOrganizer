@@ -11,8 +11,7 @@ import Foundation
 class ProfessorDAO : StudDAO, ProtocolDAO {
     
     //load plist into a Dictionary
-    func loadPList() -> NSMutableDictionary {
-
+    override func loadPList() -> NSMutableDictionary?{
         var professors : NSMutableDictionary = contents["professores"] as NSMutableDictionary;
         return professors;
     }
@@ -25,9 +24,7 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         
         for (id, _) in res.dict{
             
-            var professor : ProfessorModel = ProfessorModel();
-            professor = getDataById(id) as ProfessorModel;
-            
+            var professor : ProfessorModel = getDataById(id) as ProfessorModel;
             professors.append(professor);
         }
         
@@ -57,7 +54,6 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     private func getProfessorsImagePath() -> String{
         
         var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
-        
         var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
         
         return imgPath;
@@ -65,7 +61,7 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     
     //setup professor data
     private func setUpProfessor() -> (dict: NSMutableDictionary, path: String){
-        var professorsDict : NSMutableDictionary  = loadPList();
+        var professorsDict : NSMutableDictionary  = self.loadPList()!;
         var imgPath : String = getProfessorsImagePath();
         
         return(professorsDict, imgPath);

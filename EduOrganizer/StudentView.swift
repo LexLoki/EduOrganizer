@@ -48,7 +48,7 @@ class StudentView : UIView {
                                                                   sectionTeacher.frame.height));
         
         sectionSubjects.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-        
+    
         var labelSubjects : UILabel = UILabel(frame: CGRectMake(sectionSubjects.frame.origin.x + 20,
                                                                 sectionSubjects.frame.origin.y,
                                                                 frame.width,
