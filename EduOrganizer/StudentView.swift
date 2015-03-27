@@ -12,7 +12,7 @@ class StudentView : UIView {
     
     var horTableProfessor : HorizontalTableView!;
     var horTableSubjects : HorizontalTableView!;
-    //var notes : Array<UILabel>;
+    //var notes : Array<UILabel>; ADICIONAR DEPOIS
     
     
     init(view: UIView, parent: UIViewController) {
