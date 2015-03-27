@@ -11,10 +11,10 @@ import Foundation
 class SubjectModel{
     
     var id : String!;
-    var notes : Array<AnyObject>!;
+    var notes : Array<NoteModel>!;
     var professor : ProfessorModel!;
     var nome : String!;
-    var tarefas : Array<AnyObject>!;
+    var tarefas : Array<TaskModel>!;
     
     init(){
     }

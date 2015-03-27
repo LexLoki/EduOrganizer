@@ -19,8 +19,6 @@ class SubjectDAO : StudDAO, ProtocolDAO {
 
         var subjects : Array = Array<SubjectModel>();
         
-//        var subjects : NSMutableDictionary = loadPList()
-        
         for (id, _) in self.loadPList(){
             
             var subject : SubjectModel = SubjectModel();
@@ -44,8 +42,21 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         subject.nome = subjDict["nome"] as String;
         subject.professor = ProfessorDAO().getDataById(idProf) as ProfessorModel;
         
-        //subject.notes FAZER
-        //subject.tarefas FAZER
+
+        //getNotes
+        var notesIdArray : Array<String> = subjDict["anotacoes"] as Array<String>;
+        
+        if (notesIdArray.count > 0){
+            subject.notes = Array<NoteModel>();
+        }
+        
+        var noteDAO : NoteDAO = NoteDAO();
+        
+        for (var i = 0; i < notesIdArray.count; i++){
+            subject.notes.append(noteDAO.getDataById(notesIdArray[i]) as NoteModel);
+        }
+        
+        subject.tarefas = Array<TaskModel>();
         
         return subject;
         

@@ -30,7 +30,7 @@ class InfoCellGeneric : UITableViewCell{
         selectionStyle = UITableViewCellSelectionStyle.None;
         layoutMargins = UIEdgeInsetsZero;
         
-        label = UILabel(frame: CGRectMake(20, 20, view.frame.width, 20));
+        label = UILabel(frame: CGRectMake(20, 18, view.frame.width, 20));
         label.textColor = UIColor.whiteColor();
         label.textAlignment = NSTextAlignment.Left;
         

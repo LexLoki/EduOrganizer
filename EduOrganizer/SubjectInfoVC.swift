@@ -12,6 +12,7 @@ import UIKit
 class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var subject: SubjectModel = SubjectModel();
+    var notesCount = 0;
     
     override func viewDidLoad() {
         
@@ -25,16 +26,36 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2;
+        
+        var rows = 1;
+        
+        if (subject.tarefas.count > 0){
+            rows++;
+        }
+        
+        if (subject.notes.count > 0){
+            rows++;
+        }
+        
+        return rows;
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(section == 0){
             return 4;
+        }else if(section == 1){
+            
+            if (subject.tarefas.count > 0){
+                return subject.tarefas.count + 1;
+            }else{
+                return subject.notes.count + 1;
+            }
+            
+        }else {
+            return subject.notes.count + 1;
         }
         
-        return 3;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -52,15 +73,21 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             if(indexPath.section == 0){
                 subjectInfoCell.label.text = "About";
-            }else{
-                subjectInfoCell.label.text = "Tasks";
+            }else if(indexPath.section == 1){
+                if (subject.tarefas.count > 0){
+                    subjectInfoCell.label.text = "Tasks";
+                }else{
+                    subjectInfoCell.label.text = "Notes";
+                }
+            }else if(indexPath.section == 2){
+                subjectInfoCell.label.text = "Notes";
             }
             
         }else{
             subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
             subjectInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
             
-            if(indexPath.section == 0){  // secao 0 row>0
+            if(indexPath.section == 0){ // secao 0
                 
                 switch (indexPath.row){
                     case 1: subjectInfoCell.label.text = subject.id;
@@ -74,9 +101,29 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     default : subjectInfoCell.label.text = "error";
                 }
                 
-            }else{  //secao 1 row>0
+            }else if(indexPath.section == 1){// secao 1
                 
-                subjectInfoCell.label.text = "tasks";//professor.materias[indexPath.row-1];
+                if (subject.tarefas.count > 0){
+                    subjectInfoCell.label.text = "tasks";
+                }else{
+                    
+                    if (notesCount >= subject.notes.count){
+                        notesCount = 0;
+                    }
+                    
+                    subjectInfoCell.label.text = (subject.notes[notesCount] as NoteModel).nome;
+                    notesCount++;
+                }
+                
+            } else if (indexPath.section == 2){// secao 2
+                
+                if (notesCount >= subject.notes.count){
+                    notesCount = 0;
+                }
+                
+                subjectInfoCell.label.text = (subject.notes[notesCount] as NoteModel).nome;
+                notesCount++;
+                
             }
         }
         

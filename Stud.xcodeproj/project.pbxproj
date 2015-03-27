@@ -20,6 +20,7 @@
 		3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60529D1ABC839900076DB9 /* ProfessorModel.swift */; };
 		3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B720B821AB771E200C463E8 /* HorizontalTableView.swift */; };
 		3B72BABA1AC50BE5004A1F67 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B72BAB91AC50BE5004A1F67 /* FirstView.swift */; };
+		3B99BF121AC59BD200DE1612 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99BF111AC59BD200DE1612 /* TaskModel.swift */; };
 		3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092A1AC04F9C00E2326C /* TaskView.swift */; };
 		3BAF092D1AC0540400E2326C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092C1AC0540400E2326C /* TaskCell.swift */; };
 		3BAF092F1AC058F500E2326C /* CollectionGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF092E1AC058F500E2326C /* CollectionGeneric.swift */; };
@@ -76,6 +77,7 @@
 		3B60529D1ABC839900076DB9 /* ProfessorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorModel.swift; sourceTree = "<group>"; };
 		3B720B821AB771E200C463E8 /* HorizontalTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTableView.swift; sourceTree = "<group>"; };
 		3B72BAB91AC50BE5004A1F67 /* FirstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		3B99BF111AC59BD200DE1612 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		3BAF092A1AC04F9C00E2326C /* TaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		3BAF092C1AC0540400E2326C /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		3BAF092E1AC058F500E2326C /* CollectionGeneric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionGeneric.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				3B60529D1ABC839900076DB9 /* ProfessorModel.swift */,
 				3B2CD4E21ABCCA750085FECB /* SubjectModel.swift */,
 				3BD92D651AC1EB39001F2B27 /* NoteModel.swift */,
+				3B99BF111AC59BD200DE1612 /* TaskModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */,
 				3B72BABA1AC50BE5004A1F67 /* FirstView.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
+				3B99BF121AC59BD200DE1612 /* TaskModel.swift in Sources */,
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,
 				3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */,
