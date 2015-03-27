@@ -12,6 +12,8 @@ class StudentView : UIView {
     
     var horTableProfessor : HorizontalTableView!;
     var horTableSubjects : HorizontalTableView!;
+    //var notes : Array<UILabel>;
+    
     
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
@@ -24,13 +26,13 @@ class StudentView : UIView {
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!,NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
         
-        var sectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, frame.width, frame.height/12));
+        var sectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, frame.width, frame.height/18)); //12
         sectionTeacher.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
         var labelTeacher : UILabel = UILabel(frame: CGRectMake(sectionTeacher.frame.origin.x + 20,
-                                                               sectionTeacher.frame.origin.y,
-                                                               frame.width,
-                                                               sectionTeacher.frame.height));
+            sectionTeacher.frame.origin.y,
+            frame.width,
+            sectionTeacher.frame.height));
         
         labelTeacher.font = UIFont(name: "AvenirNext-Bold", size: 15);
         labelTeacher.textAlignment = NSTextAlignment.Left;
@@ -38,23 +40,23 @@ class StudentView : UIView {
         labelTeacher.text = "Teachers";
         
         horTableProfessor = HorizontalTableView(frame: CGRectMake(0,
-                                                                  sectionTeacher.frame.origin.y + sectionTeacher.frame.height ,
-                                                                  frame.width,
-                                                                  frame.height/4.5),
-                                                delegate : parent as StudentVC,
-                                                color: UIColor.UIColorFromRGB(0x1e3044));
+            sectionTeacher.frame.origin.y + sectionTeacher.frame.height ,
+            frame.width,
+            frame.height/4.5),
+            delegate : parent as StudentVC,
+            color: UIColor.UIColorFromRGB(0x1e3044));
         
         var sectionSubjects : UILabel = UILabel(frame: CGRectMake(0,
-                                                                  horTableProfessor.frame.origin.y + horTableProfessor.frame.height,
-                                                                  frame.width,
-                                                                  sectionTeacher.frame.height));
+            horTableProfessor.frame.origin.y + horTableProfessor.frame.height,
+            frame.width,
+            sectionTeacher.frame.height));
         
         sectionSubjects.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-    
+        
         var labelSubjects : UILabel = UILabel(frame: CGRectMake(sectionSubjects.frame.origin.x + 20,
-                                                                sectionSubjects.frame.origin.y,
-                                                                frame.width,
-                                                                sectionTeacher.frame.height));
+            sectionSubjects.frame.origin.y,
+            frame.width,
+            sectionTeacher.frame.height));
         
         labelSubjects.font = UIFont(name: "AvenirNext-Bold", size: 15);
         labelSubjects.textAlignment = NSTextAlignment.Left;
@@ -62,12 +64,31 @@ class StudentView : UIView {
         labelSubjects.text = "Subjects";
         
         horTableSubjects = HorizontalTableView(frame: CGRectMake(0,
-                                                                 sectionSubjects.frame.origin.y +
-                                                                    sectionSubjects.frame.height ,
-                                                                 frame.width,
-                                                                 frame.height/4.5),
-                                                                 delegate : parent as StudentVC,
-                                                                 color: UIColor.UIColorFromRGB(0x1e3044));
+            sectionSubjects.frame.origin.y +
+                sectionSubjects.frame.height ,
+            frame.width,
+            frame.height/4.5),
+            delegate : parent as StudentVC,
+            color: UIColor.UIColorFromRGB(0x1e3044));
+        
+        
+        
+        var sectionNotes : UILabel = UILabel(frame: CGRectMake(0,
+            horTableSubjects.frame.origin.y + horTableSubjects.frame.height,
+            frame.width,
+            sectionTeacher.frame.height));
+            sectionNotes.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
+        
+        var labelNotes : UILabel = UILabel(frame: CGRectMake(sectionNotes.frame.origin.x + 20,
+            sectionNotes.frame.origin.y,
+            frame.width,
+            sectionTeacher.frame.height));
+        
+        
+        labelNotes.font = UIFont(name: "AvenirNext-Bold", size: 15);
+        labelNotes.textAlignment = NSTextAlignment.Left;
+        labelNotes.textColor = UIColor.whiteColor();
+        labelNotes.text = "Notes";
         
         view.addSubview(sectionTeacher);
         view.addSubview(labelTeacher);
@@ -75,9 +96,28 @@ class StudentView : UIView {
         view.addSubview(sectionSubjects);
         view.addSubview(labelSubjects);
         view.addSubview(horTableSubjects);
+        view.addSubview(sectionNotes);
+        view.addSubview(labelNotes);
+        
+//        var i:Int;
+//        for(i=0;i<3;i++){
+//            notes.append(noteBox());
+//        }
         
     }
-
+    
+//    func noteBox(frame:CGRect){
+//        var offSet : CGFloat = 0.1 * view.frame.size.width;
+//        var caixa : CGRect = CGRectMake(offSet,
+//            0,
+//            view.frame.size.width-offSet,
+//            view.frame.size.height/18.0);
+//        
+//        var label:UILabel = UILabel(frame: CGRectMake(20, 20, view.frame.width, 20));
+//        label.textColor = UIColor.whiteColor();
+//        label.textAlignment = NSTextAlignment.Left;
+//    }
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

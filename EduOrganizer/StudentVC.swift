@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 
 class StudentVC: UIViewController, TableViewDelegate{
-
+    
     var professores : Array<ProfessorModel> = Array<ProfessorModel>();
     var materias: Array<SubjectModel> = Array<SubjectModel>();
+    var notes : Array<NoteModel> = Array<NoteModel>();
     
     var studentView : StudentView!;
     var selectedIndex:Int = Int();
-   
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
     }
@@ -32,6 +33,9 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         var subjectsDAO = SubjectDAO();
         materias = subjectsDAO.getDataArray() as Array<SubjectModel>;
+        
+        var notesDAO = NoteDAO();
+        notes = notesDAO.getDataArray() as Array<NoteModel>;
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
