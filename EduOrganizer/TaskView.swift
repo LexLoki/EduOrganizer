@@ -12,8 +12,10 @@ class TaskView : UIView {
     
     var tableView : UITableView!;
     
-    init(frame: CGRect, parent: UIViewController) {
-        super.init(frame: frame);
+    init(view: UIView, parent: UIViewController) {
+        super.init(frame: view.frame);
+        
+        frame = view.frame;
 
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
@@ -26,7 +28,7 @@ class TaskView : UIView {
         tableView.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        addSubview(tableView);
+        view.addSubview(tableView);
     }
 
     required init(coder aDecoder: NSCoder) {

@@ -13,10 +13,12 @@ class StudentView : UIView {
     var horTableProfessor : HorizontalTableView!;
     var horTableSubjects : HorizontalTableView!;
     
-    init(frame: CGRect, parent: UIViewController) {
-        super.init(frame: frame);
+    init(view: UIView, parent: UIViewController) {
+        super.init(frame: view.frame);
         
-        backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+        frame = view.frame;
+        
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         parent.title = "Student";
         
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!,NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
@@ -67,12 +69,12 @@ class StudentView : UIView {
                                                                  delegate : parent as StudentVC,
                                                                  color: UIColor.UIColorFromRGB(0x1e3044));
         
-        addSubview(sectionTeacher);
-        addSubview(labelTeacher);
-        addSubview(horTableProfessor);
-        addSubview(sectionSubjects);
-        addSubview(labelSubjects);
-        addSubview(horTableSubjects);
+        view.addSubview(sectionTeacher);
+        view.addSubview(labelTeacher);
+        view.addSubview(horTableProfessor);
+        view.addSubview(sectionSubjects);
+        view.addSubview(labelSubjects);
+        view.addSubview(horTableSubjects);
         
     }
 

@@ -16,9 +16,8 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         
-        noteView = AddNoteView(frame: view.frame, parent: self);
+        noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
-        view = noteView;
 
         title = "New Note";
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");

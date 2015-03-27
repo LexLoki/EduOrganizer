@@ -14,8 +14,10 @@ class InfoGenericView : UIView{
     var imageView : UIImageView!;
     var label : UILabel!;
     
-    init(frame: CGRect, parent: UIViewController) {
-        super.init(frame: frame);
+    init(view: UIView, parent: UIViewController) {
+        super.init(frame: view.frame);
+        
+        frame = view.frame;
         
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
@@ -52,9 +54,9 @@ class InfoGenericView : UIView{
         tableView.separatorColor = UIColor.UIColorFromRGB(0x1a242e);
         tableView.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
-        backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        addSubview(imageView);
-        addSubview(tableView);
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+        view.addSubview(imageView);
+        view.addSubview(tableView);
         
     }
 

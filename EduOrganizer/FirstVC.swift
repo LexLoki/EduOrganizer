@@ -14,90 +14,56 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         super.init(coder: aDecoder);
     }
     
-    var fancyTabBar : FancyTabBar!;
-    var backGround : UIImageView!;
+    var firstView : FirstView!;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var noteDAO = NoteDAO();
-        var notes = noteDAO.getDataArray() as Array<ProfessorModel>;
-        
-        var buttons: [String] = ["actionNote", "actionTeacher", "actionClass", "actionTask"];
-        var image : UIImage = UIImage(named: "mainButton")!;
-        
-        //set font tabBar item
-        let attributesNormal = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName:UIColor.whiteColor()];
-        let attributesSelected = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 10)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFC561)];
-        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, forState: UIControlState.Normal);
-        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, forState: UIControlState.Selected);
-        
-        //set color tabBar Image
-        var taskItem : UITabBarItem = self.tabBar.items![0] as UITabBarItem;
-        var studentItem : UITabBarItem = self.tabBar.items![2] as UITabBarItem;
-        
-        var taskImage : UIImage = UIImage(named: "itemTask")!;
-        taskItem.image = taskImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-
-        var studentImage : UIImage = UIImage(named: "itemStudent")!;
-        studentItem.image = studentImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        
-        
-        fancyTabBar = FancyTabBar(frame: view.frame);
-        fancyTabBar.setUpChoices(self, choices: buttons, withMainButtonImage: image);
-        fancyTabBar.delegate = self;
-        
-        view.addSubview(fancyTabBar);
+        firstView = FirstView(view: view, parent: self);
+        firstView.fancyTabBar.delegate = self;
         
     }
+    
     func didExpand() {
-        if(backGround == nil){
-            backGround = UIImageView(frame: view.bounds);
-            backGround.alpha = 0;
-            view.addSubview(backGround);
+        if(firstView.backGround == nil){
+            firstView.backGround = UIImageView(frame: view.bounds);
+            firstView.backGround.alpha = 0;
+            view.addSubview(firstView.backGround);
         }
         
         UIView.animateWithDuration(0.3, animations: {
-            self.backGround.alpha = 1;
+            self.firstView.backGround.alpha = 1;
             }, completion: {
                 (value: Bool) in
             }
         );
         
-        view.bringSubviewToFront(fancyTabBar);
+        view.bringSubviewToFront(firstView.fancyTabBar);
 
         var backgroundImage : UIImage = view.convertViewToImage();
         var tintColor : UIColor = UIColor.blackColor().colorWithAlphaComponent(0.5);
 
         
         var image :  UIImage = backgroundImage.applyBlurWithRadius(10, tintColor: tintColor, saturationDeltaFactor: 1.8, maskImage: nil);
-        backGround.image = image;
+        firstView.backGround.image = image;
         
     }
     
     func didCollapse() {   
         UIView.animateWithDuration(0.3, animations: {
-            self.backGround.alpha = 0;
+            self.firstView.backGround.alpha = 0;
             }, completion: {
                 (value: Bool) in
                 
                 if(value) {
-                    self.backGround.removeFromSuperview();
-                    self.backGround = nil;
+                    self.firstView.backGround.removeFromSuperview();
+                    self.firstView.backGround = nil;
                 }
                 
             }
         );
     }
 
-    
-    override func viewDidAppear(animated: Bool) {
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
         performSegueWithIdentifier("newNote", sender: nil);
     }

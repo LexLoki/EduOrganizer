@@ -15,13 +15,12 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         
-        var subjectInfoView : InfoGenericView = InfoGenericView(frame: view.frame, parent: self);
+        var subjectInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
         subjectInfoView.tableView.delegate = self;
         subjectInfoView.tableView.dataSource = self;
         
         subjectInfoView.label.text = subject.nome;
         
-        view = subjectInfoView;
         title = subject.id;
     }
     

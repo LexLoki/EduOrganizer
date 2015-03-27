@@ -23,10 +23,9 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     override func viewDidLoad() {
         
-        studentView = StudentView(frame: view.frame, parent: self);
+        studentView = StudentView(view: view, parent: self);
         studentView.horTableProfessor.delegate = self;
         studentView.horTableSubjects.delegate = self;
-        view = studentView;
         
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;

@@ -17,12 +17,10 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     
     override func viewDidLoad() {
 
-        var professorsView : CollectionGeneric = CollectionGeneric(frame: view.frame, parent: self);
+        var professorsView : CollectionGeneric = CollectionGeneric(view: view, parent: self);
         title = "Professors";
         professorsView.collectionView.delegate = self;
         professorsView.collectionView.dataSource = self;
-        
-        view = professorsView;
         
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;

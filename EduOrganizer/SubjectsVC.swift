@@ -19,12 +19,10 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        var subjectsView : CollectionGeneric = CollectionGeneric(frame: view.frame, parent: self);
+        var subjectsView : CollectionGeneric = CollectionGeneric(view: view, parent: self);
         title = "Subjects";
         subjectsView.collectionView.delegate = self;
         subjectsView.collectionView.dataSource = self;
-        
-        view = subjectsView;
         
         var subjectsDAO = SubjectDAO();
         materias = subjectsDAO.getDataArray() as Array<SubjectModel>;

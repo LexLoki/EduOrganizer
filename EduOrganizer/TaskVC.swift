@@ -22,11 +22,9 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var taskView : TaskView = TaskView(frame: view.frame, parent: self);
+        var taskView : TaskView = TaskView(view: view, parent: self);
         taskView.tableView.delegate = self;
         taskView.tableView.dataSource = self;
-        
-        view = taskView;
         
     }
     

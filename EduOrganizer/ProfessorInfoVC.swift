@@ -16,7 +16,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var professorInfoView : InfoGenericView = InfoGenericView(frame: view.frame, parent: self);
+        var professorInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
         professorInfoView.tableView.delegate = self;
         professorInfoView.tableView.dataSource = self;
         
@@ -27,7 +27,6 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             professorInfoView.label.text = String.getAbrevName(professor.nome);
         }
     
-        view = professorInfoView;
         title = professor.nome;
         
     }

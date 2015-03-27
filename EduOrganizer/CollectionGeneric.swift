@@ -14,8 +14,10 @@ class CollectionGeneric : UIView{
     var size: CGSize = CGSize();
     
     
-    init(frame: CGRect, parent: UIViewController) {
-        super.init(frame: frame);
+    init(view: UIView, parent: UIViewController) {
+        super.init(frame: view.frame);
+        
+        frame = view.frame;
         
         let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColor.UIColorFromRGB(0xFFFFFF)];
         parent.navigationController?.navigationBar.titleTextAttributes = attributes;
@@ -37,7 +39,8 @@ class CollectionGeneric : UIView{
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout);
         collectionView.registerClass(CollectionCellGeneric.self, forCellWithReuseIdentifier: "cellIdentifier");
         collectionView!.backgroundColor = UIColor(red: 30.0/255, green: 48.0/255, blue: 68.0/255, alpha: 1.0);
-        addSubview(collectionView!)
+
+        view.addSubview(collectionView!)
     }
     
     required init(coder aDecoder: NSCoder) {
