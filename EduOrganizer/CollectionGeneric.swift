@@ -19,11 +19,7 @@ class CollectionGeneric : UIView{
         
         frame = view.frame;
         
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName:UIColor.UIColorFromRGB(0xFFFFFF)];
-        parent.navigationController?.navigationBar.titleTextAttributes = attributes;
-        
         size = CGSizeMake(0.4 * frame.size.width, 0.4 * frame.size.width);
-
         var tela:CGRect = CGRectMake(frame.size.width*0.06,
                                      frame.size.height*0.05,
                                      frame.size.width*0.9,

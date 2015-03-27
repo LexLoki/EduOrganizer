@@ -34,6 +34,7 @@
 		3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */; };
 		3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D651AC1EB39001F2B27 /* NoteModel.swift */; };
 		3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */; };
+		3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB1481AC6184500865AFC /* StudNC.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
 		B9C366201AC5F1CD007D6567 /* NotesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
@@ -92,6 +93,7 @@
 		3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDAO.swift; sourceTree = "<group>"; };
 		3BD92D651AC1EB39001F2B27 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		3BDCB1481AC6184500865AFC /* StudNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudNC.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListVC.xib; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		3B0B9D6D1ABCA9C4004E25EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3BDCB1481AC6184500865AFC /* StudNC.swift */,
 				FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */,
 				FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */,
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
@@ -397,6 +400,7 @@
 				3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
+				3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,
 				FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */,
 			);

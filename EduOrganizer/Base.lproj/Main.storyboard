@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -197,7 +197,7 @@
         <!--Student-->
         <scene sceneID="ZJB-ye-WaT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QL0-eO-4kA" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QL0-eO-4kA" customClass="StudNC" customModule="Stud" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Student" image="itemStudent" id="k0G-tT-nHU">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                         <userDefinedRuntimeAttributes>
@@ -230,7 +230,7 @@
         <!--Tasks-->
         <scene sceneID="JnO-yn-kW2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dTp-Fl-ICz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dTp-Fl-ICz" customClass="StudNC" customModule="Stud" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tasks" image="itemTask" id="vGI-71-4M0">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                         <userDefinedRuntimeAttributes>
@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="521" y="-292"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--StudNC-->
         <scene sceneID="1Cy-3A-ewU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml1-W6-6ET" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml1-W6-6ET" customClass="StudNC" customModule="Stud" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XRn-lw-mpb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

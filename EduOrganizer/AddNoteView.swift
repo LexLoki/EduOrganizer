@@ -17,10 +17,6 @@ class AddNoteView : UIView {
         
         frame = view.frame;
     
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 18)!,
-            NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
-        parent.navigationController?.navigationBar.titleTextAttributes = attributes;
-        
         var tela: CGRect = CGRect(x: frame.size.width*0.03,
                                   y: frame.size.height*0.03,
                                   width: frame.size.width*0.94,

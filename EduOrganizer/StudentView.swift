@@ -20,11 +20,7 @@ class StudentView : UIView {
         
         frame = view.frame;
         
-        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         parent.title = "Student";
-        
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!,NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
-        parent.navigationController?.navigationBar.titleTextAttributes = attributes;
         
         var sectionTeacher : UILabel = UILabel(frame: CGRectMake(0,0, frame.width, frame.height/18)); //12
         sectionTeacher.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
@@ -89,7 +85,8 @@ class StudentView : UIView {
         labelNotes.textAlignment = NSTextAlignment.Left;
         labelNotes.textColor = UIColor.whiteColor();
         labelNotes.text = "Notes";
-        
+
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         view.addSubview(sectionTeacher);
         view.addSubview(labelTeacher);
         view.addSubview(horTableProfessor);
@@ -98,6 +95,7 @@ class StudentView : UIView {
         view.addSubview(horTableSubjects);
         view.addSubview(sectionNotes);
         view.addSubview(labelNotes);
+
         
 //        var i:Int;
 //        for(i=0;i<3;i++){

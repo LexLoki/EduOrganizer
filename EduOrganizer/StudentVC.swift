@@ -61,7 +61,7 @@ class StudentVC: UIViewController, TableViewDelegate{
 
             professorCell.btnCell.tag = cellForRowAtIndexPath.row;
             professorCell.btnCell.addTarget(self,
-                                            action: "teacherTouched:",
+                                            action: "notesTouched:",
                                             forControlEvents: UIControlEvents.TouchUpInside);
             
             
@@ -103,11 +103,9 @@ class StudentVC: UIViewController, TableViewDelegate{
     func teacherTouched(sender:UIButton){
         selectedIndex = sender.tag;
         performSegueWithIdentifier("infoProfessor", sender: nil);
-        
-        //goToNotes();
     }
     
-    func goToNotes(){
+    func notesTouched(sender:UIButton){
         let vc = NotesListVC(nibName:"NotesListVC", bundle:NSBundle.mainBundle())
         vc.notes = notes;
         self.presentViewController(vc, animated: true, completion: nil)

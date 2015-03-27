@@ -19,9 +19,6 @@ class InfoGenericView : UIView{
         
         frame = view.frame;
         
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
-        parent.navigationController?.navigationBar.titleTextAttributes = attributes;
-        
         var size : CGSize = CGSizeMake(0.4 * frame.size.width,
                                        0.4 * frame.size.width);
         

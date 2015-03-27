@@ -16,12 +16,8 @@ class TaskView : UIView {
         super.init(frame: view.frame);
         
         frame = view.frame;
-
-        let attributes = [NSFontAttributeName:UIFont(name: "Avenir Next", size: 20)!, NSForegroundColorAttributeName: UIColor.UIColorFromRGB(0xFFFFFF)];
-        parent.navigationController?.navigationBar.titleTextAttributes = attributes;
         
         parent.title = "Tasks";
-        
         tableView = UITableView(frame: CGRectMake(0, 0, frame.width, frame.height - 110));
         tableView.separatorInset = UIEdgeInsetsZero;
         tableView.separatorColor = UIColor.whiteColor();

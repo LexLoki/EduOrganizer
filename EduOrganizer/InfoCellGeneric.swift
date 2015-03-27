@@ -19,12 +19,6 @@ class InfoCellGeneric : UITableViewCell{
     init(view: UIView) {
         super.init(frame: view.frame);
         
-        var offSet : CGFloat = 0.1 * view.frame.size.width;
-        var caixa : CGRect = CGRectMake(offSet,
-                                        0,
-                                        view.frame.size.width-offSet,
-                                        view.frame.size.height/8.0);
-        
         layoutMargins = UIEdgeInsetsZero;
         preservesSuperviewLayoutMargins = false;
         selectionStyle = UITableViewCellSelectionStyle.None;
