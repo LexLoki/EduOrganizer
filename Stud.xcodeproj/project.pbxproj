@@ -33,6 +33,8 @@
 		3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */; };
 		3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D651AC1EB39001F2B27 /* NoteModel.swift */; };
 		3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */; };
+		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
+		B9C366201AC5F1CD007D6567 /* NotesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
@@ -88,6 +90,8 @@
 		3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDAO.swift; sourceTree = "<group>"; };
 		3BD92D651AC1EB39001F2B27 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
+		B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListVC.xib; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
 		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				3BAF093E1AC093D900E2326C /* StudentCell.swift */,
 				3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */,
 				3B72BAB91AC50BE5004A1F67 /* FirstView.swift */,
+				B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
 				FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */,
 				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
+				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 				3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */,
 				3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */,
 				FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */,
+				B9C366201AC5F1CD007D6567 /* NotesListVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +375,7 @@
 				3BAF09331AC05C4E00E2326C /* CollectionCellGeneric.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
 				3BAF092F1AC058F500E2326C /* CollectionGeneric.swift in Sources */,
+				B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */,
 				3B72BABA1AC50BE5004A1F67 /* FirstView.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,

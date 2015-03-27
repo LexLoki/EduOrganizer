@@ -61,7 +61,6 @@
                         <segue destination="GsA-Yf-86d" kind="custom" identifier="professors" id="aXI-vO-7SH"/>
                         <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="RDW-rH-KIw"/>
                         <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="S3M-SS-7VW"/>
-                        <segue destination="Mba-XN-DAY" kind="custom" identifier="notes" id="akk-Sq-mDE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGa-5G-oGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,24 +144,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqh-XZ-Q6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2799" y="-1000"/>
-        </scene>
-        <!--Add NotesVC-->
-        <scene sceneID="z0F-6w-y7H">
-            <objects>
-                <viewController id="Mba-XN-DAY" customClass="AddNotesVC" customModule="Stud" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IJk-eS-UTq"/>
-                        <viewControllerLayoutGuide type="bottom" id="WRg-Bv-LU9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TVI-KQ-QY7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nuk-BX-JEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2057" y="-2262"/>
         </scene>
         <!--FirstVC-->
         <scene sceneID="uko-Cf-Mxh">

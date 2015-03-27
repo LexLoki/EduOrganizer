@@ -60,7 +60,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as? SubjectInfoVC;
-//        destinationVC?.subject = materias[selectedIndex] as NSMutableDictionary;
+        destinationVC?.subject = materias[selectedIndex];
     }
     
     func btnTouched(sender:UIButton){

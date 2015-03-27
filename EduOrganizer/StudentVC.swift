@@ -103,6 +103,14 @@ class StudentVC: UIViewController, TableViewDelegate{
     func teacherTouched(sender:UIButton){
         selectedIndex = sender.tag;
         performSegueWithIdentifier("infoProfessor", sender: nil);
+        
+        //goToNotes();
+    }
+    
+    func goToNotes(){
+        let vc = NotesListVC(nibName:"NotesListVC", bundle:NSBundle.mainBundle())
+        vc.notes = notes;
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -110,9 +118,12 @@ class StudentVC: UIViewController, TableViewDelegate{
         if (segue.identifier == "infoSubject"){
             let destinationVC = segue.destinationViewController as? SubjectInfoVC;
             destinationVC?.subject = materias[selectedIndex];
-        }else{
+        }else if(segue.identifier == "infoProfessor"){
             let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
             destinationVC?.professor = professores[selectedIndex];
+        }else{
+            let destinationVC = segue.destinationViewController as? NotesListVC;
+            destinationVC?.notes = notes;
         }
 
     }
