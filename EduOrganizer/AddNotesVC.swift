@@ -16,6 +16,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     var noteDAO : NoteDAO = NoteDAO();
     
     var editMode = false;
+    var didEdit:Bool = false;
     var noteView : AddNoteView!;
     var textToLoad : String!;
     var segueDone : String!;
@@ -58,6 +59,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if(buttonIndex == 1){
             deleteNote();
+            didEdit=false;
             navigationController?.popViewControllerAnimated(true);
         }
     }
@@ -73,7 +75,12 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
 //    }
     
     func save(){
+        saveAction();
+        didEdit=false;
+        navigationController?.popViewControllerAnimated(true);
+    }
     
+    func saveAction(){
         if ((noteView.text!.text as NSString).length == 0){
             note.nome = "Empty Note";
         }else if ((noteView.text!.text as NSString).length > 10){
@@ -86,7 +93,16 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         note.data = NSDate();
         
         noteDAO.saveData(note);
-        navigationController?.popViewControllerAnimated(true);
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        didEdit = true;
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if(didEdit==true){
+            saveAction();
+        }
     }
 
 }
