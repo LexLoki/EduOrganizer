@@ -22,9 +22,16 @@ class StudentVC: UIViewController, TableViewDelegate{
         super.init(coder: aDecoder);
     }
     
+    func notesOn(notification: NSNotification){
+        println("observer funfou");
+        performSegueWithIdentifier("addNote", sender: nil);
+    }
+    
     //Carregamentos unicos
     override func viewDidLoad() {
       
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notesOn:", name:"notesNotification", object: nil)
+     
         studentView = StudentView(view: view, parent: self);
         studentView.horTableProfessor.delegate = self;
         
@@ -41,10 +48,18 @@ class StudentVC: UIViewController, TableViewDelegate{
             forControlEvents: UIControlEvents.TouchUpInside);
         
         
-            }
+    }
     
     //Recarrega da plist sempre que aparece
     override func viewWillAppear(animated: Bool) {
+        
+        studentView.subjOptions.labelOne.text = "";
+        studentView.subjOptions.labelTwo.text = "";
+        studentView.subjOptions.labelThree.text = "";
+        
+        studentView.notesOptions.labelOne.text = "";
+        studentView.notesOptions.labelTwo.text = "";
+        
         //ITENS SUBJECTS SECTION
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
@@ -149,7 +164,7 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func notesTouched(sender:UIButton){
         selectedIndex = sender.tag;
-        performSegueWithIdentifier("infoNote", sender: nil);
+        performSegueWithIdentifier("editNote", sender: nil);
     }
     
     func segueToNotesList(){
@@ -168,7 +183,7 @@ class StudentVC: UIViewController, TableViewDelegate{
             let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
             destinationVC?.professor = professores[selectedIndex];
         }
-        else if(segue.identifier == "infoNote"){
+        else if(segue.identifier == "editNote"){
             let destinationVC = segue.destinationViewController as? AddNotesVC;
             destinationVC?.note = notes[selectedIndex];
         }

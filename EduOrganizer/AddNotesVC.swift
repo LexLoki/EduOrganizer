@@ -40,7 +40,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
             title = "New Note";
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
-            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel",style: .Plain,target: self, action: "back");
+
         }
         
         deleteAlert = UIAlertView(title: "Confirm deletion",
@@ -51,7 +51,6 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         
     }
     
-    
     func deleteNoteAlert(){
         deleteAlert.show();
     }
@@ -59,24 +58,22 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if(buttonIndex == 1){
             deleteNote();
-            performSegueWithIdentifier("deleteNote", sender: nil);
+            navigationController?.popViewControllerAnimated(true);
         }
-    }
-    
-    func back(){
-       performSegueWithIdentifier("segueTasks", sender: nil)
     }
     
     func deleteNote(){
         noteDAO.deleteDataById(note.id);
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if (editMode){
-            save();
-        }
-    }
+//    override func viewDidDisappear(animated: Bool) {
+//        if (editMode){
+//            save();
+//        }
+//    }
+    
     func save(){
+    
         if ((noteView.text!.text as NSString).length == 0){
             note.nome = "Empty Note";
         }else if ((noteView.text!.text as NSString).length > 10){
@@ -89,7 +86,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         note.data = NSDate();
         
         noteDAO.saveData(note);
-        back();
+        navigationController?.popViewControllerAnimated(true);
     }
 
 }

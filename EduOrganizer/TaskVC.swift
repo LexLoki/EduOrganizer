@@ -19,8 +19,16 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.init(coder: aDecoder);
     }
     
+    func notesOn(notification: NSNotification){
+        println("observer funfou");
+        performSegueWithIdentifier("addNote", sender: nil);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notesOn:", name:"notesNotification", object: nil)
+        
         
         var taskView : TaskView = TaskView(view: view, parent: self);
         taskView.tableView.delegate = self;

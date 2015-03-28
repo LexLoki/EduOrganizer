@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -62,7 +62,8 @@
                         <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="RDW-rH-KIw"/>
                         <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="S3M-SS-7VW"/>
                         <segue destination="ieG-xn-xwG" kind="show" identifier="notes" id="Ymo-2p-CY3"/>
-                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="infoNote" id="2K6-eH-ivb"/>
+                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="editNote" id="2K6-eH-ivb"/>
+                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="addNote" id="57m-Yf-NNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGa-5G-oGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,7 +84,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="bdZ-pH-U4S" kind="show" identifier="infoNote" id="9kA-YT-TgB"/>
+                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="infoNote" id="9kA-YT-TgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMx-to-RTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -204,7 +205,7 @@
                         <viewControllerLayoutGuide type="bottom" id="AJk-Ub-jtU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3yx-dM-tQJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -310,7 +311,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9kA-YT-TgB"/>
-        <segue reference="RDW-rH-KIw"/>
         <segue reference="S3M-SS-7VW"/>
+        <segue reference="RDW-rH-KIw"/>
     </inferredMetricsTieBreakers>
 </document>

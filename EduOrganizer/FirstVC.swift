@@ -65,7 +65,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     }
 
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
-        performSegueWithIdentifier("newNote", sender: nil);
+        NSNotificationCenter.defaultCenter().postNotificationName("notesNotification", object: nil)
     }
 
 }
