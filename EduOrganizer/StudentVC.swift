@@ -22,6 +22,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         super.init(coder: aDecoder);
     }
     
+    //Carregamentos unicos
     override func viewDidLoad() {
       
         studentView = StudentView(view: view, parent: self);
@@ -40,6 +41,10 @@ class StudentVC: UIViewController, TableViewDelegate{
             forControlEvents: UIControlEvents.TouchUpInside);
         
         
+            }
+    
+    //Recarrega da plist sempre que aparece
+    override func viewWillAppear(animated: Bool) {
         //ITENS SUBJECTS SECTION
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
@@ -58,16 +63,15 @@ class StudentVC: UIViewController, TableViewDelegate{
                 studentView.subjOptions.sectionTwo.addTarget(self,
                     action: "subjectsTouched:",
                     forControlEvents: UIControlEvents.TouchUpInside);
-            }
-            
-            if (materias.count > 2){
-                studentView.subjOptions.labelThree.text = materias[2].nome + " - " + materias[2].id;
-                studentView.subjOptions.sectionThree.addTarget(self,
-                    action: "subjectsTouched:",
-                    forControlEvents: UIControlEvents.TouchUpInside);
+                
+                if (materias.count > 2){
+                    studentView.subjOptions.labelThree.text = materias[2].nome + " - " + materias[2].id;
+                    studentView.subjOptions.sectionThree.addTarget(self,
+                        action: "subjectsTouched:",
+                        forControlEvents: UIControlEvents.TouchUpInside);
+                }
             }
         }
-        
         
         //ITENS NOTES SECTION
         var notesDAO = NoteDAO();
@@ -86,6 +90,7 @@ class StudentVC: UIViewController, TableViewDelegate{
                     forControlEvents: UIControlEvents.TouchUpInside);
             }
         }
+        
 
     }
     
@@ -127,7 +132,8 @@ class StudentVC: UIViewController, TableViewDelegate{
         }else if (sender.tag == 1){//professors
             performSegueWithIdentifier("professors", sender: nil);
         }else if (sender.tag == 2){
-            segueToNotesList();
+            //segueToNotesList();
+            performSegueWithIdentifier("notes", sender: nil);
         }
     }
 
@@ -143,7 +149,7 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func notesTouched(sender:UIButton){
         selectedIndex = sender.tag;
-        //levar para tela com nota por id
+        performSegueWithIdentifier("infoNote", sender: nil);
     }
     
     func segueToNotesList(){
@@ -157,12 +163,17 @@ class StudentVC: UIViewController, TableViewDelegate{
         if (segue.identifier == "infoSubject"){
             let destinationVC = segue.destinationViewController as? SubjectInfoVC;
             destinationVC?.subject = materias[selectedIndex];
-        }else if(segue.identifier == "infoProfessor"){
+        }
+        else if(segue.identifier == "infoProfessor"){
             let destinationVC = segue.destinationViewController as? ProfessorInfoVC;
             destinationVC?.professor = professores[selectedIndex];
-        }else{
-            let destinationVC = segue.destinationViewController as? NotesListVC;
-            destinationVC?.notes = notes;
+        }
+        else if(segue.identifier == "infoNote"){
+            let destinationVC = segue.destinationViewController as? AddNotesVC;
+            destinationVC?.textToLoad = notes[selectedIndex].texto;
+            destinationVC?.segueDone = "noteInfo";
+            destinationVC?.title = notes[selectedIndex].nome;
+            destinationVC?.note = notes[selectedIndex];
         }
 
     }

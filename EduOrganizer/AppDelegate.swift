@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var imgPath:String = destPath;
         destPath = destPath.stringByAppendingPathComponent("\(filename)\(type)");
         
+        println(destPath);
+        
         // If the file doesn't exist in the Documents Folder, copy it.
         var fileManager:NSFileManager = NSFileManager.defaultManager();
         if(!fileManager.fileExistsAtPath(destPath)){

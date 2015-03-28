@@ -21,7 +21,6 @@ class NoteDAO : StudDAO, ProtocolDAO {
         var notes : Array = Array<NoteModel>();
         
         for (id, _) in res.dict{
-            
             var note : NoteModel = getDataById(id) as NoteModel;
             notes.append(note);
         }
@@ -55,6 +54,14 @@ class NoteDAO : StudDAO, ProtocolDAO {
         note.data = noteDict["data"] as NSDate!;
         
         return note;
+    }
+    
+    func deleteById(id: AnyObject) {
+        (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(id as Int));
+        contents.writeToFile(plistPath, atomically: true);
+        var subjectDAO = SubjectDAO();
+        subjectDAO.removeNoteReferencesById(id);
+        
     }
     
     func saveData(object : AnyObject) {
