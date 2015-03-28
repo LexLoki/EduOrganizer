@@ -30,6 +30,7 @@
 		3BAF093D1AC08B0500E2326C /* StudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF093C1AC08B0500E2326C /* StudentView.swift */; };
 		3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF093E1AC093D900E2326C /* StudentCell.swift */; };
 		3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF09421AC0AB8A00E2326C /* SubjectDAO.swift */; };
+		3BBA49A61AC716DE00785F44 /* NotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA49A51AC716DE00785F44 /* NotesListView.swift */; };
 		3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD7E9431AB75B1D00238ECE /* Images.xcassets */; };
 		3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */; };
 		3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D651AC1EB39001F2B27 /* NoteModel.swift */; };
@@ -88,6 +89,7 @@
 		3BAF093C1AC08B0500E2326C /* StudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentView.swift; sourceTree = "<group>"; };
 		3BAF093E1AC093D900E2326C /* StudentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
 		3BAF09421AC0AB8A00E2326C /* SubjectDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectDAO.swift; sourceTree = "<group>"; };
+		3BBA49A51AC716DE00785F44 /* NotesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListView.swift; sourceTree = "<group>"; };
 		3BD7E9421AB7486600238ECE /* FancyTabBarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTabBarDelegate.h; sourceTree = "<group>"; };
 		3BD7E9431AB75B1D00238ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BD92D631AC1E9E7001F2B27 /* NoteDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDAO.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */,
 				3B72BAB91AC50BE5004A1F67 /* FirstView.swift */,
 				3BDCB14A1AC61C9400865AFC /* OptionsView.swift */,
+				3BBA49A51AC716DE00785F44 /* NotesListView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
 				3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
+				3BBA49A61AC716DE00785F44 /* NotesListView.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 				3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,

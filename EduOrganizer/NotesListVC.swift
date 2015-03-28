@@ -22,35 +22,16 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //n tem colchete pq eh so um nome
         title = "Notes";
         
-        //inicializacao da tableView
-        tableView = UITableView(frame: CGRectMake(0,0,view.frame.width,view.frame.height))
-        tableView.separatorInset = UIEdgeInsetsZero;
-        tableView.separatorColor = UIColor.UIColorFromRGB(0x1a242e);
-        tableView.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-        view.addSubview(tableView);
+        var notesListView : NotesListView = NotesListView(view: view, parent: self);
+        notesListView.tableView.delegate = self;
+        notesListView.tableView.dataSource = self;
         
-        //delegate e data source da table view
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorInset = UIEdgeInsetsZero;
-        tableView.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        
-
-        //registrando o identificador da célula
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell");
-        
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        tableView.reloadData();
         var noteDAO = NoteDAO()
         notes = noteDAO.getDataArray() as Array<NoteModel>;
+        
     }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //quantidade de celulas para uma seçao
@@ -67,14 +48,14 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell;
        
         cell.layoutMargins = UIEdgeInsetsZero;
-        tableView.separatorColor = UIColor.UIColorFromRGB(0x1e3044);
+        tableView.separatorColor = UIColor.UIColorFromRGB(0x294b70);
         cell.preservesSuperviewLayoutMargins = false;
-        cell.textLabel?.text = notes[indexPath.row].nome;
-        
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
+        
         cell.textLabel?.textColor = UIColor.whiteColor();
         cell.textLabel?.font = UIFont(name: "Avenir Next", size: 20);
         cell.textLabel?.textAlignment = NSTextAlignment.Left;
+        cell.textLabel?.text = notes[indexPath.row].nome;
         
         //Aqui botamos imagem do clipe caso tenha fotos
         if (notes[indexPath.row].imagens?.count > 0){
@@ -99,9 +80,6 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as? AddNotesVC;
-        destinationVC?.textToLoad = notes[selectedIndex].texto;
-        destinationVC?.segueDone = "noteInfo";
-        destinationVC?.title = notes[selectedIndex].nome;
         destinationVC?.note = notes[selectedIndex];
     }
 }

@@ -63,22 +63,31 @@ class SubjectDAO : StudDAO, ProtocolDAO {
     }
     
     func removeNoteReferencesById(id:AnyObject){
-        var dict:NSMutableDictionary = loadPList();
+        
+        var dict : NSMutableDictionary = loadPList();
+        
         for (idKey, subject) in dict{
+            
             var notesIdArray : Array<String> = subject["anotacoes"] as Array<String>;
-            for(var i=notesIdArray.count-1;i>=0;i--){
+            
+            for(var i = notesIdArray.count-1; i >= 0; i--){
                 println(i);
+                
                 if(notesIdArray[i] == String(id as Int)){
                     println("gotcha");
                     notesIdArray.removeAtIndex(i);
                     break;
                 }
+                
             }
+            
             subject.setObject(notesIdArray, forKey: "anotacoes");
             dict.setObject(subject, forKey: idKey as String);
         }
+        
         contents.setObject(dict, forKey: "materias");
         contents.writeToFile(plistPath, atomically: true);
+        
     }
     
 }

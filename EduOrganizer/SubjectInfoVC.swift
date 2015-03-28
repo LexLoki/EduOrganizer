@@ -29,11 +29,11 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         var rows = 1;
         
-        if (subject.tarefas.count > 0){
+        if (subject.tarefas != nil && subject.tarefas.count > 0){
             rows++;
         }
         
-        if (subject.notes.count > 0){
+        if (subject.notes != nil && subject.notes.count > 0){
             rows++;
         }
         

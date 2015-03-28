@@ -13,6 +13,8 @@ import UIKit
 class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
 
     var note : NoteModel = NoteModel();
+    var noteDAO : NoteDAO = NoteDAO();
+    
     var noteView : AddNoteView!;
     var textToLoad : String!;
     var segueDone : String!;
@@ -22,23 +24,22 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         
         noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
-        noteView.text.text = textToLoad;
         
-        if(title==nil){
+        if (note.id != nil) {
+            
+            title = note.nome;
+            noteView.text.text = note.texto;
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteNoteAlert")
+
+        }else{
+            
             title = "New Note";
-        }
-        
-        if(segueDone==nil){
+            
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel",style: .Plain,target: self, action: "back");
         }
-        else{
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteNoteAlert")
-        }
-
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+        
         deleteAlert = UIAlertView(title: "Confirm deletion",
             message: "Delete note " + title! + "?",
             delegate: self,
@@ -52,23 +53,22 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     }
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if(buttonIndex==1){
+        if(buttonIndex == 1){
             deleteNote();
+            back();
         }
     }
     
     func back(){
-       self.performSegueWithIdentifier("segueTasks", sender: nil)
+       performSegueWithIdentifier("segueTasks", sender: nil)
     }
     
     func deleteNote(){
-        var noteDAO : NoteDAO = NoteDAO();
-        noteDAO.deleteById(note.id);
+        noteDAO.deleteDataById(note.id);
     }
     
     func save(){
         
-        var noteDAO : NoteDAO = NoteDAO();
         var noteModel : NoteModel = NoteModel();
 
         if ((noteView.text!.text as NSString).length > 10){

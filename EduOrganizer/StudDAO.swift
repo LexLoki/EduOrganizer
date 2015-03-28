@@ -14,6 +14,7 @@ import Foundation
     func getDataArray() -> Array<AnyObject>;
     func getDataById(id : AnyObject) -> AnyObject;
     optional func saveData(object : AnyObject);
+    optional func deleteDataById(id : AnyObject);
     
 }
 

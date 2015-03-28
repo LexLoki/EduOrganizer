@@ -170,9 +170,6 @@ class StudentVC: UIViewController, TableViewDelegate{
         }
         else if(segue.identifier == "infoNote"){
             let destinationVC = segue.destinationViewController as? AddNotesVC;
-            destinationVC?.textToLoad = notes[selectedIndex].texto;
-            destinationVC?.segueDone = "noteInfo";
-            destinationVC?.title = notes[selectedIndex].nome;
             destinationVC?.note = notes[selectedIndex];
         }
 

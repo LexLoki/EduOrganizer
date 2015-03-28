@@ -56,9 +56,11 @@ class NoteDAO : StudDAO, ProtocolDAO {
         return note;
     }
     
-    func deleteById(id: AnyObject) {
+    func deleteDataById(id: AnyObject) {
+        
         (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(id as Int));
         contents.writeToFile(plistPath, atomically: true);
+        
         var subjectDAO = SubjectDAO();
         subjectDAO.removeNoteReferencesById(id);
         
