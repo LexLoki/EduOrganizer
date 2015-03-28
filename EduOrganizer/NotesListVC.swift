@@ -17,8 +17,6 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
     
     var notes : Array<NoteModel> = Array<NoteModel>();
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +25,6 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
         notesListView = NotesListView(view: view, parent: self);
         notesListView.tableView.delegate = self;
         notesListView.tableView.dataSource = self;
-        
         
     }
     

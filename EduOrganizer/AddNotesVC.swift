@@ -15,6 +15,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     var note : NoteModel = NoteModel();
     var noteDAO : NoteDAO = NoteDAO();
     
+    var editMode = false;
     var noteView : AddNoteView!;
     var textToLoad : String!;
     var segueDone : String!;
@@ -27,13 +28,15 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         
         if (note.id != nil) {
             
+            editMode = true;
             title = note.nome;
             noteView.text.text = note.texto;
             
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteNoteAlert")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteNoteAlert");
+            
 
         }else{
-            
+    
             title = "New Note";
             
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
@@ -47,6 +50,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
             otherButtonTitles: "Delete");
         
     }
+    
     
     func deleteNoteAlert(){
         deleteAlert.show();
@@ -67,20 +71,24 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         noteDAO.deleteDataById(note.id);
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if (editMode){
+            save();
+        }
+    }
     func save(){
-        
-        var noteModel : NoteModel = NoteModel();
-
-        if ((noteView.text!.text as NSString).length > 10){
-            noteModel.nome = (noteView.text!.text as NSString).substringToIndex(10);
+        if ((noteView.text!.text as NSString).length == 0){
+            note.nome = "Empty Note";
+        }else if ((noteView.text!.text as NSString).length > 10){
+            note.nome = (noteView.text!.text as NSString).substringToIndex(10);
         }else{
-            noteModel.nome = (noteView.text!.text as NSString);
+            note.nome = (noteView.text!.text as NSString);
         }
         
-        noteModel.texto = noteView.text!.text as String;
-        noteModel.data = NSDate();
+        note.texto = noteView.text!.text as String;
+        note.data = NSDate();
         
-        noteDAO.saveData(noteModel);
+        noteDAO.saveData(note);
         back();
     }
 

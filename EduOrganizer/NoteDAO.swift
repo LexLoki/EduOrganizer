@@ -32,28 +32,33 @@ class NoteDAO : StudDAO, ProtocolDAO {
     
     func getDataById(id: AnyObject) -> AnyObject {
         
-        var note : NoteModel = NoteModel();
+        var note : NoteModel?;
         
         var res = setUpNote();
         var noteDict : NSDictionary = res.dict[id as String] as NSDictionary;
-        var imageArray : Array<String> = noteDict["imagens"] as Array<String>;
+        
+        if (noteDict.count > 0){
 
-        if (imageArray.count > 0){
-            note.imagens = Array<UIImage>();
+            note = NoteModel();
+            
+            var imageArray : Array<String> = noteDict["imagens"] as Array<String>;
+            
+            if (imageArray.count > 0){
+                note?.imagens = Array<String>();
+            }
+            
+            for (var i = 0; i < imageArray.count; i++){
+                var noteImgStr : String = res.path.stringByAppendingPathComponent(imageArray[i]);
+                note?.imagens?.append(noteImgStr);
+            }
+            
+            note?.id = (id as NSString).integerValue;
+            note?.nome = noteDict["nome"] as String;
+            note?.texto = noteDict["texto"] as String;
+            note?.data = noteDict["data"] as NSDate!;
         }
         
-        for (var i = 0; i < imageArray.count; i++){
-            var noteImgStr : String = res.path.stringByAppendingPathComponent(imageArray[i]);
-            var image = UIImage(contentsOfFile: noteImgStr)!;
-            note.imagens?.append(image);
-        }
-        
-        note.id = (id as NSString).integerValue;
-        note.nome = noteDict["nome"] as String;
-        note.texto = noteDict["texto"] as String;
-        note.data = noteDict["data"] as NSDate!;
-        
-        return note;
+        return note!;
     }
     
     func deleteDataById(id: AnyObject) {
@@ -64,32 +69,42 @@ class NoteDAO : StudDAO, ProtocolDAO {
         var subjectDAO = SubjectDAO();
         subjectDAO.removeNoteReferencesById(id);
         
+        //DELETAR IMAGENS DA PASTA DE imgNotes
     }
     
     func saveData(object : AnyObject) {
      
         var notesDict : NSMutableDictionary = self.loadPList()!;
-        let newId : String = getFreeIdInDict(notesDict);
         
-        var noteModel = object as NoteModel;
+        var note = object as NoteModel;
+        var noteDict : NSMutableDictionary = NSMutableDictionary();
         
-        var note : NSMutableDictionary = NSMutableDictionary();
+        var newId : String = "";
         
-        note.setValue(noteModel.texto, forKey: "texto");
-        note.setValue(noteModel.nome, forKey: "nome");
-        note.setValue(noteModel.data, forKey: "data");
+        if (note.id != nil && note.id > 0){
+            newId = String(note.id);
+            
+            (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(note.id));
+            contents.writeToFile(plistPath, atomically: true);
+            
+        }else{
+            newId = getFreeIdInDict(notesDict);
+        }
+        
+        noteDict.setValue(note.texto, forKey: "texto");
+        noteDict.setValue(note.nome, forKey: "nome");
+        noteDict.setValue(note.data, forKey: "data");
         
         var imgArray : Array<String> = Array<String>();
-        if (noteModel.imagens?.count > 0){
-            for (var i = 0; i < noteModel.imagens?.count; i++){
-                var image : UIImage = noteModel.imagens?[i] as UIImage!;
-                imgArray.append(image.accessibilityIdentifier);
+        if (note.imagens?.count > 0){
+            for (var i = 0; i < note.imagens?.count; i++){
+                imgArray.append(note.imagens?[i] as String!);
             }
         }
         
-        note.setValue(imgArray, forKey: "imagens");
+        noteDict.setValue(imgArray, forKey: "imagens");
         
-        notesDict.setObject(note, forKey: newId);
+        notesDict.setObject(noteDict, forKey: newId);
         contents.setObject(notesDict, forKey: "anotacoes");
         contents.writeToFile(plistPath, atomically: true);
      

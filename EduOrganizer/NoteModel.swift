@@ -13,7 +13,7 @@ class NoteModel {
     var id : Int!;
     var nome : String!;
     var texto : String!;
-    var imagens : Array<UIImage>?;
+    var imagens : Array<String>?;
     var data : NSDate?;
     
     init(){
