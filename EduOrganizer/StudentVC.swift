@@ -24,7 +24,11 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func notesOn(notification: NSNotification){
         println("observer funfou");
-        performSegueWithIdentifier("addNote", sender: nil);
+        var selectedIndex = tabBarController!.selectedIndex;
+        
+        if (selectedIndex == 2){
+            performSegueWithIdentifier("addNote", sender: nil);
+        }
     }
     
     //Carregamentos unicos

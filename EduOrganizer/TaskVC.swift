@@ -20,8 +20,13 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func notesOn(notification: NSNotification){
+
         println("observer funfou");
-        performSegueWithIdentifier("addNote", sender: nil);
+        var selectedIndex = tabBarController!.selectedIndex;
+        
+        if (selectedIndex == 0){
+            performSegueWithIdentifier("addNote", sender: nil);
+        }
     }
     
     override func viewDidLoad() {
