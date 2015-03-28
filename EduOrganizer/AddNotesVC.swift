@@ -55,7 +55,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if(buttonIndex == 1){
             deleteNote();
-            back();
+            performSegueWithIdentifier("deleteNote", sender: nil);
         }
     }
     

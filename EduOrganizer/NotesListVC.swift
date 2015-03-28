@@ -11,7 +11,7 @@ import UIKit
 class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource {
     
     //Declaracao da tableView
-    var tableView: UITableView!
+    var notesListView: NotesListView!
 
     var selectedIndex: Int = Int();
     
@@ -24,13 +24,17 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
         
         title = "Notes";
         
-        var notesListView : NotesListView = NotesListView(view: view, parent: self);
+        notesListView = NotesListView(view: view, parent: self);
         notesListView.tableView.delegate = self;
         notesListView.tableView.dataSource = self;
         
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         var noteDAO = NoteDAO()
         notes = noteDAO.getDataArray() as Array<NoteModel>;
-        
+        notesListView.tableView.reloadData();
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,5 +85,9 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationVC = segue.destinationViewController as? AddNotesVC;
         destinationVC?.note = notes[selectedIndex];
+    }
+    
+    @IBAction func unwindToContainerVC(segue:UIStoryboardSegue) {
+    
     }
 }

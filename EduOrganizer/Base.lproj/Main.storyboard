@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -61,7 +61,7 @@
                         <segue destination="GsA-Yf-86d" kind="custom" identifier="professors" id="aXI-vO-7SH"/>
                         <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="RDW-rH-KIw"/>
                         <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="S3M-SS-7VW"/>
-                        <segue destination="ieG-xn-xwG" kind="custom" identifier="notes" id="Ymo-2p-CY3"/>
+                        <segue destination="ieG-xn-xwG" kind="show" identifier="notes" id="Ymo-2p-CY3"/>
                         <segue destination="bdZ-pH-U4S" kind="custom" identifier="infoNote" id="2K6-eH-ivb"/>
                     </connections>
                 </viewController>
@@ -78,17 +78,17 @@
                         <viewControllerLayoutGuide type="bottom" id="uIy-Kh-yzO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y61-sv-BMe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="infoNote" id="9kA-YT-TgB"/>
+                        <segue destination="bdZ-pH-U4S" kind="show" identifier="infoNote" id="9kA-YT-TgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMx-to-RTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="-2278"/>
+            <point key="canvasLocation" x="1859" y="-2376"/>
         </scene>
         <!--ProfessorsVC-->
         <scene sceneID="ZAi-kD-cAN">
@@ -204,18 +204,20 @@
                         <viewControllerLayoutGuide type="bottom" id="AJk-Ub-jtU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3yx-dM-tQJ">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="TfY-iS-Mue"/>
                     <connections>
                         <segue destination="lxR-5f-Twz" kind="presentation" identifier="segueTasks" id="g9F-Sz-SrP"/>
+                        <segue destination="5Xj-cw-BWL" kind="unwind" identifier="deleteNote" unwindAction="unwindToContainerVC:" id="idk-PR-qaE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwU-cZ-JAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Xj-cw-BWL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="807" y="562"/>
+            <point key="canvasLocation" x="827" y="578"/>
         </scene>
         <!--Student-->
         <scene sceneID="ZJB-ye-WaT">
@@ -308,7 +310,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9kA-YT-TgB"/>
+        <segue reference="RDW-rH-KIw"/>
         <segue reference="S3M-SS-7VW"/>
-        <segue reference="10A-S4-UKs"/>
     </inferredMetricsTieBreakers>
 </document>
