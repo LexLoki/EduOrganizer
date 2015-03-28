@@ -37,6 +37,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="SwK-lw-1bx"/>
+                    <connections>
+                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="addNote" id="JkV-ID-MVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p53-NJ-V6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,7 +214,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="TfY-iS-Mue"/>
                     <connections>
-                        <segue destination="lxR-5f-Twz" kind="presentation" identifier="segueTasks" id="g9F-Sz-SrP"/>
                         <segue destination="5Xj-cw-BWL" kind="unwind" identifier="deleteNote" unwindAction="unwindToContainerVC:" id="idk-PR-qaE"/>
                     </connections>
                 </viewController>
@@ -310,7 +312,7 @@
         <image name="itemTaskSelected" width="20" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9kA-YT-TgB"/>
+        <segue reference="JkV-ID-MVb"/>
         <segue reference="S3M-SS-7VW"/>
         <segue reference="RDW-rH-KIw"/>
     </inferredMetricsTieBreakers>
