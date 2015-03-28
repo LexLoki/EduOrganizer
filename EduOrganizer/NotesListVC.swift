@@ -16,23 +16,26 @@ class NotesListVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //data source da table view//
+        //data source da table view
         tableView.dataSource = self
         tableView.separatorInset = UIEdgeInsetsZero;
-        //registrando o datasource//
+        tableView.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+
+        //registrando o identificador da célula
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell");
         
-        title = "Notes"; //n tem colchete pq eh so um nome//
+        //n tem colchete pq eh so um nome
+        title = "Notes"; 
 
     }
     
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //quantidade de celulas para uma seçao//
-        return self.notes.count //quantidade de celular do array preenchido//
+        //quantidade de celulas para uma seçao
+        return self.notes.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //conteudo de celulas para uma secao//
+        //conteudo de celulas para uma secao
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell;
        
         cell.layoutMargins = UIEdgeInsetsZero;
@@ -51,7 +54,7 @@ class NotesListVC: UIViewController, UITableViewDataSource {
         if(indexPath.row%2 == 0){
             cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044)
         } else {
-            cell.backgroundColor = UIColor.UIColorFromRGB(0x2b4c6f)
+            cell.backgroundColor = UIColor.UIColorFromRGB(0x294b70)
         }
         
         return cell

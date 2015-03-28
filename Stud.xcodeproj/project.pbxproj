@@ -35,6 +35,7 @@
 		3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D651AC1EB39001F2B27 /* NoteModel.swift */; };
 		3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */; };
 		3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB1481AC6184500865AFC /* StudNC.swift */; };
+		3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB14A1AC61C9400865AFC /* OptionsView.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
 		B9C366201AC5F1CD007D6567 /* NotesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
@@ -94,6 +95,7 @@
 		3BD92D651AC1EB39001F2B27 /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 		3BDCB1481AC6184500865AFC /* StudNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudNC.swift; sourceTree = "<group>"; };
+		3BDCB14A1AC61C9400865AFC /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesListVC.xib; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				3BD92D671AC1F82A001F2B27 /* AddNoteView.swift */,
 				3B72BAB91AC50BE5004A1F67 /* FirstView.swift */,
 				B9C3661F1AC5F1CD007D6567 /* NotesListVC.xib */,
+				3BDCB14A1AC61C9400865AFC /* OptionsView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				3B72BABA1AC50BE5004A1F67 /* FirstView.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
 				3B99BF121AC59BD200DE1612 /* TaskModel.swift in Sources */,
+				3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */,
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,
 				3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */,

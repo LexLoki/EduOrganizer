@@ -21,6 +21,18 @@ extension UIColor{
     
 }
 
+extension UILabel{
+    
+    class func setFontStyle(label : UILabel, sizeFont : CGFloat) -> UILabel{
+        
+        label.font = UIFont(name: "AvenirNext-Bold", size: sizeFont);
+        label.textAlignment = NSTextAlignment.Left;
+        label.textColor = UIColor.whiteColor();
+        
+        return label;
+    }
+}
+
 extension String{
     
     static func getAbrevName(str : String) -> String{

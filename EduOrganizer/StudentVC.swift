@@ -26,7 +26,6 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         studentView = StudentView(view: view, parent: self);
         studentView.horTableProfessor.delegate = self;
-        studentView.horTableSubjects.delegate = self;
         
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
@@ -40,11 +39,7 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
         
-        if (horizontalTableView == studentView.horTableProfessor){
-            return professores.count;
-        }else{
-            return materias.count;
-        }
+        return professores.count;
 
     }
     
@@ -54,45 +49,24 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     func tableView(horizontalTableView: HorizontalTableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
         
-        if (horizontalTableView == studentView.horTableProfessor){
-            
-            var professorCell : StudentCell = StudentCell(view: view);
-            var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
-
-            professorCell.btnCell.tag = cellForRowAtIndexPath.row;
-            professorCell.btnCell.addTarget(self,
-                                            action: "notesTouched:",
-                                            forControlEvents: UIControlEvents.TouchUpInside);
-            
-            
-            if let image = professor.imagem {
-                professorCell.btnCell.setImage(professor.imagem, forState: UIControlState.Normal);
-
-            }else{
-                professorCell.label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
-                professorCell.label.text = String.getAbrevName(professor.nome);
-            }
-            
-            return professorCell;
+        var professorCell : StudentCell = StudentCell(view: view);
+        var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
+        
+        professorCell.btnCell.tag = cellForRowAtIndexPath.row;
+        professorCell.btnCell.addTarget(self,
+            action: "notesTouched:",
+            forControlEvents: UIControlEvents.TouchUpInside);
+        
+        
+        if let image = professor.imagem {
+            professorCell.btnCell.setImage(professor.imagem, forState: UIControlState.Normal);
             
         }else{
-            
-            var subjectCell : StudentCell = StudentCell(view: view);
-            var subject : SubjectModel = materias[cellForRowAtIndexPath.row] as SubjectModel;
-            
-            subjectCell.label.text = String(format: "%@\n(%@)",
-                                            (subject.nome),
-                                            (subject.id));
-            
-            subjectCell.btnCell.tag = cellForRowAtIndexPath.row;
-            subjectCell.btnCell.addTarget(self,
-                                          action: "subjectsTouched:",
-                                          forControlEvents: UIControlEvents.TouchUpInside);
-            
-
-            return subjectCell;
+            professorCell.label.text = String.getAbrevName(professor.nome);
         }
-
+        
+        return professorCell;
+    
     }
 
     func subjectsTouched(sender:UIButton){
