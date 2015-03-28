@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMx-to-RTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="-2326"/>
+            <point key="canvasLocation" x="1905" y="-2278"/>
         </scene>
         <!--ProfessorsVC-->
         <scene sceneID="ZAi-kD-cAN">
@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzm-sr-0pZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="-1610"/>
+            <point key="canvasLocation" x="2897" y="-2470"/>
         </scene>
         <!--Professor InfoVC-->
         <scene sceneID="MCZ-xA-uOk">
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahR-Ch-jYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2759" y="-1686"/>
+            <point key="canvasLocation" x="3323" y="-1562"/>
         </scene>
         <!--SubjectsVC-->
         <scene sceneID="afx-Vg-kPY">
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acd-cW-EMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="-952"/>
+            <point key="canvasLocation" x="2057" y="-468"/>
         </scene>
         <!--Subject InfoVC-->
         <scene sceneID="JXm-FF-QtL">
@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iqh-XZ-Q6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799" y="-1000"/>
+            <point key="canvasLocation" x="3123" y="-856"/>
         </scene>
         <!--FirstVC-->
         <scene sceneID="uko-Cf-Mxh">
@@ -308,7 +308,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9kA-YT-TgB"/>
-        <segue reference="RDW-rH-KIw"/>
         <segue reference="S3M-SS-7VW"/>
+        <segue reference="10A-S4-UKs"/>
     </inferredMetricsTieBreakers>
 </document>

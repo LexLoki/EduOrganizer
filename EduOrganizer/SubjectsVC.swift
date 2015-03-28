@@ -55,7 +55,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedIndex = indexPath.row;
-        performSegueWithIdentifier("info", sender: nil)
+        performSegueWithIdentifier("infoSubject", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
