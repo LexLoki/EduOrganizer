@@ -16,7 +16,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     var noteDAO : NoteDAO = NoteDAO();
     
     var editMode = false;
-    var didEdit:Bool = false;
+    var shouldSave:Bool = false;
     var noteView : AddNoteView!;
     var textToLoad : String!;
     var segueDone : String!;
@@ -59,7 +59,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if(buttonIndex == 1){
             deleteNote();
-            didEdit=false;
+            shouldSave=false;
             navigationController?.popViewControllerAnimated(true);
         }
     }
@@ -75,8 +75,6 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
 //    }
     
     func save(){
-        saveAction();
-        didEdit=false;
         navigationController?.popViewControllerAnimated(true);
     }
     
@@ -96,11 +94,11 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        didEdit = true;
+        shouldSave = true;
     }
     
     override func viewWillDisappear(animated: Bool) {
-        if(didEdit==true){
+        if(shouldSave==true){
             saveAction();
         }
     }
