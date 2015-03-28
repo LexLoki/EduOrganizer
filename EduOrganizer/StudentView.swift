@@ -13,6 +13,9 @@ class StudentView : UIView {
     var horTableProfessor : HorizontalTableView!;
     var subjOptions : OptionsView!;
     var notesOptions : OptionsView!;
+    var sectionSubjects : UIButton!;
+    var sectionTeacher : UIButton!;
+    var sectionNotes : UIButton!;
     
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
@@ -22,11 +25,7 @@ class StudentView : UIView {
         
         parent.title = "Student";
         
-        var sectionSubjects : UILabel = UILabel(frame: CGRectMake(0,
-                                                                  0,
-                                                                  frame.width,
-                                                                  frame.height/18));
-        
+        sectionSubjects = UIButton(frame: CGRectMake(0,0,frame.width,frame.height/18));
         sectionSubjects.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
         var labelSubjects : UILabel = UILabel(frame: CGRectMake(sectionSubjects.frame.origin.x + 20,
@@ -35,7 +34,7 @@ class StudentView : UIView {
                                                                 sectionSubjects.frame.height));
 
         
-        labelSubjects = UILabel.setFontStyle(labelSubjects, sizeFont : 15);
+        labelSubjects = UILabel.setFontStyleBold(labelSubjects, sizeFont : 15);
         labelSubjects.text = "Subjects";
         
         var frameSubSection = CGRectMake(0,
@@ -47,10 +46,8 @@ class StudentView : UIView {
         subjOptions = OptionsView(frame : frameSubSection, rows : 3);
         
         
-        var sectionTeacher : UILabel = UILabel(frame: CGRectMake(0,
-                                                                 subjOptions.frame.origin.y +
-                                                                 subjOptions.frame.height,
-                                                                 frame.width, frame.height/18));
+        sectionTeacher = UIButton(frame: CGRectMake(0,subjOptions.frame.origin.y + subjOptions.frame.height,
+                                                   frame.width, frame.height/18));
         
         sectionTeacher.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
@@ -59,7 +56,7 @@ class StudentView : UIView {
                                                                frame.width,
                                                                sectionTeacher.frame.height));
         
-        labelTeacher = UILabel.setFontStyle(labelTeacher, sizeFont : 15);
+        labelTeacher = UILabel.setFontStyleBold(labelTeacher, sizeFont : 15);
         labelTeacher.text = "Teachers";
         
         horTableProfessor = HorizontalTableView(frame: CGRectMake(0,
@@ -70,9 +67,10 @@ class StudentView : UIView {
             color: UIColor.UIColorFromRGB(0x1e3044));
         
         
-        var sectionNotes : UILabel = UILabel(frame: CGRectMake(0,
-            horTableProfessor.frame.origin.y + horTableProfessor.frame.height,
-            frame.width, frame.height/18));
+        sectionNotes = UIButton(frame: CGRectMake(0,
+                                                horTableProfessor.frame.origin.y +
+                                                    horTableProfessor.frame.height,
+                                                frame.width, frame.height/18));
         
             sectionNotes.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
@@ -81,7 +79,7 @@ class StudentView : UIView {
             frame.width, frame.height/18));
         
         
-        labelNotes = UILabel.setFontStyle(labelNotes, sizeFont : 15);
+        labelNotes = UILabel.setFontStyleBold(labelNotes, sizeFont : 15);
         labelNotes.text = "Notes";
         
         var totalHeight = sectionSubjects.frame.height +
@@ -100,6 +98,10 @@ class StudentView : UIView {
                                          frame.height - totalHeight)
         
         notesOptions = OptionsView(frame : frameNoteSection, rows : 2);
+        
+        sectionSubjects.tag = 0;
+        sectionTeacher.tag = 1;
+        sectionNotes.tag = 2;
         
         view.addSubview(sectionSubjects);
         view.addSubview(labelSubjects);

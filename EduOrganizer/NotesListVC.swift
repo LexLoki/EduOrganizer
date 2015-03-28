@@ -16,6 +16,9 @@ class NotesListVC: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //n tem colchete pq eh so um nome
+        title = "Notes";
+        
         //data source da table view
         tableView.dataSource = self
         tableView.separatorInset = UIEdgeInsetsZero;
@@ -23,10 +26,6 @@ class NotesListVC: UIViewController, UITableViewDataSource {
 
         //registrando o identificador da célula
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell");
-        
-        //n tem colchete pq eh so um nome
-        title = "Notes"; 
-
     }
     
   
@@ -39,6 +38,7 @@ class NotesListVC: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell;
        
         cell.layoutMargins = UIEdgeInsetsZero;
+        tableView.separatorColor = UIColor.UIColorFromRGB(0x1e3044);
         cell.preservesSuperviewLayoutMargins = false;
         cell.textLabel?.text = notes[indexPath.row].nome;
         
@@ -50,7 +50,6 @@ class NotesListVC: UIViewController, UITableViewDataSource {
             cell.imageView?.image = UIImage(named: "attachment");
         }
 
-        
         if(indexPath.row%2 == 0){
             cell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044)
         } else {

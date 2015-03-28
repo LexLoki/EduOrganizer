@@ -23,9 +23,18 @@ extension UIColor{
 
 extension UILabel{
     
-    class func setFontStyle(label : UILabel, sizeFont : CGFloat) -> UILabel{
+    class func setFontStyleBold(label : UILabel, sizeFont : CGFloat) -> UILabel{
         
         label.font = UIFont(name: "AvenirNext-Bold", size: sizeFont);
+        label.textAlignment = NSTextAlignment.Left;
+        label.textColor = UIColor.whiteColor();
+        
+        return label;
+    }
+    
+    class func setFontStyle(label : UILabel, sizeFont : CGFloat) -> UILabel{
+        
+        label.font = UIFont(name: "Avenir Next", size: sizeFont);
         label.textAlignment = NSTextAlignment.Left;
         label.textColor = UIColor.whiteColor();
         

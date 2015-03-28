@@ -48,9 +48,6 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
             professorsCell.imageView.image = professores[indexPath.row].imagem;
         }
         
-        var nameProfessor : String = String(format: "%@", (professores[indexPath.row].nome as String));
-        professorsCell.label.text = nameProfessor;
-        
         return professorsCell;
     }
     

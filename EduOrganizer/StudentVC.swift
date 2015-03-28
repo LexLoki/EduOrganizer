@@ -23,18 +23,70 @@ class StudentVC: UIViewController, TableViewDelegate{
     }
     
     override func viewDidLoad() {
-        
+      
         studentView = StudentView(view: view, parent: self);
         studentView.horTableProfessor.delegate = self;
         
+        
+        //SECTIONS
+        studentView.sectionSubjects.addTarget(self,
+            action: "sectionTouched:",
+            forControlEvents: UIControlEvents.TouchUpInside);
+        studentView.sectionTeacher.addTarget(self,
+            action: "sectionTouched:",
+            forControlEvents: UIControlEvents.TouchUpInside);
+        studentView.sectionNotes.addTarget(self,
+            action: "sectionTouched:",
+            forControlEvents: UIControlEvents.TouchUpInside);
+        
+        
+        //ITENS SUBJECTS SECTION
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as Array<ProfessorModel>;
         
         var subjectsDAO = SubjectDAO();
         materias = subjectsDAO.getDataArray() as Array<SubjectModel>;
         
+        if (materias.count > 0){
+            studentView.subjOptions.labelOne.text = materias[0].nome + " - " + materias[0].id;
+            studentView.subjOptions.sectionOne.addTarget(self,
+                action: "subjectsTouched:",
+                forControlEvents: UIControlEvents.TouchUpInside);
+            
+            if (materias.count > 1){
+                studentView.subjOptions.labelTwo.text = materias[1].nome + " - " + materias[1].id;
+                studentView.subjOptions.sectionTwo.addTarget(self,
+                    action: "subjectsTouched:",
+                    forControlEvents: UIControlEvents.TouchUpInside);
+            }
+            
+            if (materias.count > 2){
+                studentView.subjOptions.labelThree.text = materias[2].nome + " - " + materias[2].id;
+                studentView.subjOptions.sectionThree.addTarget(self,
+                    action: "subjectsTouched:",
+                    forControlEvents: UIControlEvents.TouchUpInside);
+            }
+        }
+        
+        
+        //ITENS NOTES SECTION
         var notesDAO = NoteDAO();
         notes = notesDAO.getDataArray() as Array<NoteModel>;
+        
+        if (notes.count > 0){
+            studentView.notesOptions.labelOne.text = notes[0].nome;
+            studentView.notesOptions.sectionOne.addTarget(self,
+                action: "notesTouched:",
+                forControlEvents: UIControlEvents.TouchUpInside);
+            
+            if (notes.count > 1){
+                studentView.notesOptions.labelTwo.text = notes[1].nome;
+                studentView.notesOptions.sectionTwo.addTarget(self,
+                    action: "notesTouched:",
+                    forControlEvents: UIControlEvents.TouchUpInside);
+            }
+        }
+
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
@@ -54,7 +106,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         professorCell.btnCell.tag = cellForRowAtIndexPath.row;
         professorCell.btnCell.addTarget(self,
-            action: "notesTouched:",
+            action: "teacherTouched:",
             forControlEvents: UIControlEvents.TouchUpInside);
         
         
@@ -68,6 +120,16 @@ class StudentVC: UIViewController, TableViewDelegate{
         return professorCell;
     
     }
+    
+    func sectionTouched(sender:UIButton){
+        if (sender.tag == 0){//subjects
+            performSegueWithIdentifier("subjects", sender: nil);
+        }else if (sender.tag == 1){//professors
+            performSegueWithIdentifier("professors", sender: nil);
+        }else if (sender.tag == 2){
+            segueToNotesList();
+        }
+    }
 
     func subjectsTouched(sender:UIButton){
         selectedIndex = sender.tag;
@@ -80,6 +142,11 @@ class StudentVC: UIViewController, TableViewDelegate{
     }
     
     func notesTouched(sender:UIButton){
+        selectedIndex = sender.tag;
+        //levar para tela com nota por id
+    }
+    
+    func segueToNotesList(){
         let vc = NotesListVC(nibName:"NotesListVC", bundle:NSBundle.mainBundle())
         vc.notes = notes;
         self.presentViewController(vc, animated: true, completion: nil)
