@@ -191,6 +191,12 @@ class StudentVC: UIViewController, TableViewDelegate{
             let destinationVC = segue.destinationViewController as? AddNotesVC;
             destinationVC?.note = notes[selectedIndex];
         }
+        else if(segue.identifier == "addNote"){
+            //let destinationVC = segue.destinationViewController as? AddNotesVC;
+            //destinationVC?.hidesBottomBarWhenPushed=true;
+            //(destinationVC?.tabBarController as FirstVC).firstView.fancyTabBar.hidden=true;
+    
+        }
 
     }
     

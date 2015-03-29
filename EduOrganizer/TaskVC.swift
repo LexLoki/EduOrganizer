@@ -67,6 +67,12 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return taskCell;
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "addNote"){
+            
+        }
+    }
+    
     func btnTouched(sender:UIButton){
         if(sender.tag == 3){
             println("foi");

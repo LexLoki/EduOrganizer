@@ -24,6 +24,10 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     
     override func viewDidLoad() {
         
+        var tabBar = tabBarController as FirstVC;
+        tabBar.firstView.fancyTabBar.hidden=true;
+        tabBar.tabBar.hidden=true;
+        
         noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
         
@@ -89,7 +93,6 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         
         note.texto = noteView.text!.text as String;
         note.data = NSDate();
-        
         noteDAO.saveData(note);
     }
     
@@ -101,6 +104,9 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         if(shouldSave==true){
             saveAction();
         }
+        var tabBar = tabBarController as FirstVC;
+        tabBar.firstView.fancyTabBar.hidden=false;
+        tabBar.tabBar.hidden=false;
     }
 
 }
