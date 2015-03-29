@@ -28,6 +28,7 @@ class AddNoteView : UIView {
         text.keyboardType = UIKeyboardType.ASCIICapable;
         text.textColor = UIColor.UIColorFromRGB(0xFFFFFF);
         text.font = UIFont (name: "Avenir Next", size: 20);
+        text.scrollEnabled = true;
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         view.addSubview(text!);

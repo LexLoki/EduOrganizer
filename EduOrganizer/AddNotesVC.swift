@@ -108,5 +108,6 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         tabBar.firstView.fancyTabBar.hidden=false;
         tabBar.tabBar.hidden=false;
     }
-
+    
+    
 }

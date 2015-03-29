@@ -65,7 +65,19 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     }
 
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
-        NSNotificationCenter.defaultCenter().postNotificationName("notesNotification", object: nil)
+        println(index);
+        if(index==1){  //Adicionar anota
+            NSNotificationCenter.defaultCenter().postNotificationName("notesNotification", object: nil)
+        }
+        else if(index==2){ //Adicionar professor
+            
+        }
+        else if(index==3){ //Adicionar materia
+            
+        }
+        else{ //Adicionar tarefa
+            
+        }
     }
 
 }

@@ -16,6 +16,8 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "EditButton"), style: .Plain, target: self, action: "editMode");
+        
         var professorInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
         professorInfoView.tableView.delegate = self;
         professorInfoView.tableView.dataSource = self;
@@ -26,8 +28,12 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             professorInfoView.label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
             professorInfoView.label.text = String.getAbrevName(professor.nome);
         }
-    
+        
         title = professor.nome;
+        
+    }
+    
+    func editMode(){
         
     }
     
@@ -48,6 +54,11 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return view.frame.height/10;
     }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         var professorInfoCell : InfoCellGeneric = InfoCellGeneric(view: view);
@@ -62,7 +73,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             }else{
                 professorInfoCell.label.text = "Teachs";
             }
-            
+    
         }else{
             professorInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
             professorInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);

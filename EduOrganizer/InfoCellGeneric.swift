@@ -11,6 +11,7 @@ import Foundation
 class InfoCellGeneric : UITableViewCell{
     
     var label : UILabel!;
+    //var label : UITextField!;
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier);
