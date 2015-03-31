@@ -38,6 +38,7 @@
 		3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB1481AC6184500865AFC /* StudNC.swift */; };
 		3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB14A1AC61C9400865AFC /* OptionsView.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
+		C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CF2D91ACB3177003B50EA /* TaskDAO.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
@@ -98,6 +99,7 @@
 		3BDCB1481AC6184500865AFC /* StudNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudNC.swift; sourceTree = "<group>"; };
 		3BDCB14A1AC61C9400865AFC /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
+		C91CF2D91ACB3177003B50EA /* TaskDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
 		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				3B0B9D6F1ABCAEF3004E25EE /* StudDAO.swift */,
 				3B60529B1ABC828000076DB9 /* ProfessorDAO.swift */,
 				3BAF09421AC0AB8A00E2326C /* SubjectDAO.swift */,
+				C91CF2D91ACB3177003B50EA /* TaskDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -317,7 +320,7 @@
 				TargetAttributes = {
 					FDB1C4C01AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = P7XPUAZMB8;
+						DevelopmentTeam = N8MAFJDDC5;
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -387,6 +390,7 @@
 				3B72BABA1AC50BE5004A1F67 /* FirstView.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
 				3B99BF121AC59BD200DE1612 /* TaskModel.swift in Sources */,
+				C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */,
 				3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */,
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,

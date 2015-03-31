@@ -16,4 +16,7 @@ class TaskModel {
     var nome : String!;
     var descricao :  String!;
     
+    init(){
+    }
+    
 }

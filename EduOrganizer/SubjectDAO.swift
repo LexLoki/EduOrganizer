@@ -62,6 +62,31 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
     }
     
+    func removeTaskReferencesById(id:AnyObject){
+        
+        var dict : NSMutableDictionary = loadPList();
+        
+        for (idKey, subject) in dict{
+            
+            var tasksIdArray : Array<String> = subject["tarefas"] as Array<String>;
+            
+            for(var i = tasksIdArray.count-1; i >= 0; i--){
+                println(i);
+                
+                if(tasksIdArray[i] == String(id as Int)){
+                    println("gotcha");
+                    tasksIdArray.removeAtIndex(i);
+                    break;
+                }
+                
+            }
+            
+            subject.setObject(tasksIdArray, forKey: "tarefas");
+            dict.setObject(subject, forKey: idKey as String);
+        }
+    }
+
+    
     func removeNoteReferencesById(id:AnyObject){
         
         var dict : NSMutableDictionary = loadPList();
@@ -87,7 +112,5 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
         contents.setObject(dict, forKey: "materias");
         contents.writeToFile(plistPath, atomically: true);
-        
-    }
-    
+        }
 }
