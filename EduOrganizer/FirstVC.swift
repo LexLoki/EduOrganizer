@@ -86,13 +86,16 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
             blurView.contentView.addSubview(vibView);
 
             
-            var addProf = AddProfessorVC();
+            var addProf = AddProfessor();
             addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             presentViewController(addProf, animated: true, completion: nil);
-        }else if(index==3){ //Adicionar materia
+        }else if(index == 3){ //Adicionar materia
             
         }else{ //Adicionar tarefa
-            
+//            var addTask = AddTaskVC()
+//            //estilo de apresentacao sobre o contexto//
+//            addTask.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+//            presentViewController(addTask, animated: true, completion: nil)
         }
     }
 

@@ -53,14 +53,14 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
         cell.preservesSuperviewLayoutMargins = false;
         cell.selectionStyle = UITableViewCellSelectionStyle.None;
         
-        cell.textLabel?.textColor = UIColor.whiteColor();
-        cell.textLabel?.font = UIFont(name: "Avenir Next", size: 20);
-        cell.textLabel?.textAlignment = NSTextAlignment.Left;
-        cell.textLabel?.text = notes[indexPath.row].nome;
+        cell.textLabel.textColor = UIColor.whiteColor();
+        cell.textLabel.font = UIFont(name: "Avenir Next", size: 20);
+        cell.textLabel.textAlignment = NSTextAlignment.Left;
+        cell.textLabel.text = notes[indexPath.row].nome;
         
         //Aqui botamos imagem do clipe caso tenha fotos
         if (notes[indexPath.row].imagens?.count > 0){
-            cell.imageView?.image = UIImage(named: "attachment");
+            cell.imageView.image = UIImage(named: "attachment");
         }
         
         //Aqui para setar a cor da cell

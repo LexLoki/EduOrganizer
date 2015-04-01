@@ -17,10 +17,10 @@ class AddNoteView : UIView {
         
         frame = view.frame;
     
-        var tela: CGRect = CGRect(x: frame.size.width*0.03,
+        var tela: CGRect = CGRect(x: frame.size.width*0,
                                   y: frame.size.height*0.03,
-                                  width: frame.size.width*0.94,
-                                  height: frame.size.height*0.82);
+                                  width: frame.size.width*1,
+                                  height: frame.size.height*0.97);
         
         text = UITextView(frame: tela);
 
