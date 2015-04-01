@@ -113,4 +113,43 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         contents.setObject(dict, forKey: "materias");
         contents.writeToFile(plistPath, atomically: true);
         }
+    
+    //***********************************************
+    // TODO: Finalizar (Save Data)                  *
+    // - Confito com definição anterior de SubjDict *
+    // - Comparação de NSString com nil dando erro  *
+    //***********************************************
+    
+    func saveData(object : AnyObject) {
+        
+        var subjsDict : NSMutableDictionary = self.loadPList();
+        
+        var subject = object as SubjectModel;
+        
+        var subjDict : NSMutableDictionary = NSMutableDictionary();
+        
+        var newId : String = "";
+        
+        if (subject.id != nil){
+            newId = String(subject.id);
+            
+            (contents["materias"] as NSMutableDictionary).removeObjectForKey(String(subject.id));
+           contents.writeToFile(plistPath, atomically: true);
+            
+         }else{
+            newId = getFreeIdInDict(subjsDict);
+         }
+        
+        
+        subjDict.setValue(subject.nome, forKey: "nome");
+        subjDict.setValue(subject.notes, forKey: "notas");
+        subjDict.setValue(subject.professor, forKey: "professores");
+        subjDict.setValue(subject.tarefas, forKey: "tarefas");
+        
+        
+        subjDict.setObject(subjDict, forKey: newId);
+        contents.setObject(subjDict, forKey: "materias");
+        contents.writeToFile(plistPath, atomically: true);
+        
+    }
 }
