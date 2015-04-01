@@ -19,10 +19,9 @@ class TaskDAO : StudDAO, ProtocolDAO{
     
     func getDataArray() -> Array<AnyObject> {
         
-        var res = setUpTasks();
         var tasks : Array = Array<TaskModel>();
         
-        for (id, _) in res{
+        for (id, _) in self.loadPList(){
             var task : TaskModel = getDataById(id) as TaskModel;
             tasks.append(task);
         }
@@ -36,8 +35,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
         
         var task : TaskModel?;
         
-        var res = setUpTasks();
-        var taskDict : NSDictionary = res[id as String] as NSDictionary;
+        var taskDict : NSDictionary = self.loadPList()[id as String] as NSDictionary;
         
         if (taskDict.count > 0){
             
@@ -91,12 +89,4 @@ class TaskDAO : StudDAO, ProtocolDAO{
         contents.writeToFile(plistPath, atomically: true);
         
     }
-
-    private func setUpTasks() -> NSMutableDictionary{
-        var taskDict : NSMutableDictionary  = self.loadPList();
-        
-        return taskDict;
-    }
-    
-    
 }

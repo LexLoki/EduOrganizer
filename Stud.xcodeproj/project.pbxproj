@@ -49,6 +49,7 @@
 		FDB1C4C91AB0C4A100831BED /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C81AB0C4A100831BED /* FirstVC.swift */; };
 		FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CA1AB0C4A100831BED /* Main.storyboard */; };
 		FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */; };
+		FDDE0B3F1ACBAB1500719723 /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDE0B3E1ACBAB1500719723 /* AddProfessorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		FDB1C4CB1AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDB1C4D01AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FDB1C4D61AB0C4A100831BED /* StudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDE0B3E1ACBAB1500719723 /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
 				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
+				FDDE0B3E1ACBAB1500719723 /* AddProfessorVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB1C4C91AB0C4A100831BED /* FirstVC.swift in Sources */,
+				FDDE0B3F1ACBAB1500719723 /* AddProfessorVC.swift in Sources */,
 				FDA8A79C1AB3704E00DF8ADB /* StudentVC.swift in Sources */,
 				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
 				3B0B9D701ABCAEF3004E25EE /* StudDAO.swift in Sources */,
