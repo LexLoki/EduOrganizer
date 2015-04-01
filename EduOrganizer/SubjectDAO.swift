@@ -116,8 +116,6 @@ class SubjectDAO : StudDAO, ProtocolDAO {
     
     //***********************************************
     // TODO: Finalizar (Save Data)                  *
-    // - Confito com definição anterior de SubjDict *
-    // - Comparação de NSString com nil dando erro  *
     //***********************************************
     
     func saveData(object : AnyObject) {
@@ -142,8 +140,8 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
         
         subjDict.setValue(subject.nome, forKey: "nome");
-        subjDict.setValue(subject.notes, forKey: "notas");
-        subjDict.setValue(subject.professor, forKey: "professores");
+        subjDict.setValue(subject.notes, forKey: "anotacoes");
+        subjDict.setValue(subject.professor, forKey: "professor");
         subjDict.setValue(subject.tarefas, forKey: "tarefas");
         
         

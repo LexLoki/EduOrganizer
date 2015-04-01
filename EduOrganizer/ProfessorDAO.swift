@@ -49,6 +49,42 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         
         return professor;
     }
+    //***********************************************
+    // TODO: Finalizar (Save Image)                 *
+    //***********************************************
+    
+    func saveData(object : AnyObject) {
+        
+        var profsDict : NSMutableDictionary = self.loadPList()!;
+        
+        var professor = object as ProfessorModel;
+        
+        var profDict : NSMutableDictionary = NSMutableDictionary();
+        
+        var newId : String = "";
+        
+        if (professor.id != nil){
+            newId = String(professor.id);
+            
+            (contents["professores"] as NSMutableDictionary).removeObjectForKey(String(professor.id));
+            contents.writeToFile(plistPath, atomically: true);
+            
+        }else{
+            newId = getFreeIdInDict(profDict);
+        }
+        
+        
+        profDict.setValue(professor.nome, forKey: "nome");
+        profDict.setValue(professor.email, forKey: "e-mail");
+        profDict.setValue(professor.telefone, forKey: "telefone");
+        profDict.setValue(professor.materias, forKey: "materias");
+        
+        
+        profDict.setObject(profDict, forKey: newId);
+        contents.setObject(profDict, forKey: "professores");
+        contents.writeToFile(plistPath, atomically: true);
+        
+    }
     
     //get path with professors images
     private func getProfessorsImagePath() -> String{
