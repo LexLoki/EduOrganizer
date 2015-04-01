@@ -12,10 +12,13 @@ import UIKit
 class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
-    var objects : [String];
+    var tarefas : Array<TaskModel> = Array<TaskModel>();
     
     required init(coder aDecoder: NSCoder) {
-        objects = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10","1", "2", "3", "4"];
+        
+        let taskDAO = TaskDAO();
+        tarefas = taskDAO.getDataArray() as Array<TaskModel>;
+        
         super.init(coder: aDecoder);
     }
     
@@ -46,7 +49,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count;
+        return tarefas.count;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -60,9 +63,16 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         taskCell.btnEdit.addTarget(self,
                                    action: "btnTouched:",
                                    forControlEvents: UIControlEvents.TouchUpInside);
+        
+        //**************************************
+        // TAREFA PARA FRONT END:              *
+        // - Fazer Countdown com base na data; *
+        // - Atribuir data para labelDate;     *
+        //**************************************
+        
         taskCell.labelCountDown.text = "1 Day";
-        taskCell.labelTask.text = "Calculus List";
-        taskCell.labelDate.text = "Date : Tomorrow at 5 PM";
+        taskCell.labelTask.text = String(format: "%@", tarefas[indexPath.row].nome);
+        taskCell.labelDate.text = String(format: "Date: %@", tarefas[indexPath.row].data);
         
         return taskCell;
     }

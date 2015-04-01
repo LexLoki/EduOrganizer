@@ -45,7 +45,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
             
             task?.id = (id as NSString).integerValue;
             task?.nome = taskDict["nome"] as String;
-            task?.descricao = taskDict["texto"] as String;
+            task?.descricao = taskDict["descricao"] as String;
             task?.data = taskDict["data"] as NSDate!;
         }
         
@@ -81,7 +81,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
             newId = getFreeIdInDict(taskDict);
         }
         
-        taskDict.setValue(task.id, forKey: "texto");
+        taskDict.setValue(task.descricao, forKey: "descricao");
         taskDict.setValue(task.nome, forKey: "nome");
         taskDict.setValue(task.data, forKey: "data");
 
