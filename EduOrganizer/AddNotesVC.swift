@@ -25,11 +25,12 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
+        
         var tabBar = tabBarController as FirstVC;
         tabBar.firstView.fancyTabBar.hidden=true;
         tabBar.tabBar.hidden=true;
         
-        view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
         

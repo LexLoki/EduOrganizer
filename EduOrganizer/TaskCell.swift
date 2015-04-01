@@ -23,7 +23,7 @@ class TaskCell : UITableViewCell{
         super.init(frame: view.frame);
         
         labelCountDown = UILabel(frame: CGRectMake(20, 15, view.frame.width, 20));
-        labelTask = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 25, view.frame.width, 40));
+        labelTask = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 25, view.frame.width*0.75, 40));
         labelDate = UILabel(frame: CGRectMake(20, labelTask.frame.origin.y + 30, view.frame.width, 40));
         btnEdit = UIButton.buttonWithType(UIButtonType.Custom) as UIButton;
         

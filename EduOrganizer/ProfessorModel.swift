@@ -18,10 +18,5 @@ class ProfessorModel{
     var materias : Array<AnyObject>!;
     
     init(){
-        
-        nome = "não informado";
-        email = "não informado";
-        telefone = "não informado";
-
     }
 }

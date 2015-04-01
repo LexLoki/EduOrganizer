@@ -22,6 +22,9 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         firstView = FirstView(view: view, parent: self);
         firstView.fancyTabBar.delegate = self;
         
+        var dao : StudDAO = StudDAO();
+        dao.checkFiles("userData", type: ".plist");
+        
     }
     
     func didExpand() {
@@ -70,7 +73,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
             NSNotificationCenter.defaultCenter().postNotificationName("notesNotification", object: nil)
         }else if(index==2){ //Adicionar professor
             
-            /*
+            
             let blurEffect = UIBlurEffect(style: .Dark)
             let blurView = UIVisualEffectView(effect: blurEffect)
             blurView.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -82,7 +85,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
             let vibView = UIVisualEffectView(effect: vibrancyEf);
             vibView.setTranslatesAutoresizingMaskIntoConstraints(false);
             blurView.contentView.addSubview(vibView);
-            */
+
             
             var addProf = AddProfessorVC();
             addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;

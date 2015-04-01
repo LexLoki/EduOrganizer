@@ -53,7 +53,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return view.frame.height/4;
+        return view.frame.height*0.25;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -64,15 +64,32 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                                    action: "btnTouched:",
                                    forControlEvents: UIControlEvents.TouchUpInside);
         
-        //**************************************
-        // TAREFA PARA FRONT END:              *
-        // - Fazer Countdown com base na data; *
-        // - Atribuir data para labelDate;     *
-        //**************************************
+        var taskDate = tarefas[indexPath.row].data;
+        var currentDate = NSDate();
+
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "dd/MM/yyyy  hh:mm a";
+        let strTaskDate = dateFormatter.stringFromDate(taskDate);
         
-        taskCell.labelCountDown.text = "1 Day";
-        taskCell.labelTask.text = String(format: "%@", tarefas[indexPath.row].nome);
-        taskCell.labelDate.text = String(format: "Date: %@", tarefas[indexPath.row].data);
+        var calendar: NSCalendar = NSCalendar.currentCalendar();
+        let flags = NSCalendarUnit.DayCalendarUnit;
+        let components = calendar.components(flags, fromDate: currentDate, toDate: taskDate, options: nil);
+        
+        var countDown : String?;
+        
+        if (components.day > 1){
+            countDown = String(components.day) + " days";
+        }else if (components.day == 1){
+            countDown = String(components.day) + " day";
+        }else if (components.day == 0){
+            countDown = "Today";
+        }else{
+            countDown = "Done";
+        }
+        
+        taskCell.labelCountDown.text = countDown;
+        taskCell.labelTask.text = tarefas[indexPath.row].nome;
+        taskCell.labelDate.text = "Date: " + strTaskDate;
         
         return taskCell;
     }

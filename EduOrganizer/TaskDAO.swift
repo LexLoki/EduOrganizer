@@ -44,7 +44,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
             task?.id = (id as NSString).integerValue;
             task?.nome = taskDict["nome"] as String;
             task?.descricao = taskDict["descricao"] as String;
-            task?.data = taskDict["data"] as NSDate!;
+            task?.data = taskDict["data"] as NSDate;
         }
         
         return task!;
@@ -69,7 +69,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
         
         var newId : String = "";
         
-        if (task.id != nil && task.id > 0){
+        if (task.id != nil){
             newId = String(task.id);
             
             (contents["tarefas"] as NSMutableDictionary).removeObjectForKey(String(task.id));
