@@ -66,10 +66,9 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
 
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
         println(index);
-        if(index==1){  //Adicionar anota
+        if(index==1){  //Adicionar anotações
             NSNotificationCenter.defaultCenter().postNotificationName("notesNotification", object: nil)
-        }
-        else if(index==2){ //Adicionar professor
+        }else if(index==2){ //Adicionar professor
             
             /*
             let blurEffect = UIBlurEffect(style: .Dark)
@@ -88,15 +87,14 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
             var addProf = AddProfessorVC();
             addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             presentViewController(addProf, animated: true, completion: nil);
-        }
-        else if(index==3){ //Adicionar materia
+        }else if(index==3){ //Adicionar materia
             
-        }
-        else{ //Adicionar tarefa
+        }else{ //Adicionar tarefa
             
         }
     }
 
+    //IR PARA PARTE DE VIEW
     func imageFromView()->UIImage{
         UIGraphicsBeginImageContext(view.bounds.size);
         view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true);

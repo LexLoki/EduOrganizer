@@ -15,11 +15,8 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     var note : NoteModel = NoteModel();
     var noteDAO : NoteDAO = NoteDAO();
     
-    var editMode = false;
     var shouldSave:Bool = false;
     var noteView : AddNoteView!;
-    var textToLoad : String!;
-    var segueDone : String!;
     var deleteAlert : UIAlertController!;
     
     var saveItem : UIBarButtonItem!;
@@ -28,21 +25,18 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         
-        view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
-        
         var tabBar = tabBarController as FirstVC;
         tabBar.firstView.fancyTabBar.hidden=true;
         tabBar.tabBar.hidden=true;
         
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
-        
         
         okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
         
         if (note.id != nil) {
             
-            editMode = true;
             title = note.nome;
             noteView.text.text = note.texto;
             
@@ -55,16 +49,9 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
             title = "New Note";
             
             saveItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
-            navigationItem.rightBarButtonItem = saveItem
+            navigationItem.rightBarButtonItem = saveItem;
             
         }
-        
-        //        deleteAlert = UIAlertView(title: "Confirm deletion",
-        //            message: "Delete note " + title! + "?",
-        //            delegate: self,
-        //            cancelButtonTitle: "Cancel",
-        //            otherButtonTitles: "Delete");
-        //deleteAlert = UIAlertController(title
         
         deleteAlert = UIAlertController(title: "Confirm deletion",
             message: "Delete note " + title! + "?",

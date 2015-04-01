@@ -12,6 +12,8 @@ class AddProfessorVC : UIViewController {
     
     var professor: ProfessorModel = ProfessorModel();
     
+    
+    //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
         var area:CGRect = CGRectMake(view.frame.width*0.2, view.frame.height*0.3, view.frame.width*0.6, view.frame.height*0.4);
         var name:UITextField = UITextField(frame: area);
