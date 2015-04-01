@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "itemStudent.png"
+      "filename" : "Student Tab.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "itemStudent@2x.png"
+      "filename" : "Student Tab@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "itemStudent@3x.png"
+      "filename" : "Student Tab@3x.png"
     }
   ],
   "info" : {
