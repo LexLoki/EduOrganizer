@@ -79,6 +79,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
             newId = getFreeIdInDict(taskDict);
         }
         
+        
         taskDict.setValue(task.descricao, forKey: "descricao");
         taskDict.setValue(task.nome, forKey: "nome");
         taskDict.setValue(task.data, forKey: "data");
