@@ -11,6 +11,8 @@ import UIKit
 class FirstVC: UITabBarController, FancyTabBarDelegate {
     
     required init(coder aDecoder: NSCoder) {
+        
+        StudUtils.checkFiles("userData", type: ".plist");
         super.init(coder: aDecoder);
     }
     
@@ -21,9 +23,6 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         
         firstView = FirstView(view: view, parent: self);
         firstView.fancyTabBar.delegate = self;
-        
-        var dao : StudDAO = StudDAO();
-        dao.checkFiles("userData", type: ".plist");
         
     }
     
@@ -105,6 +104,5 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         UIGraphicsEndImageContext();
         return img;
     }
-    
 }
 
