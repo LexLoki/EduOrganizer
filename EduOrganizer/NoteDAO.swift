@@ -81,7 +81,7 @@ class NoteDAO : StudDAO, ProtocolDAO {
         
         var newId : String = "";
         
-        if (note.id != nil && note.id > 0){
+        if (note.id != nil){
             newId = String(note.id);
             
             (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(note.id));

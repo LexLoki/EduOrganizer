@@ -71,6 +71,23 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         }
         else if(index==2){ //Adicionar professor
             
+            /*
+            let blurEffect = UIBlurEffect(style: .Dark)
+            let blurView = UIVisualEffectView(effect: blurEffect)
+            blurView.setTranslatesAutoresizingMaskIntoConstraints(false)
+            blurView.frame = view.bounds;
+            blurView.alpha=0.7;
+            view.addSubview(blurView);
+            
+            let vibrancyEf = UIVibrancyEffect(forBlurEffect: blurEffect);
+            let vibView = UIVisualEffectView(effect: vibrancyEf);
+            vibView.setTranslatesAutoresizingMaskIntoConstraints(false);
+            blurView.contentView.addSubview(vibView);
+            */
+            
+            var addProf = AddProfessorVC();
+            addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+            presentViewController(addProf, animated: true, completion: nil);
         }
         else if(index==3){ //Adicionar materia
             
@@ -80,5 +97,13 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         }
     }
 
+    func imageFromView()->UIImage{
+        UIGraphicsBeginImageContext(view.bounds.size);
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true);
+        var img:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return img;
+    }
+    
 }
 

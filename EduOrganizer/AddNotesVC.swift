@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 
-class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
-
+class AddNotesVC: UIViewController, UITextViewDelegate{
+    
     var note : NoteModel = NoteModel();
     var noteDAO : NoteDAO = NoteDAO();
     
@@ -20,9 +20,15 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     var noteView : AddNoteView!;
     var textToLoad : String!;
     var segueDone : String!;
-    var deleteAlert : UIAlertView!;
+    var deleteAlert : UIAlertController!;
+    
+    var saveItem : UIBarButtonItem!;
+    var okItem : UIBarButtonItem!;
+    var deleteItem : UIBarButtonItem!;
     
     override func viewDidLoad() {
+        
+        view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         
         var tabBar = tabBarController as FirstVC;
         tabBar.firstView.fancyTabBar.hidden=true;
@@ -31,54 +37,66 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
         
+        
+        okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
+        
         if (note.id != nil) {
             
             editMode = true;
             title = note.nome;
             noteView.text.text = note.texto;
             
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteNoteAlert");
+            deleteItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteNoteAlert");
+            navigationItem.rightBarButtonItem = deleteItem;
             
-
+            
         }else{
-    
+            
             title = "New Note";
             
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
-
+            saveItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
+            navigationItem.rightBarButtonItem = saveItem
+            
         }
         
-        deleteAlert = UIAlertView(title: "Confirm deletion",
-            message: "Delete note " + title! + "?",
-            delegate: self,
-            cancelButtonTitle: "Cancel",
-            otherButtonTitles: "Delete");
+        //        deleteAlert = UIAlertView(title: "Confirm deletion",
+        //            message: "Delete note " + title! + "?",
+        //            delegate: self,
+        //            cancelButtonTitle: "Cancel",
+        //            otherButtonTitles: "Delete");
+        //deleteAlert = UIAlertController(title
         
+        deleteAlert = UIAlertController(title: "Confirm deletion",
+            message: "Delete note " + title! + "?",
+            preferredStyle: .ActionSheet);
+        let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil);
+        let okAction:UIAlertAction = UIAlertAction(title: "Delete", style: .Destructive, handler: deleteNote);
+        deleteAlert.addAction(cancelAction);
+        deleteAlert.addAction(okAction);
     }
     
     func deleteNoteAlert(){
-        deleteAlert.show();
+        presentViewController(deleteAlert, animated: true, completion: nil);
     }
     
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        if(buttonIndex == 1){
-            deleteNote();
-            shouldSave=false;
-            navigationController?.popViewControllerAnimated(true);
+    
+    func deleteNote(alert: UIAlertAction!){
+        noteDAO.deleteDataById(note.id);
+        shouldSave=false;
+        navigationController?.popViewControllerAnimated(true);
+    }
+    
+    func dismissKB(){
+        noteView.text.resignFirstResponder();
+        if(note.id != nil){
+            navigationItem.rightBarButtonItem = deleteItem;
+        }else{
+            navigationItem.rightBarButtonItem = saveItem;
         }
     }
     
-    func deleteNote(){
-        noteDAO.deleteDataById(note.id);
-    }
-    
-//    override func viewDidDisappear(animated: Bool) {
-//        if (editMode){
-//            save();
-//        }
-//    }
-    
     func save(){
+        shouldSave = true;
         navigationController?.popViewControllerAnimated(true);
     }
     
@@ -97,7 +115,11 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        shouldSave = true;
+        if(note.id != nil){
+            shouldSave = true;
+        }
+        navigationItem.rightBarButtonItem = okItem;
+        println("editou");
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -108,6 +130,5 @@ class AddNotesVC: UIViewController, UITextViewDelegate, UIAlertViewDelegate{
         tabBar.firstView.fancyTabBar.hidden=false;
         tabBar.tabBar.hidden=false;
     }
-    
     
 }

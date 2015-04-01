@@ -29,12 +29,6 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        var taskDAO = TaskDAO()
-//        var tasks = taskDAO.getDataArray() as Array<TaskModel>;
-//        var teste = "";
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
