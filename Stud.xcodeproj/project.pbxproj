@@ -38,6 +38,7 @@
 		3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB1481AC6184500865AFC /* StudNC.swift */; };
 		3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB14A1AC61C9400865AFC /* OptionsView.swift */; };
 		3BF68A2D1ACC8CDA0082CD54 /* StudUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */; };
+		B930CDC01ACDD37D00040F8A /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
 		C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CF2D91ACB3177003B50EA /* TaskDAO.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
@@ -50,7 +51,6 @@
 		FDB1C4C91AB0C4A100831BED /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C81AB0C4A100831BED /* FirstVC.swift */; };
 		FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CA1AB0C4A100831BED /* Main.storyboard */; };
 		FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDB1C4CF1AB0C4A100831BED /* LaunchScreen.xib */; };
-		FDDE0B3F1ACBAB1500719723 /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDE0B3E1ACBAB1500719723 /* AddProfessorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +101,7 @@
 		3BDCB1481AC6184500865AFC /* StudNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudNC.swift; sourceTree = "<group>"; };
 		3BDCB14A1AC61C9400865AFC /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudUtils.swift; sourceTree = "<group>"; };
+		B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		C91CF2D91ACB3177003B50EA /* TaskDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		FDB1C4CB1AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDB1C4D01AB0C4A100831BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FDB1C4D61AB0C4A100831BED /* StudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDDE0B3E1ACBAB1500719723 /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +186,7 @@
 				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
 				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
-				FDDE0B3E1ACBAB1500719723 /* AddProfessorVC.swift */,
+				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 				TargetAttributes = {
 					FDB1C4C01AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = N8MAFJDDC5;
+						DevelopmentTeam = P7XPUAZMB8;
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -380,10 +380,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB1C4C91AB0C4A100831BED /* FirstVC.swift in Sources */,
-				FDDE0B3F1ACBAB1500719723 /* AddProfessorVC.swift in Sources */,
 				FDA8A79C1AB3704E00DF8ADB /* StudentVC.swift in Sources */,
 				3B301A681AB73C1900665E2E /* FancyTabBar.m in Sources */,
 				3B0B9D701ABCAEF3004E25EE /* StudDAO.swift in Sources */,
+				B930CDC01ACDD37D00040F8A /* AddProfessorVC.swift in Sources */,
 				3BAF09391AC0786900E2326C /* InfoGenericView.swift in Sources */,
 				3BAF092D1AC0540400E2326C /* TaskCell.swift in Sources */,
 				FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */,

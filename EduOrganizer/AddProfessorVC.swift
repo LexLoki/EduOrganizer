@@ -1,8 +1,8 @@
 //
-//  AddProfessor.swift
+//  AddProfessorVC.swift
 //  Stud
 //
-//  Created by Pietro Ribeiro Pepe on 3/31/15.
+//  Created by Juliana Zilberberg on 4/2/15.
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 
@@ -39,7 +39,7 @@ class AddProfessor : UIViewController {
         
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/2, area.width, 1))
         lineView.backgroundColor = UIColor.blackColor()
-
+        
         var nomeText:UITextField = UITextField(frame: CGRectMake(spacing, cancelButton.frame.origin.y + altura/2, area.width, altura))
         nomeText.placeholder = "Name"
         
@@ -50,8 +50,9 @@ class AddProfessor : UIViewController {
         subjectCode.placeholder = "subject code"
         subjectCode.inputView = UIPickerView()
         
-//        CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width*0.3, altura/2)
-                        
+        //        CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width*0.3, altura/2)
+        
+        //adicionar a view que criei na view pra aparecer na tela principal//
         tela.addSubview(nomeText)
         tela.addSubview(emailText)
         tela.addSubview(subjectCode)
@@ -59,8 +60,8 @@ class AddProfessor : UIViewController {
         tela.addSubview(lineView)
         
     }
-    
+    //quando aperta o cancel tem que voltar pra tela anterior//
     func cancelAction(button:UIButton){
-        println("NAO ME TOQUE-ME EM MIM");
+        println("Funcionou");
     }
 }
