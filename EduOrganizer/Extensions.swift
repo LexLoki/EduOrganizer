@@ -44,6 +44,13 @@ extension UILabel{
 
 extension String{
     
+    static func checkString(myString: String!) -> String{
+        if(myString == nil){
+            return "";
+        }
+        return myString;
+    }
+    
     static func getAbrevName(str : String) -> String{
         
         var nomeArray = str.componentsSeparatedByString(" ");
@@ -63,7 +70,7 @@ extension String{
             }
         }
         
-        return nome;
+        return nome.uppercaseString;
         
     }
 }

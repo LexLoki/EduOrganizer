@@ -55,8 +55,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
         (contents["tarefas"] as NSMutableDictionary).removeObjectForKey(String(id as Int));
         contents.writeToFile(plistPath, atomically: true);
         
-        var subjectDAO = SubjectDAO();
-        subjectDAO.removeTaskReferencesById(id);
+        SubjectDAO().removeReferencesById(id, key : "tarefas");
 
     }
     

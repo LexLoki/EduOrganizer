@@ -12,18 +12,21 @@ import UIKit
 class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var professor: ProfessorModel = ProfessorModel();
+    var subjectsCount = 0;
+    
+    override func viewWillAppear(animated: Bool) {
+        professor.materias = SubjectDAO().getSubjectsByIdProfessor(professor.id);
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "EditButton"), style: .Plain, target: self, action: "editMode");
         
         var professorInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
         professorInfoView.tableView.delegate = self;
         professorInfoView.tableView.dataSource = self;
         
         if let image = professor.imagem {
-            professorInfoView.imageView.image = professor.imagem;
+            professorInfoView.imageView.image = UIImage(contentsOfFile:professor.imagem);
         }else{
             professorInfoView.label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
             professorInfoView.label.text = String.getAbrevName(professor.nome);
@@ -47,7 +50,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             return 4;
         }
         
-        return 3;//professor.materias.count;
+        return professor.materias.count + 1;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -89,7 +92,15 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
             }else{  //secao 1 row>0
                 
-                professorInfoCell.label.text = "materia";//professor.materias[indexPath.row-1];
+                if (subjectsCount >= professor.materias.count){
+                    subjectsCount = 0;
+                }
+                
+                var subjectStr = (professor.materias[subjectsCount] as SubjectModel).id + " / " +
+                                 (professor.materias[subjectsCount] as SubjectModel).nome;
+                
+                professorInfoCell.label.text = subjectStr;
+                subjectsCount++;
             }
         }
         

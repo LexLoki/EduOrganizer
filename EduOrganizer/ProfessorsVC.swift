@@ -45,7 +45,10 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
         professorsCell.setUpCell(view);
         
         if let image = professores[indexPath.row].imagem {
-            professorsCell.imageView.image = professores[indexPath.row].imagem;
+            professorsCell.imageView.image = UIImage(contentsOfFile:professores[indexPath.row].imagem);
+        }else{
+            professorsCell.label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
+            professorsCell.label.text = String.getAbrevName(professores[indexPath.row].nome);
         }
         
         return professorsCell;

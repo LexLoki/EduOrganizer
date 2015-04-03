@@ -14,8 +14,8 @@ class ProfessorModel{
     var nome : String!;
     var email : String!;
     var telefone : String!;
-    var imagem : UIImage?;
-    var materias : Array<AnyObject>!;
+    var imagem : String!;
+    var materias : Array<SubjectModel>!;
     
     init(){
     }

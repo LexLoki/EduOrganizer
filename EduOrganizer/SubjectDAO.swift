@@ -30,6 +30,24 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         return subjects;
     }
     
+    func getSubjectsByIdProfessor(id: Int) -> Array<SubjectModel>{
+        
+        var materias = Array<SubjectModel>();
+        var dict : NSMutableDictionary = loadPList();
+        
+        for (idKey, subject) in dict{
+            
+            var profDict : NSDictionary = subject["professor"] as NSDictionary;
+            var idProf : String = profDict["id"] as String;
+            
+            if (idProf == String(id)){
+                materias.append(self.getDataById(idKey) as SubjectModel);
+            }
+        }
+    
+        return materias;
+    }
+    
     func getDataById(id: AnyObject) -> AnyObject {
      
         var subject : SubjectModel = SubjectModel();
@@ -41,7 +59,6 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         subject.id = (id as NSString);
         subject.nome = subjDict["nome"] as String;
         subject.professor = ProfessorDAO().getDataById(idProf) as ProfessorModel;
-        
 
         //getNotes
         var notesIdArray : Array<String> = subjDict["anotacoes"] as Array<String>;
@@ -59,64 +76,55 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         subject.tarefas = Array<TaskModel>();
         
         return subject;
-        
     }
     
-    func removeTaskReferencesById(id:AnyObject){
+    func removePrefessorReferencesById(id: Int){
         
+        var materias = Array<SubjectModel>();
         var dict : NSMutableDictionary = loadPList();
         
         for (idKey, subject) in dict{
             
-            var tasksIdArray : Array<String> = subject["tarefas"] as Array<String>;
+            var profDict : NSDictionary = subject["professor"] as NSDictionary;
+            var idProf : String = profDict["id"] as String;
             
-            for(var i = tasksIdArray.count-1; i >= 0; i--){
-                println(i);
+            if (idProf == String(id)){
+                profDict = NSDictionary();
                 
-                if(tasksIdArray[i] == String(id as Int)){
-                    println("gotcha");
-                    tasksIdArray.removeAtIndex(i);
-                    break;
-                }
-                
+                subject.setObject(profDict, forKey: "professor");
+                dict.setObject(subject, forKey: idKey as String);
             }
-            
-            subject.setObject(tasksIdArray, forKey: "tarefas");
-            dict.setObject(subject, forKey: idKey as String);
         }
+        
+        contents.setObject(dict, forKey: "materias");
+        contents.writeToFile(plistPath, atomically: true);
+
     }
 
     
-    func removeNoteReferencesById(id:AnyObject){
+    func removeReferencesById(id:AnyObject, key : String){
         
         var dict : NSMutableDictionary = loadPList();
         
         for (idKey, subject) in dict{
             
-            var notesIdArray : Array<String> = subject["anotacoes"] as Array<String>;
+            var idArray : Array<String> = subject[key] as Array<String>;
             
-            for(var i = notesIdArray.count-1; i >= 0; i--){
-                println(i);
-                
-                if(notesIdArray[i] == String(id as Int)){
-                    println("gotcha");
-                    notesIdArray.removeAtIndex(i);
+            for(var i = idArray.count-1; i >= 0; i--){
+                if(idArray[i] == String(id as Int)){
+                    idArray.removeAtIndex(i);
                     break;
                 }
-                
             }
             
-            subject.setObject(notesIdArray, forKey: "anotacoes");
+            subject.setObject(idArray, forKey: key);
             dict.setObject(subject, forKey: idKey as String);
         }
         
         contents.setObject(dict, forKey: "materias");
         contents.writeToFile(plistPath, atomically: true);
-        }
-    
-    //***********************************************
-    // TODO: Finalizar (Save Data)                  *
-    //***********************************************
+        
+    }
     
     func saveData(object : AnyObject) {
         
@@ -138,12 +146,10 @@ class SubjectDAO : StudDAO, ProtocolDAO {
             newId = getFreeIdInDict(subjsDict);
          }
         
-        
-        subjDict.setValue(subject.nome, forKey: "nome");
+        subjDict.setValue(String.checkString(subject.nome), forKey: "nome");
         subjDict.setValue(subject.notes, forKey: "anotacoes");
         subjDict.setValue(subject.professor, forKey: "professor");
         subjDict.setValue(subject.tarefas, forKey: "tarefas");
-        
         
         subjDict.setObject(subjDict, forKey: newId);
         contents.setObject(subjDict, forKey: "materias");

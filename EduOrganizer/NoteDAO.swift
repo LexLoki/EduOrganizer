@@ -66,9 +66,7 @@ class NoteDAO : StudDAO, ProtocolDAO {
         (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(id as Int));
         contents.writeToFile(plistPath, atomically: true);
         
-        var subjectDAO = SubjectDAO();
-        subjectDAO.removeNoteReferencesById(id);
-        
+        SubjectDAO().removeReferencesById(id, key : "anotacoes");
         //DELETAR IMAGENS DA PASTA DE imgNotes
     }
     
@@ -91,8 +89,8 @@ class NoteDAO : StudDAO, ProtocolDAO {
             newId = getFreeIdInDict(notesDict);
         }
         
-        noteDict.setValue(note.texto, forKey: "texto");
-        noteDict.setValue(note.nome, forKey: "nome");
+        noteDict.setValue(String.checkString(note.texto), forKey: "texto");
+        noteDict.setValue(String.checkString(note.nome), forKey: "nome");
         noteDict.setValue(note.data, forKey: "data");
         
         var imgArray : Array<String> = Array<String>();

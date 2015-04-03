@@ -135,7 +135,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         
         if let image = professor.imagem {
-            professorCell.btnCell.setImage(professor.imagem, forState: UIControlState.Normal);
+            professorCell.btnCell.setImage(UIImage(contentsOfFile:professor.imagem), forState: UIControlState.Normal);
             
         }else{
             professorCell.label.text = String.getAbrevName(professor.nome);
