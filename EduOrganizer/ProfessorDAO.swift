@@ -38,13 +38,19 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         
         var res = setUpProfessor();
         var prof : NSDictionary = res.dict[id as String] as NSDictionary;
-        var profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as String);
+
         
         professor.id = (id as NSString).integerValue;
         professor.nome = prof["nome"] as String;
         professor.email = prof["e-mail"] as String;
         professor.telefone = prof["telefone"] as String;
-        professor.imagem = UIImage(contentsOfFile:profImg)!;
+        if((prof["imagem"] as String).isEmpty){
+            professor.imagem = UIImage(named: "BolaMateria");
+        }else{
+            var profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as String);
+            professor.imagem = UIImage(contentsOfFile:profImg)!;
+        }
+        
         //professor.materia = prof["materia"] as Int;
         
         return professor;
@@ -70,20 +76,38 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
             contents.writeToFile(plistPath, atomically: true);
             
         }else{
-            newId = getFreeIdInDict(profDict);
+            newId = getFreeIdInDict(profsDict);
         }
         
         
-        profDict.setValue(professor.nome, forKey: "nome");
-        profDict.setValue(professor.email, forKey: "e-mail");
-        profDict.setValue(professor.telefone, forKey: "telefone");
+        profDict.setValue(checkString(professor.nome), forKey: "nome");
+        profDict.setValue(checkString(professor.email), forKey: "e-mail");
+        profDict.setValue(checkString(professor.telefone), forKey: "telefone");
+        if(professor.imagem == nil){
+            profDict.setValue("", forKey: "imagem");
+        }
+        //Falta ver como adicionar imagem (pegar string da imagem depois de pegar da camera)
+        
+        if(professor.materias == nil){
+            professor.materias = Array();
+        }
+        
         profDict.setValue(professor.materias, forKey: "materias");
         
         
-        profDict.setObject(profDict, forKey: newId);
-        contents.setObject(profDict, forKey: "professores");
+        profsDict.setObject(profDict, forKey: newId);
+        contents.setObject(profsDict, forKey: "professores");
         contents.writeToFile(plistPath, atomically: true);
         
+        
+    }
+    
+    //function to set empty strings instead of nil
+    private func checkString(myString: String!) -> String{
+        if(myString == nil){
+            return "";
+        }
+        return myString;
     }
     
     //get path with professors images

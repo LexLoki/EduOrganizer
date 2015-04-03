@@ -15,8 +15,11 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     var note : NoteModel = NoteModel();
     var noteDAO : NoteDAO = NoteDAO();
     
+    var editMode = false;
     var shouldSave:Bool = false;
     var noteView : AddNoteView!;
+    var textToLoad : String!;
+    var segueDone : String!;
     var deleteAlert : UIAlertController!;
     
     var saveItem : UIBarButtonItem!;
@@ -24,6 +27,9 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     var deleteItem : UIBarButtonItem!;
     
     override func viewDidLoad() {
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShown:" , name: UIKeyboardDidShowNotification, object: nil);
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardDidHideNotification, object: nil);
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         
@@ -34,10 +40,12 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         noteView = AddNoteView(view: view, parent: self);
         noteView.text?.delegate = self;
         
+        
         okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
         
         if (note.id != nil) {
             
+            editMode = true;
             title = note.nome;
             noteView.text.text = note.texto;
             
@@ -50,9 +58,16 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
             title = "New Note";
             
             saveItem = UIBarButtonItem(title: "Save",style: .Plain,target: self,action: "save");
-            navigationItem.rightBarButtonItem = saveItem;
+            navigationItem.rightBarButtonItem = saveItem
             
         }
+        
+        //        deleteAlert = UIAlertView(title: "Confirm deletion",
+        //            message: "Delete note " + title! + "?",
+        //            delegate: self,
+        //            cancelButtonTitle: "Cancel",
+        //            otherButtonTitles: "Delete");
+        //deleteAlert = UIAlertController(title
         
         deleteAlert = UIAlertController(title: "Confirm deletion",
             message: "Delete note " + title! + "?",
@@ -110,6 +125,10 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         println("editou");
     }
     
+    func textViewDidEndEditing(textView: UITextView) {
+        println("terminou");
+    }
+    
     override func viewWillDisappear(animated: Bool) {
         if(shouldSave==true){
             saveAction();
@@ -117,6 +136,46 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         var tabBar = tabBarController as FirstVC;
         tabBar.firstView.fancyTabBar.hidden=false;
         tabBar.tabBar.hidden=false;
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
     }
     
+    func keyboardShown(aNotification:NSNotification){
+        var userInfo:NSDictionary = aNotification.userInfo!;
+        let keyboardInfoFrame:CGRect = (userInfo.objectForKey(UIKeyboardFrameEndUserInfoKey) as NSValue).CGRectValue();
+        
+        let windowFrame:CGRect = (view.window?.convertRect(view.frame, fromView: view))!;
+        let keyboardFrame:CGRect = CGRectIntersection(windowFrame, keyboardInfoFrame);
+        let coveredFrame:CGRect = (view.window?.convertRect(keyboardFrame, toView: view))!;
+        
+        let contentInsets:UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, coveredFrame.size.height, 0.0);
+        noteView.text.contentInset = contentInsets;
+        noteView.text.scrollIndicatorInsets = contentInsets;
+        
+        //noteView.text.scrollRectToVisible(noteView.text, animated: true);
+    }
+    
+    /*
+    CGRect keyboardInfoFrame = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    // get the height of the keyboard by taking into account the orientation of the device too
+    CGRect windowFrame = [self.view.window convertRect:self.view.frame fromView:self.view];
+    CGRect keyboardFrame = CGRectIntersection (windowFrame, keyboardInfoFrame);
+    CGRect coveredFrame = [self.view.window convertRect:keyboardFrame toView:self.view];
+    
+    // add the keyboard height to the content insets so that the scrollview can be scrolled
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake (0.0, 0.0, coveredFrame.size.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // make sure the scrollview content size width and height are greater than 0
+    [self.scrollView setContentSize:CGSizeMake (self.scrollView.width, self.scrollView.contentSize.height)];
+    
+    // scroll to the text view
+    [self.scrollView scrollRectToVisible:self.activeTextView.superview.frame animated:YES];
+    */
+    
+    func keyboardHide(){
+    }
 }

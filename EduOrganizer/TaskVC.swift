@@ -32,10 +32,17 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+//    func professorOn(notification: NSNotification){
+//        var addProf = AddProfessor();
+//        addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+//        presentViewController(addProf, animated: true, completion: nil);
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "notesOn:", name:"notesNotification", object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: "professorOn:", name: "professorNotification", object: nil);
         
         
         var taskView : TaskView = TaskView(view: view, parent: self);

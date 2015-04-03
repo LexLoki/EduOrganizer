@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lxR-5f-Twz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -38,7 +38,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="SwK-lw-1bx"/>
                     <connections>
-                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="addNote" id="JkV-ID-MVb"/>
+                        <segue destination="bdZ-pH-U4S" kind="show" identifier="addNote" id="JkV-ID-MVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p53-NJ-V6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,13 +60,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="8nD-Wx-uXt"/>
                     <connections>
-                        <segue destination="W4w-5t-wot" kind="custom" identifier="subjects" id="EW7-Y1-Qpk"/>
-                        <segue destination="GsA-Yf-86d" kind="custom" identifier="professors" id="aXI-vO-7SH"/>
-                        <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="RDW-rH-KIw"/>
-                        <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="S3M-SS-7VW"/>
+                        <segue destination="W4w-5t-wot" kind="show" identifier="subjects" id="EW7-Y1-Qpk"/>
+                        <segue destination="GsA-Yf-86d" kind="show" identifier="professors" id="aXI-vO-7SH"/>
+                        <segue destination="9u4-QS-Inp" kind="show" identifier="infoProfessor" id="RDW-rH-KIw"/>
+                        <segue destination="CR1-3Y-Smr" kind="show" identifier="infoSubject" id="S3M-SS-7VW"/>
                         <segue destination="ieG-xn-xwG" kind="show" identifier="notes" id="Ymo-2p-CY3"/>
-                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="editNote" id="2K6-eH-ivb"/>
-                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="addNote" id="57m-Yf-NNL"/>
+                        <segue destination="bdZ-pH-U4S" kind="show" identifier="editNote" id="2K6-eH-ivb"/>
+                        <segue destination="bdZ-pH-U4S" kind="show" identifier="addNote" id="57m-Yf-NNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGa-5G-oGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +87,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="bdZ-pH-U4S" kind="custom" identifier="infoNote" id="9kA-YT-TgB"/>
+                        <segue destination="bdZ-pH-U4S" kind="show" identifier="infoNote" id="9kA-YT-TgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMx-to-RTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,12 +103,12 @@
                         <viewControllerLayoutGuide type="bottom" id="B5q-Ut-Vkt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9KD-dg-LCN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="9u4-QS-Inp" kind="custom" identifier="infoProfessor" id="10A-S4-UKs"/>
+                        <segue destination="9u4-QS-Inp" kind="show" identifier="infoProfessor" id="10A-S4-UKs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzm-sr-0pZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,7 +124,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NEl-7u-jUy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QgT-Cw-Frs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,12 +142,12 @@
                         <viewControllerLayoutGuide type="bottom" id="cuj-W6-d8v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ue1-2q-1CV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="CR1-3Y-Smr" kind="custom" identifier="infoSubject" id="zOu-8b-cGM"/>
+                        <segue destination="CR1-3Y-Smr" kind="show" identifier="infoSubject" id="zOu-8b-cGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acd-cW-EMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,7 +163,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vRp-Bp-hDY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mch-aw-kHI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -192,7 +192,6 @@
                         <segue destination="dTp-Fl-ICz" kind="relationship" relationship="viewControllers" id="SWp-R9-7FP"/>
                         <segue destination="vqE-u5-jUG" kind="relationship" relationship="viewControllers" id="eO3-iS-r8f"/>
                         <segue destination="QL0-eO-4kA" kind="relationship" relationship="viewControllers" id="A4H-e8-sps"/>
-                        <segue destination="Ml1-W6-6ET" kind="custom" identifier="newNote" id="3Uy-d3-acf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hih-BM-kPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,7 +207,7 @@
                         <viewControllerLayoutGuide type="bottom" id="AJk-Ub-jtU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3yx-dM-tQJ">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -284,36 +283,17 @@
             </objects>
             <point key="canvasLocation" x="521" y="-292"/>
         </scene>
-        <!--StudNC-->
-        <scene sceneID="1Cy-3A-ewU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ml1-W6-6ET" customClass="StudNC" customModule="Stud" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XRn-lw-mpb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.070588235294117646" green="0.10196078431372549" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="bdZ-pH-U4S" kind="relationship" relationship="rootViewController" id="N23-yZ-K99"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sKQ-52-m8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="23" y="562"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ECF99037-F713-47A9-830C-F4469C267A2D" width="180" height="180"/>
-        <image name="itemStudent" width="20" height="19"/>
-        <image name="itemStudentSelected" width="20" height="19"/>
+        <image name="itemStudent" width="30" height="19"/>
+        <image name="itemStudentSelected" width="30" height="19"/>
         <image name="itemTask" width="20" height="19"/>
         <image name="itemTaskSelected" width="20" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="RDW-rH-KIw"/>
-        <segue reference="S3M-SS-7VW"/>
-        <segue reference="57m-Yf-NNL"/>
+        <segue reference="9kA-YT-TgB"/>
+        <segue reference="zOu-8b-cGM"/>
     </inferredMetricsTieBreakers>
 </document>
