@@ -17,10 +17,10 @@ class AddNoteView : UIView {
         
         frame = view.frame;
     
-        var tela: CGRect = CGRect(x: frame.size.width*0,
-                                  y: frame.size.height*0.03,
-                                  width: frame.size.width*1,
-                                  height: frame.size.height*0.97);
+        var tela: CGRect = CGRect(x: 0,
+                                  y: 0,
+                                  width: frame.size.width,
+                                  height: getVisibleHeight(frame, vc: parent));
         
         text = UITextView(frame: tela);
 
@@ -29,12 +29,22 @@ class AddNoteView : UIView {
         text.textColor = UIColor.UIColorFromRGB(0xFFFFFF);
         text.font = UIFont (name: "Avenir Next", size: 20);
         text.scrollEnabled = true;
+        //text.backgroundColor = UIColor.redColor();
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
-        view.addSubview(text!);
+        view.addSubview(text);
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func getVisibleHeight(frame:CGRect, vc : UIViewController) -> CGFloat{
+        var tam:CGFloat = frame.height;
+        if(vc.navigationController?.navigationBar != nil){
+            tam -= vc.navigationController!.navigationBar.frame.size.height;
+        }
+        tam -= UIApplication.sharedApplication().statusBarFrame.height;
+        return tam;
     }
 }

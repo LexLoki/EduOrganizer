@@ -28,8 +28,8 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShown:" , name: UIKeyboardDidShowNotification, object: nil);
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardDidHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardDidShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardDidHideNotification, object: nil);
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         
@@ -125,6 +125,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         println("editou");
     }
     
+    
     func textViewDidEndEditing(textView: UITextView) {
         println("terminou");
     }
@@ -141,41 +142,51 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
     }
     
-    func keyboardShown(aNotification:NSNotification){
-        var userInfo:NSDictionary = aNotification.userInfo!;
-        let keyboardInfoFrame:CGRect = (userInfo.objectForKey(UIKeyboardFrameEndUserInfoKey) as NSValue).CGRectValue();
+    
+    func keyboardShow(notification: NSNotification){
+        var insets:UIEdgeInsets = noteView.text.contentInset;
+        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size.height;
+        insets.bottom += addition;
+        noteView.text.contentInset = insets;
         
-        let windowFrame:CGRect = (view.window?.convertRect(view.frame, fromView: view))!;
-        let keyboardFrame:CGRect = CGRectIntersection(windowFrame, keyboardInfoFrame);
-        let coveredFrame:CGRect = (view.window?.convertRect(keyboardFrame, toView: view))!;
+        insets = noteView.text.scrollIndicatorInsets;
+        insets.bottom += addition;
+        noteView.text.scrollIndicatorInsets = insets;
+    }
+    
+    func keyboardHide(notification: NSNotification){
+        var insets:UIEdgeInsets = noteView.text.contentInset;
+        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue().size.height;
+        insets.bottom -= addition;
+        noteView.text.contentInset = insets;
         
-        let contentInsets:UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, coveredFrame.size.height, 0.0);
-        noteView.text.contentInset = contentInsets;
-        noteView.text.scrollIndicatorInsets = contentInsets;
-        
-        //noteView.text.scrollRectToVisible(noteView.text, animated: true);
+        insets = noteView.text.scrollIndicatorInsets;
+        insets.bottom -= addition;
+        noteView.text.scrollIndicatorInsets = insets;
     }
     
     /*
-    CGRect keyboardInfoFrame = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    - (void)_keyboardWillShowNotification:(NSNotification*)notification
+    {
+    UIEdgeInsets insets = self.textView.contentInset;
+    insets.bottom += [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    self.textView.contentInset = insets;
     
-    // get the height of the keyboard by taking into account the orientation of the device too
-    CGRect windowFrame = [self.view.window convertRect:self.view.frame fromView:self.view];
-    CGRect keyboardFrame = CGRectIntersection (windowFrame, keyboardInfoFrame);
-    CGRect coveredFrame = [self.view.window convertRect:keyboardFrame toView:self.view];
+    insets = self.textView.scrollIndicatorInsets;
+    insets.bottom += [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    self.textView.scrollIndicatorInsets = insets;
+    }
     
-    // add the keyboard height to the content insets so that the scrollview can be scrolled
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake (0.0, 0.0, coveredFrame.size.height, 0.0);
-    self.scrollView.contentInset = contentInsets;
-    self.scrollView.scrollIndicatorInsets = contentInsets;
+    - (void)_keyboardWillHideNotification:(NSNotification*)notification
+    {
+    UIEdgeInsets insets = self.textView.contentInset;
+    insets.bottom -= [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    self.textView.contentInset = insets;
     
-    // make sure the scrollview content size width and height are greater than 0
-    [self.scrollView setContentSize:CGSizeMake (self.scrollView.width, self.scrollView.contentSize.height)];
-    
-    // scroll to the text view
-    [self.scrollView scrollRectToVisible:self.activeTextView.superview.frame animated:YES];
+    insets = self.textView.scrollIndicatorInsets;
+    insets.bottom -= [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    self.textView.scrollIndicatorInsets = insets;
+    }
     */
     
-    func keyboardHide(){
-    }
 }
