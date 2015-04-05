@@ -40,6 +40,8 @@
 		3BF68A2D1ACC8CDA0082CD54 /* StudUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */; };
 		B930CDC01ACDD37D00040F8A /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
+		B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */; };
+		B9CADCC01AD0F8BD00D31780 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */; };
 		C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CF2D91ACB3177003B50EA /* TaskDAO.swift */; };
 		FD0F47DA1AD09B21007AA029 /* ImagePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */; };
 		FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */; };
@@ -105,6 +107,8 @@
 		3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudUtils.swift; sourceTree = "<group>"; };
 		B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
+		B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
+		B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		C91CF2D91ACB3177003B50EA /* TaskDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
 		FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickVC.swift; sourceTree = "<group>"; };
 		FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				3BDCB14A1AC61C9400865AFC /* OptionsView.swift */,
 				3BBA49A51AC716DE00785F44 /* NotesListView.swift */,
 				FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */,
+				B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
 				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
+				B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */,
 				FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */,
 			);
 			name = Controller;
@@ -396,6 +402,7 @@
 				3B720B831AB771E200C463E8 /* HorizontalTableView.swift in Sources */,
 				3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */,
 				3B2CD4E31ABCCA750085FECB /* SubjectModel.swift in Sources */,
+				B9CADCC01AD0F8BD00D31780 /* AddTaskView.swift in Sources */,
 				3BAF09331AC05C4E00E2326C /* CollectionCellGeneric.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
 				3BAF092F1AC058F500E2326C /* CollectionGeneric.swift in Sources */,
@@ -409,6 +416,7 @@
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,
 				3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */,
+				B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */,
 				3B60529C1ABC828000076DB9 /* ProfessorDAO.swift in Sources */,
 				FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */,
 				3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */,
