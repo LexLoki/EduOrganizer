@@ -56,5 +56,10 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         profImg = info[UIImagePickerControllerOriginalImage] as UIImage;
         picker.dismissViewControllerAnimated(true, completion: nil);
     }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        profImg = nil;
+        picker.dismissViewControllerAnimated(true, completion: nil);
+    }
 
 }
