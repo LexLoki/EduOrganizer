@@ -341,7 +341,7 @@
 				TargetAttributes = {
 					FDB1C4C01AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = JY5QPLHQ9Y;
+						DevelopmentTeam = N8MAFJDDC5;
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
