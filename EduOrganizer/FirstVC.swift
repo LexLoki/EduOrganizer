@@ -26,6 +26,10 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        println("HUEHUEHEUHE");
+    }
+    
     func didExpand() {
         if(firstView.backGround == nil){
             firstView.backGround = UIImageView(frame: view.bounds);

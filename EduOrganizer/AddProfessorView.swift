@@ -27,7 +27,7 @@ class AddProfessorView : UIView{
         //definindo que eh a view eh a tela//
         var tela : UIView = UIView(frame: area)
         //acessando uma propriedade da tela(UIView) alterando as bordas//
-        tela.layer.cornerRadius = 8
+        tela.layer.cornerRadius = 7
         tela.backgroundColor = UIColor.whiteColor()
         
         //adicionando uma subview(tela) dentro da tela principal//
@@ -38,18 +38,18 @@ class AddProfessorView : UIView{
         let spacing:CGFloat = area.width*0.05;
         
         //botao pra cancelar
-        cancelButton = UIButton(frame: CGRectMake(spacing, altura/4, area.width*0.3, altura/2))
+        cancelButton = UIButton(frame: CGRectMake(spacing, 0, area.width*0.3, altura))
         cancelButton.backgroundColor = UIColor.whiteColor();
         cancelButton.setTitle("Cancel", forState: UIControlState.Normal)
         cancelButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         
         //botao pra salver
-        saveButton = UIButton(frame: CGRectMake(area.width - spacing - area.width*0.3, altura/4, area.width*0.3, altura/2))
+        saveButton = UIButton(frame: CGRectMake(area.width - spacing - area.width*0.3, 0, area.width*0.3, altura))
         saveButton.backgroundColor = UIColor.whiteColor();
         saveButton.setTitle("Save", forState: UIControlState.Normal)
         saveButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
         
-        nomeText = UITextField(frame: CGRectMake(spacing, cancelButton.frame.origin.y + altura/2, area.width, altura))
+        nomeText = UITextField(frame: CGRectMake(spacing, cancelButton.frame.origin.y + altura, area.width, altura))
         nomeText.autocorrectionType = UITextAutocorrectionType.No;
         nomeText.placeholder = "Name"
         
@@ -64,7 +64,7 @@ class AddProfessorView : UIView{
         addSubject = UITextField(frame: CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width, altura))
         addSubject.placeholder = "Add more subjects"
         
-        var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/2, area.width, 1))
+        var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1, area.width, 1))
         lineView.backgroundColor = UIColor.blackColor()
         
         var lineView1 : UIView = UIView (frame: CGRectMake(0, nomeText.frame.origin.y + altura/1, area.width, 1))
