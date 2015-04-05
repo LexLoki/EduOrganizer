@@ -8,10 +8,11 @@
 
 import Foundation
 
-class AddProfessor : UIViewController {
+class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var professor: ProfessorModel = ProfessorModel();
     var addView:AddProfessorView!;
+    var profImg: UIImage!;
     
     //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
@@ -26,7 +27,6 @@ class AddProfessor : UIViewController {
     
     //quando aperta o cancel tem que voltar pra tela anterior//
     func cancelAction(button:UIButton){
-        println("Funcionou");
         dismissViewControllerAnimated(true, completion: nil);
     }
     
@@ -34,10 +34,12 @@ class AddProfessor : UIViewController {
     func saveAction(button:UIButton){
         
         /*
-        var vc = ImagePickVC();
+        var vc:UIImagePickerController = ImagePickVC();
+        vc.delegate = self;
         presentViewController(vc, animated: true, completion: nil);
         */
         
+        ///*
         //atribuindo as informacoes dos campos para o professor
         professor.nome = addView.nomeText.text;
         professor.email = addView.emailText.text;
@@ -47,12 +49,12 @@ class AddProfessor : UIViewController {
         
         NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);
         dismissViewControllerAnimated(true, completion: nil);
+        //*/
     }
-
     
-    //FALTA CUIDAR DE GARANTIR REFRESH NA PAGINA ABAIXO DO POPUP CASO SEJA PAGINA QUE EXIBE PROFESSORES
-    //PROFESSORSVC OU STUDENTVC
-    //A MELHOR MANEIRA, NA MINHA OPINIAO, É USAR NOTIFICATION NO MOMENTO DO DISMISS (COMPLETION)
-    //COM OBSERVER NAS TELAS PARA DAR REFRESH
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        profImg = info[UIImagePickerControllerOriginalImage] as UIImage;
+        picker.dismissViewControllerAnimated(true, completion: nil);
+    }
 
 }

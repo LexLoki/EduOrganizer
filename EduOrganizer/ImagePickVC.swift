@@ -8,12 +8,8 @@
 
 import Foundation
 
-class ImagePickVC: UIImagePickerController, UIImagePickerControllerDelegate{
+class ImagePickVC: UIImagePickerController{
     
-    
-    //Quando usuario seleciona uma imagem no rolo de camera
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        let img:UIImage = info[UIImagePickerControllerOriginalImage] as UIImage;
-    }
+    //CASO TENHAM CUSTOMIZACOES ESPECIFICAS
     
 }

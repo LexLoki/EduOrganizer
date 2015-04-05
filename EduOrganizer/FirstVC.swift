@@ -92,7 +92,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
 
             //NSNotificationCenter.defaultCenter().postNotificationName("professorNotification", object: nil);
             
-            var addProf = AddProfessor();
+            var addProf = AddProfessorVC();
             addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             presentViewController(addProf, animated: true, completion: nil);
             
