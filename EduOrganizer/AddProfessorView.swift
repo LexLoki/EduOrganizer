@@ -20,10 +20,11 @@ class AddProfessorView : UIView{
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
         
+        let altura:CGFloat =  view.frame.height*0.08;
         
         //declaracao da area e definicao do tamanho//
         var area:CGRect = CGRectMake(view.frame.width*0.075, view.frame.height*0.2, view.frame.width*0.85
-            , view.frame.height*0.4);
+            , altura*5);
         //definindo que eh a view eh a tela//
         var tela : UIView = UIView(frame: area)
         //acessando uma propriedade da tela(UIView) alterando as bordas//
@@ -34,9 +35,7 @@ class AddProfessorView : UIView{
         view.addSubview(tela)
         
         //criando campos de texto//
-        let altura:CGFloat =  area.height/5
         let spacing:CGFloat = area.width*0.05;
-        
         //botao pra cancelar
         cancelButton = UIButton(frame: CGRectMake(spacing, 0, area.width*0.3, altura))
         cancelButton.backgroundColor = UIColor.whiteColor();
