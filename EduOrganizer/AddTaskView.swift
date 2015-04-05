@@ -18,10 +18,12 @@ class AddTaskView : UIView {
     
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
-
+        
+        let altura:CGFloat =  view.frame.height*0.08
+        
         //declaracao da area e definicao do tamanho//
         var area:CGRect = CGRectMake(view.frame.width*0.075, view.frame.height*0.2, view.frame.width*0.85
-            , view.frame.height*0.4);
+            , altura*4);
         //definindo que a view eh a tela//
         var tela : UIView = UIView(frame: area)
         //acessando uma propriedade da tela(UIView) alterando as bordas//
@@ -31,8 +33,8 @@ class AddTaskView : UIView {
         //adicionando uma subview(tela) dentro da tela principal//
         view.addSubview(tela)
         
-        //criando campos de texto/altura tem 8% da tela
-        let altura:CGFloat =  view.frame.height*0.08
+        //criando campos de texto
+        
         let spacing:CGFloat = area.width*0.05;
         
         //botao pra cancelar
@@ -54,6 +56,11 @@ class AddTaskView : UIView {
         date = UITextField(frame: CGRectMake(spacing, nameText.frame.origin.y + altura, area.width, altura))
         date.autocorrectionType = UITextAutocorrectionType.No;
         date.placeholder = "Date"
+        
+        subject = UITextField(frame: CGRectMake(spacing, date.frame.origin.y + altura, area.width, altura))
+        subject.autocorrectionType = UITextAutocorrectionType.No;
+        subject.placeholder = "Subject"
+
 
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/2, area.width, 1))
         lineView.backgroundColor = UIColor.blackColor()
@@ -68,6 +75,7 @@ class AddTaskView : UIView {
         tela.addSubview(date)
         tela.addSubview(cancelButton)
         tela.addSubview(saveButton)
+        tela.addSubview(subject)
         tela.addSubview(lineView)
         tela.addSubview(lineView1)
         tela.addSubview(lineView2)
