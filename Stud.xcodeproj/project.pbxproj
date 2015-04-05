@@ -39,6 +39,7 @@
 		3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB14A1AC61C9400865AFC /* OptionsView.swift */; };
 		3BF68A2D1ACC8CDA0082CD54 /* StudUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */; };
 		B930CDC01ACDD37D00040F8A /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */; };
+		B9B0D02A1AD19CDA00C9CDB3 /* AddSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B0D0291AD19CDA00C9CDB3 /* AddSubjectView.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
 		B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */; };
 		B9CADCC01AD0F8BD00D31780 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */; };
@@ -106,6 +107,7 @@
 		3BDCB14A1AC61C9400865AFC /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudUtils.swift; sourceTree = "<group>"; };
 		B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
+		B9B0D0291AD19CDA00C9CDB3 /* AddSubjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubjectView.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
 		B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				3BBA49A51AC716DE00785F44 /* NotesListView.swift */,
 				FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */,
 				B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */,
+				B9B0D0291AD19CDA00C9CDB3 /* AddSubjectView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				3BD92D641AC1E9E7001F2B27 /* NoteDAO.swift in Sources */,
 				3B2CD4E31ABCCA750085FECB /* SubjectModel.swift in Sources */,
 				B9CADCC01AD0F8BD00D31780 /* AddTaskView.swift in Sources */,
+				B9B0D02A1AD19CDA00C9CDB3 /* AddSubjectView.swift in Sources */,
 				3BAF09331AC05C4E00E2326C /* CollectionCellGeneric.swift in Sources */,
 				3B301A6B1AB73C1900665E2E /* UIImage+ImageEffects.m in Sources */,
 				3BAF092F1AC058F500E2326C /* CollectionGeneric.swift in Sources */,
