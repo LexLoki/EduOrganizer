@@ -22,13 +22,13 @@ class AddTaskView : UIView {
         let altura:CGFloat =  view.frame.height*0.08
         
         //declaracao da area e definicao do tamanho//
-        var area:CGRect = CGRectMake(view.frame.width*0.075, view.frame.height*0.2, view.frame.width*0.85
+        var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
             , altura*4);
         //definindo que a view eh a tela//
         var tela : UIView = UIView(frame: area)
         //acessando uma propriedade da tela(UIView) alterando as bordas//
-        tela.layer.cornerRadius = 7
-        tela.backgroundColor = UIColor.whiteColor()
+        tela.layer.cornerRadius = 5
+        tela.backgroundColor = UIColor.UIColorFromRGB(0xD5D9DF)
         
         //adicionando uma subview(tela) dentro da tela principal//
         view.addSubview(tela)
@@ -38,37 +38,46 @@ class AddTaskView : UIView {
         let spacing:CGFloat = area.width*0.05;
         
         //botao pra cancelar
-        cancelButton = UIButton(frame: CGRectMake(spacing, altura/4, area.width*0.3, altura/2))
-        cancelButton.backgroundColor = UIColor.whiteColor();
+        cancelButton = UIButton(frame: CGRectMake(spacing, altura/4, area.width*0.22, altura/2))
         cancelButton.setTitle("Cancel", forState: UIControlState.Normal)
-        cancelButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        cancelButton.titleLabel!.font = UIFont(name: "AvenirNext-Regular", size: 20)
+        cancelButton.setTitleColor(UIColor.UIColorFromRGB(0x1A242E), forState: UIControlState.Normal)
         
         //botao pra salvar
-        saveButton = UIButton(frame: CGRectMake(area.width - spacing - area.width*0.3, altura/4, area.width*0.3, altura/2))
-        saveButton.backgroundColor = UIColor.whiteColor();
+        saveButton = UIButton(frame: CGRectMake(area.width - spacing - area.width*0.18, altura/4, area.width*0.2, altura/2))
         saveButton.setTitle("Save", forState: UIControlState.Normal)
-        saveButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-
-        nameText = UITextField(frame: CGRectMake(spacing, cancelButton.frame.origin.y + altura/2, area.width, altura))
+        saveButton.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 20)
+        saveButton.setTitleColor(UIColor.UIColorFromRGB(0x1A242E), forState: UIControlState.Normal)
+        
+        // TEXT FIELDS
+        
+        // Name Text Field
+        nameText = UITextField(frame: CGRectMake(spacing, cancelButton.frame.origin.y + altura/1.4, area.width, altura))
+        nameText.font = UIFont(name: "AvenirNext-Regular", size: 18)
         nameText.autocorrectionType = UITextAutocorrectionType.No;
         nameText.placeholder = "Name"
- 
-        date = UITextField(frame: CGRectMake(spacing, nameText.frame.origin.y + altura, area.width, altura))
+        
+        // Date Text Field
+        date = UITextField(frame: CGRectMake(spacing, nameText.frame.origin.y + altura/1, area.width, altura))
+        date.font = UIFont(name: "AvenirNext-Regular", size: 18)
         date.autocorrectionType = UITextAutocorrectionType.No;
         date.placeholder = "Date"
         
-        subject = UITextField(frame: CGRectMake(spacing, date.frame.origin.y + altura, area.width, altura))
+        // Subject Text Field
+        subject = UITextField(frame: CGRectMake(spacing, date.frame.origin.y + altura/1, area.width, altura))
+        subject.font = UIFont(name: "AvenirNext-Regular", size: 18)
         subject.autocorrectionType = UITextAutocorrectionType.No;
         subject.placeholder = "Subject"
 
-
-        var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/2, area.width, 1))
-        lineView.backgroundColor = UIColor.blackColor()
+        
+        var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
+        lineView.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
         var lineView1 : UIView = UIView (frame: CGRectMake(0, nameText.frame.origin.y + altura/1, area.width, 1))
-        lineView1.backgroundColor = UIColor.blackColor()
+        lineView1.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        
         var lineView2 : UIView = UIView (frame: CGRectMake(0, date.frame.origin.y + altura/1, area.width, 1))
-        lineView2.backgroundColor = UIColor.blackColor()
+        lineView2.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
         //adicionar a view que criei na view pra aparecer na tela principal//
         tela.addSubview(nameText)
