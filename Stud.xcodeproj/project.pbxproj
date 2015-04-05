@@ -41,6 +41,8 @@
 		B930CDC01ACDD37D00040F8A /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
 		C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CF2D91ACB3177003B50EA /* TaskDAO.swift */; };
+		FD0F47DA1AD09B21007AA029 /* ImagePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */; };
+		FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
@@ -104,6 +106,8 @@
 		B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		C91CF2D91ACB3177003B50EA /* TaskDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
+		FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickVC.swift; sourceTree = "<group>"; };
+		FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorView.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
 		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				3B72BAB91AC50BE5004A1F67 /* FirstView.swift */,
 				3BDCB14A1AC61C9400865AFC /* OptionsView.swift */,
 				3BBA49A51AC716DE00785F44 /* NotesListView.swift */,
+				FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
 				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
+				FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -326,7 +332,7 @@
 				TargetAttributes = {
 					FDB1C4C01AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = P7XPUAZMB8;
+						DevelopmentTeam = JY5QPLHQ9Y;
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -399,6 +405,7 @@
 				3B99BF121AC59BD200DE1612 /* TaskModel.swift in Sources */,
 				C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */,
 				3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */,
+				FD0F47DA1AD09B21007AA029 /* ImagePickVC.swift in Sources */,
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,
 				3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */,
@@ -412,6 +419,7 @@
 				3BAF093D1AC08B0500E2326C /* StudentView.swift in Sources */,
 				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
 				3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */,
+				FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				3BBA49A61AC716DE00785F44 /* NotesListView.swift in Sources */,
 				3BF68A2D1ACC8CDA0082CD54 /* StudUtils.swift in Sources */,

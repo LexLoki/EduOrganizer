@@ -94,7 +94,10 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
             
         }else if(index == 3){ //Adicionar materia
             
-        }else{ //Adicionar tarefa
+        }else{
+            var vc = ImagePickVC();
+            presentViewController(vc, animated: true, completion: nil);
+            //Adicionar tarefa
 //            var addTask = AddTaskVC()
 //            //estilo de apresentacao sobre o contexto//
 //            addTask.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;

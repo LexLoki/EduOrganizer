@@ -56,7 +56,7 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     //Recarrega da plist sempre que aparece
     override func viewWillAppear(animated: Bool) {
-        
+        println("APARECEU");
         studentView.subjOptions.labelOne.text = "";
         studentView.subjOptions.labelTwo.text = "";
         studentView.subjOptions.labelThree.text = "";
@@ -110,7 +110,7 @@ class StudentVC: UIViewController, TableViewDelegate{
             }
         }
         
-
+        studentView.horTableProfessor.reloadInputViews();
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
