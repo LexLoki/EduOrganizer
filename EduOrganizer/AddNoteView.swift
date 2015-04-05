@@ -20,7 +20,7 @@ class AddNoteView : UIView {
         var tela: CGRect = CGRect(x: 0,
                                   y: 0,
                                   width: frame.size.width,
-                                  height: getVisibleHeight(frame, vc: parent));
+                                  height: CGRect.getVisibleHeight(frame, vc: parent));
         
         text = UITextView(frame: tela);
         
@@ -38,14 +38,5 @@ class AddNoteView : UIView {
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func getVisibleHeight(frame:CGRect, vc : UIViewController) -> CGFloat{
-        var tam:CGFloat = frame.height;
-        if(vc.navigationController?.navigationBar != nil){
-            tam -= vc.navigationController!.navigationBar.frame.size.height;
-        }
-        tam -= UIApplication.sharedApplication().statusBarFrame.height;
-        return tam;
     }
 }

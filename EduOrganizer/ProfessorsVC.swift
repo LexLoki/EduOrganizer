@@ -11,13 +11,21 @@ import UIKit
 
 class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
-
+    var professorsView : CollectionGeneric!;
     var professores: Array<ProfessorModel> = Array<ProfessorModel>();
     var selectedIndex:Int = Int();
     
+    func refresh(notification : NSNotification){
+        var professorDAO = ProfessorDAO();
+        professores = professorDAO.getDataArray() as Array<ProfessorModel>;
+        professorsView.collectionView.reloadData();
+    }
+    
     override func viewDidLoad() {
-
-        var professorsView : CollectionGeneric = CollectionGeneric(view: view, parent: self);
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name:"addedNote", object: nil)
+        
+        professorsView  = CollectionGeneric(view: view, parent: self);
         title = "Professors";
         professorsView.collectionView.delegate = self;
         professorsView.collectionView.dataSource = self;

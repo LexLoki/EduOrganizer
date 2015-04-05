@@ -31,10 +31,15 @@ class StudentVC: UIViewController, TableViewDelegate{
         }
     }
     
+    func refresh(notification: NSNotification){
+        viewWillAppear(false);
+    }
+    
     //Carregamentos unicos
     override func viewDidLoad() {
       
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "notesOn:", name:"notesNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name:"addedNote", object: nil)
      
         studentView = StudentView(view: view, parent: self);
         studentView.horTableProfessor.delegate = self;
@@ -56,7 +61,6 @@ class StudentVC: UIViewController, TableViewDelegate{
     
     //Recarrega da plist sempre que aparece
     override func viewWillAppear(animated: Bool) {
-        println("APARECEU");
         studentView.subjOptions.labelOne.text = "";
         studentView.subjOptions.labelTwo.text = "";
         studentView.subjOptions.labelThree.text = "";

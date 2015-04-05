@@ -45,9 +45,8 @@ class AddProfessor : UIViewController {
         var profDAO = ProfessorDAO();
         profDAO.saveData(professor);
         
+        NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);
         dismissViewControllerAnimated(true, completion: nil);
-        
-        
     }
 
     

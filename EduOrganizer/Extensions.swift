@@ -21,6 +21,21 @@ extension UIColor{
     
 }
 
+extension CGRect{
+    static func getVisibleHeight(frame:CGRect, vc : UIViewController) -> CGFloat{
+        var tam:CGFloat = frame.height;
+        if(vc.navigationController?.navigationBar != nil){
+            tam -= vc.navigationController!.navigationBar.frame.size.height;
+        }
+        
+        if(vc.tabBarController?.tabBar != nil){
+            tam -= vc.tabBarController!.tabBar.frame.height;
+        }
+        return tam;
+    }
+}
+
+
 extension UILabel{
     
     class func setFontStyleBold(label : UILabel, sizeFont : CGFloat) -> UILabel{

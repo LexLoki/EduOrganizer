@@ -16,9 +16,10 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     var size:CGSize = CGSize();
     var selectedIndex:Int = Int();
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         var subjectsView : CollectionGeneric = CollectionGeneric(view: view, parent: self);
         title = "Subjects";
         subjectsView.collectionView.delegate = self;
