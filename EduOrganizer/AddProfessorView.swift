@@ -28,7 +28,6 @@ class AddProfessorView : UIView{
         var blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         var blurView = UIVisualEffectView(effect: blur)
         blurView.frame = view.bounds
-        blurView.alpha = 0.9
         
         //declaracao da area e definicao do tamanho//
         var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
