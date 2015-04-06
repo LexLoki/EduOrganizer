@@ -15,11 +15,19 @@ class AddTaskView : UIView {
     var subject : UITextField!
     var cancelButton:UIButton!
     var saveButton : UIButton!
+    var newLabel: UILabel!
     
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
         
         let altura:CGFloat =  view.frame.height*0.08
+        let alturaLabel:CGFloat = view.frame.height*0.09
+        
+        // Blur Effect
+        var blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        var blurView = UIVisualEffectView(effect: blur)
+        blurView.frame = view.bounds
+        blurView.alpha = 0.9
         
         //declaracao da area e definicao do tamanho//
         var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
@@ -31,11 +39,24 @@ class AddTaskView : UIView {
         tela.backgroundColor = UIColor.UIColorFromRGB(0xD5D9DF)
         
         //adicionando uma subview(tela) dentro da tela principal//
+        view.addSubview(blurView)
         view.addSubview(tela)
+        
+        
+        // Criando Label (New Task)
+        
+        
         
         //criando campos de texto
         
         let spacing:CGFloat = area.width*0.05;
+        let spacingLabel: CGFloat = (blurView.frame).width*0.275
+        
+        newLabel = UILabel(frame: CGRectMake(spacingLabel, alturaLabel, area.width*0.5, alturaLabel/2))
+        newLabel.textAlignment = NSTextAlignment.Center
+        newLabel.text = "New Task"
+        newLabel.textColor = UIColor.whiteColor()
+        newLabel.font = UIFont(name: "AvenirNext-Regular", size: 28)
         
         //botao pra cancelar
         cancelButton = UIButton(frame: CGRectMake(spacing, altura/4, area.width*0.22, altura/2))
@@ -80,6 +101,7 @@ class AddTaskView : UIView {
         lineView2.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
         //adicionar a view que criei na view pra aparecer na tela principal//
+        blurView.addSubview(newLabel)
         tela.addSubview(nameText)
         tela.addSubview(date)
         tela.addSubview(cancelButton)
