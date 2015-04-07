@@ -45,5 +45,9 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
 //    dismissViewControllerAnimated(true, completion: nil);
     //*/
  }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(true);
+    }
 }
 
