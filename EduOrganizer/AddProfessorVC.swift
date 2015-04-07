@@ -61,5 +61,9 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         profImg = nil;
         picker.dismissViewControllerAnimated(true, completion: nil);
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(true);
+    }
 
 }
