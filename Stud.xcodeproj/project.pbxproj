@@ -49,6 +49,7 @@
 		C9A186DB1AD3933D00615C0D /* PopDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A186D81AD3933D00615C0D /* PopDateViewController.xib */; };
 		FD0F47DA1AD09B21007AA029 /* ImagePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */; };
 		FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */; };
+		FD0F8EBD1AD421DA00394097 /* AddSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
@@ -120,6 +121,7 @@
 		C9A186D81AD3933D00615C0D /* PopDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopDateViewController.xib; sourceTree = "<group>"; };
 		FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickVC.swift; sourceTree = "<group>"; };
 		FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorView.swift; sourceTree = "<group>"; };
+		FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubjectVC.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
 		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
 				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
 				B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */,
+				FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */,
 				FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */,
 			);
 			name = Controller;
@@ -358,7 +361,7 @@
 				TargetAttributes = {
 					FDB1C4C01AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = N8MAFJDDC5;
+						DevelopmentTeam = JY5QPLHQ9Y;
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -459,6 +462,7 @@
 				3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,
 				FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */,
+				FD0F8EBD1AD421DA00394097 /* AddSubjectVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
