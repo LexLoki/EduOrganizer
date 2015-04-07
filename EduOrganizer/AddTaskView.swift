@@ -2,7 +2,7 @@
 //  AddTask.swift
 //  Stud
 //
-//  Created by Juliana Zilberberg on 4/5/15.
+//  Created by Severo & Juliana Zilberberg on 4/5/15.
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 
@@ -11,8 +11,8 @@ import Foundation
 class AddTaskView : UIView {
     
     var nameText:UITextField!
-    var date : UITextField!
-    var subject : UITextField!
+    var date: UITextField!
+    var desc : UITextField!
     var cancelButton:UIButton!
     var saveButton : UIButton!
     var newLabel: UILabel!
@@ -27,6 +27,7 @@ class AddTaskView : UIView {
         var blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
         var blurView = UIVisualEffectView(effect: blur)
         blurView.frame = view.bounds
+
         
         //declaracao da area e definicao do tamanho//
         var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
@@ -40,11 +41,6 @@ class AddTaskView : UIView {
         //adicionando uma subview(tela) dentro da tela principal//
         view.addSubview(blurView)
         view.addSubview(tela)
-        
-        
-        // Criando Label (New Task)
-        
-        
         
         //criando campos de texto
         
@@ -77,17 +73,21 @@ class AddTaskView : UIView {
         nameText.autocorrectionType = UITextAutocorrectionType.No;
         nameText.placeholder = "Name"
         
-        // Date Text Field
+        // Date Picker
+
+        
         date = UITextField(frame: CGRectMake(spacing, nameText.frame.origin.y + altura/1, area.width, altura))
         date.font = UIFont(name: "AvenirNext-Regular", size: 18)
         date.autocorrectionType = UITextAutocorrectionType.No;
         date.placeholder = "Date"
         
+    
+        
         // Subject Text Field
-        subject = UITextField(frame: CGRectMake(spacing, date.frame.origin.y + altura/1, area.width, altura))
-        subject.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        subject.autocorrectionType = UITextAutocorrectionType.No;
-        subject.placeholder = "Subject"
+        desc = UITextField(frame: CGRectMake(spacing, date.frame.origin.y + altura/1, area.width, altura))
+        desc.font = UIFont(name: "AvenirNext-Regular", size: 18)
+        desc.autocorrectionType = UITextAutocorrectionType.No;
+        desc.placeholder = "Description"
 
         
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
@@ -105,7 +105,7 @@ class AddTaskView : UIView {
         tela.addSubview(date)
         tela.addSubview(cancelButton)
         tela.addSubview(saveButton)
-        tela.addSubview(subject)
+        tela.addSubview(desc)
         tela.addSubview(lineView)
         tela.addSubview(lineView1)
         tela.addSubview(lineView2)

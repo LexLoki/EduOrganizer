@@ -44,6 +44,9 @@
 		B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */; };
 		B9CADCC01AD0F8BD00D31780 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */; };
 		C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CF2D91ACB3177003B50EA /* TaskDAO.swift */; };
+		C9A186D91AD3933D00615C0D /* PopDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A186D61AD3933D00615C0D /* PopDatePicker.swift */; };
+		C9A186DA1AD3933D00615C0D /* PopDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A186D71AD3933D00615C0D /* PopDateViewController.swift */; };
+		C9A186DB1AD3933D00615C0D /* PopDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A186D81AD3933D00615C0D /* PopDateViewController.xib */; };
 		FD0F47DA1AD09B21007AA029 /* ImagePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */; };
 		FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
@@ -112,6 +115,9 @@
 		B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
 		B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		C91CF2D91ACB3177003B50EA /* TaskDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
+		C9A186D61AD3933D00615C0D /* PopDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDatePicker.swift; sourceTree = "<group>"; };
+		C9A186D71AD3933D00615C0D /* PopDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDateViewController.swift; sourceTree = "<group>"; };
+		C9A186D81AD3933D00615C0D /* PopDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopDateViewController.xib; sourceTree = "<group>"; };
 		FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickVC.swift; sourceTree = "<group>"; };
 		FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorView.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		3B0B9D6E1ABCAA52004E25EE /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				C9A186D51AD3932300615C0D /* PopDateController */,
 				3B720B811AB7717300C463E8 /* HorizontalListView */,
 				3B301A4D1AB73C1900665E2E /* FancyTabBar */,
 			);
@@ -250,6 +257,16 @@
 				3B720B821AB771E200C463E8 /* HorizontalTableView.swift */,
 			);
 			name = HorizontalListView;
+			sourceTree = "<group>";
+		};
+		C9A186D51AD3932300615C0D /* PopDateController */ = {
+			isa = PBXGroup;
+			children = (
+				C9A186D61AD3933D00615C0D /* PopDatePicker.swift */,
+				C9A186D71AD3933D00615C0D /* PopDateViewController.swift */,
+				C9A186D81AD3933D00615C0D /* PopDateViewController.xib */,
+			);
+			name = PopDateController;
 			sourceTree = "<group>";
 		};
 		FDB1C4B81AB0C4A100831BED = {
@@ -377,6 +394,7 @@
 				3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */,
 				3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */,
 				FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */,
+				C9A186DB1AD3933D00615C0D /* PopDateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,12 +437,14 @@
 				FD0F47DA1AD09B21007AA029 /* ImagePickVC.swift in Sources */,
 				3BAF093F1AC093D900E2326C /* StudentCell.swift in Sources */,
 				3BAF093B1AC0816200E2326C /* InfoCellGeneric.swift in Sources */,
+				C9A186DA1AD3933D00615C0D /* PopDateViewController.swift in Sources */,
 				3BAF09431AC0AB8A00E2326C /* SubjectDAO.swift in Sources */,
 				B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */,
 				3B60529C1ABC828000076DB9 /* ProfessorDAO.swift in Sources */,
 				FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */,
 				3B301A6C1AB73C1900665E2E /* UIView+Screenshot.m in Sources */,
 				FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */,
+				C9A186D91AD3933D00615C0D /* PopDatePicker.swift in Sources */,
 				3B453BDF1AB8CDCC006F9C05 /* TaskVC.swift in Sources */,
 				3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */,
 				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
