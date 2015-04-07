@@ -86,7 +86,7 @@ class AddProfessorView : UIView{
         
         addSubject = UITextField(frame: CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width, altura))
         addSubject.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        addSubject.autocorrectionType = UITextAutoCorrectionType.No;
+       // addSubject.autocorrectionType = UITextAutoCorrectionType.No;
         addSubject.placeholder = "Add more subjects"
         
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
