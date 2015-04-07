@@ -45,7 +45,7 @@ class AddProfessorView : UIView{
         
         //criando campos de texto//
         let spacing:CGFloat = area.width*0.05;
-        let spacingLabel: CGFloat = (blurView.frame).width*0.19
+        let spacingLabel: CGFloat = (blurView.frame).width*0.18
         
         newLabel = UILabel(frame: CGRectMake(spacingLabel, alturaLabel, area.width*0.7, alturaLabel/2))
         newLabel.textAlignment = NSTextAlignment.Center

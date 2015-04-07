@@ -45,7 +45,9 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
     
     func resign() {
         
+        addView.nameText.resignFirstResponder()
         addView.date.resignFirstResponder()
+        addView.desc.resignFirstResponder()
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {

@@ -20,7 +20,7 @@ class TaskView : UIView {
         parent.title = "Tasks";
         tableView = UITableView(frame: CGRectMake(0, 0, frame.width, frame.height - 110));
         tableView.separatorInset = UIEdgeInsetsZero;
-        tableView.separatorColor = UIColor.whiteColor();
+        tableView.separatorColor = UIColor.UIColorFromRGB(0x566372);
         tableView.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
