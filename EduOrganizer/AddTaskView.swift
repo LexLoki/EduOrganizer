@@ -75,7 +75,6 @@ class AddTaskView : UIView {
         
         // Date Picker
 
-        
         date = UITextField(frame: CGRectMake(spacing, nameText.frame.origin.y + altura/1, area.width, altura))
         date.font = UIFont(name: "AvenirNext-Regular", size: 18)
         date.autocorrectionType = UITextAutocorrectionType.No;

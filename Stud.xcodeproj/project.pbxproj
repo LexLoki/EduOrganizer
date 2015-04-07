@@ -39,6 +39,7 @@
 		3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDCB14A1AC61C9400865AFC /* OptionsView.swift */; };
 		3BF68A2D1ACC8CDA0082CD54 /* StudUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */; };
 		B930CDC01ACDD37D00040F8A /* AddProfessorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */; };
+		B938A46C1AD42F6900B675FD /* AddSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B938A46B1AD42F6900B675FD /* AddSubjectVC.swift */; };
 		B9B0D02A1AD19CDA00C9CDB3 /* AddSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B0D0291AD19CDA00C9CDB3 /* AddSubjectView.swift */; };
 		B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */; };
 		B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */; };
@@ -110,6 +111,7 @@
 		3BDCB14A1AC61C9400865AFC /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		3BF68A2C1ACC8CDA0082CD54 /* StudUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudUtils.swift; sourceTree = "<group>"; };
 		B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfessorVC.swift; sourceTree = "<group>"; };
+		B938A46B1AD42F6900B675FD /* AddSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubjectVC.swift; sourceTree = "<group>"; };
 		B9B0D0291AD19CDA00C9CDB3 /* AddSubjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubjectView.swift; sourceTree = "<group>"; };
 		B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesListVC.swift; sourceTree = "<group>"; };
 		B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
 				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
 				B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */,
+				B938A46B1AD42F6900B675FD /* AddSubjectVC.swift */,
 				FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */,
 			);
 			name = Controller;
@@ -459,6 +462,7 @@
 				3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,
 				FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */,
+				B938A46C1AD42F6900B675FD /* AddSubjectVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

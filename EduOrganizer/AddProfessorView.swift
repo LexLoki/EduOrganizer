@@ -2,7 +2,7 @@
 //  AddProfessorView.swift
 //  Stud
 //
-//  Created by Pietro Ribeiro Pepe on 4/4/15.
+//  Created by Juliana Zilberberg & Pietro Ribeiro Pepe on 4/4/15.
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 

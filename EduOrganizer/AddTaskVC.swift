@@ -43,6 +43,7 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         dismissViewControllerAnimated(true, completion: nil);
     }
     
+    //desabilitar o input do picker view
     func resign() {
         
         addView.nameText.resignFirstResponder()
@@ -59,8 +60,10 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
             formatter.timeStyle = .NoStyle
             let initDate = NSDate()
             
+            //atualiza a data no picker view
             popDatePicker!.pick(self, initDate:initDate, dataChanged: { (newDate : NSDate, forTextField : UITextField) -> () in
                 
+                //atualiza a data no textField
                 self.addView.date.text = formatter.stringFromDate(newDate)
                 
             })
