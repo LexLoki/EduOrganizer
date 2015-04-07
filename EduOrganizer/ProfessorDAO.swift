@@ -86,6 +86,28 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         
     }
     
+    func copyImgToDocuments(img : UIImage) -> String{
+        var imgPath : String = getProfessorsImagePath();
+        var id = getFreeIdInDict(getImgDictionary());
+        id = id.stringByAppendingFormat(".png");
+        imgPath = imgPath.stringByAppendingPathComponent(id);
+        UIImagePNGRepresentation(img).writeToFile(imgPath, atomically: true);
+        return id;
+    }
+
+    
+    private func getImgDictionary() -> NSMutableDictionary{
+        var imgPath : String = getProfessorsImagePath();
+        var contentsArray : NSArray = NSFileManager.defaultManager().contentsOfDirectoryAtPath(imgPath, error: nil)!;
+        var imgDict:NSMutableDictionary = NSMutableDictionary();
+        for (var id) in contentsArray{
+            let str:String = imgPath.stringByAppendingPathComponent(id as String);
+            id = id.substringToIndex(countElements(id as String) - 4);
+            imgDict.setObject(UIImage(contentsOfFile: str)!, forKey: id as String);
+        }
+        return imgDict;
+    }
+    
     //function to set empty strings instead of nil
     
     

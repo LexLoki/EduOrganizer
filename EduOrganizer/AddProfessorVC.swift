@@ -33,7 +33,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     //quando aperto o save salva na plist//
     func saveAction(button:UIButton){
         
-        /*
+        /*Bloco para acessar rolo da camera
         var vc:UIImagePickerController = ImagePickVC();
         vc.delegate = self;
         presentViewController(vc, animated: true, completion: nil);
@@ -45,6 +45,9 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         professor.email = addView.emailText.text;
         
         var profDAO = ProfessorDAO();
+        if(profImg != nil){
+            professor.imagem = profDAO.copyImgToDocuments(profImg);
+        }
         profDAO.saveData(professor);
         
         NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);

@@ -2,7 +2,7 @@
 //  AddProfessorView.swift
 //  Stud
 //
-//  Created by Juliana Zilberberg & Pietro Ribeiro Pepe on 4/4/15.
+//  Created by Pietro Ribeiro Pepe on 4/4/15.
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 
@@ -86,7 +86,7 @@ class AddProfessorView : UIView{
         
         addSubject = UITextField(frame: CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width, altura))
         addSubject.font = UIFont(name: "AvenirNext-Regular", size: 18)
-       // addSubject.autocorrectionType = UITextAutoCorrectionType.No;
+        addSubject.autocorrectionType = UITextAutocorrectionType.No;
         addSubject.placeholder = "Add more subjects"
         
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
