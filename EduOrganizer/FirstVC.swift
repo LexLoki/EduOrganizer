@@ -97,7 +97,9 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
             presentViewController(addProf, animated: true, completion: nil);
             
         }else if(index == 3){ //Adicionar materia
-            
+            var addSubject = AddSubjectVC();
+            addSubject.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
+            presentViewController(addSubject, animated: true, completion: nil);
         }else{
             
             //Adicionar tarefa
