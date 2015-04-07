@@ -98,6 +98,10 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
     }
     
     
+    override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(true);
+    }
+    
     //FALTA CUIDAR DE GARANTIR REFRESH NA PAGINA ABAIXO DO POPUP CASO SEJA PAGINA QUE EXIBE PROFESSORES
     //PROFESSORSVC OU STUDENTVC
     //A MELHOR MANEIRA, NA MINHA OPINIAO, É USAR NOTIFICATION NO MOMENTO DO DISMISS (COMPLETION)

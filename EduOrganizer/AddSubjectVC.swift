@@ -2,12 +2,17 @@
 //  AddSubjectVC.swift
 //  Stud
 //
+<<<<<<< HEAD
 //  Created by Juliana Zilberberg on 4/7/15.
+=======
+//  Created by Pietro Ribeiro Pepe on 4/7/15.
+>>>>>>> origin/master
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 
 import Foundation
 
+<<<<<<< HEAD
 class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var subject: SubjectModel = SubjectModel();
@@ -46,3 +51,13 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
     //*/
 }
 }
+=======
+
+class AddSubjectVC{
+    
+    
+    //Left to implement
+    
+    
+}
+>>>>>>> origin/master
