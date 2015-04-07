@@ -33,7 +33,7 @@ class AddSubjectView : UIView{
         blurView.frame = view.bounds
         
         //declaracao da area e definicao do tamanho//
-        var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
+        var area:CGRect = CGRectMake(view.frame.width*0.07, view.frame.height*0.2, view.frame.width*0.90
             , altura*7);
         
         //definindo que eh a view eh a tela//
@@ -117,10 +117,10 @@ class AddSubjectView : UIView{
         lineView3.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
         var lineView4 : UIView = UIView (frame: CGRectMake(0, endDate.frame.origin.y + altura/1, area.width, 1))
-        lineView3.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        lineView4.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
         var lineView5 : UIView = UIView (frame: CGRectMake(0, schedule.frame.origin.y + altura/1, area.width, 1))
-        lineView3.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        lineView5.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
 
         
         //adicionar a view que criei na view pra aparecer na tela principal//
@@ -131,6 +131,8 @@ class AddSubjectView : UIView{
         tela.addSubview(cancelButton)
         tela.addSubview(saveButton)
         tela.addSubview(endDate)
+        tela.addSubview(schedule)
+        tela.addSubview(professor)
         tela.addSubview(lineView)
         tela.addSubview(lineView1)
         tela.addSubview(lineView2)
