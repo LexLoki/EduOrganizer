@@ -70,13 +70,18 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated);
+        taskView.tableView.setEditing(editing, animated: animated);
+    }
     
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         
         println("HOHO");
-        
-        return UITableViewCellEditingStyle.Delete
+        if(tableView.editing == true){
+            return UITableViewCellEditingStyle.Delete
+        }
+        return UITableViewCellEditingStyle.None;
         
     }
     
