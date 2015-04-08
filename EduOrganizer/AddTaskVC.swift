@@ -92,6 +92,7 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         var taskDAO = TaskDAO();
         taskDAO.saveData(tarefa);
         
+        NSNotificationCenter.defaultCenter().postNotificationName("addedTask", object: nil);
         dismissViewControllerAnimated(true, completion: nil);
         
         
@@ -99,6 +100,10 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
     
     
     override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(true);
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true);
     }
     

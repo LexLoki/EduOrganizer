@@ -75,7 +75,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
             contents.writeToFile(plistPath, atomically: true);
             
         }else{
-            newId = getFreeIdInDict(taskDict);
+            newId = getFreeIdInDict(tasksDict);
         }
         
         
@@ -84,8 +84,8 @@ class TaskDAO : StudDAO, ProtocolDAO{
         taskDict.setValue(task.data, forKey: "data");
 
         
-        taskDict.setObject(taskDict, forKey: newId);
-        contents.setObject(taskDict, forKey: "tarefas");
+        tasksDict.setObject(taskDict, forKey: newId);
+        contents.setObject(tasksDict, forKey: "tarefas");
         contents.writeToFile(plistPath, atomically: true);
         
     }

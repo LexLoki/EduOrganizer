@@ -14,6 +14,8 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var tarefas : Array<TaskModel> = Array<TaskModel>();
     
+    var taskView:TaskView!;
+    
     required init(coder aDecoder: NSCoder) {
         
         let taskDAO = TaskDAO();
@@ -32,6 +34,12 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func refresh(notification: NSNotification){
+        let taskDAO = TaskDAO();
+        tarefas = taskDAO.getDataArray() as Array<TaskModel>;
+        taskView.tableView.reloadData();
+    }
+    
 //    func professorOn(notification: NSNotification){
 //        var addProf = AddProfessor();
 //        addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
@@ -42,10 +50,12 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "notesOn:", name:"notesNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name:"addedTask", object: nil)
+        
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "professorOn:", name: "professorNotification", object: nil);
         
         
-        var taskView : TaskView = TaskView(view: view, parent: self);
+        taskView = TaskView(view: view, parent: self);
         taskView.tableView.delegate = self;
         taskView.tableView.dataSource = self;
         
