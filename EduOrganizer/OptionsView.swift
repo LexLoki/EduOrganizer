@@ -44,7 +44,7 @@ class OptionsView : UIView {
         backgroundColor = UIColor.UIColorFromRGB(0x656779);
         
         sectionOne.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        sectionTwo.backgroundColor = UIColor.UIColorFromRGB(0x294b70);
+        sectionTwo.backgroundColor = UIColor.UIColorFromRGB(0x2B4C6F);
         
         sectionTwo.frame = sectionOne.frame;
         sectionTwo.frame.origin.y = sectionOne.frame.origin.y + sectionOne.frame.height;
