@@ -49,10 +49,10 @@ class TaskCell : UITableViewCell{
         preservesSuperviewLayoutMargins = false;
         selectionStyle = UITableViewCellSelectionStyle.None;
         
-        addSubview(rightArrow)
-        addSubview(labelCountDown);
-        addSubview(labelTask);
-        addSubview(labelDate);
+        self.contentView.addSubview(rightArrow)
+        self.contentView.addSubview(labelCountDown);
+        self.contentView.addSubview(labelTask);
+        self.contentView.addSubview(labelDate);
 
     }
 
