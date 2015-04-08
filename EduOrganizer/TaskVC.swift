@@ -46,6 +46,42 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 //        presentViewController(addProf, animated: true, completion: nil);
 //    }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
+        
+        return true
+        
+    }
+    
+    //editar a tela de tarefas
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+        
+    {
+        
+        if (editingStyle == UITableViewCellEditingStyle.Delete)
+            
+        {
+            
+            
+            
+            self.tarefas.removeAtIndex(indexPath.row)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+        }
+        
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        
+        println("HOHO");
+        
+        return UITableViewCellEditingStyle.Delete
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +95,12 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         taskView.tableView.delegate = self;
         taskView.tableView.dataSource = self;
         
+        //botao de edit em tarefas
+        
+        self.navigationItem.leftBarButtonItem = editButtonItem()
     }
+    
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
