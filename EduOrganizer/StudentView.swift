@@ -28,7 +28,7 @@ class StudentView : UIView {
         
         parent.title = "Student";
         
-        sectionSubjects = UIButton(frame: CGRectMake(0,0,frame.width,frame.height/18));
+        sectionSubjects = UIButton(frame: CGRectMake(0,0,frame.width,frame.height/15));
         sectionSubjects.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
         var labelSubjects : UILabel = UILabel(frame: CGRectMake(sectionSubjects.frame.origin.x + 20,
@@ -44,7 +44,7 @@ class StudentView : UIView {
                                       sectionSubjects.frame.origin.y +
                                         sectionSubjects.frame.height,
                                      frame.width,
-                                     frame.height/4)
+                                     frame.height/4.5)
         
         subjOptions = OptionsView(frame : frameSubSection, rows : 3);
         
@@ -68,7 +68,7 @@ class StudentView : UIView {
         
         
         sectionTeacher = UIButton(frame: CGRectMake(0,subjOptions.frame.origin.y + subjOptions.frame.height,
-                                                   frame.width, frame.height/18));
+                                                   frame.width, frame.height/15));
         
         sectionTeacher.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         
@@ -92,7 +92,7 @@ class StudentView : UIView {
         sectionNotes = UIButton(frame: CGRectMake(0,
                                                 horTableProfessor.frame.origin.y +
                                                     horTableProfessor.frame.height,
-                                                frame.width, frame.height/18));
+                                                frame.width, frame.height/15));
         
             sectionNotes.backgroundColor = UIColor.UIColorFromRGB(0x1a242e)
         
