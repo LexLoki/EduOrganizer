@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
     
     var tarefas : Array<TaskModel> = Array<TaskModel>();
     
@@ -63,7 +62,6 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         {
             
             
-            
             self.tarefas.removeAtIndex(indexPath.row)
             
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
@@ -98,6 +96,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //botao de edit em tarefas
         
         self.navigationItem.leftBarButtonItem = editButtonItem()
+        
     }
     
     
@@ -117,10 +116,6 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         var taskCell : TaskCell = TaskCell(view: view);
-        taskCell.btnEdit.tag = 3;
-        taskCell.btnEdit.addTarget(self,
-                                   action: "btnTouched:",
-                                   forControlEvents: UIControlEvents.TouchUpInside);
         
         var taskDate = tarefas[indexPath.row].data;
         var currentDate = NSDate();

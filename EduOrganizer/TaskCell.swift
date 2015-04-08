@@ -13,7 +13,7 @@ class TaskCell : UITableViewCell{
     var labelCountDown : UILabel!;
     var labelTask : UILabel!;
     var labelDate : UILabel!;
-    var btnEdit : UIButton!;
+    var rightArrow: UIImageView!;
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier);
@@ -25,7 +25,6 @@ class TaskCell : UITableViewCell{
         labelCountDown = UILabel(frame: CGRectMake(20, 15, view.frame.width, 20));
         labelTask = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 25, view.frame.width*0.75, 40));
         labelDate = UILabel(frame: CGRectMake(20, labelTask.frame.origin.y + 30, view.frame.width, 40));
-        btnEdit = UIButton.buttonWithType(UIButtonType.Custom) as UIButton;
         
         labelCountDown.textColor = UIColor.whiteColor();
         labelCountDown.font = UIFont(name: "Avenir Next", size: 20)
@@ -39,19 +38,21 @@ class TaskCell : UITableViewCell{
         labelDate.font = UIFont(name: "Avenir Next", size: 15)
         labelDate.textAlignment = NSTextAlignment.Left;
         
-        let image = UIImage(named: "EditButton") as UIImage?
-        btnEdit.frame = CGRectMake(view.frame.width - 40, labelTask.frame.origin.y + 5, 20, 20);
-        btnEdit.setImage(image, forState: UIControlState.Normal);
+        let image = UIImage(named: "rightArrow") as UIImage?
+        rightArrow = UIImageView (frame: (CGRectMake(view.frame.width - 40, labelTask.frame.origin.y + 5, 20, 20)))
+
+     
+        rightArrow.image = image
         
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         layoutMargins = UIEdgeInsetsZero;
         preservesSuperviewLayoutMargins = false;
         selectionStyle = UITableViewCellSelectionStyle.None;
         
+        addSubview(rightArrow)
         addSubview(labelCountDown);
         addSubview(labelTask);
         addSubview(labelDate);
-        addSubview(btnEdit);
 
     }
 

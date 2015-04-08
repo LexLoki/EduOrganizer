@@ -16,6 +16,9 @@ class StudentView : UIView {
     var sectionSubjects : UIButton!;
     var sectionTeacher : UIButton!;
     var sectionNotes : UIButton!;
+    var rightArrow : UIImageView!;
+    var rightArrow2 : UIImageView!;
+    var rightArrow3 : UIImageView!;
     
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
@@ -45,6 +48,24 @@ class StudentView : UIView {
         
         subjOptions = OptionsView(frame : frameSubSection, rows : 3);
         
+        let image = UIImage(named: "rightArrowStud") as UIImage?
+        rightArrow = UIImageView (frame: CGRectMake(sectionSubjects.frame.width*0.91,
+            sectionSubjects.frame.height*0.5 - 7.5, 15, 15))
+        rightArrow.contentMode = UIViewContentMode.ScaleAspectFit
+        rightArrow.image = image
+        
+        rightArrow2 = UIImageView (frame: CGRectMake(sectionSubjects.frame.width*0.91,
+            sectionSubjects.frame.height*0.5 - 7.5, 15, 15))
+        rightArrow2.contentMode = UIViewContentMode.ScaleAspectFit
+        rightArrow2.image = image
+        
+        rightArrow3 = UIImageView (frame: CGRectMake(sectionSubjects.frame.width*0.91,
+            sectionSubjects.frame.height*0.5 - 7.5, 15, 15))
+        rightArrow3.contentMode = UIViewContentMode.ScaleAspectFit
+        rightArrow3.image = image
+        
+        sectionSubjects.addSubview(rightArrow)
+        
         
         sectionTeacher = UIButton(frame: CGRectMake(0,subjOptions.frame.origin.y + subjOptions.frame.height,
                                                    frame.width, frame.height/18));
@@ -66,17 +87,21 @@ class StudentView : UIView {
             delegate : parent as StudentVC,
             color: UIColor.UIColorFromRGB(0x1e3044));
         
+        sectionTeacher.addSubview(rightArrow2)
         
         sectionNotes = UIButton(frame: CGRectMake(0,
                                                 horTableProfessor.frame.origin.y +
                                                     horTableProfessor.frame.height,
                                                 frame.width, frame.height/18));
         
-            sectionNotes.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
+            sectionNotes.backgroundColor = UIColor.UIColorFromRGB(0x1a242e)
+        
         
         var labelNotes : UILabel = UILabel(frame: CGRectMake(sectionNotes.frame.origin.x + 20,
             sectionNotes.frame.origin.y,
             frame.width, frame.height/18));
+        
+        sectionNotes.addSubview(rightArrow3)
         
         
         labelNotes = UILabel.setFontStyleBold(labelNotes, sizeFont : 15);
