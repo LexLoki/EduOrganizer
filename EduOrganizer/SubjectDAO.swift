@@ -126,13 +126,6 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
     }
     
-    func getListOfCodes() -> Array<String>{
-        var arr = Array<String>();
-        arr.append("gay")
-        arr.append("bixa")
-        return arr;
-    }
-    
     func getAvailableSubjectArray() -> Array<SubjectModel>{
         var dataArray: Array<SubjectModel> = getDataArray() as Array<SubjectModel>;
         var size = dataArray.count
