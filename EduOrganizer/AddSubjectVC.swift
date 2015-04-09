@@ -35,18 +35,22 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
 
 
     //atribuindo as informacoes dos campos 
-//    subject.name = addView.nameText.text;
-//    subject.code = addView.code.text;
-    
-//    var profDAO = SubjectDAO();
-//    subjDAO.saveData(subject);
-    
-//    NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);
-//    dismissViewControllerAnimated(true, completion: nil);
-    //*/
+        subject.nome = addView.nameText.text;
+        subject.id = addView.code.text;
+        //subject.professor = addView.professor.text;
+        
+        var subjectDAO = SubjectDAO();
+        subjectDAO.saveData(subject);
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);
+        dismissViewControllerAnimated(true, completion: nil);
  }
     
     override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(true);
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true);
     }
 }

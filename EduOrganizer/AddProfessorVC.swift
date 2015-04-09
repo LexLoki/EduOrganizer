@@ -8,19 +8,26 @@
 
 import Foundation
 
-class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var professor: ProfessorModel = ProfessorModel();
+    var subjects: Array<SubjectModel>!
     var addView:AddProfessorView!;
     var profImg: UIImage!;
+    var selectedSubject: SubjectModel = SubjectModel();
     
     //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
+        let subjectDAO = SubjectDAO();
+        subjects = subjectDAO.getDataArray() as Array<SubjectModel>;
         addView = AddProfessorView(view: view, parent: self);
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.cameraButton.addTarget(self, action: "imageAction:", forControlEvents: UIControlEvents.TouchUpInside)
         //addView.cameraButton.addTarget(self, action: "keepHighlight:", forControlEvents: UIControlEvents.TouchDragExit)
+        (addView.subjectCode.inputView as UIPickerView).delegate = self;
+        (addView.subjectCode.inputView as UIPickerView).dataSource = self;
+
     }
     override func viewDidAppear(animated: Bool) {
         println("APPEAR");
@@ -30,6 +37,20 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         if(profImg != nil){
             button.selected = true
         }
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return subjects.count;
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return subjects[row].id;
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        addView.subjectCode.text = subjects[row].id;
+        selectedSubject = subjects[row];
     }
     
     //quando aperto o botao da camera vou para o rolo
@@ -51,6 +72,11 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         //atribuindo as informacoes dos campos para o professor
         professor.nome = addView.nomeText.text;
         professor.email = addView.emailText.text;
+        var codes = Array<SubjectModel>();
+        if(selectedSubject.id != nil){
+            codes.append(selectedSubject);
+        }
+        professor.materias = codes;
         
         var profDAO = ProfessorDAO();
         if(profImg != nil){
@@ -79,6 +105,10 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     override func viewWillDisappear(animated: Bool) {
+        self.view.endEditing(true);
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true);
     }
 }

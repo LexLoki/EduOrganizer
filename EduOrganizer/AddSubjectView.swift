@@ -105,6 +105,7 @@ class AddSubjectView : UIView{
         professor.autocorrectionType = UITextAutocorrectionType.No;
         professor.placeholder = "Add a professor"
         
+        
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
         lineView.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         

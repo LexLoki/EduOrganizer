@@ -126,6 +126,13 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
     }
     
+    func getListOfCodes() -> Array<String>{
+        var arr = Array<String>();
+        arr.append("gay")
+        arr.append("bixa")
+        return arr;
+    }
+    
     func saveData(object : AnyObject) {
         
         var subjsDict : NSMutableDictionary = self.loadPList();
@@ -151,8 +158,8 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         subjDict.setValue(subject.professor, forKey: "professor");
         subjDict.setValue(subject.tarefas, forKey: "tarefas");
         
-        subjDict.setObject(subjDict, forKey: newId);
-        contents.setObject(subjDict, forKey: "materias");
+        subjsDict.setObject(subjDict, forKey: newId);
+        contents.setObject(subjsDict, forKey: "materias");
         contents.writeToFile(plistPath, atomically: true);
         
     }
