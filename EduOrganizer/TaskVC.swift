@@ -48,26 +48,19 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool{
         
         return true
-        
     }
     
     //editar a tela de tarefas
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-        
     {
-        
         if (editingStyle == UITableViewCellEditingStyle.Delete)
-            
         {
-            
-            
+            let taskDAO = TaskDAO();
+            taskDAO.deleteDataById(tarefas[indexPath.row].id)
             self.tarefas.removeAtIndex(indexPath.row)
-            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
         }
-        
     }
     
     override func setEditing(editing: Bool, animated: Bool) {

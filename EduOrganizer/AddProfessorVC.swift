@@ -19,10 +19,24 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         addView = AddProfessorView(view: view, parent: self);
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
+        addView.cameraButton.addTarget(self, action: "imageAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        //addView.cameraButton.addTarget(self, action: "keepHighlight:", forControlEvents: UIControlEvents.TouchDragExit)
     }
     override func viewDidAppear(animated: Bool) {
         println("APPEAR");
+    }
+    
+    func keepHighlight(button:UIButton){
+        if(profImg != nil){
+            button.selected = true
+        }
+    }
+    
+    //quando aperto o botao da camera vou para o rolo
+    func imageAction(button:UIButton){
+        var vc:UIImagePickerController = ImagePickVC();
+        vc.delegate = self;
+        presentViewController(vc, animated: true, completion: nil);
     }
     
     //quando aperta o cancel tem que voltar pra tela anterior//
@@ -32,12 +46,6 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     
     //quando aperto o save salva na plist//
     func saveAction(button:UIButton){
-        
-        /*Bloco para acessar rolo da camera
-        var vc:UIImagePickerController = ImagePickVC();
-        vc.delegate = self;
-        presentViewController(vc, animated: true, completion: nil);
-        */
         
         ///*
         //atribuindo as informacoes dos campos para o professor
@@ -57,16 +65,20 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         profImg = info[UIImagePickerControllerOriginalImage] as UIImage;
+        addView.cameraButton.selected = true;
+        addView.cameraButton.setImage(profImg, forState: UIControlState.Selected);
+        addView.cameraButton.setImage(profImg, forState: UIControlState.Normal);
         picker.dismissViewControllerAnimated(true, completion: nil);
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         profImg = nil;
+        addView.cameraButton.selected = false;
+        addView.cameraButton.setImage(addView.cameraImage, forState: UIControlState.Normal);
         picker.dismissViewControllerAnimated(true, completion: nil);
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.view.endEditing(true);
     }
-
 }

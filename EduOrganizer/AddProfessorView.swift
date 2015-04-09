@@ -15,8 +15,10 @@ class AddProfessorView : UIView{
     var subjectCode:UITextField!;
     var cancelButton:UIButton!;
     var saveButton:UIButton!;
+    var cameraButton:UIButton!;
     var addSubject:UITextField!;
     var newLabel: UILabel!;
+    var cameraImage: UIImage!;
     
     init(view: UIView, parent: UIViewController) {
         super.init(frame: view.frame);
@@ -65,6 +67,11 @@ class AddProfessorView : UIView{
         saveButton.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 20)
         saveButton.setTitleColor(UIColor.UIColorFromRGB(0x1A242E), forState: UIControlState.Normal)
         
+        //botao pra imagem
+        cameraButton = UIButton(frame: CGRectMake(area.width*0.5 - altura*0.35, altura*0.15, altura*0.7, altura*0.7))
+        cameraImage = UIImage(named: "camera");
+        cameraButton.setImage(cameraImage, forState: UIControlState.Normal);
+        
         // TEXT FIELDS
         
         // Name Text Field
@@ -89,7 +96,7 @@ class AddProfessorView : UIView{
         addSubject.autocorrectionType = UITextAutocorrectionType.No;
         addSubject.placeholder = "Add more subjects"
         
-        var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
+        var lineView : UIView = UIView (frame: CGRectMake(0, altura/1, area.width, 1))
         lineView.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
         var lineView1 : UIView = UIView (frame: CGRectMake(0, nomeText.frame.origin.y + altura/1, area.width, 1))
@@ -108,6 +115,7 @@ class AddProfessorView : UIView{
         tela.addSubview(subjectCode)
         tela.addSubview(cancelButton)
         tela.addSubview(saveButton)
+        tela.addSubview(cameraButton)
         tela.addSubview(addSubject)
         tela.addSubview(lineView)
         tela.addSubview(lineView1)

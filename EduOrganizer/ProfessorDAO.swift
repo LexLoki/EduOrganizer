@@ -103,7 +103,9 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         for (var id) in contentsArray{
             let str:String = imgPath.stringByAppendingPathComponent(id as String);
             id = id.substringToIndex(countElements(id as String) - 4);
-            imgDict.setObject(UIImage(contentsOfFile: str)!, forKey: id as String);
+            if let img = UIImage(contentsOfFile: str){
+                imgDict.setObject(img, forKey: id as String);
+            }
         }
         return imgDict;
     }

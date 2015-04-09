@@ -102,6 +102,7 @@ class AddSubjectView : UIView{
         //Add professor
         professor = UITextField(frame: CGRectMake(spacing, schedule.frame.origin.y + altura, area.width, altura))
         professor.font = UIFont(name: "AvenirNext-Regular", size: 18)
+        professor.autocorrectionType = UITextAutocorrectionType.No;
         professor.placeholder = "Add a professor"
         
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
