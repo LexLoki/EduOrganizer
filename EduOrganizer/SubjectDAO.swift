@@ -133,6 +133,18 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         return arr;
     }
     
+    func getAvailableSubjectArray() -> Array<SubjectModel>{
+        var dataArray: Array<SubjectModel> = getDataArray() as Array<SubjectModel>;
+        var size = dataArray.count
+        for(var i:Int = 0; i<size; i++){
+            if(dataArray[i].professor.id != nil){
+                dataArray.removeAtIndex(i--);
+                size--;
+            }
+        }
+        return dataArray;
+    }
+    
     func saveData(object : AnyObject) {
         
         var subjsDict : NSMutableDictionary = self.loadPList();

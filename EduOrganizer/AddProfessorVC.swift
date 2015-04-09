@@ -19,7 +19,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
         let subjectDAO = SubjectDAO();
-        subjects = subjectDAO.getDataArray() as Array<SubjectModel>;
+        subjects = subjectDAO.getAvailableSubjectArray() as Array<SubjectModel>;
         addView = AddProfessorView(view: view, parent: self);
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -43,14 +43,22 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         return 1;
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if(subjects.count==0){
+            return 1;
+        }
         return subjects.count;
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        if(subjects.count==0){
+            return "No subjects available";
+        }
         return subjects[row].id;
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        addView.subjectCode.text = subjects[row].id;
-        selectedSubject = subjects[row];
+        if(row<subjects.count){
+            addView.subjectCode.text = subjects[row].id;
+            selectedSubject = subjects[row];
+        }
     }
     
     //quando aperto o botao da camera vou para o rolo
