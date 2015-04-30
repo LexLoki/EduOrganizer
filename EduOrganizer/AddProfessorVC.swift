@@ -25,8 +25,8 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.cameraButton.addTarget(self, action: "imageAction:", forControlEvents: UIControlEvents.TouchUpInside)
         //addView.cameraButton.addTarget(self, action: "keepHighlight:", forControlEvents: UIControlEvents.TouchDragExit)
-        (addView.subjectCode.inputView as UIPickerView).delegate = self;
-        (addView.subjectCode.inputView as UIPickerView).dataSource = self;
+        (addView.subjectCode.inputView as! UIPickerView).delegate = self;
+        (addView.subjectCode.inputView as! UIPickerView).dataSource = self;
 
     }
     override func viewDidAppear(animated: Bool) {
@@ -98,7 +98,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        profImg = info[UIImagePickerControllerOriginalImage] as UIImage;
+        profImg = info[UIImagePickerControllerOriginalImage] as! UIImage;
         addView.cameraButton.selected = true;
         addView.cameraButton.setImage(profImg, forState: UIControlState.Selected);
         addView.cameraButton.setImage(profImg, forState: UIControlState.Normal);
@@ -116,7 +116,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         self.view.endEditing(true);
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true);
     }
 }

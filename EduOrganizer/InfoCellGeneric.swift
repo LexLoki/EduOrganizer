@@ -13,12 +13,13 @@ class InfoCellGeneric : UITableViewCell{
     var label : UILabel!;
     //var label : UITextField!;
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
-        super.init(style: style, reuseIdentifier: reuseIdentifier);
-    }
-    
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
+//        super.init(style: style, reuseIdentifier: reuseIdentifier);
+//    }
+//    
     init(view: UIView) {
-        super.init(frame: view.frame);
+        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: nil)        
+        self.frame = view.frame;
         
         layoutMargins = UIEdgeInsetsZero;
         preservesSuperviewLayoutMargins = false;

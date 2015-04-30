@@ -17,7 +17,7 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     
     func refresh(notification : NSNotification){
         var professorDAO = ProfessorDAO();
-        professores = professorDAO.getDataArray() as Array<ProfessorModel>;
+        professores = professorDAO.getDataArray() as! Array<ProfessorModel>;
         professorsView.collectionView.reloadData();
     }
     
@@ -31,7 +31,7 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
         professorsView.collectionView.dataSource = self;
         
         var professorDAO = ProfessorDAO();
-        professores = professorDAO.getDataArray() as Array<ProfessorModel>;
+        professores = professorDAO.getDataArray() as! Array<ProfessorModel>;
         
     }
     
@@ -49,7 +49,7 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var professorsCell : CollectionCellGeneric =    collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
-                                                                  forIndexPath: indexPath) as CollectionCellGeneric;
+                                                                  forIndexPath: indexPath) as! CollectionCellGeneric;
         professorsCell.setUpCell(view);
         
         if let image = professores[indexPath.row].imagem {

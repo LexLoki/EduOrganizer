@@ -6,22 +6,23 @@
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class TaskCell : UITableViewCell{
+class TaskCell : UITableViewCell {
     
     var labelCountDown : UILabel!;
     var labelTask : UILabel!;
     var labelDate : UILabel!;
     var rightArrow: UIImageView!;
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
-        super.init(style: style, reuseIdentifier: reuseIdentifier);
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     init(view: UIView) {
-        super.init(frame: view.frame);
-        
+        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+
+        self.frame = view.frame;
         labelCountDown = UILabel(frame: CGRectMake(20, 15, view.frame.width, 20));
         labelTask = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 25, view.frame.width*0.75, 40));
         labelDate = UILabel(frame: CGRectMake(20, labelTask.frame.origin.y + 30, view.frame.width, 40));
@@ -55,10 +56,4 @@ class TaskCell : UITableViewCell{
         self.contentView.addSubview(labelDate);
 
     }
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    
 }

@@ -84,7 +84,7 @@ class StudentView : UIView {
             sectionTeacher.frame.origin.y + sectionTeacher.frame.height ,
             frame.width,
             frame.height/4),
-            delegate : parent as StudentVC,
+            delegate : parent as! StudentVC,
             color: UIColor.UIColorFromRGB(0x1e3044));
         
         sectionTeacher.addSubview(rightArrow2)

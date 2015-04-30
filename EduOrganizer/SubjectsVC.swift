@@ -26,7 +26,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
         subjectsView.collectionView.dataSource = self;
         
         var subjectsDAO = SubjectDAO();
-        materias = subjectsDAO.getDataArray() as Array<SubjectModel>;
+        materias = subjectsDAO.getDataArray() as! Array<SubjectModel>;
         
     }
     
@@ -45,7 +45,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
 
         
         var subjectsCell : CollectionCellGeneric = collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
-                                                                  forIndexPath: indexPath) as CollectionCellGeneric;
+                                                                  forIndexPath: indexPath) as! CollectionCellGeneric;
         subjectsCell.setUpCell(view);
         subjectsCell.label.text = String(format: "%@\n(%@)",
                                         (materias[indexPath.row].nome),

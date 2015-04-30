@@ -70,10 +70,10 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         //ITENS SUBJECTS SECTION
         var professorDAO = ProfessorDAO();
-        professores = professorDAO.getDataArray() as Array<ProfessorModel>;
+        professores = professorDAO.getDataArray() as! Array<ProfessorModel>;
         
         var subjectsDAO = SubjectDAO();
-        materias = subjectsDAO.getDataArray() as Array<SubjectModel>;
+        materias = subjectsDAO.getDataArray() as! Array<SubjectModel>;
         
         if (materias.count > 0){
             studentView.subjOptions.labelOne.text = materias[0].nome + " - " + materias[0].id;
@@ -98,7 +98,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         
         //ITENS NOTES SECTION
         var notesDAO = NoteDAO();
-        notes = notesDAO.getDataArray() as Array<NoteModel>;
+        notes = notesDAO.getDataArray() as! Array<NoteModel>;
         
         if (notes.count > 0){
             studentView.notesOptions.labelOne.text = notes[0].nome;

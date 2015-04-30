@@ -12,7 +12,7 @@ class StudUtils{
     
     class func checkFiles(filename:String, type:String){
         
-        var destPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+        var destPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String;
         var imgPath:String = destPath;
         destPath = destPath.stringByAppendingPathComponent("\(filename)\(type)");
         

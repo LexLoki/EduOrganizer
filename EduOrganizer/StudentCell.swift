@@ -13,12 +13,9 @@ class StudentCell : UITableViewCell{
     var btnCell : UIButton!;
     var label: UILabel!;
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
-        super.init(style: style, reuseIdentifier: reuseIdentifier);
-    }
-    
     init(view: UIView) {
-        super.init(frame: view.frame);
+        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        self.frame = view.frame;
         
         var size : CGSize = CGSizeMake(0.35 * frame.size.width,
                                        0.35 * frame.size.width);
@@ -29,7 +26,7 @@ class StudentCell : UITableViewCell{
         label.textColor = UIColor.UIColorFromRGB(0xffc561);
         label.textAlignment = NSTextAlignment.Center;
         
-        btnCell = UIButton.buttonWithType(UIButtonType.Custom) as UIButton;
+        btnCell = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton;
         btnCell.frame = label.frame;
         btnCell.layer.cornerRadius = btnCell.frame.size.height/2;
         btnCell.layer.masksToBounds = true;

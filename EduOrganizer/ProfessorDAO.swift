@@ -12,19 +12,19 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     
     //load plist into a Dictionary
     override func loadPList() -> NSMutableDictionary?{
-        var professors : NSMutableDictionary = contents["professores"] as NSMutableDictionary;
+        var professors : NSMutableDictionary = contents["professores"] as! NSMutableDictionary;
         return professors;
     }
     
     //returns an array with all professors (ProfessorModel)
-    func getDataArray() -> Array<AnyObject>{
+    @objc func getDataArray() -> Array<AnyObject>{
         
         var res = setUpProfessor();
         var professors : Array = Array<ProfessorModel>();
         
         for (id, _) in res.dict{
             
-            var professor : ProfessorModel = getDataById(id) as ProfessorModel;
+            var professor : ProfessorModel = getDataById(id) as! ProfessorModel;
             professors.append(professor);
         }
         
@@ -32,20 +32,20 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     }
     
     //get populated instance of ProfessorModel by Id
-    func getDataById(id : AnyObject) -> AnyObject{
+    @objc func getDataById(id : AnyObject) -> AnyObject{
         
         var professor : ProfessorModel = ProfessorModel();
         
         var res = setUpProfessor();
-        var prof : NSDictionary = res.dict[id as String] as NSDictionary;
+        var prof : NSDictionary = res.dict[id as! String] as! NSDictionary;
 
-        professor.id = (id as NSString).integerValue;
-        professor.nome = prof["nome"] as String;
-        professor.email = prof["e-mail"] as String;
-        professor.telefone = prof["telefone"] as String;
+        professor.id = (id as! NSString).integerValue;
+        professor.nome = prof["nome"] as! String;
+        professor.email = prof["e-mail"] as! String;
+        professor.telefone = prof["telefone"] as! String;
         
-        if(!(prof["imagem"] as String).isEmpty){
-            var profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as String);
+        if(!(prof["imagem"] as! String).isEmpty){
+            var profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as! String);
             professor.imagem = profImg;
         }
         
@@ -57,13 +57,13 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         var profsDict : NSMutableDictionary = self.loadPList()!;
         var profDict : NSMutableDictionary = NSMutableDictionary();
         
-        var professor = object as ProfessorModel;
+        var professor = object as! ProfessorModel;
         
         var newId : String = "";
         if (professor.id != nil){
             newId = String(professor.id);
             
-            (contents["professores"] as NSMutableDictionary).removeObjectForKey(String(professor.id));
+            (contents["professores"] as! NSMutableDictionary).removeObjectForKey(String(professor.id));
             contents.writeToFile(plistPath, atomically: true);
             
         }else{
@@ -101,10 +101,10 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         var contentsArray : NSArray = NSFileManager.defaultManager().contentsOfDirectoryAtPath(imgPath, error: nil)!;
         var imgDict:NSMutableDictionary = NSMutableDictionary();
         for (var id) in contentsArray{
-            let str:String = imgPath.stringByAppendingPathComponent(id as String);
-            id = id.substringToIndex(countElements(id as String) - 4);
+            let str:String = imgPath.stringByAppendingPathComponent(id as! String);
+            id = id.substringToIndex(count(id as! String) - 4);
             if let img = UIImage(contentsOfFile: str){
-                imgDict.setObject(img, forKey: id as String);
+                imgDict.setObject(img, forKey: id as! String);
             }
         }
         return imgDict;
@@ -116,7 +116,7 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     //get path with professors images
     private func getProfessorsImagePath() -> String{
         
-        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String;
         var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
         
         return imgPath;

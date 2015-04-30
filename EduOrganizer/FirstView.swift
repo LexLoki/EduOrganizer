@@ -30,8 +30,8 @@ class FirstView : UIView {
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, forState: UIControlState.Normal);
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, forState: UIControlState.Selected);
         
-        var taskItem : UITabBarItem = (parent as FirstVC).tabBar.items![0] as UITabBarItem;
-        var studentItem : UITabBarItem = (parent as FirstVC).tabBar.items![2] as UITabBarItem;
+        var taskItem : UITabBarItem = (parent as! FirstVC).tabBar.items![0] as! UITabBarItem;
+        var studentItem : UITabBarItem = (parent as! FirstVC).tabBar.items![2] as! UITabBarItem;
         
         var taskImage : UIImage = UIImage(named: "itemTask")!;
         taskItem.image = taskImage.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)

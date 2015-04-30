@@ -11,17 +11,17 @@ import Foundation
 class NoteDAO : StudDAO, ProtocolDAO {
     
     override func loadPList() -> NSMutableDictionary? {
-        var notes : NSMutableDictionary = contents["anotacoes"] as NSMutableDictionary;
+        var notes : NSMutableDictionary = contents["anotacoes"] as! NSMutableDictionary;
         return notes;
     }
     
-    func getDataArray() -> Array<AnyObject> {
+    @objc func getDataArray() -> Array<AnyObject> {
 
         var res = setUpNote();
         var notes : Array = Array<NoteModel>();
         
         for (id, _) in res.dict{
-            var note : NoteModel = getDataById(id) as NoteModel;
+            var note : NoteModel = getDataById(id) as! NoteModel;
             notes.append(note);
         }
         
@@ -30,18 +30,18 @@ class NoteDAO : StudDAO, ProtocolDAO {
         return notes;
     }
     
-    func getDataById(id: AnyObject) -> AnyObject {
+    @objc func getDataById(id: AnyObject) -> AnyObject {
         
         var note : NoteModel?;
         
         var res = setUpNote();
-        var noteDict : NSDictionary = res.dict[id as String] as NSDictionary;
+        var noteDict : NSDictionary = res.dict[id as! String] as! NSDictionary;
         
         if (noteDict.count > 0){
 
             note = NoteModel();
             
-            var imageArray : Array<String> = noteDict["imagens"] as Array<String>;
+            var imageArray : Array<String> = noteDict["imagens"] as! Array<String>;
             
             if (imageArray.count > 0){
                 note?.imagens = Array<String>();
@@ -52,10 +52,10 @@ class NoteDAO : StudDAO, ProtocolDAO {
                 note?.imagens?.append(noteImgStr);
             }
             
-            note?.id = (id as NSString).integerValue;
-            note?.nome = noteDict["nome"] as String;
-            note?.texto = noteDict["texto"] as String;
-            note?.data = noteDict["data"] as NSDate!;
+            note?.id = (id as! NSString).integerValue;
+            note?.nome = noteDict["nome"] as! String;
+            note?.texto = noteDict["texto"] as! String;
+            note?.data = noteDict["data"] as! NSDate!;
         }
         
         return note!;
@@ -63,7 +63,7 @@ class NoteDAO : StudDAO, ProtocolDAO {
     
     func deleteDataById(id: AnyObject) {
         
-        (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(id as Int));
+        (contents["anotacoes"] as! NSMutableDictionary).removeObjectForKey(String(id as! Int));
         contents.writeToFile(plistPath, atomically: true);
         
         SubjectDAO().removeReferencesById(id, key : "anotacoes");
@@ -74,7 +74,7 @@ class NoteDAO : StudDAO, ProtocolDAO {
      
         var notesDict : NSMutableDictionary = self.loadPList()!;
         
-        var note = object as NoteModel;
+        var note = object as! NoteModel;
         var noteDict : NSMutableDictionary = NSMutableDictionary();
         
         var newId : String = "";
@@ -82,7 +82,7 @@ class NoteDAO : StudDAO, ProtocolDAO {
         if (note.id != nil){
             newId = String(note.id);
             
-            (contents["anotacoes"] as NSMutableDictionary).removeObjectForKey(String(note.id));
+            (contents["anotacoes"] as! NSMutableDictionary).removeObjectForKey(String(note.id));
             contents.writeToFile(plistPath, atomically: true);
             
         }else{
@@ -111,7 +111,7 @@ class NoteDAO : StudDAO, ProtocolDAO {
     //get path with notes images
     private func getNotesImagePath() -> String{
         
-        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String;
+        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String;
         var imgPath : String = documentPath.stringByAppendingPathComponent("imgNote");
         
         return imgPath;

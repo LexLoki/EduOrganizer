@@ -33,7 +33,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         
-        var tabBar = tabBarController as FirstVC;
+        var tabBar = tabBarController as! FirstVC;
         tabBar.firstView.fancyTabBar.hidden=true;
         tabBar.tabBar.hidden=true;
         
@@ -109,7 +109,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         }else if ((noteView.text!.text as NSString).length > 10){
             note.nome = (noteView.text!.text as NSString).substringToIndex(10);
         }else{
-            note.nome = (noteView.text!.text as NSString);
+            note.nome = (noteView.text!.text as String);
         }
         
         note.texto = noteView.text!.text as String;
@@ -134,7 +134,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         if(shouldSave==true){
             saveAction();
         }
-        var tabBar = tabBarController as FirstVC;
+        var tabBar = tabBarController as! FirstVC;
         tabBar.firstView.fancyTabBar.hidden=false;
         tabBar.tabBar.hidden=false;
         
@@ -145,7 +145,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     func keyboardShow(notification: NSNotification){
         var insets:UIEdgeInsets = noteView.text.contentInset;
-        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size.height;
+        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
         insets.bottom += addition;
         noteView.text.contentInset = insets;
         
@@ -156,7 +156,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     func keyboardHide(notification: NSNotification){
         var insets:UIEdgeInsets = noteView.text.contentInset;
-        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue().size.height;
+        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
         insets.bottom -= addition;
         noteView.text.contentInset = insets;
         

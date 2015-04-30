@@ -18,7 +18,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     required init(coder aDecoder: NSCoder) {
         
         let taskDAO = TaskDAO();
-        tarefas = taskDAO.getDataArray() as Array<TaskModel>;
+        tarefas = taskDAO.getDataArray() as! Array<TaskModel>;
         
         super.init(coder: aDecoder);
     }
@@ -35,7 +35,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func refresh(notification: NSNotification){
         let taskDAO = TaskDAO();
-        tarefas = taskDAO.getDataArray() as Array<TaskModel>;
+        tarefas = taskDAO.getDataArray() as! Array<TaskModel>;
         taskView.tableView.reloadData();
     }
     
@@ -123,7 +123,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let strTaskDate = dateFormatter.stringFromDate(taskDate);
         
         var calendar: NSCalendar = NSCalendar.currentCalendar();
-        let flags = NSCalendarUnit.DayCalendarUnit;
+        let flags = NSCalendarUnit.DayCalendarUnit
         let components = calendar.components(flags, fromDate: currentDate, toDate: taskDate, options: nil);
         
         var countDown : String?;

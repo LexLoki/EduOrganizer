@@ -26,7 +26,7 @@ class StudDAO {
     init(){
         
         var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                                        .UserDomainMask, true)[0] as String;
+                                                                        .UserDomainMask, true)[0] as! String;
     
         plistPath = documentPath.stringByAppendingPathComponent("userData.plist");
         contents = NSMutableDictionary(contentsOfFile: plistPath)!;

@@ -13,16 +13,16 @@ class TaskDAO : StudDAO, ProtocolDAO{
     
     
     override func loadPList() -> NSMutableDictionary{
-        var tasks : NSMutableDictionary = contents["tarefas"] as NSMutableDictionary;
+        var tasks : NSMutableDictionary = contents["tarefas"] as! NSMutableDictionary;
         return tasks;
     }
     
-    func getDataArray() -> Array<AnyObject> {
+    @objc func getDataArray() -> Array<AnyObject> {
         
         var tasks : Array = Array<TaskModel>();
         
         for (id, _) in self.loadPList(){
-            var task : TaskModel = getDataById(id) as TaskModel;
+            var task : TaskModel = getDataById(id) as! TaskModel;
             tasks.append(task);
         }
         
@@ -31,20 +31,20 @@ class TaskDAO : StudDAO, ProtocolDAO{
         return tasks;
     }
     
-    func getDataById(id: AnyObject) -> AnyObject {
+    @objc func getDataById(id: AnyObject) -> AnyObject {
         
         var task : TaskModel?;
         
-        var taskDict : NSDictionary = self.loadPList()[id as String] as NSDictionary;
+        var taskDict : NSDictionary = self.loadPList()[id as! String] as! NSDictionary;
         
         if (taskDict.count > 0){
             
             task = TaskModel();
             
-            task?.id = (id as NSString).integerValue;
-            task?.nome = taskDict["nome"] as String;
-            task?.descricao = taskDict["descricao"] as String;
-            task?.data = taskDict["data"] as NSDate;
+            task?.id = (id as! NSString).integerValue;
+            task?.nome = taskDict["nome"] as! String;
+            task?.descricao = taskDict["descricao"] as! String;
+            task?.data = taskDict["data"] as! NSDate;
         }
         
         return task!;
@@ -52,7 +52,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
     
     func deleteDataById(id: AnyObject) {
         
-        (contents["tarefas"] as NSMutableDictionary).removeObjectForKey(String(id as Int));
+        (contents["tarefas"] as! NSMutableDictionary).removeObjectForKey(String(id as! Int));
         contents.writeToFile(plistPath, atomically: true);
         
         SubjectDAO().removeReferencesById(id, key : "tarefas");
@@ -63,7 +63,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
         
         var tasksDict : NSMutableDictionary = self.loadPList();
         
-        var task = object as TaskModel;
+        var task = object as! TaskModel;
         var taskDict : NSMutableDictionary = NSMutableDictionary();
         
         var newId : String = "";
@@ -71,7 +71,7 @@ class TaskDAO : StudDAO, ProtocolDAO{
         if (task.id != nil){
             newId = String(task.id);
             
-            (contents["tarefas"] as NSMutableDictionary).removeObjectForKey(String(task.id));
+            (contents["tarefas"] as! NSMutableDictionary).removeObjectForKey(String(task.id));
             contents.writeToFile(plistPath, atomically: true);
             
         }else{
