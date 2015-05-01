@@ -17,10 +17,6 @@ class PopDateViewController : UIViewController {
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
-    let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-
-    
-    let components: NSDateComponents = NSDateComponents()
     weak var delegate : DataPickerViewControllerDelegate?
 
     var currentDate : NSDate? {
@@ -56,19 +52,6 @@ class PopDateViewController : UIViewController {
     override func viewDidLoad() {
         
         updatePickerCurrentDate()
-        
-        calendar.timeZone = NSTimeZone(name: "UTC")!
-        
-        let components: NSDateComponents = NSDateComponents()
-        components.calendar = calendar
-        
-        components.year = +1
-        let maxDate: NSDate = calendar.dateByAddingComponents(components, toDate: currentDate!, options: nil)!
-            
-        let minDate = NSDate()
-
-        datePicker.minimumDate = minDate
-        datePicker.maximumDate = maxDate
     }
     
     override func viewDidDisappear(animated: Bool) {

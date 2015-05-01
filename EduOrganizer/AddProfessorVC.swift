@@ -19,9 +19,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
         let subjectDAO = SubjectDAO();
-        
         subjects = subjectDAO.getAvailableSubjectArray() as Array<SubjectModel>;
-        
         addView = AddProfessorView(view: view, parent: self);
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -53,9 +51,8 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         if(subjects.count==0){
             return "No subjects available";
-        } 
-
-        return subjects[row].id
+        }
+        return subjects[row].id;
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(row<subjects.count){
@@ -113,12 +110,6 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         addView.cameraButton.selected = false;
         addView.cameraButton.setImage(addView.cameraImage, forState: UIControlState.Normal);
         picker.dismissViewControllerAnimated(true, completion: nil);
-        self.preferredStatusBarStyle()
-        
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-       return .LightContent
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -39,7 +39,7 @@ class TaskCell : UITableViewCell {
         labelDate.font = UIFont(name: "Avenir Next", size: 15)
         labelDate.textAlignment = NSTextAlignment.Left;
         
-        let image = UIImage(named: "rightArrow") as UIImage!
+        let image = UIImage(named: "rightArrow") as UIImage?
         rightArrow = UIImageView (frame: (CGRectMake(view.frame.width - 40, labelTask.frame.origin.y + 5, 20, 20)))
 
      
