@@ -65,10 +65,10 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
     func saveAction(button:UIButton){
 
 
-    //atribuindo as informacoes dos campos 
+    //atribuindo as informacoes dos campos
         subject.nome = addView.nameText.text;
         subject.id = addView.code.text;
-        //subject.professor = addView.professor.text;
+        subject.professor = selectedProfessor;
         
         var subjectDAO = SubjectDAO();
         subjectDAO.saveData(subject);

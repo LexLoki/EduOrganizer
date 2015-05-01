@@ -54,12 +54,15 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
         var subjDict : NSDictionary = self.loadPList()[id as! String] as! NSDictionary;
         
-        var profDict : NSDictionary = subjDict["professor"]as!  NSDictionary;
-        var idProf : String = profDict["id"] as! String;
-        
+        if var profDict : NSDictionary = subjDict["professor"] as?  NSDictionary{
+            var idProf : String = profDict["id"] as! String;
+            subject.professor = ProfessorDAO().getDataById(idProf) as! ProfessorModel;
+        }
+        else{
+            subject.professor = nil;
+        }
         subject.id = (id) as! String;
         subject.nome = subjDict["nome"] as! String;
-        subject.professor = ProfessorDAO().getDataById(idProf) as! ProfessorModel;
 
         //getNotes
         var notesIdArray : Array<String> = subjDict["anotacoes"] as! Array<String>;
@@ -160,8 +163,17 @@ class SubjectDAO : StudDAO, ProtocolDAO {
          }
         
         subjDict.setValue(String.checkString(subject.nome), forKey: "nome");
+        if(subject.notes == nil){
+            subject.notes = Array<NoteModel>();
+        }
         subjDict.setValue(subject.notes, forKey: "anotacoes");
-        subjDict.setValue(subject.professor, forKey: "professor");
+        if(subject.professor != nil){
+            let profDict = NSDictionary(objects: [String(format: "%i", subject.professor.id),subject.professor.nome], forKeys: ["id","nome"]);
+            subjDict.setValue(profDict, forKey: "professor");
+        }
+        if(subject.tarefas == nil){
+            subject.tarefas = Array<TaskModel>();
+        }
         subjDict.setValue(subject.tarefas, forKey: "tarefas");
         
         subjsDict.setObject(subjDict, forKey: newId);
