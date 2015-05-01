@@ -12,7 +12,6 @@ import UIKit
 class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var professor: ProfessorModel = ProfessorModel();
-    var subjectsCount = 0;
     
     override func viewWillAppear(animated: Bool) {
         professor.materias = SubjectDAO().getSubjectsByIdProfessor(professor.id);
@@ -47,10 +46,27 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if(section == 0){
-            return 4;
+            return 3;
         }
         
-        return professor.materias.count + 1;
+        return professor.materias.count;
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return view.frame.height/10;
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var header : InfoCellGeneric = InfoCellGeneric(view: view);
+        header.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
+        header.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
+        if(section==0){
+            header.label.text = "Bio";
+        }
+        else{
+            header.label.text = "Teachs";
+        }
+        return header;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -66,42 +82,24 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         var professorInfoCell : InfoCellGeneric = InfoCellGeneric(view: view);
         
-        if(indexPath.row == 0){
+        professorInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+        professorInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
+        
+        if(indexPath.section == 0){  // secao 0 row>0
             
-            professorInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-            professorInfoCell.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
-            
-            if(indexPath.section == 0){
-                professorInfoCell.label.text = "Bio";
-            }else{
-                professorInfoCell.label.text = "Teachs";
+            switch (indexPath.row){
+                case 0: professorInfoCell.label.text = professor.nome;
+                case 1: professorInfoCell.label.text = professor.email;
+                case 2: professorInfoCell.label.text = professor.telefone;
+                default : professorInfoCell.label.text = "error";
             }
-    
+            
         }else{
-            professorInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-            professorInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
             
-            if(indexPath.section == 0){  // secao 0 row>0
-                
-                switch (indexPath.row){
-                    case 1: professorInfoCell.label.text = professor.nome;
-                    case 2: professorInfoCell.label.text = professor.email;
-                    case 3: professorInfoCell.label.text = professor.telefone;
-                    default : professorInfoCell.label.text = "error";
-                }
-                
-            }else{  //secao 1 row>0
-                
-                if (subjectsCount >= professor.materias.count){
-                    subjectsCount = 0;
-                }
-                
-                var subjectStr = (professor.materias[subjectsCount] as SubjectModel).id + " / " +
-                                 (professor.materias[subjectsCount] as SubjectModel).nome;
-                
-                professorInfoCell.label.text = subjectStr;
-                subjectsCount++;
-            }
+            var subjectStr = (professor.materias[indexPath.row] as SubjectModel).id + " / " +
+                             (professor.materias[indexPath.row] as SubjectModel).nome;
+            
+            professorInfoCell.label.text = subjectStr;
         }
         
         return professorInfoCell;

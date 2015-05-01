@@ -12,7 +12,6 @@ import UIKit
 class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var subject: SubjectModel = SubjectModel();
-    var notesCount = 0;
     
     override func viewDidLoad() {
         
@@ -40,20 +39,44 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return rows;
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return view.frame.height/8.0;
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var header : InfoCellGeneric = InfoCellGeneric(view: view);
+        header.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
+        header.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
+        if(section==0){
+            header.label.text = "About";
+        }
+        else if(section == 1){
+            if (subject.tarefas.count > 0){
+                header.label.text = "Tasks";
+            }else{
+                header.label.text = "Notes";
+            }
+        }
+        else if(section == 2){
+            header.label.text = "Notes";
+        }
+        return header;
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(section == 0){
-            return 4;
+            return 3;
         }else if(section == 1){
             
             if (subject.tarefas.count > 0){
-                return subject.tarefas.count + 1;
+                return subject.tarefas.count;
             }else{
-                return subject.notes.count + 1;
+                return subject.notes.count;
             }
             
         }else {
-            return subject.notes.count + 1;
+            return subject.notes.count;
         }
         
     }
@@ -66,65 +89,36 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         var subjectInfoCell : InfoCellGeneric = InfoCellGeneric(view: view);
         
-        if(indexPath.row == 0){
+        subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
+        subjectInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
+        
+        if(indexPath.section == 0){ // secao 0
             
-            subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
-            subjectInfoCell.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
-            
-            if(indexPath.section == 0){
-                subjectInfoCell.label.text = "About";
-            }else if(indexPath.section == 1){
-                if (subject.tarefas.count > 0){
-                    subjectInfoCell.label.text = "Tasks";
-                }else{
-                    subjectInfoCell.label.text = "Notes";
-                }
-            }else if(indexPath.section == 2){
-                subjectInfoCell.label.text = "Notes";
-            }
-            
-        }else{
-            subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-            subjectInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
-            
-            if(indexPath.section == 0){ // secao 0
-                
-                switch (indexPath.row){
-                    case 1: subjectInfoCell.label.text = subject.id;
-                    case 2: subjectInfoCell.label.text = subject.nome;
-                    case 3:
-                        
-                        if (subject.professor != nil){
-                            subjectInfoCell.label.text = subject.professor.nome;
-                        }
+            switch (indexPath.row){
+                case 0: subjectInfoCell.label.text = subject.id;
+                case 1: subjectInfoCell.label.text = subject.nome;
+                case 2:
                     
-                    default : subjectInfoCell.label.text = "error";
-                }
-                
-            }else if(indexPath.section == 1){// secao 1
-                
-                if (subject.tarefas.count > 0){
-                    subjectInfoCell.label.text = "tasks";
-                }else{
-                    
-                    if (notesCount >= subject.notes.count){
-                        notesCount = 0;
+                    if (subject.professor != nil){
+                        subjectInfoCell.label.text = subject.professor.nome;
                     }
-                    
-                    subjectInfoCell.label.text = (subject.notes[notesCount] as NoteModel).nome;
-                    notesCount++;
-                }
                 
-            } else if (indexPath.section == 2){// secao 2
-                
-                if (notesCount >= subject.notes.count){
-                    notesCount = 0;
-                }
-                
-                subjectInfoCell.label.text = (subject.notes[notesCount] as NoteModel).nome;
-                notesCount++;
-                
+                default : subjectInfoCell.label.text = "error";
             }
+            
+        }else if(indexPath.section == 1){// secao 1
+            
+            if (subject.tarefas.count > 0){
+                subjectInfoCell.label.text = "tasks";
+            }
+            else{
+                subjectInfoCell.label.text = (subject.notes[indexPath.row] as NoteModel).nome;
+            }
+            
+        } else if (indexPath.section == 2){// secao 2
+            
+            subjectInfoCell.label.text = (subject.notes[indexPath.row] as NoteModel).nome;
+            
         }
         
         return subjectInfoCell;
