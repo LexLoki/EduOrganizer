@@ -13,9 +13,6 @@ class AddSubjectView : UIView{
     
     var nameText : UITextField!;
     var code : UITextField!;
-    var startDate : UITextField!;
-    var endDate : UITextField!;
-    var schedule : UITextField!;
     var professor : UITextField!;
     var tituloLabel : UILabel!;
     var cancelButton: UIButton!;
@@ -34,7 +31,7 @@ class AddSubjectView : UIView{
         
         //declaracao da area e definicao do tamanho//
         var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
-            , altura*7);
+            , altura*4);
         
         //definindo que eh a view eh a tela//
         var tela : UIView = UIView(frame: area)
@@ -81,29 +78,13 @@ class AddSubjectView : UIView{
         code.font = UIFont(name: "AvenirNext-Regular", size: 18)
         code.autocorrectionType = UITextAutocorrectionType.No;
         code.placeholder = "Code"
-
-        //Start Date
-        startDate = UITextField(frame: CGRectMake(spacing, code.frame.origin.y + altura, area.width, altura))
-        startDate.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        startDate.placeholder = "Start Date"
-        startDate.inputView = UIPickerView()
-        
-        //End Date TextField
-        endDate = UITextField(frame: CGRectMake(spacing, startDate.frame.origin.y + altura, area.width, altura))
-        endDate.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        endDate.placeholder = "End Date"
-        endDate.inputView = UIPickerView()
-        
-        //Add schedule
-        schedule = UITextField(frame: CGRectMake(spacing, endDate.frame.origin.y + altura, area.width, altura))
-        schedule.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        schedule.placeholder = "Add schedule"
         
         //Add professor
-        professor = UITextField(frame: CGRectMake(spacing, schedule.frame.origin.y + altura, area.width, altura))
+        professor = UITextField(frame: CGRectMake(spacing, code.frame.origin.y + altura, area.width, altura))
         professor.font = UIFont(name: "AvenirNext-Regular", size: 18)
         professor.autocorrectionType = UITextAutocorrectionType.No;
         professor.placeholder = "Add a professor"
+        professor.inputView = UIPickerView()
         
         
         var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
@@ -114,33 +95,18 @@ class AddSubjectView : UIView{
         
         var lineView2 : UIView = UIView (frame: CGRectMake(0, code.frame.origin.y + altura/1, area.width, 1))
         lineView2.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
-        
-        var lineView3 : UIView = UIView (frame: CGRectMake(0, startDate.frame.origin.y + altura/1, area.width, 1))
-        lineView3.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
-        
-        var lineView4 : UIView = UIView (frame: CGRectMake(0, endDate.frame.origin.y + altura/1, area.width, 1))
-        lineView4.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
-        
-        var lineView5 : UIView = UIView (frame: CGRectMake(0, schedule.frame.origin.y + altura/1, area.width, 1))
-        lineView5.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
 
         
         //adicionar a view que criei na view pra aparecer na tela principal//
         blurView.addSubview(tituloLabel)
         tela.addSubview(nameText)
         tela.addSubview(code)
-        tela.addSubview(startDate)
         tela.addSubview(cancelButton)
         tela.addSubview(saveButton)
-        tela.addSubview(endDate)
-        tela.addSubview(schedule)
         tela.addSubview(professor)
         tela.addSubview(lineView)
         tela.addSubview(lineView1)
         tela.addSubview(lineView2)
-        tela.addSubview(lineView3)
-        tela.addSubview(lineView4)
-        tela.addSubview(lineView5)
         
     }
     

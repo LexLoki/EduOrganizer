@@ -8,10 +8,12 @@
 
 import Foundation
 
-class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var subject: SubjectModel = SubjectModel();
     var addView:AddSubjectView!;
+    var professors: Array<ProfessorModel>!
+    var selectedProfessor: ProfessorModel = ProfessorModel();
     
     
     //IR PARA PARTE DE VIEW
@@ -19,10 +21,39 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
         addView = AddSubjectView(view: view, parent: self);
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        var professorDAO = ProfessorDAO()
+        professors = professorDAO.getDataArray() as! Array<ProfessorModel>
+        (addView.professor.inputView as! UIPickerView).delegate = self;
+        (addView.professor.inputView as! UIPickerView).dataSource = self;
+
         
     }
     override func viewDidAppear(animated: Bool) {
         println("APPEAR");
+    }
+    
+    //picker de AddProfessor
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if(professors.count==0){
+            return 1;
+        }
+        return professors.count;
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        if(professors.count==0){
+            return "No professors available";
+        }
+        return professors[row].nome;
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(row<professors.count){
+            addView.professor.text = professors[row].nome;
+            selectedProfessor = professors[row];
+        }
     }
     
     //quando aperta o cancel tem que voltar pra tela anterior//
