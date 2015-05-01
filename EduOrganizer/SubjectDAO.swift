@@ -53,7 +53,7 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         var subject : SubjectModel = SubjectModel();
         
         var subjDict : NSDictionary = self.loadPList()[id as! String] as! NSDictionary;
-        var profDict : NSDictionary = (subjDict["professor"] as?  NSDictionary)!;
+        var profDict : NSDictionary = subjDict["professor"]as!  NSDictionary;
         var idProf : String = profDict["id"] as! String;
         
         subject.id = (id) as! String;

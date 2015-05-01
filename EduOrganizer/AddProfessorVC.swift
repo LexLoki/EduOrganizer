@@ -113,7 +113,12 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         addView.cameraButton.selected = false;
         addView.cameraButton.setImage(addView.cameraImage, forState: UIControlState.Normal);
         picker.dismissViewControllerAnimated(true, completion: nil);
+        self.preferredStatusBarStyle()
         
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+       return .LightContent
     }
     
     override func viewWillDisappear(animated: Bool) {
