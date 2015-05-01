@@ -40,7 +40,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1;
+        return subjects.count;
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(subjects.count==0){

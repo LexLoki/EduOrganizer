@@ -19,6 +19,8 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
     var presented = false
     var offset : CGFloat = 8.0
     
+    
+    
     public init(forTextField: UITextField) {
         
         datePickerVC = PopDateViewController()
