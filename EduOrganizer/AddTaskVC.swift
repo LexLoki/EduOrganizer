@@ -15,6 +15,11 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
     var addView: AddTaskView!;
     var popDatePicker : PopDatePicker?
     
+//    let currentDate: NSDate = NSDate()
+//    let calendar: NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
+//    let components: NSDateComponents = NSDateComponents()
+
+    
     /*
     func handleDatePicker(sender: UIDatePicker) {
         var dateFormatter = NSDateFormatter()
@@ -29,6 +34,17 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+//        calendar.timeZone = NSTimeZone(name: "UTC")!
+//        components.calendar = calendar
+//        components.year = -18
+//        let minDate: NSDate = calendar.dateByAddingComponents(components, toDate: currentDate, options: nil)!
+//        components.year = -150
+//        let maxDate: NSDate = calendar.dateByAddingComponents(components, toDate: currentDate, options: nil)!
+//        
+//        self.popDatePicker!.datePickerVC.datePicker.minimumDate = minDate
+//        self.popDatePicker!.datePickerVC.datePicker.maximumDate = maxDate
+        
         popDatePicker = PopDatePicker(forTextField: self.addView.date)
         addView.date.delegate = self
         
@@ -55,12 +71,14 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         
         if (textField === addView.date) {
             resign()
+            
             let formatter = NSDateFormatter()
             formatter.dateStyle = .MediumStyle
             formatter.timeStyle = .NoStyle
             let initDate = NSDate()
             
             //atualiza a data no picker view
+            
             popDatePicker!.pick(self, initDate:initDate, dataChanged: { (newDate : NSDate, forTextField : UITextField) -> () in
                 
                 //atualiza a data no textField
