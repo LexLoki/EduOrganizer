@@ -19,8 +19,13 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
     //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
         addView = AddSubjectView(view: view, parent: self);
+        
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        addView.dismissButton.addTarget(self, action: "dismiss:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         var professorDAO = ProfessorDAO()
         professors = professorDAO.getDataArray() as! Array<ProfessorModel>
         (addView.professor.inputView as! UIPickerView).delegate = self;
@@ -79,6 +84,11 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
     
     override func viewWillDisappear(animated: Bool) {
         self.view.endEditing(true);
+    }
+    
+    func dismiss (sender: UIButton){
+        println("dismiss")
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

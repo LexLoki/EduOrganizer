@@ -104,4 +104,9 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         return professorInfoCell;
     }
+    
+    func dismiss (sender: UIButton){
+        println("dismiss")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

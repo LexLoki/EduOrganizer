@@ -27,8 +27,9 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
     override func viewDidLoad(){
         addView = AddTaskView(view: view, parent: self);
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        addView.dismissButton.addTarget(self, action: "dismiss:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         popDatePicker = PopDatePicker(forTextField: self.addView.date)
         addView.date.delegate = self
         
@@ -98,6 +99,10 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         
     }
     
+    func dismiss (sender: UIButton){
+        println("dismiss")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewWillDisappear(animated: Bool) {
         self.view.endEditing(true);

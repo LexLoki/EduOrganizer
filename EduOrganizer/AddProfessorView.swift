@@ -14,6 +14,7 @@ class AddProfessorView : UIView{
     var emailText:UITextField!;
     var subjectCode:UITextField!;
     var cancelButton:UIButton!;
+    var dismissButton: UIButton!;
     var saveButton:UIButton!;
     var cameraButton:UIButton!;
     var addSubject:UITextField!;
@@ -41,8 +42,11 @@ class AddProfessorView : UIView{
         tela.layer.cornerRadius = 5
         tela.backgroundColor = UIColor.UIColorFromRGB(0xD5D9DF)
         
+        dismissButton = UIButton(frame: CGRectMake(0,0, view.frame.width, view.frame.height))
+        
         //adicionando uma subview(tela) dentro da tela principal//
         view.addSubview(blurView)
+        view.addSubview(dismissButton)
         view.addSubview(tela)
         
         //criando campos de texto//

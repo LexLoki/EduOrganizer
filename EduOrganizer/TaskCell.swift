@@ -11,6 +11,7 @@ import UIKit
 class TaskCell : UITableViewCell {
     
     var labelCountDown : UILabel!;
+    var cellButton: UIButton!;
     var labelTask : UILabel!;
     var labelDate : UILabel!;
     var rightArrow: UIImageView!;
@@ -27,9 +28,12 @@ class TaskCell : UITableViewCell {
         labelTask = UILabel(frame: CGRectMake(20, labelCountDown.frame.origin.y + 25, view.frame.width*0.75, 40));
         labelDate = UILabel(frame: CGRectMake(20, labelTask.frame.origin.y + 30, view.frame.width, 40));
         
+        
         labelCountDown.textColor = UIColor.whiteColor();
         labelCountDown.font = UIFont(name: "Avenir Next", size: 20)
         labelCountDown.textAlignment = NSTextAlignment.Left;
+        
+        cellButton = UIButton(frame: CGRectMake(0,0, view.frame.width, view.frame.height))
  
         labelTask.textColor = UIColor.whiteColor();
         labelTask.font = UIFont(name: "AvenirNext-DemiBold", size: 30)
@@ -44,16 +48,18 @@ class TaskCell : UITableViewCell {
 
      
         rightArrow.image = image
+        rightArrow.tag = 1
         
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         layoutMargins = UIEdgeInsetsZero;
         preservesSuperviewLayoutMargins = false;
         selectionStyle = UITableViewCellSelectionStyle.None;
         
-        self.contentView.addSubview(rightArrow)
         self.contentView.addSubview(labelCountDown);
+        self.contentView.addSubview(rightArrow)
         self.contentView.addSubview(labelTask);
         self.contentView.addSubview(labelDate);
+       // self.contentView.addSubview(cellButton);
 
     }
 }

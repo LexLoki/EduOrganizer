@@ -12,6 +12,7 @@ import UIKit
 class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var tarefas : Array<TaskModel> = Array<TaskModel>();
+    var pos = Int()
     
     var taskView:TaskView!;
     
@@ -81,8 +82,14 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "notesOn:", name:"notesNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name:"addedTask", object: nil)
+        
+        
+//        studentView.sectionSubjects.addTarget(self,
+//            action: "sectionTouched:",
+//            forControlEvents: UIControlEvents.TouchUpInside);
         
         //NSNotificationCenter.defaultCenter().addObserver(self, selector: "professorOn:", name: "professorNotification", object: nil);
         
@@ -97,6 +104,27 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var infoTask = InfoTaskVC()
+        infoTask.modalPresentationStyle = UIModalPresentationStyle.OverFullScreen
+        presentViewController(infoTask, animated: true, completion: nil)
+        
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        pos = indexPath.row
+        
+        let taskDate = tarefas[pos].data
+        
+        let strTaskDate = dateFormatter.stringFromDate(taskDate);
+        
+        infoTask.infoView.name.text = tarefas[pos].nome
+        infoTask.infoView.date.text = strTaskDate
+        infoTask.infoView.desc.text = tarefas[pos].descricao
+        
+        infoTask.infoView.dismissButton.addTarget(self, action: "dismissInfo:", forControlEvents: UIControlEvents.TouchUpInside)
+    }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -150,10 +178,9 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
         }
     }
-    
-    func btnTouched(sender:UIButton){
-        if(sender.tag == 3){
-            println("foi");
-        }
+  
+    func dismissInfo (sender: UIButton){
+        dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }

@@ -39,11 +39,12 @@
                     <navigationItem key="navigationItem" id="SwK-lw-1bx"/>
                     <connections>
                         <segue destination="bdZ-pH-U4S" kind="show" identifier="addNote" id="JkV-ID-MVb"/>
+                        <segue destination="WCR-cu-dku" kind="show" identifier="infoTask" id="Imm-7J-eZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p53-NJ-V6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="-292"/>
+            <point key="canvasLocation" x="1409" y="-136"/>
         </scene>
         <!--StudentVC-->
         <scene sceneID="TqU-a9-jmn">
@@ -283,6 +284,29 @@
             </objects>
             <point key="canvasLocation" x="521" y="-292"/>
         </scene>
+        <!--Info TaskVC-->
+        <scene sceneID="3OK-h1-qAh">
+            <objects>
+                <viewController id="WCR-cu-dku" customClass="InfoTaskVC" customModule="Stud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iSi-Hk-NbG"/>
+                        <viewControllerLayoutGuide type="bottom" id="phn-XU-dIl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O6z-l8-QRG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9I8-yW-6JG"/>
+                    <connections>
+                        <segue destination="qYW-7A-DoJ" kind="unwind" identifier="deleteNote" unwindAction="unwindToContainerVC:" id="kNI-9r-PEq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VJ2-Hn-gPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qYW-7A-DoJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1563" y="578"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ECF99037-F713-47A9-830C-F4469C267A2D" width="180" height="180"/>
@@ -292,8 +316,8 @@
         <image name="itemTaskSelected" width="20" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="JkV-ID-MVb"/>
         <segue reference="RDW-rH-KIw"/>
-        <segue reference="9kA-YT-TgB"/>
         <segue reference="zOu-8b-cGM"/>
     </inferredMetricsTieBreakers>
 </document>

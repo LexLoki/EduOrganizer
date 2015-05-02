@@ -165,6 +165,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         noteView.text.scrollIndicatorInsets = insets;
     }
     
+    
     /*
     - (void)_keyboardWillShowNotification:(NSNotification*)notification
     {

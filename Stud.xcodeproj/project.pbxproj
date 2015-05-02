@@ -44,6 +44,8 @@
 		B9CADCBE1AD0F89200D31780 /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */; };
 		B9CADCC01AD0F8BD00D31780 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */; };
 		C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91CF2D91ACB3177003B50EA /* TaskDAO.swift */; };
+		C99023291AF53CCA00951B67 /* TaskInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99023281AF53CCA00951B67 /* TaskInfoView.swift */; };
+		C990232B1AF53D7800951B67 /* InfoTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990232A1AF53D7800951B67 /* InfoTaskVC.swift */; };
 		C9A186D91AD3933D00615C0D /* PopDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A186D61AD3933D00615C0D /* PopDatePicker.swift */; };
 		C9A186DA1AD3933D00615C0D /* PopDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9A186D71AD3933D00615C0D /* PopDateViewController.swift */; };
 		C9A186DB1AD3933D00615C0D /* PopDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9A186D81AD3933D00615C0D /* PopDateViewController.xib */; };
@@ -116,6 +118,8 @@
 		B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
 		B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		C91CF2D91ACB3177003B50EA /* TaskDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
+		C99023281AF53CCA00951B67 /* TaskInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskInfoView.swift; sourceTree = "<group>"; };
+		C990232A1AF53D7800951B67 /* InfoTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTaskVC.swift; sourceTree = "<group>"; };
 		C9A186D61AD3933D00615C0D /* PopDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDatePicker.swift; sourceTree = "<group>"; };
 		C9A186D71AD3933D00615C0D /* PopDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDateViewController.swift; sourceTree = "<group>"; };
 		C9A186D81AD3933D00615C0D /* PopDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopDateViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				FD0F47DB1AD0CC7E007AA029 /* AddProfessorView.swift */,
 				B9CADCBF1AD0F8BD00D31780 /* AddTaskView.swift */,
 				B9B0D0291AD19CDA00C9CDB3 /* AddSubjectView.swift */,
+				C99023281AF53CCA00951B67 /* TaskInfoView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -211,6 +216,7 @@
 				B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */,
 				FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */,
 				FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */,
+				C990232A1AF53D7800951B67 /* InfoTaskVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -452,12 +458,14 @@
 				3BD92D681AC1F82A001F2B27 /* AddNoteView.swift in Sources */,
 				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
 				3BAF093D1AC08B0500E2326C /* StudentView.swift in Sources */,
+				C990232B1AF53D7800951B67 /* InfoTaskVC.swift in Sources */,
 				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
 				3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */,
 				FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */,
 				3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */,
 				3BBA49A61AC716DE00785F44 /* NotesListView.swift in Sources */,
 				3BF68A2D1ACC8CDA0082CD54 /* StudUtils.swift in Sources */,
+				C99023291AF53CCA00951B67 /* TaskInfoView.swift in Sources */,
 				FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */,
 				3BDCB1491AC6184500865AFC /* StudNC.swift in Sources */,
 				3BAF092B1AC04F9C00E2326C /* TaskView.swift in Sources */,

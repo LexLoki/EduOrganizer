@@ -24,7 +24,11 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         addView.cancelButton.addTarget(self, action: "cancelAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.saveButton.addTarget(self, action: "saveAction:", forControlEvents: UIControlEvents.TouchUpInside)
         addView.cameraButton.addTarget(self, action: "imageAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        addView.dismissButton.addTarget(self, action: "dismiss:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         //addView.cameraButton.addTarget(self, action: "keepHighlight:", forControlEvents: UIControlEvents.TouchDragExit)
+        
+        
         (addView.subjectCode.inputView as! UIPickerView).delegate = self;
         (addView.subjectCode.inputView as! UIPickerView).dataSource = self;
 
@@ -118,5 +122,10 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true);
+    }
+    
+    func dismiss (sender: UIButton){
+        println("dismiss")
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
