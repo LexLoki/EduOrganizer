@@ -15,19 +15,23 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     var materias: Array<SubjectModel> = Array<SubjectModel>();
     var size:CGSize = CGSize();
     var selectedIndex:Int = Int();
+    var subjectsView : CollectionGeneric!;
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var subjectsView : CollectionGeneric = CollectionGeneric(view: view, parent: self);
+        subjectsView = CollectionGeneric(view: view, parent: self);
         title = "Subjects";
         subjectsView.collectionView.delegate = self;
         subjectsView.collectionView.dataSource = self;
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         var subjectsDAO = SubjectDAO();
         materias = subjectsDAO.getDataArray() as! Array<SubjectModel>;
-        
+        subjectsView.collectionView.reloadData();
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

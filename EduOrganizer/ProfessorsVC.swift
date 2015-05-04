@@ -30,9 +30,12 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
         professorsView.collectionView.delegate = self;
         professorsView.collectionView.dataSource = self;
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         var professorDAO = ProfessorDAO();
         professores = professorDAO.getDataArray() as! Array<ProfessorModel>;
-        
+        professorsView.collectionView.reloadData();
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -30,6 +30,7 @@ class AddNoteView : UIView {
         text.textColor = UIColor.UIColorFromRGB(0xFFFFFF);
         text.font = UIFont (name: "Avenir Next", size: 20);
         text.scrollEnabled = true;
+        text.textContainerInset = UIEdgeInsetsMake(20, 10, 0, 0);
         //text.backgroundColor = UIColor.redColor();
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);

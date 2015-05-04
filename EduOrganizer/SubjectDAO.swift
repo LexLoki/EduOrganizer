@@ -37,11 +37,12 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
         for (idKey, subject) in dict{
             
-            var profDict : NSDictionary = subject["professor"] as! NSDictionary;
-            var idProf : String = profDict["id"] as! String;
+            if var profDict : NSDictionary = subject["professor"] as? NSDictionary{
+                var idProf : String = profDict["id"] as! String;
             
-            if (idProf == String(id)){
-                materias.append(self.getDataById(idKey) as! SubjectModel);
+                if (idProf == String(id)){
+                    materias.append(self.getDataById(idKey) as! SubjectModel);
+                }
             }
         }
     
@@ -113,7 +114,7 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         for (idKey, subject) in dict{
             
             var idArray : Array<String> = subject[key] as! Array<String>;
-            
+        
             for(var i = idArray.count-1; i >= 0; i--){
                 if(idArray[i] == String(id as! Int)){
                     idArray.removeAtIndex(i);
@@ -130,16 +131,36 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         
     }
     
+    func removeProfRefById(id:AnyObject, key : String){
+        var dict : NSMutableDictionary = loadPList();
+        for(idKey, subject) in dict{
+            if var idArray = subject[key] as? NSDictionary{
+                if(idArray["id"] as! String == String(id as! Int)){
+                    subject.removeObjectForKey(key);
+                    dict.setObject(subject, forKey: idKey as! String);
+                }
+            }
+        }
+        contents.setObject(dict, forKey: "materias");
+        contents.writeToFile(plistPath, atomically: true);
+    }
+    
     func getAvailableSubjectArray() -> Array<SubjectModel>{
         var dataArray: Array<SubjectModel> = getDataArray() as! Array<SubjectModel>;
         var size = dataArray.count
         for(var i:Int = 0; i<size; i++){
-            if(dataArray[i].professor.id != nil){
+            if(dataArray[i].professor != nil){
                 dataArray.removeAtIndex(i--);
                 size--;
             }
         }
         return dataArray;
+    }
+    
+    func deleteDataById(id: AnyObject) {
+        
+        (contents["materias"] as! NSMutableDictionary).removeObjectForKey(id);
+        contents.writeToFile(plistPath, atomically: true);
     }
     
     func saveData(object : AnyObject) {

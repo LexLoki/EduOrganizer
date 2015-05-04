@@ -86,6 +86,17 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         
     }
     
+    func deleteDataById(id: AnyObject) {
+        
+        var imgPath = getProfessorsImagePath().stringByAppendingPathComponent(((contents["professores"] as! NSDictionary)[String(id as! Int)] as! NSDictionary)["imagem"] as! String);
+        NSFileManager.defaultManager().removeItemAtPath(imgPath, error: nil);
+        (contents["professores"] as! NSMutableDictionary).removeObjectForKey(String(id as! Int));
+        contents.writeToFile(plistPath, atomically: true);
+        
+        SubjectDAO().removeProfRefById(id, key: "professor");
+        //DELETAR IMAGENS DA PASTA DE imgNotes
+    }
+    
     func copyImgToDocuments(img : UIImage) -> String{
         var imgPath : String = getProfessorsImagePath();
         var id = getFreeIdInDict(getImgDictionary());

@@ -60,7 +60,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     
     func deleteProfessor(alert: UIAlertAction!){
-        
+        ProfessorDAO().deleteDataById(professor.id);
         navigationController?.popViewControllerAnimated(true);
     }
 

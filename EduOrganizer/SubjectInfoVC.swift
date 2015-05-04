@@ -46,7 +46,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     
     func deleteSubject(alert: UIAlertAction!){
-       
+       SubjectDAO().deleteDataById(subject.id);
         navigationController?.popViewControllerAnimated(true);
     }
     
