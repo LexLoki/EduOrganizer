@@ -12,7 +12,11 @@ import UIKit
 class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var subject: SubjectModel = SubjectModel();
-    
+    var deleteItem: UIBarButtonItem!;
+    var deleteAlert : UIAlertController!;
+    var okItem : UIBarButtonItem!;
+  
+
     override func viewDidLoad() {
         
         var subjectInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
@@ -22,6 +26,28 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         subjectInfoView.label.text = subject.nome;
         
         title = subject.id;
+        
+        deleteItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteSubjectAlert");
+        navigationItem.rightBarButtonItem = deleteItem;
+        
+        deleteAlert = UIAlertController(title: "Confirm deletion",
+            message: "Delete subject " + title! + "?",
+            preferredStyle: .ActionSheet);
+        let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil);
+        let okAction:UIAlertAction = UIAlertAction(title: "Delete", style: .Destructive, handler: deleteSubject);
+        deleteAlert.addAction(cancelAction);
+        deleteAlert.addAction(okAction);
+
+        
+    }
+    func deleteSubjectAlert(){
+        presentViewController(deleteAlert, animated: true, completion: nil);
+    }
+
+    
+    func deleteSubject(alert: UIAlertAction!){
+       
+        navigationController?.popViewControllerAnimated(true);
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

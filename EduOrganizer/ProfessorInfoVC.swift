@@ -12,6 +12,10 @@ import UIKit
 class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var professor: ProfessorModel = ProfessorModel();
+    var deleteItem : UIBarButtonItem!;
+    var deleteAlert : UIAlertController!;
+    var okItem : UIBarButtonItem!;
+    
     
     override func viewWillAppear(animated: Bool) {
         professor.materias = SubjectDAO().getSubjectsByIdProfessor(professor.id);
@@ -24,6 +28,21 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         professorInfoView.tableView.delegate = self;
         professorInfoView.tableView.dataSource = self;
         
+        title = professor.nome;
+        
+        deleteItem = UIBarButtonItem(image: UIImage(named: "trash"), style: .Plain, target: self, action: "deleteProfessorAlert");
+        navigationItem.rightBarButtonItem = deleteItem;
+        
+        deleteAlert = UIAlertController(title: "Confirm deletion",
+            message: "Delete professor " + title! + "?",
+            preferredStyle: .ActionSheet);
+        let cancelAction:UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil);
+        let okAction:UIAlertAction = UIAlertAction(title: "Delete", style: .Destructive, handler: deleteProfessor);
+        deleteAlert.addAction(cancelAction);
+        deleteAlert.addAction(okAction);
+    
+       
+        
         if let image = professor.imagem {
             professorInfoView.imageView.image = UIImage(contentsOfFile:professor.imagem);
         }else{
@@ -31,9 +50,20 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             professorInfoView.label.text = String.getAbrevName(professor.nome);
         }
         
-        title = professor.nome;
+        
         
     }
+    
+    func deleteProfessorAlert(){
+        presentViewController(deleteAlert, animated: true, completion: nil);
+    }
+    
+    
+    func deleteProfessor(alert: UIAlertAction!){
+        
+        navigationController?.popViewControllerAnimated(true);
+    }
+
     
     func editMode(){
         
@@ -109,4 +139,5 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         println("dismiss")
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }
