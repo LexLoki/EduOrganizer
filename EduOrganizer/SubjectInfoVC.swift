@@ -9,17 +9,20 @@
 import Foundation
 import UIKit
 
-class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     var subject: SubjectModel = SubjectModel();
     var deleteItem: UIBarButtonItem!;
     var deleteAlert : UIAlertController!;
     var okItem : UIBarButtonItem!;
+    var subjectInfoView : InfoGenericView!;
+    
+    var adit:CGFloat!;
   
 
     override func viewDidLoad() {
         
-        var subjectInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
+        subjectInfoView = InfoGenericView(view: view, parent: self);
         subjectInfoView.tableView.delegate = self;
         subjectInfoView.tableView.dataSource = self;
         
@@ -37,8 +40,18 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let okAction:UIAlertAction = UIAlertAction(title: "Delete", style: .Destructive, handler: deleteSubject);
         deleteAlert.addAction(cancelAction);
         deleteAlert.addAction(okAction);
-
         
+        okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
+        
+    }
+    
+    func dismissKB(){
+        self.view.endEditing(true);
+        navigationItem.rightBarButtonItem = deleteItem;
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        navigationItem.rightBarButtonItem = okItem;
     }
     func deleteSubjectAlert(){
         presentViewController(deleteAlert, animated: true, completion: nil);
@@ -72,6 +85,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var header : InfoCellGeneric = InfoCellGeneric(view: view);
         header.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
+        header.label.userInteractionEnabled = false;
         header.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
         if(section==0){
             header.label.text = "About";
@@ -117,6 +131,7 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         subjectInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
+        subjectInfoCell.label.delegate = self;
         
         if(indexPath.section == 0){ // secao 0
             
@@ -149,5 +164,26 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         return subjectInfoCell;
 
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
+    }
+    
+    func keyboardShow(notification: NSNotification){
+        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
+        adit = self.subjectInfoView.tableView.frame.origin.y;
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.subjectInfoView.tableView.frame = CGRectMake(self.subjectInfoView.tableView.frame.origin.x, self.subjectInfoView.tableView.frame.origin.y-self.adit, self.subjectInfoView.tableView.frame.width, self.subjectInfoView.tableView.frame.height);
+            }, completion: nil);
+    }
+    
+    func keyboardHide(notification: NSNotification){
+        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.subjectInfoView.tableView.frame = CGRectMake(self.subjectInfoView.tableView.frame.origin.x, self.subjectInfoView.tableView.frame.origin.y+self.adit, self.subjectInfoView.tableView.frame.width, self.subjectInfoView.tableView.frame.height);
+            }, completion: nil);
+        
     }
 }

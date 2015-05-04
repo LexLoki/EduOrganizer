@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Pietro Ribeiro Pepe. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class InfoCellGeneric : UITableViewCell{
     
-    var label : UILabel!;
-    //var label : UITextField!;
+    //var label : UILabel!;
+    var label : UITextField!;
     
 //    override init(style: UITableViewCellStyle, reuseIdentifier: String?){
 //        super.init(style: style, reuseIdentifier: reuseIdentifier);
@@ -26,7 +26,7 @@ class InfoCellGeneric : UITableViewCell{
         selectionStyle = UITableViewCellSelectionStyle.None;
         layoutMargins = UIEdgeInsetsZero;
         
-        label = UILabel(frame: CGRectMake(20, 18, view.frame.width, 20));
+        label = UITextField(frame: CGRectMake(20, 18, view.frame.width, 20));
         label.textColor = UIColor.whiteColor();
         label.textAlignment = NSTextAlignment.Left;
         

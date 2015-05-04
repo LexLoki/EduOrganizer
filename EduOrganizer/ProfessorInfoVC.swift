@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 
-class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     var professor: ProfessorModel = ProfessorModel();
     var deleteItem : UIBarButtonItem!;
     var deleteAlert : UIAlertController!;
     var okItem : UIBarButtonItem!;
+    var professorInfoView : InfoGenericView!;
+    
+    var adit:CGFloat!;
     
     
     override func viewWillAppear(animated: Bool) {
@@ -24,7 +27,10 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var professorInfoView : InfoGenericView = InfoGenericView(view: view, parent: self);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardWillHideNotification, object: nil);
+        
+        professorInfoView = InfoGenericView(view: view, parent: self);
         professorInfoView.tableView.delegate = self;
         professorInfoView.tableView.dataSource = self;
         
@@ -50,8 +56,17 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             professorInfoView.label.text = String.getAbrevName(professor.nome);
         }
         
+        okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
         
-        
+    }
+    
+    func dismissKB(){
+        self.view.endEditing(true);
+        navigationItem.rightBarButtonItem = deleteItem;
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        navigationItem.rightBarButtonItem = okItem;
     }
     
     func deleteProfessorAlert(){
@@ -88,6 +103,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var header : InfoCellGeneric = InfoCellGeneric(view: view);
+        header.label.userInteractionEnabled = false;
         header.backgroundColor = UIColor.UIColorFromRGB(0x1a242e);
         header.label.font = UIFont(name: "AvenirNext-Bold", size: 20);
         if(section==0){
@@ -114,6 +130,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         professorInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         professorInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
+        professorInfoCell.label.delegate=self;
         
         if(indexPath.section == 0){  // secao 0 row>0
             
@@ -135,9 +152,26 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         return professorInfoCell;
     }
     
-    func dismiss (sender: UIButton){
-        println("dismiss")
-        dismissViewControllerAnimated(true, completion: nil)
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
     }
+    
+    func keyboardShow(notification: NSNotification){
+        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
+        adit = self.professorInfoView.tableView.frame.origin.y;
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.professorInfoView.tableView.frame = CGRectMake(self.professorInfoView.tableView.frame.origin.x, self.professorInfoView.tableView.frame.origin.y-self.adit, self.professorInfoView.tableView.frame.width, self.professorInfoView.tableView.frame.height);
+            }, completion: nil);
+    }
+    
+    func keyboardHide(notification: NSNotification){
+        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.professorInfoView.tableView.frame = CGRectMake(self.professorInfoView.tableView.frame.origin.x, self.professorInfoView.tableView.frame.origin.y+self.adit, self.professorInfoView.tableView.frame.width, self.professorInfoView.tableView.frame.height);
+            }, completion: nil);
+
+    }
+
     
 }
