@@ -16,19 +16,23 @@ class StudUtils{
         var imgPath:String = destPath;
         destPath = destPath.stringByAppendingPathComponent("\(filename)\(type)");
         
-        println(destPath);
+        //println(destPath);
         
         // If the file doesn't exist in the Documents Folder, copy it.
+        
         var fileManager:NSFileManager = NSFileManager.defaultManager();
+        
         if(!fileManager.fileExistsAtPath(destPath)){
             let sourcePath:String = NSBundle.mainBundle().pathForResource(filename, ofType: type)!;
             fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: nil);
         }
+
         
         var imgProfPath = imgPath.stringByAppendingPathComponent("imgProf");
         
         fileManager.createDirectoryAtPath(imgProfPath, withIntermediateDirectories:false, attributes:nil, error:nil);
         
+        /*
         var filename:String = "christine";
         var img:UIImage = UIImage(named: filename)!;
         var pngData:NSData = UIImagePNGRepresentation(img);
@@ -60,6 +64,6 @@ class StudUtils{
         pngData = UIImagePNGRepresentation(img);
         var imgNotePath2 = imgNotePath.stringByAppendingPathComponent("\(filename).png");
         fileManager.createFileAtPath(imgNotePath2, contents: pngData, attributes:nil);
-        
+        */
     }
 }

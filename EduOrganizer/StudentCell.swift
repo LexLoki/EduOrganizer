@@ -15,10 +15,11 @@ class StudentCell : UITableViewCell{
     
     init(view: UIView) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
-        self.frame = view.frame;
+        //self.frame = view.frame;
         
         var size : CGSize = CGSizeMake(0.35 * frame.size.width,
                                        0.35 * frame.size.width);
+        
         
         label = UILabel(frame: CGRectMake(frame.height/2.5, frame.height/2.5, size.width, size.height));
         label.font = UIFont(name: "AvenirNext-DemiBold", size: 40)
@@ -36,8 +37,8 @@ class StudentCell : UITableViewCell{
         
         selectionStyle = UITableViewCellSelectionStyle.None;
         backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
-        addSubview(btnCell);
-        addSubview(label);
+        self.contentView.addSubview(btnCell);
+        self.contentView.addSubview(label);
         
     }
 

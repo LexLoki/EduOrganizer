@@ -151,6 +151,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let strTaskDate = dateFormatter.stringFromDate(taskDate);
         
         var calendar: NSCalendar = NSCalendar.currentCalendar();
+        
         let flags = NSCalendarUnit.DayCalendarUnit
         let components = calendar.components(flags, fromDate: currentDate, toDate: taskDate, options: nil);
         

@@ -119,7 +119,6 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
        
         var cell : UITableViewCell = self.delegate!.tableView(self, cellForRowAtIndexPath: indexPath);
-        
         // Rotate if needed
         if (CGAffineTransformEqualToTransform(cell.contentView.transform, CGAffineTransformIdentity)){
             
@@ -133,7 +132,7 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        return self.delegate!.tableView!(self, didSelectRowAtIndexPath: indexPath);
+        //return self.delegate!.tableView!(self, didSelectRowAtIndexPath: indexPath);
     }
     
 }

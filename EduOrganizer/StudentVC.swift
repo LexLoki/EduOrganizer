@@ -42,7 +42,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh:", name:"addedNote", object: nil)
      
         studentView = StudentView(view: view, parent: self);
-        studentView.horTableProfessor.delegate = self;
+        //studentView.horTableProfessor.tableView.delegate = self;
         
         
         //SECTIONS
@@ -95,6 +95,9 @@ class StudentVC: UIViewController, TableViewDelegate{
                 }
             }
         }
+        else{
+            studentView.subjOptions.labelOne.text = "NO SUBJECTS ADDED";
+        }
         
         //ITENS NOTES SECTION
         var notesDAO = NoteDAO();
@@ -113,13 +116,19 @@ class StudentVC: UIViewController, TableViewDelegate{
                     forControlEvents: UIControlEvents.TouchUpInside);
             }
         }
+        else{
+            studentView.notesOptions.labelOne.text = "NO NOTES ADDED";
+        }
         
-        studentView.horTableProfessor.reloadInputViews();
+        studentView.horTableProfessor.tableView.reloadData();
     }
     
     func tableView(horizontalTableView: HorizontalTableView, numberOfRows: Int) -> Int {
         
-        return professores.count;
+        if(professores.count>0){
+            return professores.count;
+        }
+        return 1;
 
     }
     
@@ -130,19 +139,25 @@ class StudentVC: UIViewController, TableViewDelegate{
     func tableView(horizontalTableView: HorizontalTableView, cellForRowAtIndexPath: NSIndexPath) -> UITableViewCell {
         
         var professorCell : StudentCell = StudentCell(view: view);
+        if(professores.count>0){
         var professor : ProfessorModel = professores[cellForRowAtIndexPath.row] as ProfessorModel;
         
         professorCell.btnCell.tag = cellForRowAtIndexPath.row;
-        professorCell.btnCell.addTarget(self,
-            action: "teacherTouched:",
-            forControlEvents: UIControlEvents.TouchUpInside);
         
-        
-        if let image = professor.imagem {
-            professorCell.btnCell.setImage(UIImage(contentsOfFile:professor.imagem), forState: UIControlState.Normal);
+            professorCell.btnCell.addTarget(self,
+                action: "teacherTouched:",
+                forControlEvents: UIControlEvents.TouchUpInside);
             
-        }else{
-            professorCell.label.text = String.getAbrevName(professor.nome);
+            
+            if let image = professor.imagem {
+                professorCell.btnCell.setImage(UIImage(contentsOfFile:professor.imagem), forState: UIControlState.Normal);
+                
+            }else{
+                professorCell.label.text = String.getAbrevName(professor.nome);
+            }
+        }
+        else{
+            professorCell.label.text = "NO DATA";
         }
         
         return professorCell;

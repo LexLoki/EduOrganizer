@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9D691ABCA2A7004E25EE /* userData.plist */; };
+		3B0B9D6A1ABCA2A7004E25EE /* userData3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B0B9D691ABCA2A7004E25EE /* userData3.plist */; };
 		3B0B9D701ABCAEF3004E25EE /* StudDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0B9D6F1ABCAEF3004E25EE /* StudDAO.swift */; };
 		3B2CD4E11ABCC3980085FECB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E01ABCC3980085FECB /* Extensions.swift */; };
 		3B2CD4E31ABCCA750085FECB /* SubjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CD4E21ABCCA750085FECB /* SubjectModel.swift */; };
@@ -54,6 +54,7 @@
 		FD0F8EBD1AD421DA00394097 /* AddSubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */; };
 		FD248C1E1ABE2AAD00E27DCC /* ProfessorInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */; };
 		FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */; };
+		FD64EC9F1AF8A30A002023B0 /* userData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD64EC9E1AF8A30A002023B0 /* userData.plist */; };
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
 		FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */; };
 		FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */; };
@@ -75,7 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B0B9D691ABCA2A7004E25EE /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData.plist; sourceTree = "<group>"; };
+		3B0B9D691ABCA2A7004E25EE /* userData3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData3.plist; sourceTree = "<group>"; };
 		3B0B9D6F1ABCAEF3004E25EE /* StudDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudDAO.swift; sourceTree = "<group>"; };
 		3B2CD4E01ABCC3980085FECB /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3B2CD4E21ABCCA750085FECB /* SubjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectModel.swift; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubjectVC.swift; sourceTree = "<group>"; };
 		FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorInfoVC.swift; sourceTree = "<group>"; };
 		FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorsVC.swift; sourceTree = "<group>"; };
+		FD64EC9E1AF8A30A002023B0 /* userData.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = userData.plist; sourceTree = "<group>"; };
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
 		FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoVC.swift; sourceTree = "<group>"; };
 		FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsVC.swift; sourceTree = "<group>"; };
@@ -313,7 +315,8 @@
 			children = (
 				3B301A4A1AB73BBA00665E2E /* EduOrganizer-Bridging-Header.h */,
 				FDB1C4C51AB0C4A100831BED /* Info.plist */,
-				3B0B9D691ABCA2A7004E25EE /* userData.plist */,
+				FD64EC9E1AF8A30A002023B0 /* userData.plist */,
+				3B0B9D691ABCA2A7004E25EE /* userData3.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -371,7 +374,7 @@
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = FDB1C4C01AB0C4A100831BED;
+						TestTargetID = N8MAFJDDC5;
 					};
 				};
 			};
@@ -400,9 +403,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */,
-				3B0B9D6A1ABCA2A7004E25EE /* userData.plist in Resources */,
+				3B0B9D6A1ABCA2A7004E25EE /* userData3.plist in Resources */,
 				3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */,
 				FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */,
+				FD64EC9F1AF8A30A002023B0 /* userData.plist in Resources */,
 				C9A186DB1AD3933D00615C0D /* PopDateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +608,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EduOrganizer/EduOrganizer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -620,6 +625,7 @@
 				PRODUCT_NAME = Stud;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EduOrganizer/EduOrganizer-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
