@@ -134,7 +134,7 @@
 		FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoVC.swift; sourceTree = "<group>"; };
 		FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsVC.swift; sourceTree = "<group>"; };
 		FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
-		FDB1C4C11AB0C4A100831BED /* Stud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB1C4C11AB0C4A100831BED /* iStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB1C4C51AB0C4A100831BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDB1C4C81AB0C4A100831BED /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 		FDB1C4C21AB0C4A100831BED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FDB1C4C11AB0C4A100831BED /* Stud.app */,
+				FDB1C4C11AB0C4A100831BED /* iStudy.app */,
 				FDB1C4D61AB0C4A100831BED /* StudTests.xctest */,
 			);
 			name = Products;
@@ -338,7 +338,7 @@
 			);
 			name = Stud;
 			productName = EduOrganizer;
-			productReference = FDB1C4C11AB0C4A100831BED /* Stud.app */;
+			productReference = FDB1C4C11AB0C4A100831BED /* iStudy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FDB1C4D51AB0C4A100831BED /* StudTests */ = {
@@ -370,7 +370,7 @@
 				TargetAttributes = {
 					FDB1C4C01AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = N8MAFJDDC5;
+						DevelopmentTeam = JY5QPLHQ9Y;
 					};
 					FDB1C4D51AB0C4A100831BED = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -604,7 +604,7 @@
 				INFOPLIST_FILE = EduOrganizer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Stud;
+				PRODUCT_NAME = iStudy;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EduOrganizer/EduOrganizer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -622,7 +622,7 @@
 				INFOPLIST_FILE = EduOrganizer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Stud;
+				PRODUCT_NAME = iStudy;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EduOrganizer/EduOrganizer-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

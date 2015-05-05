@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"
-            BuildableName = "Stud.app"
+            BuildableName = "iStudy.app"
             BlueprintName = "Stud"
             ReferencedContainer = "container:Stud.xcodeproj">
          </BuildableReference>
@@ -72,11 +72,12 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"
-            BuildableName = "Stud.app"
+            BuildableName = "iStudy.app"
             BlueprintName = "Stud"
             ReferencedContainer = "container:Stud.xcodeproj">
          </BuildableReference>
@@ -90,7 +91,8 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FDB1C4C01AB0C4A100831BED"

@@ -158,6 +158,7 @@ class StudentVC: UIViewController, TableViewDelegate{
         }
         else{
             professorCell.label.text = "NO DATA";
+            professorCell.label.font = professorCell.label.font.fontWithSize(20);
         }
         
         return professorCell;
