@@ -13,7 +13,7 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
     var subject: SubjectModel = SubjectModel();
     var addView:AddSubjectView!;
     var professors: Array<ProfessorModel>!
-    var selectedProfessor: ProfessorModel = ProfessorModel();
+    var selectedProfessor: ProfessorModel!;
     
     
     //IR PARA PARTE DE VIEW
@@ -75,8 +75,10 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
         subject.id = addView.code.text;
         subject.professor = selectedProfessor;
         
-        var subjectDAO = SubjectDAO();
-        subjectDAO.saveData(subject);
+        if(!subject.nome.isEmpty && !subject.id.isEmpty){
+            var subjectDAO = SubjectDAO();
+            subjectDAO.saveData(subject);
+        }
         
         NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);
         dismissViewControllerAnimated(true, completion: nil);
