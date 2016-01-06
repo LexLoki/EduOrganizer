@@ -12,7 +12,7 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
 
     var subject: SubjectModel = SubjectModel();
     var addView:AddSubjectView!;
-    var professors: Array<ProfessorModel>!
+    private var professors: Array<ProfessorModel>!
     var selectedProfessor: ProfessorModel!;
     
     
@@ -26,15 +26,13 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
         
         addView.dismissButton.addTarget(self, action: "dismiss:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        var professorDAO = ProfessorDAO()
+        let professorDAO = ProfessorDAO()
         professors = professorDAO.getDataArray() as! Array<ProfessorModel>
         (addView.professor.inputView as! UIPickerView).delegate = self;
-        (addView.professor.inputView as! UIPickerView).dataSource = self;
-
-        
+        (addView.professor.inputView as! UIPickerView).dataSource = self;        
     }
     override func viewDidAppear(animated: Bool) {
-        println("APPEAR");
+        print("APPEAR");
     }
     
     //picker de AddProfessor
@@ -46,18 +44,28 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
         if(professors.count==0){
             return 1;
         }
-        return professors.count;
+        return professors.count + 1;
     }
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(professors.count==0){
             return "No professors available";
         }
-        return professors[row].nome;
+        if(row == 0){
+            return "No professor";
+        }
+        return professors[row-1].nome;
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if(row<professors.count){
-            addView.professor.text = professors[row].nome;
-            selectedProfessor = professors[row];
+        if row == 0{
+            if professors.count != 0{
+                addView.professor.text = "";
+                selectedProfessor = nil;
+            }
+        }
+        //if(row<professors.count){
+        else{
+            addView.professor.text = professors[row-1].nome;
+            selectedProfessor = professors[row-1];
         }
     }
     
@@ -76,7 +84,7 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
         subject.professor = selectedProfessor;
         
         if(!subject.nome.isEmpty && !subject.id.isEmpty){
-            var subjectDAO = SubjectDAO();
+            let subjectDAO = SubjectDAO();
             subjectDAO.saveData(subject);
         }
         
@@ -89,11 +97,11 @@ class AddSubjectVC : UIViewController, UIImagePickerControllerDelegate, UINaviga
     }
     
     func dismiss (sender: UIButton){
-        println("dismiss")
+        print("dismiss")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true);
     }
 }

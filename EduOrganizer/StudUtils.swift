@@ -14,6 +14,8 @@ class StudUtils{
         
         var destPath:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String;
         var imgPath:String = destPath;
+        
+        print(destPath);
         destPath = destPath.stringByAppendingPathComponent("\(filename)\(type)");
         
         //println(destPath);
@@ -24,13 +26,23 @@ class StudUtils{
         
         if(!fileManager.fileExistsAtPath(destPath)){
             let sourcePath:String = NSBundle.mainBundle().pathForResource(filename, ofType: type)!;
-            fileManager.copyItemAtPath(sourcePath, toPath: destPath, error: nil);
+            do{
+                try fileManager.copyItemAtPath(sourcePath, toPath: destPath);
+            }
+            catch{
+                print("Error copying \(sourcePath) to \(destPath)");
+            }
         }
 
         
         var imgProfPath = imgPath.stringByAppendingPathComponent("imgProf");
         
-        fileManager.createDirectoryAtPath(imgProfPath, withIntermediateDirectories:false, attributes:nil, error:nil);
+        do{
+            try fileManager.createDirectoryAtPath(imgProfPath, withIntermediateDirectories:false, attributes:nil);
+        }
+        catch{
+            print("error creating directory at \(imgProfPath)");
+        }
         
         /*
         var filename:String = "christine";

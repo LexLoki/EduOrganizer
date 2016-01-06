@@ -17,7 +17,8 @@ class AddProfessorView : UIView{
     var dismissButton: UIButton!;
     var saveButton:UIButton!;
     var cameraButton:UIButton!;
-    var addSubject:UITextField!;
+    var phoneText:UITextField!;
+    //var addSubject:UITextField!;
     var newLabel: UILabel!;
     var cameraImage: UIImage!;
     
@@ -28,16 +29,16 @@ class AddProfessorView : UIView{
         let alturaLabel:CGFloat = view.frame.height*0.09
         
         // Blur Effect
-        var blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        var blurView = UIVisualEffectView(effect: blur)
+        let blur = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        let blurView = UIVisualEffectView(effect: blur)
         blurView.frame = view.bounds
         
         //declaracao da area e definicao do tamanho//
-        var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
+        let area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
             , altura*5);
         
         //definindo que eh a view eh a tela//
-        var tela : UIView = UIView(frame: area)
+        let tela : UIView = UIView(frame: area)
         //acessando uma propriedade da tela(UIView) alterando as bordas//
         tela.layer.cornerRadius = 5
         tela.backgroundColor = UIColor.UIColorFromRGB(0xD5D9DF)
@@ -89,28 +90,36 @@ class AddProfessorView : UIView{
         emailText.font = UIFont(name: "AvenirNext-Regular", size: 18)
         emailText.autocorrectionType = UITextAutocorrectionType.No;
         emailText.placeholder = "Email"
+        emailText.keyboardType = UIKeyboardType.EmailAddress;
         
-        subjectCode = UITextField(frame: CGRectMake(spacing, emailText.frame.origin.y + altura, area.width, altura))
+        phoneText = UITextField(frame: CGRectMake(spacing, emailText.frame.origin.y + altura, area.width, altura))
+        phoneText.font = UIFont(name: "AvenirNext-Regular", size: 18)
+        phoneText.placeholder = "Phone";
+        phoneText.keyboardType = UIKeyboardType.PhonePad;
+        
+        subjectCode = UITextField(frame: CGRectMake(spacing, phoneText.frame.origin.y + altura, area.width, altura))
         subjectCode.font = UIFont(name: "AvenirNext-Regular", size: 18)
         subjectCode.placeholder = "Subject code"
         subjectCode.inputView = UIPickerView()
         
-        addSubject = UITextField(frame: CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width, altura))
-        addSubject.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        addSubject.autocorrectionType = UITextAutocorrectionType.No;
-        addSubject.placeholder = "Add more subjects"
+//        addSubject = UITextField(frame: CGRectMake(spacing, subjectCode.frame.origin.y + altura, area.width, altura))
+//        addSubject.font = UIFont(name: "AvenirNext-Regular", size: 18)
+//        addSubject.autocorrectionType = UITextAutocorrectionType.No;
+//        addSubject.placeholder = "Add more subjects"
         
-        var lineView : UIView = UIView (frame: CGRectMake(0, altura/1, area.width, 1))
-        lineView.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        let lineColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
-        var lineView1 : UIView = UIView (frame: CGRectMake(0, nomeText.frame.origin.y + altura/1, area.width, 1))
-        lineView1.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        let lineView : UIView = UIView (frame: CGRectMake(0, altura/1, area.width, 1))
+        lineView.backgroundColor = lineColor;
         
-        var lineView2 : UIView = UIView (frame: CGRectMake(0, emailText.frame.origin.y + altura/1, area.width, 1))
-        lineView2.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        let lineView1 : UIView = UIView (frame: CGRectMake(0, nomeText.frame.origin.y + altura/1, area.width, 1))
+        lineView1.backgroundColor = lineColor;
         
-        var lineView3 : UIView = UIView (frame: CGRectMake(0, subjectCode.frame.origin.y + altura/1, area.width, 1))
-        lineView3.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
+        let lineView2 : UIView = UIView (frame: CGRectMake(0, emailText.frame.origin.y + altura/1, area.width, 1))
+        lineView2.backgroundColor = lineColor;
+        
+        let lineView3 : UIView = UIView (frame: CGRectMake(0, phoneText.frame.origin.y + altura/1, area.width, 1))
+        lineView3.backgroundColor = lineColor;
         
         //adicionar a view que criei na view pra aparecer na tela principal//
         blurView.addSubview(newLabel)
@@ -120,7 +129,8 @@ class AddProfessorView : UIView{
         tela.addSubview(cancelButton)
         tela.addSubview(saveButton)
         tela.addSubview(cameraButton)
-        tela.addSubview(addSubject)
+        tela.addSubview(phoneText);
+        //tela.addSubview(addSubject)
         tela.addSubview(lineView)
         tela.addSubview(lineView1)
         tela.addSubview(lineView2)

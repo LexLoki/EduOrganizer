@@ -76,7 +76,7 @@ class ProfessorsVC : UIViewController, UICollectionViewDelegateFlowLayout, UICol
     }
     
     func btnTouched(sender:UIButton){
-        println(sender.tag);
+        print(sender.tag);
     }
 
 }

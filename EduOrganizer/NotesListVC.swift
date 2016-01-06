@@ -29,7 +29,7 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
     }
     
     override func viewWillAppear(animated: Bool) {
-        var noteDAO = NoteDAO()
+        let noteDAO = NoteDAO()
         notes = noteDAO.getDataArray() as! Array<NoteModel>;
         notesListView.tableView.reloadData();
     }
@@ -46,7 +46,7 @@ class NotesListVC: UIViewController,  UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //conteudo de celulas para uma secao
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell;
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
        
         cell.layoutMargins = UIEdgeInsetsZero;
         tableView.separatorColor = UIColor.UIColorFromRGB(0x294b70);

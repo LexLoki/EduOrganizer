@@ -15,6 +15,7 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var deleteItem : UIBarButtonItem!;
     var deleteAlert : UIAlertController!;
     var okItem : UIBarButtonItem!;
+    var cancelItem : UIBarButtonItem!;
     var professorInfoView : InfoGenericView!;
     
     var adit:CGFloat!;
@@ -22,13 +23,12 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     override func viewWillAppear(animated: Bool) {
         professor.materias = SubjectDAO().getSubjectsByIdProfessor(professor.id);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardWillHideNotification, object: nil);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardWillHideNotification, object: nil);
         
         professorInfoView = InfoGenericView(view: view, parent: self);
         professorInfoView.tableView.delegate = self;
@@ -56,17 +56,28 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             professorInfoView.label.text = String.getAbrevName(professor.nome);
         }
         
-        okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
+        okItem = UIBarButtonItem(title: "Save",style: .Done,target: self,action: "saveData");
+        cancelItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "dismissKB");
+        
+        adit = professorInfoView.tableView.frame.origin.y;
         
     }
     
     func dismissKB(){
         self.view.endEditing(true);
         navigationItem.rightBarButtonItem = deleteItem;
+        navigationItem.leftBarButtonItem = nil;
+        //ProfessorDAO().saveData(professor);
+    }
+    
+    func saveData(){
+        dismissKB();
+        //then save
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         navigationItem.rightBarButtonItem = okItem;
+        navigationItem.leftBarButtonItem = cancelItem;
     }
     
     func deleteProfessorAlert(){
@@ -135,9 +146,9 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         if(indexPath.section == 0){  // secao 0 row>0
             
             switch (indexPath.row){
-                case 0: professorInfoCell.label.text = professor.nome;
-                case 1: professorInfoCell.label.text = professor.email;
-                case 2: professorInfoCell.label.text = professor.telefone;
+                case 0: professorInfoCell.label.text = "Name: " + professor.nome;
+                case 1: professorInfoCell.label.text = "E-mail: " + professor.email;
+                case 2: professorInfoCell.label.text = "Phone: " + professor.telefone;
                 default : professorInfoCell.label.text = "error";
             }
             
@@ -153,22 +164,27 @@ class ProfessorInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
+        super.viewWillDisappear(animated);
+        print("disappearing");
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
     }
     
     func keyboardShow(notification: NSNotification){
-        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
-        adit = self.professorInfoView.tableView.frame.origin.y;
+        //let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
+        //adit = self.professorInfoView.tableView.frame.origin.y;
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.professorInfoView.tableView.frame = CGRectMake(self.professorInfoView.tableView.frame.origin.x, self.professorInfoView.tableView.frame.origin.y-self.adit, self.professorInfoView.tableView.frame.width, self.professorInfoView.tableView.frame.height);
+            //self.professorInfoView.tableView.frame = CGRectMake(self.professorInfoView.tableView.frame.origin.x, self.professorInfoView.tableView.frame.origin.y-self.adit, self.professorInfoView.tableView.frame.width, self.professorInfoView.tableView.frame.height);
+            self.professorInfoView.tableView.frame.origin.y = 0;
             }, completion: nil);
     }
     
     func keyboardHide(notification: NSNotification){
-        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
+        //let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.professorInfoView.tableView.frame = CGRectMake(self.professorInfoView.tableView.frame.origin.x, self.professorInfoView.tableView.frame.origin.y+self.adit, self.professorInfoView.tableView.frame.width, self.professorInfoView.tableView.frame.height);
+            //self.professorInfoView.tableView.frame = CGRectMake(self.professorInfoView.tableView.frame.origin.x, self.professorInfoView.tableView.frame.origin.y+self.adit, self.professorInfoView.tableView.frame.width, self.professorInfoView.tableView.frame.height);
+            self.professorInfoView.tableView.frame.origin.y = self.adit;
             }, completion: nil);
 
     }

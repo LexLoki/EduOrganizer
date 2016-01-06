@@ -13,7 +13,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     required init(coder aDecoder: NSCoder) {
         
         StudUtils.checkFiles("userData", type: ".plist");
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)!;
     }
     
     var firstView : FirstView!;
@@ -27,7 +27,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        println("HUEHUEHEUHE");
+       print("HUEHUEHEUHE");
     }
     
     func didExpand() {
@@ -71,7 +71,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     }
 
     func optionsButton(optionButton: UIButton!, didSelectItem index: Int32) {
-        println(index);
+        print(index);
         if(index==1){  //Adicionar anotações
             NSNotificationCenter.defaultCenter().postNotificationName("notesNotification", object: nil)
         }else if(index==2){ //Adicionar professor

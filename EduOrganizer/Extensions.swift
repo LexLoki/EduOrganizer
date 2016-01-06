@@ -72,14 +72,19 @@ extension String{
         var nome : String = "";
         
         if (nomeArray.count > 0){
-            var primeiroNome = nomeArray[0];
-            var primeiraLetra = primeiroNome.substringToIndex(advance(primeiroNome.startIndex, 1));
+            let primeiroNome = nomeArray[0];
+            
+            //CHECK for 2.0
+            let primeiraLetra = (primeiroNome as NSString).substringToIndex(1);
+            //var primeiraLetra = primeiroNome.substringToIndex(advance(primeiroNome.startIndex, 1));
             
             nome = primeiraLetra;
             
             if (nomeArray.count > 1){
-                var ultimoNome = nomeArray[nomeArray.count - 1];
-                var ultimaLetra = ultimoNome.substringToIndex(advance(ultimoNome.startIndex, 1));
+                let ultimoNome = nomeArray[nomeArray.count - 1];
+                //CHECK for 2.0
+                let ultimaLetra = (ultimoNome as NSString).substringToIndex(1);
+                //var ultimaLetra = ultimoNome.substringToIndex(advance(ultimoNome.startIndex, 1));
                 
                 nome = nome + ultimaLetra;
             }
@@ -88,4 +93,27 @@ extension String{
         return nome.uppercaseString;
         
     }
+}
+
+extension UIImage{
+    
+    public func getBestSquareImg() -> UIImage{
+        
+        let tam = size.width > size.height ? size.height : size.width;
+        UIGraphicsBeginImageContext(CGSize(width: tam, height: tam));
+        self.drawInRect(CGRect(x: (tam-size.width)*0.5, y: (tam-size.height)*0.5, width: size.width, height: size.height));
+        let img = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return img;
+    }
+    
+}
+
+extension String{
+    
+    func stringByAppendingPathComponent(string : String) -> String{
+        return self + "/" + string;
+    }
+    
 }

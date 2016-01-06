@@ -21,12 +21,12 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let taskDAO = TaskDAO();
         tarefas = taskDAO.getDataArray() as! Array<TaskModel>;
         
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)!;
     }
     
     func notesOn(notification: NSNotification){
 
-        println("observer funfou");
+        print("observer funfou");
         var selectedIndex = tabBarController!.selectedIndex;
         
         if (selectedIndex == 0){
@@ -71,7 +71,7 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         
-        println("HOHO");
+        print("HOHO");
         if(tableView.editing == true){
             return UITableViewCellEditingStyle.Delete
         }
@@ -141,19 +141,22 @@ class TaskVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        var taskCell : TaskCell = TaskCell(view: view);
+        let taskCell : TaskCell = TaskCell(view: view);
         
-        var taskDate = tarefas[indexPath.row].data;
-        var currentDate = NSDate();
+        let taskDate = tarefas[indexPath.row].data;
+        let currentDate = NSDate();
 
         let dateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "dd/MM/yyyy  hh:mm a";
         let strTaskDate = dateFormatter.stringFromDate(taskDate);
         
-        var calendar: NSCalendar = NSCalendar.currentCalendar();
+        let calendar: NSCalendar = NSCalendar.currentCalendar();
         
-        let flags = NSCalendarUnit.DayCalendarUnit
-        let components = calendar.components(flags, fromDate: currentDate, toDate: taskDate, options: nil);
+        //Check for 2.0
+        //let flags = NSCalendarUnit.DayCalendarUnit
+        let flags = NSCalendarUnit.Day
+        //let components = calendar.components(flags, fromDate: currentDate, toDate: taskDate, options: nil);
+        let components = calendar.components(flags, fromDate: currentDate, toDate: taskDate, options: NSCalendarOptions.MatchStrictly);
         
         var countDown : String?;
         

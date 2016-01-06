@@ -29,7 +29,7 @@ class InfoTaskVC : UIViewController{
         
     }
     override func viewDidAppear(animated: Bool) {
-        println("APPEAR");
+        print("APPEAR");
     }
     
     

@@ -26,16 +26,16 @@ class AddSubjectView : UIView{
         let alturaLabel : CGFloat = view.frame.height*0.09
         
         //Blur Effect
-        var blur = UIBlurEffect(style : UIBlurEffectStyle.Dark)
-        var blurView = UIVisualEffectView(effect: blur)
+        let blur = UIBlurEffect(style : UIBlurEffectStyle.Dark)
+        let blurView = UIVisualEffectView(effect: blur)
         blurView.frame = view.bounds
         
         //declaracao da area e definicao do tamanho//
-        var area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
+        let area:CGRect = CGRectMake(view.frame.width*0.05, view.frame.height*0.2, view.frame.width*0.90
             , altura*4);
         
         //definindo que eh a view eh a tela//
-        var tela : UIView = UIView(frame: area)
+        let tela : UIView = UIView(frame: area)
         
         //acessando uma propriedade da tela(UIView) alterando as bordas//
         tela.layer.cornerRadius = 5
@@ -91,13 +91,13 @@ class AddSubjectView : UIView{
         professor.inputView = UIPickerView()
         
         
-        var lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
+        let lineView : UIView = UIView (frame: CGRectMake(0, cancelButton.frame.origin.y + altura/1.4, area.width, 1))
         lineView.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
-        var lineView1 : UIView = UIView (frame: CGRectMake(0, nameText.frame.origin.y + altura/1, area.width, 1))
+        let lineView1 : UIView = UIView (frame: CGRectMake(0, nameText.frame.origin.y + altura/1, area.width, 1))
         lineView1.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
         
-        var lineView2 : UIView = UIView (frame: CGRectMake(0, code.frame.origin.y + altura/1, area.width, 1))
+        let lineView2 : UIView = UIView (frame: CGRectMake(0, code.frame.origin.y + altura/1, area.width, 1))
         lineView2.backgroundColor = UIColor.UIColorFromRGB(0x979797).colorWithAlphaComponent(0.7);
 
         

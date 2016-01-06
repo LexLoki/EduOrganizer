@@ -54,20 +54,20 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     
     func saveData(object : AnyObject) {
         
-        var profsDict : NSMutableDictionary = self.loadPList()!;
-        var profDict : NSMutableDictionary = NSMutableDictionary();
+        let profsDict : NSMutableDictionary = self.loadPList()!;
+        let profDict : NSMutableDictionary = NSMutableDictionary();
         
-        var professor = object as! ProfessorModel;
+        let professor = object as! ProfessorModel;
         
         var newId : String = "";
         if (professor.id != nil){
             newId = String(professor.id);
-            
             (contents["professores"] as! NSMutableDictionary).removeObjectForKey(String(professor.id));
             contents.writeToFile(plistPath, atomically: true);
             
         }else{
             newId = getFreeIdInDict(profsDict);
+            professor.id = Int(newId);
         }
         
         profDict.setValue(String.checkString(professor.nome), forKey: "nome");
@@ -84,12 +84,25 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         contents.setObject(profsDict, forKey: "professores");
         contents.writeToFile(plistPath, atomically: true);
         
+        if(!professor.materias.isEmpty){
+            let subDAO = SubjectDAO();
+            for mat in professor.materias{
+                mat.professor = professor;
+                subDAO.saveData(mat);
+            }
+        }
+        
     }
     
     func deleteDataById(id: AnyObject) {
         
-        var imgPath = getProfessorsImagePath().stringByAppendingPathComponent(((contents["professores"] as! NSDictionary)[String(id as! Int)] as! NSDictionary)["imagem"] as! String);
-        NSFileManager.defaultManager().removeItemAtPath(imgPath, error: nil);
+        let imgPath = getProfessorsImagePath().stringByAppendingPathComponent(((contents["professores"] as! NSDictionary)[String(id as! Int)] as! NSDictionary)["imagem"] as! String);
+        do{
+            try NSFileManager.defaultManager().removeItemAtPath(imgPath);
+        }
+        catch{
+            print("Error removing item at path: \(imgPath)");
+        }
         (contents["professores"] as! NSMutableDictionary).removeObjectForKey(String(id as! Int));
         contents.writeToFile(plistPath, atomically: true);
         
@@ -97,23 +110,35 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         //DELETAR IMAGENS DA PASTA DE imgNotes
     }
     
-    func copyImgToDocuments(img : UIImage) -> String{
+    func copyImgToDocuments(var img : UIImage) -> String{
         var imgPath : String = getProfessorsImagePath();
         var id = getFreeIdInDict(getImgDictionary());
         id = id.stringByAppendingFormat(".png");
         imgPath = imgPath.stringByAppendingPathComponent(id);
-        UIImagePNGRepresentation(img).writeToFile(imgPath, atomically: true);
+        img = img.getBestSquareImg();
+        UIImagePNGRepresentation(img)!.writeToFile(imgPath, atomically: true);
         return id;
     }
 
     
     private func getImgDictionary() -> NSMutableDictionary{
-        var imgPath : String = getProfessorsImagePath();
-        var contentsArray : NSArray = NSFileManager.defaultManager().contentsOfDirectoryAtPath(imgPath, error: nil)!;
-        var imgDict:NSMutableDictionary = NSMutableDictionary();
+        let imgPath : String = getProfessorsImagePath();
+        var contentsArray : NSArray;
+        do{
+            contentsArray = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(imgPath);
+        }
+        catch{
+            contentsArray = [];
+            print("Error getting files at directory");
+            exit(1);
+        }
+        let imgDict:NSMutableDictionary = NSMutableDictionary();
         for (var id) in contentsArray{
             let str:String = imgPath.stringByAppendingPathComponent(id as! String);
-            id = id.substringToIndex(count(id as! String) - 4);
+            
+            id = id.substringToIndex((id as! String).characters.count-4);
+            //CHECK 2.0
+            //id = id.substringToIndex(count(id as! String) - 4);
             if let img = UIImage(contentsOfFile: str){
                 imgDict.setObject(img, forKey: id as! String);
             }
@@ -127,17 +152,18 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     //get path with professors images
     private func getProfessorsImagePath() -> String{
         
-        var documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String;
-        var imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
+        let documentPath : String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!;
+        let imgPath : String = documentPath.stringByAppendingPathComponent("imgProf");
         
         return imgPath;
     }
     
     //setup professor data
     private func setUpProfessor() -> (dict: NSMutableDictionary, path: String){
-        var professorsDict : NSMutableDictionary  = self.loadPList()!;
-        var imgPath : String = getProfessorsImagePath();
+        let professorsDict : NSMutableDictionary  = self.loadPList()!;
+        let imgPath : String = getProfessorsImagePath();
         
         return(professorsDict, imgPath);
     }
+    
 }

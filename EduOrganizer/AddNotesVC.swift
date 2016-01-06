@@ -28,8 +28,6 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardWillHideNotification, object: nil);
         
         view.backgroundColor = UIColor.UIColorFromRGB(0x1E3044);
         
@@ -78,6 +76,12 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         deleteAlert.addAction(okAction);
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardWillHideNotification, object: nil);
+    }
+    
     func deleteNoteAlert(){
         presentViewController(deleteAlert, animated: true, completion: nil);
     }
@@ -122,12 +126,12 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
             shouldSave = true;
         }
         navigationItem.rightBarButtonItem = okItem;
-        println("editou");
+        print("editou");
     }
     
     
     func textViewDidEndEditing(textView: UITextView) {
-        println("terminou");
+        print("terminou");
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -138,8 +142,9 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         tabBar.firstView.fancyTabBar.hidden=false;
         tabBar.tabBar.hidden=false;
         
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
     }
     
     
@@ -152,6 +157,7 @@ class AddNotesVC: UIViewController, UITextViewDelegate{
         insets = noteView.text.scrollIndicatorInsets;
         insets.bottom += addition;
         noteView.text.scrollIndicatorInsets = insets;
+    
     }
     
     func keyboardHide(notification: NSNotification){

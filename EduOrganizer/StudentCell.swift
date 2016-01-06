@@ -27,7 +27,7 @@ class StudentCell : UITableViewCell{
         label.textColor = UIColor.UIColorFromRGB(0xffc561);
         label.textAlignment = NSTextAlignment.Center;
         
-        btnCell = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton;
+        btnCell = UIButton(type: UIButtonType.Custom);
         btnCell.frame = label.frame;
         btnCell.layer.cornerRadius = btnCell.frame.size.height/2;
         btnCell.layer.masksToBounds = true;

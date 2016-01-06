@@ -14,7 +14,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     var subjects: Array<SubjectModel>!
     var addView:AddProfessorView!;
     var profImg: UIImage!;
-    var selectedSubject: SubjectModel = SubjectModel();
+    var selectedSubject: SubjectModel!;
     
     //IR PARA PARTE DE VIEW
     override func viewDidLoad(){
@@ -34,7 +34,7 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
 
     }
     override func viewDidAppear(animated: Bool) {
-        println("APPEAR");
+        print("APPEAR");
     }
     
     func keepHighlight(button:UIButton){
@@ -46,28 +46,36 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1;
     }
+    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if(subjects.count==0){
-            return 1;
-        }
-        return subjects.count;
+//        if(subjects.count==0){
+//            return 1;
+//        }
+        return subjects.count+1;
     }
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         if(subjects.count==0){
             return "No subjects available";
         }
-        return subjects[row].id;
+        if(row == 0){
+            return "No subject";
+        }
+        return subjects[row-1].id;
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if(row<subjects.count){
-            addView.subjectCode.text = subjects[row].id;
-            selectedSubject = subjects[row];
+        if(row == 0){
+            addView.subjectCode.text = "";
+            selectedSubject = nil;
+        }
+        else{
+            addView.subjectCode.text = subjects[row-1].id;
+            selectedSubject = subjects[row-1];
         }
     }
     
     //quando aperto o botao da camera vou para o rolo
     func imageAction(button:UIButton){
-        var vc:UIImagePickerController = ImagePickVC();
+        let vc:UIImagePickerController = ImagePickVC();
         vc.delegate = self;
         presentViewController(vc, animated: true, completion: nil);
     }
@@ -85,23 +93,23 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         professor.nome = addView.nomeText.text;
         professor.email = addView.emailText.text;
         var codes = Array<SubjectModel>();
-        if(selectedSubject.id != nil){
+        if(selectedSubject != nil){
             codes.append(selectedSubject);
         }
         professor.materias = codes;
         
-        var profDAO = ProfessorDAO();
+        let profDAO = ProfessorDAO();
         if(profImg != nil){
             professor.imagem = profDAO.copyImgToDocuments(profImg);
         }
+        professor.telefone = addView.phoneText.text;
         profDAO.saveData(professor);
         
         NSNotificationCenter.defaultCenter().postNotificationName("addedNote", object: nil);
         dismissViewControllerAnimated(true, completion: nil);
         //*/
     }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         profImg = info[UIImagePickerControllerOriginalImage] as! UIImage;
         addView.cameraButton.selected = true;
         addView.cameraButton.setImage(profImg, forState: UIControlState.Selected);
@@ -120,12 +128,12 @@ class AddProfessorVC : UIViewController, UIImagePickerControllerDelegate, UINavi
         self.view.endEditing(true);
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true);
     }
     
     func dismiss (sender: UIButton){
-        println("dismiss")
+        print("dismiss")
         dismissViewControllerAnimated(true, completion: nil)
     }
 }

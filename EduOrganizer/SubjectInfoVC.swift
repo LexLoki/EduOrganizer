@@ -9,16 +9,23 @@
 import Foundation
 import UIKit
 
-class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
+class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate{
     
     var subject: SubjectModel = SubjectModel();
     var deleteItem: UIBarButtonItem!;
     var deleteAlert : UIAlertController!;
     var okItem : UIBarButtonItem!;
+    var cancelItem : UIBarButtonItem!;
     var subjectInfoView : InfoGenericView!;
     
     var adit:CGFloat!;
-  
+    
+    private var professors : Array<ProfessorModel>!;
+    private var professorText : UITextField!;
+    private var nameText : UITextField!;
+    private var codeText : UITextField!;
+    
+    private var wasEdited = false;
 
     override func viewDidLoad() {
         
@@ -41,17 +48,34 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         deleteAlert.addAction(cancelAction);
         deleteAlert.addAction(okAction);
         
-        okItem = UIBarButtonItem(title: "OK",style: .Plain,target: self,action: "dismissKB");
+        okItem = UIBarButtonItem(title: "Save",style: .Done,target: self,action: "saveData");
+        cancelItem = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "dismissKB");
         
+        professors = ProfessorDAO().getDataArray() as! Array<ProfessorModel>;
+        
+        adit = self.subjectInfoView.tableView.frame.origin.y;
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardShow:" , name: UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardHide:" , name: UIKeyboardWillHideNotification, object: nil);
     }
     
     func dismissKB(){
         self.view.endEditing(true);
         navigationItem.rightBarButtonItem = deleteItem;
+        navigationItem.leftBarButtonItem = nil;
+    }
+    
+    func saveData(){
+        dismissKB();
+        //save
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         navigationItem.rightBarButtonItem = okItem;
+        navigationItem.leftBarButtonItem = cancelItem;
     }
     func deleteSubjectAlert(){
         presentViewController(deleteAlert, animated: true, completion: nil);
@@ -127,24 +151,29 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
-        var subjectInfoCell : InfoCellGeneric = InfoCellGeneric(view: view);
+        let subjectInfoCell : InfoCellGeneric = InfoCellGeneric(view: view);
         
         subjectInfoCell.backgroundColor = UIColor.UIColorFromRGB(0x1e3044);
         subjectInfoCell.label.font = UIFont(name: "Avenir Next", size: 15);
         subjectInfoCell.label.delegate = self;
         
+        subjectInfoCell.label.inputView = nil;
+        
         if(indexPath.section == 0){ // secao 0
             
             switch (indexPath.row){
-                case 0: subjectInfoCell.label.text = subject.id;
-                case 1: subjectInfoCell.label.text = subject.nome;
+            case 0: subjectInfoCell.label.text =  "Code: " + subject.id;
+                case 1: subjectInfoCell.label.text = "Name: " + subject.nome;
                 case 2:
-                    
+                    let pick = UIPickerView();
+                    pick.delegate = self; pick.dataSource = self;
+                    professorText = subjectInfoCell.label;
+                    subjectInfoCell.label.inputView = pick;
                     if (subject.professor != nil){
-                        subjectInfoCell.label.text = subject.professor.nome;
+                        subjectInfoCell.label.text = "Professor: " + subject.professor.nome;
                     }
                 
-                default : subjectInfoCell.label.text = "error";
+                default : subjectInfoCell.label.text = "Professor not registered";
             }
             
         }else if(indexPath.section == 1){// secao 1
@@ -166,23 +195,48 @@ class SubjectInfoVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     }
     
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return professors.count;
+    }
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return professors[row].nome;
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedText = professors[row].nome;
+        if let t = professorText{
+            t.text = "Professor: " + selectedText;
+        }
+        if(selectedText != subject.professor.nome){
+            wasEdited = true;
+            subject.professor = professors[row];
+        }
+    }
+    
     override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil);
+        //NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().removeObserver(self);
     }
     
     func keyboardShow(notification: NSNotification){
-        let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
-        adit = self.subjectInfoView.tableView.frame.origin.y;
+        
+        //let addition = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size.height;
+        //adit = self.subjectInfoView.tableView.frame.origin.y;
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.subjectInfoView.tableView.frame = CGRectMake(self.subjectInfoView.tableView.frame.origin.x, self.subjectInfoView.tableView.frame.origin.y-self.adit, self.subjectInfoView.tableView.frame.width, self.subjectInfoView.tableView.frame.height);
+            //self.subjectInfoView.tableView.frame = CGRectMake(self.subjectInfoView.tableView.frame.origin.x, self.subjectInfoView.tableView.frame.origin.y-self.adit, self.subjectInfoView.tableView.frame.width, self.subjectInfoView.tableView.frame.height);
+            self.subjectInfoView.tableView.frame.origin.y = 0;
             }, completion: nil);
     }
     
     func keyboardHide(notification: NSNotification){
-        let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
+        print("hiding");
+        //let addition = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size.height;
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.subjectInfoView.tableView.frame = CGRectMake(self.subjectInfoView.tableView.frame.origin.x, self.subjectInfoView.tableView.frame.origin.y+self.adit, self.subjectInfoView.tableView.frame.width, self.subjectInfoView.tableView.frame.height);
+            self.subjectInfoView.tableView.frame.origin.y = self.adit;
+            //self.subjectInfoView.tableView.frame = CGRectMake(fr.origin.x, fr.origin.y+self.adit, fr.width, fr.height);
             }, completion: nil);
         
     }

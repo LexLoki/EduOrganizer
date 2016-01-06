@@ -69,7 +69,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     }
     
     func btnTouched(sender:UIButton){
-        println(sender.tag);
+        print(sender.tag);
     }
     
     

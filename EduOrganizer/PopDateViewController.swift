@@ -62,7 +62,10 @@ class PopDateViewController : UIViewController {
         components.calendar = calendar
         
         components.year = +1
-        let maxDate: NSDate = calendar.dateByAddingComponents(components, toDate: currentDate!, options: nil)!
+        
+        let maxDate = calendar.dateByAddingComponents(components, toDate: currentDate!, options: NSCalendarOptions.MatchStrictly)
+        //CHECK FOR 2.0
+        //let maxDate: NSDate = calendar.dateByAddingComponents(components, toDate: currentDate!, options: nil)!
         
         let minDate = NSDate()
         

@@ -35,12 +35,12 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         
     }
     override func viewDidAppear(animated: Bool) {
-        println("APPEAR");
+        print("APPEAR");
     }
     
     //quando aperta o cancel tem que voltar pra tela anterior//
     func cancelAction(button:UIButton){
-        println("Funcionou");
+        print("Funcionou");
         dismissViewControllerAnimated(true, completion: nil);
     }
     
@@ -83,7 +83,7 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .NoStyle
-        let finalDate = formatter.dateFromString(addView.date.text)
+        let finalDate = formatter.dateFromString(addView.date.text!)
         
         tarefa.nome = addView.nameText.text;
         tarefa.data = finalDate;
@@ -100,7 +100,7 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
     }
     
     func dismiss (sender: UIButton){
-        println("dismiss")
+        print("dismiss")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -108,7 +108,7 @@ class AddTaskVC : UIViewController, UITextFieldDelegate {
         self.view.endEditing(true);
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true);
     }
     

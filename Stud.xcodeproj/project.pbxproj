@@ -58,6 +58,10 @@
 		FD80C5E21AB9E64F00356413 /* AddNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */; };
 		FD80C5E41AB9E64F00356413 /* SubjectInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */; };
 		FD80C5E51AB9E64F00356413 /* SubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */; };
+		FD8F7D7A1B5DEC21003EAB65 /* CoverData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD8F7D791B5DEC21003EAB65 /* CoverData.plist */; };
+		FD8F7D7C1B5DED95003EAB65 /* CoverDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8F7D7B1B5DED95003EAB65 /* CoverDAO.swift */; };
+		FD8F7D7E1B5DF211003EAB65 /* CoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8F7D7D1B5DF211003EAB65 /* CoverModel.swift */; };
+		FD8F7D801B5E171A003EAB65 /* FactData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD8F7D7F1B5E171A003EAB65 /* FactData.plist */; };
 		FDA8A79C1AB3704E00DF8ADB /* StudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */; };
 		FDB1C4C71AB0C4A100831BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */; };
 		FDB1C4C91AB0C4A100831BED /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB1C4C81AB0C4A100831BED /* FirstVC.swift */; };
@@ -133,6 +137,10 @@
 		FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesVC.swift; sourceTree = "<group>"; };
 		FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectInfoVC.swift; sourceTree = "<group>"; };
 		FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsVC.swift; sourceTree = "<group>"; };
+		FD8F7D791B5DEC21003EAB65 /* CoverData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CoverData.plist; sourceTree = "<group>"; };
+		FD8F7D7B1B5DED95003EAB65 /* CoverDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverDAO.swift; sourceTree = "<group>"; };
+		FD8F7D7D1B5DF211003EAB65 /* CoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverModel.swift; sourceTree = "<group>"; };
+		FD8F7D7F1B5E171A003EAB65 /* FactData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FactData.plist; sourceTree = "<group>"; };
 		FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentVC.swift; sourceTree = "<group>"; };
 		FDB1C4C11AB0C4A100831BED /* iStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB1C4C51AB0C4A100831BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -203,20 +211,15 @@
 		3B0B9D6D1ABCA9C4004E25EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FDF22D891C28A44100900069 /* Subject */,
+				FDF22D881C28A43500900069 /* Note */,
+				FDF22D871C28A42E00900069 /* Professor */,
 				3BDCB1481AC6184500865AFC /* StudNC.swift */,
-				FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */,
-				FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */,
 				FDA8A79B1AB3704E00DF8ADB /* StudentVC.swift */,
 				FDB1C4C81AB0C4A100831BED /* FirstVC.swift */,
 				3B453BDE1AB8CDCC006F9C05 /* TaskVC.swift */,
 				FDB1C4C61AB0C4A100831BED /* AppDelegate.swift */,
-				FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */,
-				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
-				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
-				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
-				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
 				B9CADCBD1AD0F89200D31780 /* AddTaskVC.swift */,
-				FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */,
 				FD0F47D91AD09B21007AA029 /* ImagePickVC.swift */,
 				C990232A1AF53D7800951B67 /* InfoTaskVC.swift */,
 			);
@@ -317,8 +320,41 @@
 				FDB1C4C51AB0C4A100831BED /* Info.plist */,
 				FD64EC9E1AF8A30A002023B0 /* userData.plist */,
 				3B0B9D691ABCA2A7004E25EE /* userData3.plist */,
+				FD8F7D791B5DEC21003EAB65 /* CoverData.plist */,
+				FD8F7D7B1B5DED95003EAB65 /* CoverDAO.swift */,
+				FD8F7D7D1B5DF211003EAB65 /* CoverModel.swift */,
+				FD8F7D7F1B5E171A003EAB65 /* FactData.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FDF22D871C28A42E00900069 /* Professor */ = {
+			isa = PBXGroup;
+			children = (
+				FD248C1C1ABE2AAD00E27DCC /* ProfessorInfoVC.swift */,
+				FD248C1D1ABE2AAD00E27DCC /* ProfessorsVC.swift */,
+				B930CDBF1ACDD37D00040F8A /* AddProfessorVC.swift */,
+			);
+			name = Professor;
+			sourceTree = "<group>";
+		};
+		FDF22D881C28A43500900069 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				B9C3661D1AC5F1AD007D6567 /* NotesListVC.swift */,
+				FD80C5DE1AB9E64F00356413 /* AddNotesVC.swift */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		FDF22D891C28A44100900069 /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				FD80C5E11AB9E64F00356413 /* SubjectsVC.swift */,
+				FD80C5E01AB9E64F00356413 /* SubjectInfoVC.swift */,
+				FD0F8EBC1AD421DA00394097 /* AddSubjectVC.swift */,
+			);
+			name = Subject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +401,7 @@
 		FDB1C4B91AB0C4A100831BED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Pietro Ribeiro Pepe";
 				TargetAttributes = {
@@ -402,8 +439,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8F7D801B5E171A003EAB65 /* FactData.plist in Resources */,
 				FDB1C4CC1AB0C4A100831BED /* Main.storyboard in Resources */,
 				3B0B9D6A1ABCA2A7004E25EE /* userData3.plist in Resources */,
+				FD8F7D7A1B5DEC21003EAB65 /* CoverData.plist in Resources */,
 				3BD7E9441AB75B1D00238ECE /* Images.xcassets in Resources */,
 				FDB1C4D11AB0C4A100831BED /* LaunchScreen.xib in Resources */,
 				FD64EC9F1AF8A30A002023B0 /* userData.plist in Resources */,
@@ -444,6 +483,7 @@
 				B9C3661E1AC5F1AD007D6567 /* NotesListVC.swift in Sources */,
 				3B72BABA1AC50BE5004A1F67 /* FirstView.swift in Sources */,
 				3B301A651AB73C1900665E2E /* Coordinate.m in Sources */,
+				FD8F7D7C1B5DED95003EAB65 /* CoverDAO.swift in Sources */,
 				3B99BF121AC59BD200DE1612 /* TaskModel.swift in Sources */,
 				C91CF2DA1ACB3177003B50EA /* TaskDAO.swift in Sources */,
 				3BDCB14B1AC61C9400865AFC /* OptionsView.swift in Sources */,
@@ -463,6 +503,7 @@
 				3B60529E1ABC839900076DB9 /* ProfessorModel.swift in Sources */,
 				3BAF093D1AC08B0500E2326C /* StudentView.swift in Sources */,
 				C990232B1AF53D7800951B67 /* InfoTaskVC.swift in Sources */,
+				FD8F7D7E1B5DF211003EAB65 /* CoverModel.swift in Sources */,
 				FD248C1F1ABE2AAD00E27DCC /* ProfessorsVC.swift in Sources */,
 				3BD92D661AC1EB39001F2B27 /* NoteModel.swift in Sources */,
 				FD0F47DC1AD0CC7E007AA029 /* AddProfessorView.swift in Sources */,

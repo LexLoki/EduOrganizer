@@ -40,8 +40,10 @@ class HorizontalTableView: UIView , UITableViewDelegate, UITableViewDataSource {
         self.tableView.backgroundColor = color;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.autoresizingMask	= UIViewAutoresizing.FlexibleWidth |
-                                          UIViewAutoresizing.FlexibleHeight;
+        
+        //CHECK 2.0
+        //self.tableView.autoresizingMask	= UIViewAutoresizing.FlexibleWidth |
+        //                                  UIViewAutoresizing.FlexibleHeight;
         addSubview(tableView);
     }
 

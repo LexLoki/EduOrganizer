@@ -163,6 +163,8 @@ class SubjectDAO : StudDAO, ProtocolDAO {
         contents.writeToFile(plistPath, atomically: true);
     }
     
+    //func saveData(object : AnyObject, )
+    
     func saveData(object : AnyObject) {
         
         var subjsDict : NSMutableDictionary = self.loadPList();

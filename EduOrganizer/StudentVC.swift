@@ -19,11 +19,11 @@ class StudentVC: UIViewController, TableViewDelegate{
     var selectedIndex:Int = Int();
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)!;
     }
     
     func notesOn(notification: NSNotification){
-        println("observer funfou");
+       print("observer funfou");
         var selectedIndex = tabBarController!.selectedIndex;
         
         if (selectedIndex == 2){
