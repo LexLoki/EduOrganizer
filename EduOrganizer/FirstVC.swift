@@ -46,11 +46,11 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
         
         view.bringSubviewToFront(firstView.fancyTabBar);
 
-        var backgroundImage : UIImage = view.convertViewToImage();
-        var tintColor : UIColor = UIColor.blackColor().colorWithAlphaComponent(0.5);
+        let backgroundImage : UIImage = view.convertViewToImage();
+        let tintColor : UIColor = UIColor.blackColor().colorWithAlphaComponent(0.5);
 
         
-        var image :  UIImage = backgroundImage.applyBlurWithRadius(10, tintColor: tintColor, saturationDeltaFactor: 1.8, maskImage: nil);
+        let image :  UIImage = backgroundImage.applyBlurWithRadius(10, tintColor: tintColor, saturationDeltaFactor: 1.8, maskImage: nil);
         firstView.backGround.image = image;
         
     }
@@ -92,18 +92,18 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
 
             //NSNotificationCenter.defaultCenter().postNotificationName("professorNotification", object: nil);
             
-            var addProf = AddProfessorVC();
+            let addProf = AddProfessorVC();
             addProf.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             presentViewController(addProf, animated: true, completion: nil);
             
         }else if(index == 3){ //Adicionar materia
-            var addSubject = AddSubjectVC();
+            let addSubject = AddSubjectVC();
             addSubject.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             presentViewController(addSubject, animated: true, completion: nil);
         }else{
             
             //Adicionar tarefa
-            var addTask = AddTaskVC()
+            let addTask = AddTaskVC()
 //            //estilo de apresentacao sobre o contexto//
             addTask.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext;
             presentViewController(addTask, animated: true, completion: nil)
@@ -114,7 +114,7 @@ class FirstVC: UITabBarController, FancyTabBarDelegate {
     func imageFromView()->UIImage{
         UIGraphicsBeginImageContext(view.bounds.size);
         view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true);
-        var img:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        let img:UIImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         return img;
     }

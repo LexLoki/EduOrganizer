@@ -29,7 +29,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     }
     
     override func viewWillAppear(animated: Bool) {
-        var subjectsDAO = SubjectDAO();
+        let subjectsDAO = SubjectDAO();
         materias = subjectsDAO.getDataArray() as! Array<SubjectModel>;
         subjectsView.collectionView.reloadData();
     }
@@ -48,7 +48,7 @@ class SubjectsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
         
-        var subjectsCell : CollectionCellGeneric = collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
+        let subjectsCell : CollectionCellGeneric = collectionView.dequeueReusableCellWithReuseIdentifier("cellIdentifier",
                                                                   forIndexPath: indexPath) as! CollectionCellGeneric;
         subjectsCell.setUpCell(view);
         subjectsCell.label.text = String(format: "%@\n(%@)",

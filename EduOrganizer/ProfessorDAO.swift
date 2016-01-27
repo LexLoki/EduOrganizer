@@ -12,19 +12,19 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     
     //load plist into a Dictionary
     override func loadPList() -> NSMutableDictionary?{
-        var professors : NSMutableDictionary = contents["professores"] as! NSMutableDictionary;
+        let professors : NSMutableDictionary = contents["professores"] as! NSMutableDictionary;
         return professors;
     }
     
     //returns an array with all professors (ProfessorModel)
     @objc func getDataArray() -> Array<AnyObject>{
         
-        var res = setUpProfessor();
+        let res = setUpProfessor();
         var professors : Array = Array<ProfessorModel>();
         
         for (id, _) in res.dict{
             
-            var professor : ProfessorModel = getDataById(id) as! ProfessorModel;
+            let professor : ProfessorModel = getDataById(id) as! ProfessorModel;
             professors.append(professor);
         }
         
@@ -34,10 +34,10 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
     //get populated instance of ProfessorModel by Id
     @objc func getDataById(id : AnyObject) -> AnyObject{
         
-        var professor : ProfessorModel = ProfessorModel();
+        let professor : ProfessorModel = ProfessorModel();
         
-        var res = setUpProfessor();
-        var prof : NSDictionary = res.dict[id as! String] as! NSDictionary;
+        let res = setUpProfessor();
+        let prof : NSDictionary = res.dict[id as! String] as! NSDictionary;
 
         professor.id = (id as! NSString).integerValue;
         professor.nome = prof["nome"] as! String;
@@ -45,7 +45,7 @@ class ProfessorDAO : StudDAO, ProtocolDAO {
         professor.telefone = prof["telefone"] as! String;
         
         if(!(prof["imagem"] as! String).isEmpty){
-            var profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as! String);
+            let profImg : String = res.path.stringByAppendingPathComponent(prof["imagem"] as! String);
             professor.imagem = profImg;
         }
         
